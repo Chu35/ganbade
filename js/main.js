@@ -91,28 +91,30 @@
     });
 	//teas end
 	
+	
+	
 	// keyvision
-window.addEventListener("load", function() {
-  var images = document.querySelectorAll(".image");
-  var delays = {
-    "img/kv3.png": 2000,
-    "img/kv4.png": 2500,
-    "img/kv5.png": 3000,
-    "img/kv6.png": 3500,
-    "img/kv7.png": 4500,
-    "img/kv9.png": 5000
-  }; // 不同图片的延迟时间（毫秒）
-
-  images.forEach(function(image) { 
-    var src = image.getAttribute("src");
-    var delay = delays[src] || 1000; // 使用对应的延迟时间，如果未定义则默认为1000毫秒
-
-    setTimeout(function() {
-      image.style.opacity = "1";
-      image.style.transform = "translateX(0)";
-    }, delay);
-  });
-});
+	window.addEventListener("load", function() {
+		var images = document.querySelectorAll(".image");
+		var delays = {
+			"img/kv3.png": 2000,
+			"img/kv4.png": 2500,
+			"img/kv5.png": 3000,
+			"img/kv6.png": 3500,
+			"img/kv7.png": 4500,
+			"img/kv9.png": 5000
+		}; // 不同图片的延迟时间（毫秒）
+		
+		images.forEach(function(image) { 
+			var src = image.getAttribute("src");
+			var delay = delays[src] || 1000; // 使用对应的延迟时间，如果未定义则默认为1000毫秒
+			
+			setTimeout(function() {
+				image.style.opacity = "1";
+				image.style.transform = "translateX(0)";
+			}, delay);
+		});
+	});
 	
 
   // Initialize the partner carousel

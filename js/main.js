@@ -103,7 +103,7 @@ window.addEventListener("load", function() {
     "img/kv9.png": 5000
   }; // 不同图片的延迟时间（毫秒）
 
-  images.forEach(function(image) {
+  images.forEach(function(image) { 
     var src = image.getAttribute("src");
     var delay = delays[src] || 1000; // 使用对应的延迟时间，如果未定义则默认为1000毫秒
 

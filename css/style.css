@@ -750,7 +750,8 @@ h6,
   position: relative;
 }
 
-#partner.container{
+.item1 img{
+	max-width: 200px;
 	max-height: 160px;
 	
 }

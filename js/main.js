@@ -74,7 +74,7 @@
       });
     });
   });
-    // 获取所有具有 .item 类的元素
+    // 獲取所有具有 .item 類的元素
     const items = document.querySelectorAll('.item');
 
     // 添加点击事件监听器
@@ -103,11 +103,11 @@
 			"img/kv6.png": 3500,
 			"img/kv7.png": 4500,
 			"img/kv9.png": 5000
-		}; // 不同图片的延迟时间（毫秒）
+		}; // 不同圖片的延遲時間（毫秒）
 		
 		images.forEach(function(image) { 
 			var src = image.getAttribute("src");
-			var delay = delays[src] || 1000; // 使用对应的延迟时间，如果未定义则默认为1000毫秒
+			var delay = delays[src] || 1000; // 使用對應的延遲時間，如果未定則默認1000(毫秒)
 			
 			setTimeout(function() {
 				image.style.opacity = "1";

@@ -750,6 +750,10 @@ h6,
   position: relative;
 }
 
+#partner.container{
+	max-height: 160px;
+	
+}
 .partner-carousel {
   display: flex;
   justify-content: center;

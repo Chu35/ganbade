@@ -751,7 +751,7 @@ h6,
 }
 
 .item1 img{
-	width: 100%;
+	width: auto;
 	max-height: 160px;
 	display: flex;
     align-items: center;

@@ -751,8 +751,10 @@ h6,
 }
 
 .item1 img{
-	max-width: 200px;
+	width: 100%;
 	max-height: 160px;
+	display: flex;
+    align-items: center;
 	
 }
 .partner-carousel {

@@ -755,6 +755,7 @@ h6,
   justify-content: center;
   align-items: center;
   margin-bottom: 30px;
+	max-height: 150px
 }
 
 

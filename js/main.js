@@ -56,39 +56,40 @@
 	
 	
   //teas start
-  const filterOptions = document.querySelectorAll('.search_option .item');
-  const teaItems = document.querySelectorAll('.tea_list .item');
+const filterOptions = document.querySelectorAll('.search_option .item');
+const teaItems = document.querySelectorAll('.tea_list .item');
 
-  filterOptions.forEach(option => {
-    option.addEventListener('click', () => {
-      const category = option.getAttribute('data-category');
+filterOptions.forEach(option => {
+  option.addEventListener('click', () => {
+    const category = option.getAttribute('data-category');
 
-      // 顯示與選擇分類相符的圖片
-      teaItems.forEach(item => {
-        const itemCategory = item.getAttribute('data-category');
-        if (category === itemCategory || category === '全部') {
-          item.style.display = 'block';
-        } else {
-          item.style.display = 'none';
-        }
-      });
+    teaItems.forEach(item => {
+      const itemCategory = item.getAttribute('data-category');
+      if (category === itemCategory || category === '全部') {
+        item.style.display = 'block';
+      } else {
+        item.style.display = 'none';
+      }
     });
   });
-    // 獲取所有具有 .item 類的元素
-    const items = document.querySelectorAll('.item');
+});
 
-    // 添加点击事件监听器
+// 获取所有具有 .item 类的元素
+const items = document.querySelectorAll('.item');
+
+// 添加点击事件监听器
+items.forEach(function(item) {
+  item.addEventListener('click', function() {
+    // 移除所有元素的活动状态
     items.forEach(function(item) {
-      item.addEventListener('click', function() {
-        // 移除所有元素的活动状态
-        items.forEach(function(item) {
-          item.classList.remove('active');
-        });
-
-        // 将当前点击的元素设置为活动状态
-        item.classList.add('active');
-      });
+      item.classList.remove('active');
     });
+
+    // 将当前点击的元素设置为活动状态
+    item.classList.add('active');
+  });
+});
+
 	//teas end
 	
 	

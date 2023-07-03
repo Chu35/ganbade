@@ -93,6 +93,11 @@ items.forEach(function(item) {
 	//teas end
 	
 	
+	//tea life
+	
+	//tea life
+	
+
 	
 	// keyvision
 	window.addEventListener("load", function() {
@@ -157,3 +162,4 @@ items.forEach(function(item) {
 
 })(jQuery);
 
+        

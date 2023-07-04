@@ -255,3 +255,4 @@ function goBack() {
 
     // 顯示第一個問題
     displayQuestion();
+

@@ -234,23 +234,22 @@ items.forEach(function(item) {
 
     var currentQuestion = 0;
 
-    function displayQuestion() {
-      var questionContainer = document.getElementById('question');
-      questionContainer.textContent = questions[currentQuestion].question;
-
-      var imageContainer = document.getElementById('image-containerlife');
-      var image = document.getElementById('imagelife');
+function displayQuestion() {
+	var questionContainer = document.getElementById('question');
+	questionContainer.textContent = questions[currentQuestion].question;
+	
+	var imageContainer = document.getElementById('image-containerlife');
+	var image = document.getElementById('imagelife');
       image.src = questions[currentQuestion].image;
     }
-
 function goForward() {
-  currentQuestion = (currentQuestion + 1) % questions.length;
-  displayQuestion();
+	currentQuestion = (currentQuestion + 1) % questions.length;
+	displayQuestion();
 }
 
 function goBack() {
-  currentQuestion = (currentQuestion - 1 + questions.length) % questions.length;
-  displayQuestion();
+	currentQuestion = (currentQuestion - 1 + questions.length) % questions.length;
+	displayQuestion();
 }
 
     // 顯示第一個問題

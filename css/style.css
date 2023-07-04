@@ -811,7 +811,7 @@ h6,
     }
 
     #question {
-      font-size: 20px;
+      font-size: 40px;
       margin-bottom: 20px;
     }
 
@@ -819,7 +819,7 @@ h6,
       text-align: center;
       margin-bottom: 55px;
       position: relative;
-		top: -30px
+		top: -45px
     }
 
     #imagelife {
@@ -859,5 +859,4 @@ h6,
     .arrow-right {
       order: 3;
     }
-
 

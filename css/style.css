@@ -310,9 +310,9 @@ h6,
 }
 
 .project-carousel .owl-nav {
-    margin-top: 25px;
+        margin-top: -350px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .project-carousel .owl-nav .owl-prev,
@@ -794,9 +794,68 @@ h6,
   padding: 10px;
   border-radius: 50%;
   cursor: pointer;
+	
 }
 
 .carousel-nav-prev i,
 .carousel-nav-next i {
   color: #333;
 }
+
+
+    /* CSS 樣式設定 */
+   
+
+#question-container {
+      text-align: center;
+    }
+
+    #question {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    #image-containerlife {
+      text-align: center;
+      margin-bottom: 55px;
+      position: relative;
+		top: -30px
+    }
+
+    #imagelife {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .arrow-container {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .arrow {
+      width: 30px;
+      height: 30px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .arrow:hover {
+      background-color: #f2f2f2;
+    }
+
+    .arrow-left {
+      order: 1;
+    }
+
+    .arrow-right {
+      order: 3;
+    }

@@ -89,13 +89,9 @@ items.forEach(function(item) {
     item.classList.add('active');
   });
 });
-
 	//teas end
 	
-	
-	//tea life
-	
-	//tea life
+
 	
 
 	
@@ -160,6 +156,102 @@ items.forEach(function(item) {
   });
 
 
+	
+	
+	// Project carousel
+    $(".project-carousel").owlCarousel({
+        autoplay: true,
+        smartSpeed: 1000,
+        margin: 25,
+        loop: true,
+        center: true,
+        dots: false,
+        nav: true,
+        navText : [
+            '<i class="bi bi-chevron-left"></i>',
+            '<i class="bi bi-chevron-right"></i>'
+        ],
+        responsive: {
+			0:{
+                items:1
+            },
+            576:{
+                items:1
+            },
+            768:{
+                items:2
+            },
+            992:{
+                items:3
+            }
+        }
+    });
+
+
+    // Testimonials carousel
+    $(".testimonial-carousel").owlCarousel({
+        autoplay: true,
+        smartSpeed: 1000,
+        center: true,
+        margin: 24,
+        dots: true,
+        loop: true,
+        nav : false,
+        responsive: {
+            0:{
+                items:1
+            },
+			576:{
+                items:1
+            },
+            768:{
+                items:2
+            },
+            992:{
+                items:3
+            }
+        }
+    });
 })(jQuery);
 
+ var questions = [
+      {
+        question: "紅茶的一生",
+        image: "https://creatrip.s3.ap-northeast-2.amazonaws.com/proxy/request_merchandise_guide/cq95m7vxlin68dc2chf8503l7qwc8h7c.png"
+      },
+      {
+        question: "綠茶的一生",
+        image: "https://creatrip.s3.ap-northeast-2.amazonaws.com/proxy/request_merchandise_guide/jm6262qmwgj8dn5uwl4x70a5ut0xpt5c.png"
+      },{
+        question: "白茶的一生",
+        image: "https://creatrip.s3.ap-northeast-2.amazonaws.com/proxy/request_merchandise_guide/jm6262qmwgj8dn5uwl4x70a5ut0xpt5c.png"
+      },{
+        question: "烏龍茶的一生",
+        image: " "
+      },
+      // 添加更多問題
+    ];
 
+    var currentQuestion = 0;
+
+    function displayQuestion() {
+      var questionContainer = document.getElementById('question');
+      questionContainer.textContent = questions[currentQuestion].question;
+
+      var imageContainer = document.getElementById('image-containerlife');
+      var image = document.getElementById('imagelife');
+      image.src = questions[currentQuestion].image;
+    }
+
+function goForward() {
+  currentQuestion = (currentQuestion + 1) % questions.length;
+  displayQuestion();
+}
+
+function goBack() {
+  currentQuestion = (currentQuestion - 1 + questions.length) % questions.length;
+  displayQuestion();
+}
+
+    // 顯示第一個問題
+    displayQuestion();

@@ -60,7 +60,7 @@ var questions = [
     var answers = [];
 
     function displayQuestion() {
-      var questionContainer = document.getElementById('question');
+      var questionContainer = document.getElementById('question1');
       questionContainer.innerHTML = questions[currentQuestion].question;
 
       var imageContainer = document.getElementById('imgtest');

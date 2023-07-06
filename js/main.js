@@ -217,7 +217,7 @@ items.forEach(function(item) {
  var questions = [
       {
         question: "紅茶的一生",
-        image: "https://creatrip.s3.ap-northeast-2.amazonaws.com/proxy/request_merchandise_guide/cq95m7vxlin68dc2chf8503l7qwc8h7c.png"
+        image: "https://i.pinimg.com/564x/13/41/4e/13414ef5d0a0c2e204cae524fc3249b3.jpg"
       },
       {
         question: "綠茶的一生",

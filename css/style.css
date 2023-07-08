@@ -769,6 +769,8 @@ h6,
 .item1 img{
 	width: 100%;
 	max-height: 160px;
+	valign:center;
+	align:center;
 	
 }
 .partner-carousel {
@@ -860,7 +862,11 @@ h6,
     .arrow-right {
       order: 3;
     }
-  /*knoeledge點擊彈跳*/
+
+
+/*=================================================================
+  knoeledge點擊彈跳
+==================================================================*/
 .modal-body {
   margin: 15px auto;
   overflow: hidden;
@@ -902,4 +908,9 @@ h6,
 }
 .tea_title{
 	padding: 20px;
+}
+.table td,.table th {
+    border: 1px solid #C8B9AA;
+    padding: 18px 9px 15px;
+    text-align: center;
 }

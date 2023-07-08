@@ -868,7 +868,7 @@ h6,
   knoeledge點擊彈跳
 ==================================================================*/
 .modal-body {
-  margin: 15px auto;
+  margin: -15px auto;
   overflow: hidden;
 }
 

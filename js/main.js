@@ -59,40 +59,50 @@
 const filterOptions = document.querySelectorAll('.search_option .item');
 const teaItems = document.querySelectorAll('.tea_list .item');
 
+let selectedTaste = null;
+let selectedCategory = null;
+
 filterOptions.forEach(option => {
   option.addEventListener('click', () => {
     const category = option.getAttribute('data-category');
+    const taste = option.getAttribute('data-taste');
+
+    const isSelected = option.classList.contains('active');
+
+    if (isSelected) {
+      option.classList.remove('active');
+      if (category === selectedCategory) {
+        selectedCategory = null;
+      }
+      if (taste === selectedTaste) {
+        selectedTaste = null;
+      }
+    } else {
+      filterOptions.forEach(item => {
+        item.classList.remove('active');
+      });
+      option.classList.add('active');
+      selectedCategory = category === '全部' ? null : category;
+      selectedTaste = taste === '全部' ? null : taste;
+    }
 
     teaItems.forEach(item => {
       const itemCategory = item.getAttribute('data-category');
-      if (category === itemCategory || category === '全部') {
-        item.style.display = 'block';
-      } else {
-        item.style.display = 'none';
-      }
+      const itemTaste = item.getAttribute('data-taste');
+
+      const showItem =
+        (!selectedCategory || itemCategory === selectedCategory || selectedCategory === '全部') &&
+        (!selectedTaste || itemTaste === selectedTaste || selectedTaste === '全部');
+
+      item.style.display = showItem ? 'block' : 'none';
+
+      const itemIsActive = showItem && (itemCategory === selectedCategory || itemTaste === selectedTaste);
+      item.style.opacity = itemIsActive ? '1' : '1';
     });
   });
 });
 
-// 获取所有具有 .item 类的元素
-const items = document.querySelectorAll('.item');
-
-// 添加点击事件监听器
-items.forEach(function(item) {
-  item.addEventListener('click', function() {
-    // 移除所有元素的活动状态
-    items.forEach(function(item) {
-      item.classList.remove('active');
-    });
-
-    // 将当前点击的元素设置为活动状态
-    item.classList.add('active');
-  });
-});
 	//teas end
-	
-
-	
 
 	
 	// keyvision
@@ -254,4 +264,13 @@ function goBack() {
 
     // 顯示第一個問題
     displayQuestion();
+
+
+
+const myModal = document.getElementById('myModal')
+const myInput = document.getElementById('myInput')
+
+myModal.addEventListener('shown.bs.modal', () => {
+  myInput.focus()
+})
 

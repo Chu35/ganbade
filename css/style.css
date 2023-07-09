@@ -777,7 +777,7 @@ h6,
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 45px;
 	max-height: 150px
 }
 
@@ -785,8 +785,8 @@ h6,
 .carousel-navigation {
   position: absolute;
   top: 50%;
-  left: -13px;
-  right: -13px;
+  left: -30px;
+  right: -30px;
   transform: translateY(-50%);
   display: flex;
   justify-content: space-between;

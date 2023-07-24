@@ -275,8 +275,3 @@ myModal.addEventListener('shown.bs.modal', () => {
 })
 
 //收藏
-        $(function () {            
-            $(".like").click(function () {
-                $(this).toggleClass('cs');                
-            })
-        })

@@ -274,3 +274,9 @@ myModal.addEventListener('shown.bs.modal', () => {
   myInput.focus()
 })
 
+//收藏
+        $(function () {            
+            $(".like").click(function () {
+                $(this).toggleClass('cs');                
+            })
+        })

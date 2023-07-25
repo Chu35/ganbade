@@ -274,3 +274,4 @@ myModal.addEventListener('shown.bs.modal', () => {
   myInput.focus()
 })
 
+//收藏

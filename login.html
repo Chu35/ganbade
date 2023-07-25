@@ -62,8 +62,8 @@
 				  <a href="index.html" class="nav-item nav-link">首頁</a>
                   <a href="index.html#life" class="nav-item nav-link">茶的一生</a>
 				  <div class="nav-item dropdown">
-					<a href="knowl.html" class="nav-link dropdown-toggle active show" data-bs-toggle="dropdown" aria-expanded="true">知識調查局</a>
-					<div class="dropdown-menu border-light m-0 show" data-bs-popper="none">
+					<a href="knowl.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="true">知識調查局</a>
+					<div class="dropdown-menu border-light m-0" data-bs-popper="none">
 						<a href="knowl.html" class="dropdown-item">茶種介紹</a>
 						<a href="knowl2.html" class="dropdown-item">烘培發酵介紹</a>
 						<a href="knowl3.html" class="dropdown-item">製茶步驟介紹</a>
@@ -93,9 +93,19 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h1  class="display-3 mb-4 animated">  </h1>
+                <h1 class="display-3 mb-4 animated">  </h1>
                 <h1 class="display-5 mb-5">Login</h1>
             </div>
+			<div class="mb-5" align="center"> 
+			<form action="verify.jsp">
+				帳號：<input type="text" name="user"/><br> 
+				<br>
+				密碼：<input type="password" name="pwd"/><br>
+				<br>
+				<input type="submit" value="登入"/>   
+				<a href="signin.html">註冊</a>
+			</form>
+			</div>
         </div>
     </div>
     <!-- login End -->

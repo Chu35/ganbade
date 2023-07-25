@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>甘吧茶ㄉㄟˊ</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta content="" name="keywords">
     <meta content="" name="description">
 
@@ -22,6 +22,7 @@
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	
 	<!-- Libraries Stylesheet -->
 	<link href="lib/animate/animate.min.css" rel="stylesheet">
@@ -29,10 +30,12 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+	
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
     <link href="css/wdc.css" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
 </head>
 
 <body>
@@ -60,20 +63,27 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto p-4 p-lg-0">
 			<a href="index.html" class="nav-item nav-link">首頁</a>
-			<a href="index.html#life" class="nav-item nav-link">茶的一生</a>
-			<div class="nav-item dropdown">
-			<a href="#knowl" class="nav-item nav-link active">知識調查局</a>
-				<div class="dropdown-menu border-light m-0">
-				<a href="know1.html" class="dropdown-item">茶種介紹</a>
-				<a href="know2.html" class="dropdown-item">烘培發酵介紹</a>
-				<a href="know3.html" class="dropdown-item">製茶步驟介紹</a>	
-			</div>	
-			</div>		
+			<a href="index.html#life" class="nav-item nav-link">茶的一生</a>		
+					<div class="nav-item dropdown">
+                        <a href="#knowl" class="nav-link dropdown-toggle active show" data-bs-toggle="dropdown" aria-expanded="true">知識調查局</a>
+                        <div class="dropdown-menu border-light m-0 show" data-bs-popper="none">
+                            <a href="knowl.html" class="dropdown-item">茶種介紹</a>
+                            <a href="knowl2.html" class="dropdown-item">烘培發酵介紹</a>
+                            <a href="knowl3.html" class="dropdown-item">製茶步驟介紹</a>
+                        </div>
+                    </div>	
 			<a href="fun.html" class="nav-item nav-link">茶遊此地</a>
 			<a href="contact.html" class="nav-item nav-link">關於我們</a>
 			<div class="nav-item nav-link">
-				<small class="fa fa-search text-primary"></small>
+				
+				<form action="">
+  <input type="search" required>
+  <i class="fa fa-search"></i>
+  <a href="javascript:void(0)" id="clear-btn">Clear</a>
+</form>
 			</div>	
+
+					
 			<div class="nav-item dropdown">
 				<div class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><small class="fa fa-user text-primary"></small></div>		
 				<div class="dropdown-menu border-light m-0">

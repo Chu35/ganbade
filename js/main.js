@@ -275,3 +275,15 @@ myModal.addEventListener('shown.bs.modal', () => {
 })
 
 //收藏
+
+
+
+//搜尋
+const clearInput = () => {
+  const input = document.getElementsByTagName("input")[0];
+  input.value = "";
+}
+
+const clearBtn = document.getElementById("clear-btn");
+clearBtn.addEventListener("click", clearInput);
+

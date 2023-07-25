@@ -785,8 +785,8 @@ h6,
 .carousel-navigation {
   position: absolute;
   top: 50%;
-  left: -30px;
-  right: -30px;
+  left: -10px;
+  right: -10px;
   transform: translateY(-50%);
   display: flex;
   justify-content: space-between;

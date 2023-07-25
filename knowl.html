@@ -18,14 +18,14 @@
         href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;500&display=swap"
         rel="stylesheet">
 	
-	    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+	<!-- Icon Font Stylesheet -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<!-- Libraries Stylesheet -->
+	<link href="lib/animate/animate.min.css" rel="stylesheet">
+	<link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -59,24 +59,31 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto p-4 p-lg-0">
-				  <a href="index.html" class="nav-item nav-link">首頁</a>
-                  <a href="index.html#life" class="nav-item nav-link">茶的一生</a>
-				  <a href="#knowl" class="nav-item nav-link active">知識調茶局</a>
-                  <a href="fun.html" class="nav-item nav-link">茶遊此地</a>
-                  <a href="contact.html" class="nav-item nav-link">關於我們</a>
-					<div class="nav-item nav-link">
-                        <small class="fa fa-search text-primary"></small>
-				  </div>
-					<div class="nav-item dropdown">
-                        <div class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><small class="fa fa-user text-primary"></small></div>					
-                        <div class="dropdown-menu border-light m-0">
-							<a href="login.html" class="dropdown-item">登入/註冊</a>
-							<a href="test.html" class="dropdown-item">心理測驗</a>
-							<a href="member.html" class="dropdown-item">客製滴滴</a>
-						</div>
-					</div>
+			<a href="index.html" class="nav-item nav-link">首頁</a>
+			<a href="index.html#life" class="nav-item nav-link">茶的一生</a>
+			<div class="nav-item dropdown">
+			<a href="#knowl" class="nav-item nav-link active">知識調查局</a>
+				<div class="dropdown-menu border-light m-0">
+				<a href="know1.html" class="dropdown-item">茶種介紹</a>
+				<a href="know2.html" class="dropdown-item">烘培發酵介紹</a>
+				<a href="know3.html" class="dropdown-item">製茶步驟介紹</a>	
+			</div>	
+			</div>		
+			<a href="fun.html" class="nav-item nav-link">茶遊此地</a>
+			<a href="contact.html" class="nav-item nav-link">關於我們</a>
+			<div class="nav-item nav-link">
+				<small class="fa fa-search text-primary"></small>
+			</div>	
+			<div class="nav-item dropdown">
+				<div class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><small class="fa fa-user text-primary"></small></div>		
+				<div class="dropdown-menu border-light m-0">
+					<a href="login.html" class="dropdown-item">登入/註冊</a>
+					<a href="test.html" class="dropdown-item">心理測驗</a>
+					<a href="member.html" class="dropdown-item">客製滴滴</a>
 				</div>
-            </div>
+			</div>
+		</div>
+	    </div>
         </nav>
     </div>
     <!-- Navbar End -->
@@ -85,16 +92,15 @@
 	<div class="page_box page_search_tea">
 		<div id="knowl" class="search_tea">
 			<div class="inner">
-				<div class="display-3 mb-4 animated slideInDown" align="center"> </div>
+				<div class="display-3 mb-5 animated slideInDown" align="center"> </div>
 				<div class="search_tea_nav_bar">
 					<div class="nav_item clearfix">
-						<label class="search_title">香氣：</label>
+						<label class="search_title">烘培：</label>
 						<ul class="search_option clearfix">
 							<li class="item selected" data-category="全部">全部</li>
-							<li class="item" data-category="草香/鮮蔬香">草香/鮮蔬香</li>
-							<li class="item" data-category="果香">果香</li>
-							<li class="item" data-category="花香">花香</li>
-							<li class="item" data-category="熟果/堅果香">熟果/堅果香</li>
+							<li class="item" data-category="輕培火">輕培火</li>
+							<li class="item" data-category="中培火">中培火</li>
+							<li class="item" data-category="重培火">重培火</li>
 						</ul>
 					</div>
 					<div class="nav_item clearfix">
@@ -110,7 +116,7 @@
 				<div class="search_tea_content_box">
 					<div class="search_tea_body">
 						<ul class="tea_list clearfix">
-							<li class="item" style="opacity: 1;" data-category="草香/鮮蔬香" data-taste="不發酵">
+							<li class="item" style="opacity: 1;" data-category="輕培火" data-taste="不發酵">
 								<div class="img">
 									<img data-bs-toggle="modal" data-bs-target="#exampleModal" src="https://www.dechuantea.com/upload/tea/daf24046deb62bb2e936d76ec726d22a.jpg" alt="凍頂烏龍" >
 								</div>
@@ -119,6 +125,7 @@
 									<div class="modal-dialog modal-dialog-centered modal-lg">	
 										<div class="modal-content">
 											<div class="modal-header">
+												<i style="font-size:24px" class="fa">&#xf097;</i>
 												<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 											</div>
 											<div class="modal-body">
@@ -229,8 +236,8 @@
 				  </div>
 							</li>
 							
-							<li class="item" style="opacity: 1;" data-taste="不發酵">
-              <a href="">
+							<li class="item" style="opacity: 1;" data-category="中培火" data-taste="不發酵">
+								<a href="">
                 <div class="img">
                   <img src="https://www.dechuantea.com/upload/tea/d7aa0492def10055d5f2c014e9216bf2.jpg" alt="金萱安尚烏龍">
                 </div>
@@ -250,7 +257,7 @@
                 </div>
               </a>
             </li>
-							<li class="item" style="opacity: 1;" data-category="果香" >
+							<li class="item" style="opacity: 1;" data-category="重培火" data-category="果香" >
               <a href="">
                 <div class="img">
                   <img src="https://www.dechuantea.com/upload/tea/510b034a13c95d61d9da99994d673d7f.jpg" alt="迎香安尚烏龍">

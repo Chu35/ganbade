@@ -890,13 +890,13 @@ h6,
 
   .imagemodal {
     float: left;
-    width: 320px;
+    width: 335px;
     padding: 20px;
   }
 
   .text {
     float: right;
-    width: calc(100% - 320px); /* 調整圖片和文字之間的間距 */
+    width: calc(100% - 335px); /* 調整圖片和文字之間的間距 */
     padding: 20px;
 	  text-align: left;
   }

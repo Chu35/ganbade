@@ -237,7 +237,7 @@ filterOptions.forEach(option => {
         image: "https://creatrip.s3.ap-northeast-2.amazonaws.com/proxy/request_merchandise_guide/jm6262qmwgj8dn5uwl4x70a5ut0xpt5c.png"
       },{
         question: "烏龍茶的一生",
-        image: " "
+        image: "https://i.pinimg.com/564x/e8/c9/46/e8c946adfb4bc9faafa2a8ba873c28a8.jpg"
       },
       // 添加更多問題
     ];

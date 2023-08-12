@@ -111,10 +111,10 @@ filterOptions.forEach(option => {
 		var delays = {
 			"img/kv3.png": 2000,
 			"img/kv4.png": 2500,
-			"img/kv5.png": 3000,
+			"img/kv5.png": 3500,
 			"img/kv6.png": 3500,
 			"img/kv7.png": 4500,
-			"img/kv9.png": 5000
+			"img/kv9.png": 4500
 		}; // 不同圖片的延遲時間（毫秒）
 		
 		images.forEach(function(image) { 

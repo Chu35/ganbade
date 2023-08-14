@@ -614,7 +614,7 @@ h6,
 
 /*=================================================================
   map pin
-==================================================================*/
+
 
 .map {
   margin:10px;
@@ -660,7 +660,7 @@ h6,
     color:black;
     text-shadow: 1px 1px 1px #000;
 }
-
+==================================================================*/
 
 /*=================================================================
   test
@@ -921,3 +921,27 @@ h6,
 	height:200px;
 }
 
+.box{
+	height: 30px;
+	display: flex;
+	cursor: pointer;
+	padding: 10px 15px;
+	background: #fff;
+	border-radius: 30px;
+	align-items: center;
+}
+.box:hover input{
+	width: 150px;
+}
+.box input{
+	width: 0;
+	outline: none;
+	border: none;
+	font-weight: 200;
+	transition: 0.8s;
+	background: transparent;
+}
+.box a .fas{
+	color: #000000;
+	font-size: 18px;
+}

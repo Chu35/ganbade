@@ -109,12 +109,11 @@ filterOptions.forEach(option => {
 	window.addEventListener("load", function() {
 		var images = document.querySelectorAll(".image");
 		var delays = {
-			"img/kv3.png": 2000,
+			"img/kv3.png": 2500,
 			"img/kv4.png": 2500,
-			"img/kv5.png": 3000,
-			"img/kv6.png": 3500,
-			"img/kv7.png": 4500,
-			"img/kv9.png": 5000
+			"img/kv5.png": 2500,
+			"img/kv7.png": 3500,	
+			"img/kv9.png": 3500
 		}; // 不同圖片的延遲時間（毫秒）
 		
 		images.forEach(function(image) { 
@@ -279,11 +278,3 @@ myModal.addEventListener('shown.bs.modal', () => {
 
 
 //搜尋
-const clearInput = () => {
-  const input = document.getElementsByTagName("input")[0];
-  input.value = "";
-}
-
-const clearBtn = document.getElementById("clear-btn");
-clearBtn.addEventListener("click", clearInput);
-

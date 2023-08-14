@@ -1,10 +1,10 @@
 /********** Template CSS **********/
-:root {
-    --primary: #355EFC;
-    --secondary: #E93C05;
-    --tertiary: #555555;
-    --light: #DFE4FD;
-    --dark: #011A41;
+
+body,
+html{
+      margin: 0;
+      padding: 0;
+      height: 100%;
 }
 
 .back-to-top {
@@ -762,7 +762,7 @@ h6,
 /*=================================================================
   乾爹
 ==================================================================*/
-.container {
+.container{
   position: relative;
 }
 
@@ -920,9 +920,9 @@ h6,
 	width:200px;
 	height:200px;
 }
-
+/*==Search==*/
 .box{
-	height: 30px;
+	height: 25px;
 	display: flex;
 	cursor: pointer;
 	padding: 10px 15px;
@@ -942,6 +942,27 @@ h6,
 	background: transparent;
 }
 .box a .fas{
-	color: #000000;
-	font-size: 18px;
+	color: #d6c5a4;
+	font-size: 15px;
+}
+
+/*==signin==*/
+.form-table td {
+	text-align: left;
+	padding: 5px;
+}
+.form-table input[type="text"],
+.form-table input[type="password"] {
+	width: 100%;
+}
+ .password-warning {
+	 color: #ff0000;
+}
+
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

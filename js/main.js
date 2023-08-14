@@ -273,8 +273,36 @@ myModal.addEventListener('shown.bs.modal', () => {
   myInput.focus()
 })
 
-//收藏
+//signin
+        document.addEventListener('DOMContentLoaded', function () {
+            const passwordInput = document.querySelector('input[name="pwd"]');
+            const requirementsText = document.querySelector('.password-requirements');
+            const warningDiv = document.querySelector('.password-warning');
 
+            passwordInput.addEventListener('blur', function () {
+                const password = passwordInput.value;
+                let requirements = [];
 
+                if (password.length < 8) {
+                    requirements.push('至少8个字符');
+                }
+
+                if (!/\d/.test(password)) {
+                    requirements.push('至少包含一个数字');
+                }
+
+                if (!/[a-zA-Z]/.test(password)) {
+                    requirements.push('至少包含一个英文字母');
+                }
+
+                requirementsText.textContent = requirements.join(', ');
+
+                if (requirements.length > 0) {
+                    warningDiv.style.display = 'block';
+                } else {
+                    warningDiv.style.display = 'none';
+                }
+            });
+        });
 
 //搜尋

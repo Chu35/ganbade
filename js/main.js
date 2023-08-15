@@ -55,7 +55,7 @@
     });
 	
 	
-  //teas start
+  //teas select
 const filterOptions = document.querySelectorAll('.search_option .item');
 const teaItems = document.querySelectorAll('.tea_list .item');
 

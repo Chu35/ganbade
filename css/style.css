@@ -125,8 +125,11 @@ h6,
     .navbar .navbar-nav {
         margin-top: 10px;
         border-top: 1px solid rgba(0, 0, 0, .07);
-        background: #FFFFFF;
+        background: #F9EDDD;
     }
+	.navbar{
+		background: #FFFFFF;
+	}
 
     .navbar .navbar-nav .nav-link {
         padding: 10px 0;
@@ -142,7 +145,7 @@ h6,
         transform-origin: 0% 0%;
         transition: .5s;
         opacity: 0;
-		
+		background: #FFFFFF;
     }
 
     .navbar .nav-item:hover .dropdown-menu {
@@ -626,7 +629,17 @@ h6,
 	color: #d6c5a4;
 	font-size: 15px;
 }
-
+@media (min-width: 992px){
+	.box{
+	height: 25px;
+	display: flex;
+	cursor: pointer;
+	padding: 10px 15px;
+	background: #fff;
+	border-radius: 30px;
+	align-items: center;
+	}
+}
 /* signin */
 .form-table td {
 	text-align: left;

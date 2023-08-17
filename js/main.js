@@ -103,7 +103,10 @@ filterOptions.forEach(option => {
 });
 
 	//teas end
-
+    window.addEventListener('load', function () {
+      var myModal = new bootstrap.Modal(document.getElementById('exampleModaltest'));
+      myModal.show();
+    });
 	
 	// keyvision
 	window.addEventListener("load", function() {

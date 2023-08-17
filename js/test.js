@@ -27,32 +27,36 @@
 //test 
 var questions = [
       {
-        question: "1：忙碌了一週，周末的早晨你會？",
-        choices: ["早起幹活", "睡到餓醒"],
+        imgtest: "https://image1.thenewslens.com/2020/4/f67e18wo2jc0hmw9hp8qc9ap0b7jt0.jpg?auto=compress&h=648&q=80&w=1080%201080w",
+		question: "1：忙碌了一週，周末的早晨你會？",
+		choices: ["早起幹活", "睡到餓醒"],
 		scores: [1, 3],
 		answered: false,
-		imgtest: "https://image1.thenewslens.com/2020/4/f67e18wo2jc0hmw9hp8qc9ap0b7jt0.jpg?auto=compress&h=648&q=80&w=1080%201080w"
+		
       },
       {
-        question: "2：肚子餓了，早餐你會？",
+        imgtest: "https://image1.thenewslens.com/2018/5/v8xarqw6f3e35sman9va5h297jq7s6.jpg?auto=compress&h=90&q=80&w=150",
+		question: "2：肚子餓了，早餐你會？",
         choices: ["叫外送", "自己煮", "懶得吃"],
 		scores: [1, 2, 3],
 		answered: false,
-		imgtest: "https://image1.thenewslens.com/2018/5/v8xarqw6f3e35sman9va5h297jq7s6.jpg?auto=compress&h=90&q=80&w=150"
+		
       },
       {
-        question: "3：手機響了，你覺得是誰？",
+        imgtest:"https://i1.jueshifan.com/2f5221d51dedbc4f9f/7b077d83/78067f8b/3d522e8301aca54ac078.jpg",
+		question: "3：手機響了，你覺得是誰？",
         choices: ["垃圾詐騙電話", "朋友揪出門", "同事找你代班"],
 		scores: [1, 2, 3],
 		answered: false,
-		imgtest:"https://i1.jueshifan.com/2f5221d51dedbc4f9f/7b077d83/78067f8b/3d522e8301aca54ac078.jpg"
+		
       },
       {
-        question: "4：出門被鳥屎砸到，你會？",
+        imgtest:"https://p3-sign.toutiaoimg.com/mosaic-legacy/7a60008d80887d8a22f~tplv-tt-large.jpeg?x-expires=2002189946&x-signature=XQxv%2FtSqQqGi55afj5TexYpJr9s%3D",
+		question: "4：出門被鳥屎砸到，你會？",
         choices: ["默默清理", "發限時動態", "幸運之神降落，趕快買張樂透"],
 		scores: [1, 2, 3],
 		answered: false,
-		imgtest:"https://p3-sign.toutiaoimg.com/mosaic-legacy/7a60008d80887d8a22f~tplv-tt-large.jpeg?x-expires=2002189946&x-signature=XQxv%2FtSqQqGi55afj5TexYpJr9s%3D"
+		
       }
     ];
 

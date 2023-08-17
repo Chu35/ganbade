@@ -637,10 +637,8 @@ h6,
 	height: 25px;
 	display: flex;
 	cursor: pointer;
-	padding: 10px 15px;
-	background: #fff;
-	border-radius: 30px;
 	align-items: center;
+	border-style:none;
 	}
 }
 /* signin */

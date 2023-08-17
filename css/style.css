@@ -100,6 +100,7 @@ h6,
     
 }
 
+
 .navbar .dropdown-toggle::after {
     border: none;
     content: "\f107";
@@ -125,11 +126,9 @@ h6,
     .navbar .navbar-nav {
         margin-top: 10px;
         border-top: 1px solid rgba(0, 0, 0, .07);
-        background: #F9EDDD;
+        background: #F7F7F7;
     }
-	.navbar{
-		background: #FFFFFF;
-	}
+
 
     .navbar .navbar-nav .nav-link {
         padding: 10px 0;
@@ -917,5 +916,4 @@ ul li {
 		line-height: 4.84375vw
 	}
 }
-
 

@@ -76,7 +76,7 @@
 								class="fa fa-user text-primary"></small></div>
 						<div class="dropdown-menu border-light m-0">
 							<a href="login.html" class="dropdown-item">登入/註冊</a>
-							<a href="test.html" class="dropdown-item">心理測驗</a>
+							<a href="index.html#exampleModaltest" class="dropdown-item">心理測驗</a>
 							<a href="member.html" class="dropdown-item">客製滴滴</a>
 						</div>
 					</div>
@@ -85,29 +85,32 @@
 		</nav>
 	</div>
 	<!-- Navbar End -->
+	
+	<!-- Test Start -->
 	<div class="modal fade" id="exampleModaltest" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content">
         <div class="modal-header">
           <i type="button" id="closetest" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></i>
-			<button id="back" onclick="goBack()">back</button>
+			<button id="back" onclick="goBack()">&laquo; back</button>
         </div>
         <div class="modal-body">
           <div class="container-xxl py-3">
-              <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+              <div class="text-center mx-auto" style="max-width: 600px;">
 				  <img id="imgtest" alt="Question Image">
 				  <div id="question1"></div>
 				  <div id="choices"></div>
-                
-                <div id="results"></div>
-              </div>
+				  <div id="results"></div>
+			  </div>
 			</div>
 		  </div>
 		</div>
 		</div>
 	</div>
-
-	<!-- keyvision Start -->
+	<!-- Test End -->
+	
+	
+	<!-- Keyvision Start -->
 	<div id="home" class="container-fluid p-0 mb-1 wow fadeIn">
 		<div id="image-container">
 			<img src="img/kv1.png" alt="Original Image" class="image w-100">

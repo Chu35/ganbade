@@ -109,27 +109,26 @@ filterOptions.forEach(option => {
     });
 	
 	// keyvision
-	window.addEventListener("load", function() {
-		var images = document.querySelectorAll(".image");
-		var delays = {
-			"img/kv3.png": 2500,
-			"img/kv4.png": 2500,
-			"img/kv5.png": 2500,
-			"img/kv7.png": 3500,	
-			"img/kv9.png": 3500
-		}; // 不同圖片的延遲時間（毫秒）
-		
-		images.forEach(function(image) { 
-			var src = image.getAttribute("src");
-			var delay = delays[src] || 1000; // 使用對應的延遲時間，如果未定則默認1000(毫秒)
-			
-			setTimeout(function() {
-				image.style.opacity = "1";
-				image.style.transform = "translateX(0)";
-			}, delay);
-		});
-	});
-	
+	document.getElementById("closetest").addEventListener("click", function() {
+    var images = document.querySelectorAll(".image");
+    var delays = {
+        "img/kv3.png": 1500,
+        "img/kv4.png": 1500,
+        "img/kv5.png": 1500,
+        "img/kv7.png": 2500,
+        "img/kv9.png": 2500
+    }; // 不同圖片的延遲時間（毫秒）
+
+    images.forEach(function(image) {
+        var src = image.getAttribute("src");
+        var delay = delays[src] || 500; // 使用對應的延遲時間，如果未定則默認1000(毫秒)
+
+        setTimeout(function() {
+            image.style.opacity = "1";
+            image.style.transform = "translateX(0)";
+        }, delay);
+    });
+});
 
   // Initialize the partner carousel
   $(document).ready(function() {

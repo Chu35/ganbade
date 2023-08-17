@@ -88,21 +88,24 @@
 	<div class="modal fade" id="exampleModaltest" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content">
-          
+        <div class="modal-header">
+          <i type="button" id="closetest" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></i>
+			<button id="back" onclick="goBack()">back</button>
+        </div>
         <div class="modal-body">
-          <div class="container-xxl py-2">
+          <div class="container-xxl py-3">
               <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-				  <i type="button" id="closetest" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></i><img id="imgtest" alt="Question Image">
+				  <img id="imgtest" alt="Question Image">
 				  <div id="question1"></div>
 				  <div id="choices"></div>
-                <button id="back" onclick="goBack()">回到上一題</button>
+                
                 <div id="results"></div>
               </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+			</div>
+		  </div>
+		</div>
+		</div>
+	</div>
 
 	<!-- keyvision Start -->
 	<div id="home" class="container-fluid p-0 mb-1 wow fadeIn">

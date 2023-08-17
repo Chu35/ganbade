@@ -399,10 +399,10 @@ h6,
 		background-color: #D6C5A4;
 		color: #fff;
 		border: none;
-		padding: 10px 20px;
-		margin: 10px;
 		font-size: 16px;
 		cursor: pointer;
+		position: absolute;
+		left: 2;
     }
 
     #imgtest{
@@ -548,8 +548,11 @@ h6,
 
 
 /* knowledge點擊彈跳 */
+.modal-header {
+    border: none;
+}
 .modal-body {
-  margin: -15px auto;
+  margin: -30px auto;
   overflow: hidden;
 }
 
@@ -915,6 +918,4 @@ ul li {
 	}
 }
 
-#closetest{
-	
-}
+

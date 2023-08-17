@@ -100,7 +100,8 @@ filterOptions.forEach(option => {
       item.style.opacity = itemIsActive ? '1' : '1';
     });
   });
-});//teas end
+});
+	//teas end
 	
 	//心理測驗
     window.addEventListener('load', function () {
@@ -109,7 +110,7 @@ filterOptions.forEach(option => {
     });
 	
 	
-	// keyvision
+	// keyvision 有問題!!!
 	document.getElementById("closetest").addEventListener("click", function() {
     var images = document.querySelectorAll(".image");
     var delays = {
@@ -131,99 +132,6 @@ filterOptions.forEach(option => {
     });
 });
 
-  // Initialize the partner carousel
-  $(document).ready(function() {
-    $('.partner-carousel').owlCarousel({
-      loop: true,
-      margin: 30,
-      nav: false,
-      dots: false,
-      autoplay: true,
-      autoplayTimeout: 3000,
-      autoplayHoverPause: true,
-      responsive: {
-        0: {
-          items: 1
-        },
-        576: {
-          items: 2
-        },
-        768: {
-          items: 3
-        },
-        992: {
-          items: 4
-        }
-      }
-    });
-
-    // Custom navigation
-    $('.carousel-nav-prev').click(function() {
-      $('.partner-carousel').trigger('prev.owl.carousel');
-    });
-
-    $('.carousel-nav-next').click(function() {
-      $('.partner-carousel').trigger('next.owl.carousel');
-    });
-  });
-
-
-	
-	
-	// Project carousel
-    $(".project-carousel").owlCarousel({
-        autoplay: true,
-        smartSpeed: 1000,
-        margin: 25,
-        loop: true,
-        center: true,
-        dots: false,
-        nav: true,
-        navText : [
-            '<i class="bi bi-chevron-left"></i>',
-            '<i class="bi bi-chevron-right"></i>'
-        ],
-        responsive: {
-			0:{
-                items:1
-            },
-            576:{
-                items:1
-            },
-            768:{
-                items:2
-            },
-            992:{
-                items:3
-            }
-        }
-    });
-
-
-    // Testimonials carousel
-    $(".testimonial-carousel").owlCarousel({
-        autoplay: true,
-        smartSpeed: 1000,
-        center: true,
-        margin: 24,
-        dots: true,
-        loop: true,
-        nav : false,
-        responsive: {
-            0:{
-                items:1
-            },
-			576:{
-                items:1
-            },
-            768:{
-                items:2
-            },
-            992:{
-                items:3
-            }
-        }
-    });
 })(jQuery);
 
  var questions = [
@@ -308,6 +216,4 @@ myModal.addEventListener('shown.bs.modal', () => {
             });
         });
 
-//
-
-
+//搜尋

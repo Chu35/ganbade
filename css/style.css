@@ -429,8 +429,8 @@ h6,
   opacity: 0;
   transition: opacity 1s, transform 1s;
 }
-/* RWD */
-    @media (max-width: 1142px) {
+/* RWD keyvision */
+@media (max-width: 1142px) {
   #image-container {
     height: auto;
     padding-bottom: 50%; /* 添加一个比例性的 padding-bottom */
@@ -452,7 +452,7 @@ h6,
 }
 
 
-/*** 乾爹 ***/
+/* 乾爹 */
 .container{
   position: relative;
 }

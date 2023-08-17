@@ -100,13 +100,14 @@ filterOptions.forEach(option => {
       item.style.opacity = itemIsActive ? '1' : '1';
     });
   });
-});
-
-	//teas end
+});//teas end
+	
+	//心理測驗
     window.addEventListener('load', function () {
       var myModal = new bootstrap.Modal(document.getElementById('exampleModaltest'));
       myModal.show();
     });
+	
 	
 	// keyvision
 	document.getElementById("closetest").addEventListener("click", function() {

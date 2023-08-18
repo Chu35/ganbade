@@ -157,12 +157,12 @@ h6,
 }
 
 
-
 /*** Header ***/
 
 .carousel-control-prev,
 .carousel-control-next {
     width: 3rem;
+	height: 3rem;
 }
 
 .carousel-control-prev-icon,

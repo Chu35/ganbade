@@ -491,76 +491,27 @@ h6,
   color: #333;
 }
 
-    /* tea's life */
-   #question-container {
-      text-align: center;
-    }
-
-    #question {
-      font-size: 30px;
-      margin-bottom: 20px;
-    }
-
-    #image-containerlife {
-      text-align: center;
-      margin-bottom: 55px;
-      position: relative;
-		top: -38px
-    }
-
-    #imagelife {
-      max-width: 100%;
-      height: auto;
-    }
-
-    .arrow-container {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .arrow {
-      width: 30px;
-      height: 30px;
-      background-color: #fff;
-      border: 1px solid #ccc;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-    }
-
-    .arrow:hover {
-      background-color: #f2f2f2;
-    }
-
-    .arrow-left {
-      order: 1;
-    }
-
-    .arrow-right {
-      order: 3;
-    }
-
+/* tea's life */
+.tealife {
+	font-size: 30px;
+	margin-bottom: 20px;
+}
 
 /* knowledge點擊彈跳 */
 .modal-header {
     border: none;
 }
 .modal-body {
-  margin: -30px auto;
+  margin: -15px auto;
   overflow: hidden;
 }
 
 .imagemodal{
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  height: auto;
+    display: block;
+    width: 80%;
+    max-width: 80%;
+    height: auto;
+    margin: auto;
 }
 
 .text {
@@ -754,7 +705,7 @@ ul li {
 .search_tea .search_tea_content_box .search_tea_body {
 	text-align: center
 }
-@media screen and (max-width:668px) {
+@media screen and (max-width:768px) {
 	.search_tea {
 		padding: 8.90625vw 0 15.15625vw
 	}
@@ -879,7 +830,7 @@ ul li {
 
 @media screen and (max-width:768px) {
 	.tea_list {
-		margin: 0 14.125vw;
+		margin: 0 6.2vw;
 		width: auto
 	}
 	.tea_list .item {

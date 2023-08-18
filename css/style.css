@@ -728,7 +728,7 @@ ul li {
 		white-space: nowrap
 	}
 	.search_tea .search_tea_nav_bar .nav_item .search_option {
-		width: calc(100% - 14.84375vw)
+		width: calc(100% - -15vw)
 	}
 	.search_tea .search_tea_nav_bar .nav_item .search_option .item {
 		width: 32.5vw;

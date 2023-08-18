@@ -226,53 +226,7 @@ filterOptions.forEach(option => {
     });
 })(jQuery);
 
-//有問題!!!
- var questions = [
-      {
-        question: "紅茶的一生",
-        image: "https://i.pinimg.com/564x/13/41/4e/13414ef5d0a0c2e204cae524fc3249b3.jpg"
-      },
-      {
-        question: "綠茶的一生",
-        image: "https://creatrip.s3.ap-northeast-2.amazonaws.com/proxy/request_merchandise_guide/jm6262qmwgj8dn5uwl4x70a5ut0xpt5c.png"
-      },{
-        question: "白茶的一生",
-        image: "https://creatrip.s3.ap-northeast-2.amazonaws.com/proxy/request_merchandise_guide/jm6262qmwgj8dn5uwl4x70a5ut0xpt5c.png"
-      },{
-        question: "烏龍茶的一生",
-        image: "https://i.pinimg.com/564x/e8/c9/46/e8c946adfb4bc9faafa2a8ba873c28a8.jpg"
-      },
-      // 添加更多問題
-    ];
 
-var currentQuestion = 0;
-function displayQuestion() {
-	var questionContainer = document.getElementById('question');
-	questionContainer.textContent = questions[currentQuestion].question;
-	
-	var imageContainer = document.getElementById('image-containerlife');
-	var image = document.getElementById('imagelife');
-      image.src = questions[currentQuestion].image;
-    }
-function goForward() {
-	currentQuestion = (currentQuestion + 1) % questions.length;
-	displayQuestion();
-}
-
-function goBack() {
-	currentQuestion = (currentQuestion - 1 + questions.length) % questions.length;
-	displayQuestion();
-}
-
-    // 顯示第一個問題
-    displayQuestion();
-
-const myModal = document.getElementById('myModal')
-const myInput = document.getElementById('myInput')
-
-myModal.addEventListener('shown.bs.modal', () => {
-  myInput.focus()
-})
 
 //signin
         document.addEventListener('DOMContentLoaded', function () {

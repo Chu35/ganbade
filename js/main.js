@@ -260,9 +260,3 @@ filterOptions.forEach(option => {
             });
         });
 
-var redTeaVideo = document.getElementById("redTeaVideo");
-    redTeaVideo.addEventListener("ended", function () {
-        // When the video ends, go to the next carousel item
-        var carousel = new bootstrap.Carousel(document.getElementById("carouselExampleDark"));
-        carousel.next();
-    });

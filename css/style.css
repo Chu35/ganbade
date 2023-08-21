@@ -546,6 +546,21 @@ h6,
 	object-fit: cover;
 	flex: 1;
 }
+.big-circle {
+	position: relative;
+}
+
+.small-circle {
+  width: 30px;
+  height: 30px;
+  background-color: #e74c3c;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%; /* 将小圆圈定位到大圆圈的垂直中心 */
+  right: -15px; /* 将小圆圈向右偏移一定距离 */
+  transform: translateY(-50%); /* 将小圆圈的中心对齐到大圆圈的垂直中心 */
+}
+
 
 /* Search */
 .box{

@@ -543,6 +543,8 @@ h6,
 	border-radius:50%;
 	width:200px;
 	height:200px;
+	background:url("../img/t1.png") no-repeat center center;
+	background-size: cover;
 }
 
 /* Search */

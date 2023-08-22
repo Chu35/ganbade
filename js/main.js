@@ -259,4 +259,3 @@ filterOptions.forEach(option => {
                 }
             });
         });
-

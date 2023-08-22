@@ -569,6 +569,8 @@ h6,
 	cursor: pointer;
 	align-items: center;
 	border-style:none;
+	 transition: none;	
+	 animation: none;
 
 }
 .box:hover input{
@@ -584,7 +586,7 @@ h6,
 	background: transparent;
 }
 .box a .fas{
-	color: #d6c5a4;
+	color: #d6c5a4; 
 	font-size: 15px;
 }
 @media (max-width: 992px){
@@ -596,6 +598,14 @@ h6,
 	border-style:none;
 	}
 }
+input[type="text"]:focus {
+  width: 150px;
+  z-index: 1;
+  border-bottom: 1px solid #BBB;
+  cursor: text;
+}
+
+
 /* signin */
 .form-table td {
 	text-align: left;

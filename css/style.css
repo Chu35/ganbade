@@ -598,7 +598,7 @@ h6,
 	border-style:none;
 	}
 }
-input[type="text"]:focus {
+input[type="keyword"]:focus {
   width: 150px;
   z-index: 1;
   border-bottom: 1px solid #BBB;

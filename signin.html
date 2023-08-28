@@ -92,35 +92,36 @@
                 <h1 class="display-5 mb-5">成為滴滴一員</h1>
             </div>
 			<div class=" mb-5" align="center"> 
-			<form action="register.jsp">
+			<form action="register.jsp" method="post">
         <table class="form-table" >
             <tr>
                 <td>暱稱：</td>
-                <td><input type="text" name="user" autocomplete="off"/></td>
+                <td><input type="text" name="user" autocomplete="off" required/></td>
             </tr>
             <tr>
                 <td>性別：</td>
                 <td>
-					<label><input type="radio" name="gender" value="M"/>男</label>
+					<label><input type="radio" name="gender" value="M" />男</label>
                     <label><input type="radio" name="gender" value="F">女</label>
                     <label><input type="radio" name="gender" value="N/A">不透漏</label>
                 </td>
             </tr>
             <tr>
                 <td>帳號：</td>
-                <td><input type="text" name="name" autocomplete="off"/></td>
+                <td><input type="text" name="name" autocomplete="off" required/></td>
             </tr>
             <tr>
                 <td>密碼：</td>
                 <td>
 					<input type="password" name="pwd"/>
-					<div class="password-requirements"><font size="1" color="#747474">密碼需包含英文以及數字</font></div>
+					<div class="password-requirements" required pattern="^(?=.*[0-9])(?=.*[a-zA-Z]).+$">
+                        <font size="1" color="#747474">密碼需包含英文以及數字</font></div>
 				</td>
             </tr>
         </table>
         <br>
         <div class="form-table">
-            <input class="btn btn-primary" type="submit" value="存檔"/>&emsp;
+            <input class="btn btn-primary" type="submit" value="存檔" />&emsp;
             <input class="btn btn-primary" type="reset" value="清除"/>
         </div>
     </form>

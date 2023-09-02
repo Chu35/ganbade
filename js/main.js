@@ -54,59 +54,50 @@
         time: 2000
     });
 	
-	
-  //teas select
-const filterOptions = document.querySelectorAll('.search_option .item');
-const teaItems = document.querySelectorAll('.tea_list .item');
 
-let selectedTaste = null;
-let selectedCategory = null;
-
-filterOptions.forEach(option => {
-  option.addEventListener('click', () => {
-    const category = option.getAttribute('data-category');
-    const taste = option.getAttribute('data-taste');
-
-    const isSelected = option.classList.contains('active');
-
-    if (isSelected) {
-      option.classList.remove('active');
-      if (category === selectedCategory) {
-        selectedCategory = null;
-      }
-      if (taste === selectedTaste) {
-        selectedTaste = null;
-      }
-    } else {
-      filterOptions.forEach(item => {
-        item.classList.remove('active');
-      });
-      option.classList.add('active');
-      selectedCategory = category === '全部' ? null : category;
-      selectedTaste = taste === '全部' ? null : taste;
-    }
-
-    teaItems.forEach(item => {
-      const itemCategory = item.getAttribute('data-category');
-      const itemTaste = item.getAttribute('data-taste');
-
-      const showItem =
-        (!selectedCategory || itemCategory === selectedCategory || selectedCategory === '全部') &&
-        (!selectedTaste || itemTaste === selectedTaste || selectedTaste === '全部');
-
-      item.style.display = showItem ? 'block' : 'none';
-
-      const itemIsActive = showItem && (itemCategory === selectedCategory || itemTaste === selectedTaste);
-      item.style.opacity = itemIsActive ? '1' : '1';
-    });
-  });
-});//teas end
 	
 	//心理測驗
-    window.addEventListener('load', function () {
+  window.addEventListener('load', function () {
+    // 检查是否已经显示过模态框
+    var modalShown = getCookie('modalShown');
+    
+    if (!modalShown) {
+      // 如果模态框未显示过，创建并显示它
       var myModal = new bootstrap.Modal(document.getElementById('exampleModaltest'));
       myModal.show();
-    });
+      
+      // 设置一个名为 'modalShown' 的Cookie，以标记模态框已经显示
+      setCookie('modalShown', 'true', 365); // 这里的 365 表示Cookie有效期为一年
+    }
+  });
+  
+  // 设置一个Cookie
+  function setCookie(name, value, days) {
+    var expires = '';
+    if (days) {
+      var date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      expires = '; expires=' + date.toUTCString();
+    }
+    document.cookie = name + '=' + value + expires + '; path=/';
+  }
+  
+  // 获取一个Cookie
+  function getCookie(name) {
+    var nameEQ = name + '=';
+    var cookies = document.cookie.split(';');
+    for (var i = 0; i < cookies.length; i++) {
+      var cookie = cookies[i];
+      while (cookie.charAt(0) === ' ') {
+        cookie = cookie.substring(1, cookie.length);
+      }
+      if (cookie.indexOf(nameEQ) === 0) {
+        return cookie.substring(nameEQ.length, cookie.length);
+      }
+    }
+    return null;
+  }
+  
 	
 	
 	// keyvision
@@ -225,37 +216,3 @@ filterOptions.forEach(option => {
         }
     });
 })(jQuery);
-
-
-
-//signin
-        document.addEventListener('DOMContentLoaded', function () {
-            const passwordInput = document.querySelector('input[name="pwd"]');
-            const requirementsText = document.querySelector('.password-requirements');
-            const warningDiv = document.querySelector('.password-warning');
-
-            passwordInput.addEventListener('blur', function () {
-                const password = passwordInput.value;
-                let requirements = [];
-
-                if (password.length < 8) {
-                    requirements.push('至少8个字符');
-                }
-
-                if (!/\d/.test(password)) {
-                    requirements.push('至少包含一个数字');
-                }
-
-                if (!/[a-zA-Z]/.test(password)) {
-                    requirements.push('至少包含一个英文字母');
-                }
-
-                requirementsText.textContent = requirements.join(', ');
-
-                if (requirements.length > 0) {
-                    warningDiv.style.display = 'block';
-                } else {
-                    warningDiv.style.display = 'none';
-                }
-            });
-        });

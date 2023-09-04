@@ -81,21 +81,33 @@ var questions = [
     }
 
     function showResults() {
-      var resultsContainer = document.getElementById('results');
-      resultsContainer.innerHTML = '您的測評結果：' + calculateScore();
-
-      // 根據分數跳轉到不同的網站
       var score = calculateScore();
-      if (3>=score >= 5) {
-        window.location.href = 'https://www.example.com/result1';
-      } else if (6>=score >= 8){
-        window.location.href = 'https://www.example.com/result2';
-      }else if (9>=score >= 11){
-        window.location.href = 'https://www.example.com/result3';
-      }else {
-        window.location.href = 'https://www.example.com/result4';
+      var iconClass = '';
+
+      // 根據分數選擇不同的圖標類名
+      if (score >= 3 && score <= 5) {
+          iconClass = 'fa-star';
+      } else if (score >= 6 && score <= 8) {
+          iconClass = 'fa-smile';
+      } else if (score >= 9 && score <= 11) {
+          iconClass = 'fa-trophy';
+      } else {
+          iconClass = 'fa-sad-tear';
       }
-    }
+
+      // 找到要更改的 div 元素
+      var userIconDiv = document.getElementById('user-icon');
+
+      // 更新 div 內容以顯示新的 Font Awesome 圖標
+      userIconDiv.innerHTML = '<small class="fa ' + iconClass + ' text-primary"></small>';
+
+      // 關閉模擬框
+      var modal = document.getElementById('exampleModaltest');
+      if (modal) {
+          $(modal).modal('hide');
+      }
+  }
+    
 
     function calculateScore() {
       var totalScore = 0;
@@ -104,4 +116,6 @@ var questions = [
       }
       return totalScore;
     }
- displayQuestion();// JavaScript Document
+ displayQuestion();
+
+ 

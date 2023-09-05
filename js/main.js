@@ -101,16 +101,37 @@ filterOptions.forEach(option => {
     });
   });
 });//teas end
-	
-	//心理測驗
-    window.addEventListener('load', function () {
-      var myModal = new bootstrap.Modal(document.getElementById('exampleModaltest'));
-      myModal.show();
-    });
-	
-	
-	// keyvision
-	document.getElementById("closetest").addEventListener("click", function() {
+
+//心理測驗	
+window.addEventListener('load', function () {
+  var myModal = new bootstrap.Modal(document.getElementById('exampleModaltest'));
+  myModal.show();
+  
+  // 設置已顯示過測試的標誌
+  localStorage.setItem('hasShownTest', 'true');
+});
+
+document.getElementById('openTestButton').addEventListener('click', function() {
+  currentQuestion = 0; // 重置為第一個問題
+  answers = []; // 清空答案
+
+  // 调用显示第一个问题的函数
+  displayQuestion();
+});
+
+// keyvision
+// 获取 #closetest 元素
+var closetestButton = document.getElementById("closetest");
+
+// 获取 user-icon 元素
+var modal = document.getElementById('exampleModaltest');
+
+// 定义共享的事件处理程序函数
+function handleAnimationAndCloseModal() {
+    // 关闭模态框
+    $('#exampleModaltest').modal('hide');
+
+    // 执行动画
     var images = document.querySelectorAll(".image");
     var delays = {
         "img/kv3.png": 1500,
@@ -118,18 +139,26 @@ filterOptions.forEach(option => {
         "img/kv5.png": 1500,
         "img/kv7.png": 2500,
         "img/kv9.png": 2500
-    }; // 不同圖片的延遲時間（毫秒）
+    }; // 不同图片的延迟时间（毫秒）
 
     images.forEach(function(image) {
         var src = image.getAttribute("src");
-        var delay = delays[src] || 500; // 使用對應的延遲時間，如果未定則默認1000(毫秒)
+        var delay = delays[src] || 500; // 使用对应的延迟时间，如果未定义则默认1000（毫秒）
 
         setTimeout(function() {
             image.style.opacity = "1";
             image.style.transform = "translateX(0)";
         }, delay);
     });
-});
+}
+
+// 给 #closetest 元素添加点击事件处理程序
+closetestButton.addEventListener("click", handleAnimationAndCloseModal);
+
+// 给模态框添加 hidden.bs.modal 事件处理程序
+modal.addEventListener("hidden.bs.modal", handleAnimationAndCloseModal);
+
+
 
   // Initialize the partner carousel
   $(document).ready(function() {
@@ -271,3 +300,18 @@ filterOptions.forEach(option => {
     });
   });
 });//teas end
+
+        // 函數來更新圖標
+        function updateIcon(iconClass) {
+          // 更新全局變數的圖標狀態
+          globalIconState = iconClass;
+
+          // 找到要更改的 div 元素
+          var userIconDiv = document.getElementById('user-icon');
+
+          // 更新 div 內容以顯示新的 Font Awesome 圖標
+          userIconDiv.innerHTML = '<small class="fa ' + iconClass + ' text-primary"></small>';
+      }
+
+      // 初始化測評
+      updateIcon(globalIconState);

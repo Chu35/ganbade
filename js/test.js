@@ -84,23 +84,20 @@ var questions = [
       var score = calculateScore();
       var iconClass = '';
 
-      // 根據分數選擇不同的圖標類名
+      var iconPath = ''; // 假設這是本地圖標的基本路徑
+
       if (score >= 3 && score <= 5) {
-          iconClass = 'fa-star';
+          iconPath = 'img/4in1.ico'; // 將路徑替換為星星圖標的路徑
       } else if (score >= 6 && score <= 8) {
-          iconClass = 'fa-smile';
+          iconPath = 'img/4in2.ico'; // 將路徑替換為微笑圖標的路徑
       } else if (score >= 9 && score <= 11) {
-          iconClass = 'fa-trophy';
+          iconPath = 'img/4in3.ico'; // 將路徑替換為獎杯圖標的路徑
       } else {
-          iconClass = 'fa-sad-tear';
+          iconPath = 'img/4in4.ico'; // 將路徑替換為傷心圖標的路徑
       }
 
-      // 找到要更改的 div 元素
-      var userIconDiv = document.getElementById('user-icon');
-
-      // 更新 div 內容以顯示新的 Font Awesome 圖標
-      userIconDiv.innerHTML = '<small class="fa ' + iconClass + ' text-primary"></small>';
-
+      var iconContainer = document.getElementById('user-icon');
+      iconContainer.innerHTML = '<img src="' + iconPath + '" alt="Icon">';
       // 關閉模擬框
       var modal = document.getElementById('exampleModaltest');
       if (modal) {
@@ -118,4 +115,3 @@ var questions = [
     }
  displayQuestion();
 
- 

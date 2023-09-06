@@ -301,17 +301,52 @@ filterOptions.forEach(option => {
   });
 });//teas end
 
-        // 函數來更新圖標
-        function updateIcon(iconClass) {
-          // 更新全局變數的圖標狀態
-          globalIconState = iconClass;
+// 獲取圖標元素
+function jumpIcon(pin) {
+  // 添加 'jump' 类以触发跳动动画
+  pin.classList.add('jump');
 
-          // 找到要更改的 div 元素
-          var userIconDiv = document.getElementById('user-icon');
+  // 在一段时间后，移除 'jump' 类，以允许重复触发
+  setTimeout(() => {
+    pin.classList.remove('jump');
 
-          // 更新 div 內容以顯示新的 Font Awesome 圖標
-          userIconDiv.innerHTML = '<small class="fa ' + iconClass + ' text-primary"></small>';
+    // 等待1秒后，跳转到目标位置
+    setTimeout(() => {
+      const targetId = pin.getAttribute('data-target');
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
       }
+    }, 400); // 等待1秒再执行跳转，单位是毫秒
+  }, 200); // 调整时间以控制跳动速度，单位是毫秒
+}
 
-      // 初始化測評
-      updateIcon(globalIconState);
+  // 获取用户点击上传新头像的按钮
+  var uploadButton = document.getElementById("upload-button");
+
+  // 给上传按钮添加点击事件处理程序
+  uploadButton.addEventListener("click", function () {
+    // 弹出文件选择器，让用户选择新的头像文件
+    var fileInput = document.createElement("input");
+    fileInput.type = "file";
+    fileInput.accept = "image/*";
+    
+    // 当用户选择文件后
+    fileInput.addEventListener("change", function (event) {
+      var file = event.target.files[0];
+      if (file) {
+        // 创建一个URL对象，用于在<img>中显示新头像
+        var imageURL = URL.createObjectURL(file);
+
+        // 更新<img>的src属性以显示新头像
+        var userIcon = document.getElementById("user-icon");
+        userIcon.src = imageURL;
+
+        // 释放URL对象，以防止内存泄漏
+        URL.revokeObjectURL(imageURL);
+      }
+    });
+
+    // 触发文件选择器
+    fileInput.click();
+  });

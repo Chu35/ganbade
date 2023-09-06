@@ -297,53 +297,6 @@ h6,
 }
 
 
-/* map pin
-
-.map {
-  margin:10px;
-  border:5px solid #fff;
-  position: relative;
-  display: inline-block;
-}
-
-.map img {
-  max-width:50%;
-  display: block;
-}
-
-.box {
-  width:8%;
-  height:8%;
-  background-image:   url(http://www.clker.com/cliparts/W/0/g/a/W/E/map-pin-red.svg);
-  background-position: top center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  position: absolute;
-}
-
-#pin-1 {
-  top:55%;
-  left:20%;
-}
-
-.box:hover > .pin-text {
-  display: block;
-}
-
-.pin-text {
-  position: absolute;
-  top:50%;
-  transform:translateY(-50%);
-  left:75%;
-  white-space:nowrap;
-  display: none;
-}
-
-.pin-text h3 {
-    color:black;
-    text-shadow: 1px 1px 1px #000;
-}
-***/
 
 /* test */
    #test.body {
@@ -915,3 +868,22 @@ ul li {
       width: 70px;
       cursor: pointer;
     }  
+
+    /* 圖標 */
+  .pin {
+  position: absolute;
+  top: 110px;
+  right: 10px;
+  font-size: 24px;
+  color: yellow;
+  cursor: pointer;
+  transition: transform 0.3s ease; /* 添加過渡效果，使變化平滑 */
+}
+/* 定義跳動效果 */
+.jump {
+  transform: translateY(-10px); /* 將圖標向上移動10像素 */
+}
+
+
+    
+    

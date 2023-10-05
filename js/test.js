@@ -1,4 +1,5 @@
 
+
 //test 
 var questions = [
       {
@@ -87,7 +88,7 @@ var questions = [
       var iconPath = ''; // 假設這是本地圖標的基本路徑
 
       if (score >= 3 && score <= 5) {
-          iconPath = 'img/4in1.ico'; // 將路徑替換為星星圖標的路徑
+          iconPath = 'img/C46BB46B-A101-4EE7-9937-13E46FEC9086 (1).ico'; // 將路徑替換為星星圖標的路徑
       } else if (score >= 6 && score <= 8) {
           iconPath = 'img/4in2.ico'; // 將路徑替換為微笑圖標的路徑
       } else if (score >= 9 && score <= 11) {
@@ -115,3 +116,4 @@ var questions = [
     }
  displayQuestion();
 
+ 

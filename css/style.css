@@ -228,11 +228,12 @@ h6,
     justify-content: space-between;
     transition: .5s;
     z-index: 1;
+    transform:scale(1,1);
+    transition: all 1s ease-out;
 }
 
-.team-item:hover .team-text {
-    background: #8E7D5C;
-    border-color: #8E7D5C;
+.team-item:hover  {
+  transform:scale(1.2,1.2);
 }
 
 .team-item .team-text h4 {
@@ -240,7 +241,7 @@ h6,
 }
 
 .team-item:hover .team-text h4 {
-    color: #F7F7F7;
+    color: #8E7D5C;
 }
 
 .team-item .team-social .btn {
@@ -323,6 +324,7 @@ h6,
       margin: 10px;
       font-size: 16px;
       cursor: pointer;
+      border-radius: 8px;
     }
 
     #choices button:hover {
@@ -342,7 +344,7 @@ h6,
 		font-size: 16px;
 		cursor: pointer;
 		position: absolute;
-		left: 2;
+		border-radius: 8px;
     }
 
     #imgtest{
@@ -497,21 +499,14 @@ h6,
 	height:200px;
 	object-fit: cover;
 	flex: 1;
-}
-.big-circle {
-	position: relative;
+  padding: 7px;
 }
 
-.small-circle {
-  width: 30px;
-  height: 30px;
-  background-color: #e74c3c;
-  border-radius: 50%;
-  position: absolute;
-  top: 50%; /* 将小圆圈定位到大圆圈的垂直中心 */
-  right: -15px; /* 将小圆圈向右偏移一定距离 */
-  transform: translateY(-50%); /* 将小圆圈的中心对齐到大圆圈的垂直中心 */
+.big-circle {
+	position: relative;
+
 }
+
 
 
 /* Search */
@@ -870,20 +865,58 @@ ul li {
     }  
 
     /* 圖標 */
-  .pin {
+  .pin[data-target="f1"] {
   position: absolute;
   top: 110px;
   right: 10px;
   font-size: 24px;
-  color: yellow;
   cursor: pointer;
   transition: transform 0.3s ease; /* 添加過渡效果，使變化平滑 */
 }
+
+.pin[data-target="f3"] {
+  position: absolute;
+  top: 65px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease; /* 添加过渡效果，使变化平滑 */
+}
+
+.pin[data-target="f5"] {
+  position: absolute;
+  top: 65px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease; /* 添加过渡效果，使变化平滑 */
+}
+
 /* 定義跳動效果 */
 .jump {
   transform: translateY(-10px); /* 將圖標向上移動10像素 */
 }
 
+/* cloth change */
+.clothes {
+  position: absolute;
+  margin: auto;
+  box-shadow: none !important; /* 將模糊程度設置為0，顏色設置為透明 */
+} 
 
-    
-    
+@media (min-width: 768px){
+#collapseWidthExample {
+  position: absolute;
+  max-width: 300px;
+  top: 20%;
+  left: 62%;
+  }
+} 
+
+/* fun 外框*/
+.common-image {
+  width: 520px; /* 图片的最大宽度为容器宽度 */
+  height: 350px; /* 高度自动调整以保持比例 */
+  object-fit: cover; /* 控制图片在指定大小的框中填充，保持纵横比 */
+}
+

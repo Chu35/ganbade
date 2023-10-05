@@ -49,6 +49,7 @@
 			<a class="navbar-brand logo" href="index.html">
 				<img src="img/logo.png" alt="Website Logo" width="70px" />
 			</a>
+			<p id="count"></p>
 			<a href="index.html" class="navbar-brand ms-4 ms-lg-0">
 				<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
 			</a>
@@ -61,22 +62,22 @@
 					<a href="index.html#home" class="nav-item nav-link">首頁</a>
 					<a href="index.html#life" class="nav-item nav-link">茶的一生</a>
 					<div class="nav-item dropdown">
-						<a href="knowl.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+						<a href="knowl.jsp" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
 							aria-expanded="true">知識調查局</a>
 						<div class="dropdown-menu border-light m-0" data-bs-popper="none">
-							<a href="knowl.html" class="dropdown-item">茶種介紹</a>
+							<a href="knowl.jsp" class="dropdown-item">茶種介紹</a>
 							<a href="knowl2.html" class="dropdown-item">烘培發酵介紹</a>
 							<a href="knowl3.html" class="dropdown-item">製茶步驟介紹</a>
 						</div>
 					</div>
-					<a href="fun.html" class="nav-item nav-link">茶遊此地</a>
+					<a href="fun.jsp" class="nav-item nav-link">茶遊此地</a>
 					<a href="contact.html" class="nav-item nav-link">關於我們</a>
 					<div class="nav-item dropdown">
-						<div id="user-icon" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><small
+						<div id="user-icon" class="nav-link dropdown-toggle"  data-bs-toggle="dropdown"><small
 								class="fa fa-user text-primary"></small></div>
 						<div class="dropdown-menu border-light m-0">
 							<a href="login.html" class="dropdown-item">登入/註冊</a>
-							<div id="openTestButton" class="dropdown-item" style="cursor: pointer;">心理測驗</div>
+							<a id="openTestButton" class="dropdown-item" style="cursor: pointer;">心理測驗</a>
 							<a href="member.html" class="dropdown-item">客製滴滴</a>
 						</div>
 					</div>
@@ -85,9 +86,9 @@
 		</nav>
 	</div>
 	<!-- Navbar End -->
+
 	
 	<!-- Test Start -->
-	
 	<div class="modal fade" id="exampleModaltest" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false"><div class="center">
     <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content">
@@ -110,8 +111,7 @@
 	</div>
 	</div>
 	<!-- Test End -->
-	
-	
+
 	<!-- Keyvision Start -->
 	<div id="home" class="container-fluid p-0 mb-1 wow fadeIn">
 		<div id="image-container">
@@ -135,7 +135,44 @@
             <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-interval="false">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <h1 class="tealife py-1 px-3">紅茶的一生</h1>
+                        <h1 class="tealife py-1 px-3"><font color="#d05600">紅茶</font>的一生</h1>
+                        <div class="video-container">
+                            <video class="d-block w-100" autoplay muted loop playsinline>
+                                <source src="img/採茶.mp4" type="video/mp4" >
+                            </video>
+                            <video class="d-block w-100" autoplay muted loop playsinline>
+                                <source src="img/萎凋.mp4" type="video/mp4">
+                            </video>
+							<video class="d-block w-100" autoplay muted loop playsinline>
+                                <source src="img/發酵.mp4" type="video/mp4">
+                            </video>
+							<video class="d-block w-100" autoplay muted loop playsinline>
+                                <source src="img/揉捻.mp4" type="video/mp4">
+                            </video>
+							<video class="d-block w-100" autoplay muted loop playsinline>
+                                <source src="img/乾燥.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <h1 class="tealife py-1 px-3"><font color="#ecddb0">綠茶</font>的一生</h1>
+                        <div class="video-container">
+                            <video class="d-block w-100" autoplay muted loop playsinline>
+                                <source src="img/採茶.mp4" type="video/mp4" >
+                            </video>
+                            <video class="d-block w-100" autoplay muted loop playsinline>
+                                <source src="img/殺菁.mp4" type="video/mp4">
+                            </video>
+							<video class="d-block w-100" autoplay muted loop playsinline>
+                                <source src="img/揉捻.mp4" type="video/mp4">
+                            </video>
+							<video class="d-block w-100" autoplay muted loop playsinline>
+                                <source src="img/乾燥.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+					<div class="carousel-item">
+                        <h1 class="tealife py-1 px-3"><font color="#f1db97">青茶</font>的一生</h1>
                         <div class="video-container">
                             <video class="d-block w-100" autoplay muted loop playsinline>
                                 <source src="img/採茶.mp4" type="video/mp4" >
@@ -147,25 +184,33 @@
                                 <source src="img/浪菁.mp4" type="video/mp4">
                             </video>
 							<video class="d-block w-100" autoplay muted loop playsinline>
-                                <source src="img/炒菁.mp4" type="video/mp4">
+                                <source src="img/靜置.mp4" type="video/mp4">
+                            </video>
+							<video class="d-block w-100" autoplay muted loop playsinline>
+                                <source src="img/殺菁.mp4" type="video/mp4">
+                            </video>
+							<video class="d-block w-100" autoplay muted loop playsinline>
+                                <source src="img/揉捻.mp4" type="video/mp4">
+                            </video>													
+							<video class="d-block w-100" autoplay muted loop playsinline>
+                                <source src="img/乾燥.mp4" type="video/mp4">
                             </video>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <h1 class="tealife py-1 px-3">綠茶的一生</h1>
+					<div class="carousel-item">
+                        <h1 class="tealife py-1 px-3"><font color="#ebc286">白茶</font>的一生</h1>
                         <div class="video-container">
-                            <video class="d-block w-100" controls>
-                                <source src="path_to_your_green_tea_video1.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
+                            <video class="d-block w-100" autoplay muted loop playsinline>
+                                <source src="img/採茶.mp4" type="video/mp4" >
                             </video>
-                            <video class="d-block w-100" controls>
-                                <source src="path_to_your_green_tea_video2.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
+                            <video class="d-block w-100" autoplay muted loop playsinline>
+                                <source src="img/萎凋.mp4" type="video/mp4">
                             </video>
-                            <!-- Add more video elements as needed -->
+							<video class="d-block w-100" autoplay muted loop playsinline>
+                                <source src="img/乾燥.mp4" type="video/mp4">
+                            </video>
                         </div>
                     </div>
-                    <!-- Add similar code for other tea types -->
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>

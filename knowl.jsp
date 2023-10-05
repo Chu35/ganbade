@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
 <!DOCTYPE html>
+<% String memberName = (String) session.getAttribute("memberName"); %>
 <html>
     <head>
         <meta charset="utf-8">
@@ -51,10 +52,10 @@
 <div class="container-fluid fixed-top px-0 wow fadeIn top-0" data-wow-delay="0.1s">
     <div class="row gx-0 align-items-center d-none d-lg-flex"> </div>
     <nav class="navbar navbar-expand-lg navbar-light py-lg-0 px-lg-4 wow fadeIn" data-wow-delay="0.1s">
-        <a class="navbar-brand logo" href="index.html">
+        <a class="navbar-brand logo" href="index.jsp">
             <img src="img/logo.png" alt="Website Logo" width="70px" />
         </a>
-        <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
+        <a href="index.jsp" class="navbar-brand ms-4 ms-lg-0">
             <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
@@ -70,15 +71,15 @@
                         aria-expanded="true">知識調查局</a>
                     <div class="dropdown-menu border-light m-0" data-bs-popper="none">
                         <a href="knowl.jsp" class="dropdown-item active">茶種介紹</a>
-                        <a href="knowl2.html" class="dropdown-item">烘焙發酵介紹</a>
-                        <a href="knowl3.html" class="dropdown-item">製茶步驟介紹</a>
+                        <a href="knowl2.jsp" class="dropdown-item">烘焙發酵介紹</a>
+                        <a href="process.jsp" class="dropdown-item">製茶步驟介紹</a>
                     </div>
                 </div>
-                <a href="fun.html" class="nav-item nav-link">茶遊此地</a>
+                <a href="fun.jsp" class="nav-item nav-link">茶遊此地</a>
                 <a href="contact.html" class="nav-item nav-link">關於我們</a>
                 <div class="nav-item nav-link">
                     <div class="box">
-                        <form action="show.jsp" autocomplete="off">
+                        <form action="showknowl.jsp" autocomplete="off">
                             <input name="search" type="keyword" placeholder="Search...">		
                             <i class="fas fa-search" type="submit" value="Rechercher"></i>
                         </form>
@@ -88,9 +89,16 @@
                     <div class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><small
                             class="fa fa-user text-primary"></small></div>
                     <div class="dropdown-menu border-light m-0">
-                        <a href="login.html" class="dropdown-item">登入/註冊</a>
-                        <a href="index.html" class="dropdown-item">心理測驗</a>
-                        <a href="member.html" class="dropdown-item">客製滴滴</a>
+                        <% if (memberName != null) { %>
+                            <a class="dropdown-item"><%= memberName %>, 你好</a>
+                        <% } else { %>
+                            <a class="dropdown-item" href="login.html">登入/註冊</a>
+                        <% } %>
+                        <a href="index.jsp" class="dropdown-item">心理測驗</a>
+                        <a href="member.jsp" class="dropdown-item">客製滴滴</a>
+                        <% if (memberName != null) { %>
+                            <a class="dropdown-item" href="logout.jsp">登出</a>
+                        <% }%>
                     </div>
                 </div>
             </div>
@@ -127,7 +135,6 @@
             <div class="search_tea_content_box">
                 <div class="search_tea_body">
                     <ul class="tea_list clearfix" id="teaList">
-                        <!-- Tea items will be displayed here based on user selection and database data -->
                         <% 
                         // Establish database connection
                         Connection conn = null;
@@ -163,7 +170,6 @@
                          <!-- Generate HTML content for each tea -->
                          <li class="item" data-category="<%= bake %>" data-taste="<%= ferment %>">
                             <div class="img">
-                                <!-- Use the image_path to load the image -->                                
                                 <img data-bs-toggle="modal" data-bs-target="#<%= modalId %>" src="<%= imagePath %>" alt="<%= name %>">
                             </div>
                             <div class="title"><%= name %></div>
@@ -184,9 +190,17 @@
                                 <div class="modal-dialog modal-dialog-centered modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <i type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></i>
-                                        </div>
+                                            <form action="collect.jsp">
+                                                <i id="collectButton<%= id %>" class=" bi bi-bookmark-heart" style="cursor: pointer;"></i>
+                                                <script>
+                                                    var collectButton<%= id %> = document.getElementById("collectButton<%= id %>");
+                                                    collectButton<%= id %>.addEventListener("click", function() {
+                                                        window.location.href = "collect.jsp?knowledge_id=<%= id %>";
+                                                    });
+                                                </script>
+                                            </form>    
+                                            <i type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></i>
+                                        </div>                                        
                                         <div class="modal-body">
                                             <div class=".col-md-6">
                                                 <img class="imagemodal" data-bs-toggle="modal" data-bs-target="#exampleModal1" src="<%= imagePath %>" alt="<%= name %>">
@@ -250,14 +264,13 @@
 
 
 	<!-- JavaScript Libraries -->
-	<script typet="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="lib/wow/wow.min.js"></script>
-	<script src="lib/easing/easing.min.js"></script>
-	<script src="lib/waypoints/waypoints.min.js"></script>
-	<script src="lib/owlcarousel/owl.carousel.min.js"></script>
-	<script src="lib/counterup/counterup.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
 
 	<!-- Template Javascript -->
     <script src="js/main.js"></script>

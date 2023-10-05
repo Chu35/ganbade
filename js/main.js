@@ -103,61 +103,53 @@ filterOptions.forEach(option => {
 });//teas end
 
 //心理測驗	
-window.addEventListener('load', function () {
-  var myModal = new bootstrap.Modal(document.getElementById('exampleModaltest'));
-  myModal.show();
-  
-  // 設置已顯示過測試的標誌
-  localStorage.setItem('hasShownTest', 'true');
-});
+var openTestButton = document.getElementById('openTestButton');
+var userIcon = document.getElementById('user-icon');
 
-document.getElementById('openTestButton').addEventListener('click', function() {
-  currentQuestion = 0; // 重置為第一個問題
+openTestButton.addEventListener('click', function() {
+  currentQuestion = 0; // 重置为第一个问题
   answers = []; // 清空答案
-
   // 调用显示第一个问题的函数
   displayQuestion();
+  
+  // 在点击"openTestButton"时打开模态框
+  var myModal = new bootstrap.Modal(document.getElementById('exampleModaltest'));
+  myModal.show();
 });
 
-// keyvision
-// 获取 #closetest 元素
-var closetestButton = document.getElementById("closetest");
+userIcon.addEventListener('click', function() {
+  simulateTestCompletion(); // 执行关闭模态框的逻辑
+});
 
-// 获取 user-icon 元素
-var modal = document.getElementById('exampleModaltest');
-
-// 定义共享的事件处理程序函数
-function handleAnimationAndCloseModal() {
-    // 关闭模态框
-    $('#exampleModaltest').modal('hide');
-
-    // 执行动画
-    var images = document.querySelectorAll(".image");
-    var delays = {
-        "img/kv3.png": 1500,
-        "img/kv4.png": 1500,
-        "img/kv5.png": 1500,
-        "img/kv7.png": 2500,
-        "img/kv9.png": 2500
-    }; // 不同图片的延迟时间（毫秒）
-
-    images.forEach(function(image) {
-        var src = image.getAttribute("src");
-        var delay = delays[src] || 500; // 使用对应的延迟时间，如果未定义则默认1000（毫秒）
-
-        setTimeout(function() {
-            image.style.opacity = "1";
-            image.style.transform = "translateX(0)";
-        }, delay);
-    });
+function simulateTestCompletion() {
+  var myModal = new bootstrap.Modal(document.getElementById('exampleModaltest'));
+  myModal.hide(); // 关闭模态框
 }
 
-// 给 #closetest 元素添加点击事件处理程序
-closetestButton.addEventListener("click", handleAnimationAndCloseModal);
 
-// 给模态框添加 hidden.bs.modal 事件处理程序
-modal.addEventListener("hidden.bs.modal", handleAnimationAndCloseModal);
+// keyvision
+var images = document.querySelectorAll(".image");
+var delays = {
+  "img/kv3.png": 1500,
+  "img/kv4.png": 1500,
+  "img/kv5.png": 1500,
+  "img/kv7.png": 2500,
+  "img/kv9.png": 2500
+};
 
+window.addEventListener('load', function() {
+  // 在页面加载完成后执行以下代码
+  images.forEach(function(image) {
+    var imageUrl = image.getAttribute('src');
+    var delay = delays[imageUrl];
+    
+    // 使用setTimeout来延迟启动动画
+    setTimeout(function() {
+      // 在此处添加启动动画的代码，例如给图像添加CSS类来触发动画
+      // 例如：image.classList.add('animate');
+    }, delay);
+  });
+});
 
 
   // Initialize the partner carousel
@@ -254,6 +246,7 @@ modal.addEventListener("hidden.bs.modal", handleAnimationAndCloseModal);
         }
     });
 })(jQuery);
+
   //teas select
   const filterOptions = document.querySelectorAll('.search_option .item');
 const teaItems = document.querySelectorAll('.tea_list .item');
@@ -301,52 +294,40 @@ filterOptions.forEach(option => {
   });
 });//teas end
 
-// 獲取圖標元素
+//fun pin
 function jumpIcon(pin) {
-  // 添加 'jump' 类以触发跳动动画
   pin.classList.add('jump');
-
-  // 在一段时间后，移除 'jump' 类，以允许重复触发
   setTimeout(() => {
     pin.classList.remove('jump');
-
-    // 等待1秒后，跳转到目标位置
     setTimeout(() => {
       const targetId = pin.getAttribute('data-target');
       const targetElement = document.getElementById(targetId);
+
       if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth' });
+        const targetRect = targetElement.getBoundingClientRect();
+        const middleY = targetRect.top + targetRect.height / 2;
+        const scrollY = middleY - window.innerHeight / 2;
+        window.scrollTo({
+          top: scrollY,
+          behavior: 'smooth',
+        });
       }
     }, 400); // 等待1秒再执行跳转，单位是毫秒
   }, 200); // 调整时间以控制跳动速度，单位是毫秒
 }
 
-  // 获取用户点击上传新头像的按钮
-  var uploadButton = document.getElementById("upload-button");
 
-  // 给上传按钮添加点击事件处理程序
-  uploadButton.addEventListener("click", function () {
-    // 弹出文件选择器，让用户选择新的头像文件
-    var fileInput = document.createElement("input");
-    fileInput.type = "file";
-    fileInput.accept = "image/*";
-    
-    // 当用户选择文件后
-    fileInput.addEventListener("change", function (event) {
-      var file = event.target.files[0];
-      if (file) {
-        // 创建一个URL对象，用于在<img>中显示新头像
-        var imageURL = URL.createObjectURL(file);
+//瀏覽人數
+if (typeof (Storage) !== "undefined") {
+  if (localStorage.pagecount) {
+      localStorage.pagecount = Number(localStorage.pagecount) + 1;
+  } else {
+      localStorage.pagecount = 1;
+  }
+  document.getElementById("count").innerHTML = "This " + localStorage.pagecount + " time(s).";
+} else {
+  document.getElementById("count").innerHTML = "Sorry";
+}
+  
+//收藏
 
-        // 更新<img>的src属性以显示新头像
-        var userIcon = document.getElementById("user-icon");
-        userIcon.src = imageURL;
-
-        // 释放URL对象，以防止内存泄漏
-        URL.revokeObjectURL(imageURL);
-      }
-    });
-
-    // 触发文件选择器
-    fileInput.click();
-  });

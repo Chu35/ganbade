@@ -32,7 +32,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>會員畫面</title>
+    <title>甘吧茶ㄉㄟˊ</title>
 </head>
 <body>
 <%
@@ -45,6 +45,10 @@
 <%
     } else {
 %>
+<script>
+    alert("尚未註冊");
+    window.location.href = "signin.html"; // 導向回登錄頁面
+</script>
     <script>
         alert("帳號或密碼錯誤");
         window.location.href = "login.html"; // 導向回登錄頁面

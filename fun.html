@@ -56,27 +56,28 @@
 				<a href="index.html#home" class="nav-item nav-link">首頁</a>
                 <a href="index.html#life" class="nav-item nav-link">茶的一生</a>
 				<div class="nav-item dropdown">
-					<a href="knowl.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="true">知識調查局</a>
+					<a href="knowl.jsp" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+						aria-expanded="true">知識調查局</a>
 					<div class="dropdown-menu border-light m-0" data-bs-popper="none">
-						<a href="knowl.html" class="dropdown-item">茶種介紹</a>
+						<a href="knowl.jsp" class="dropdown-item">茶種介紹</a>
 						<a href="knowl2.html" class="dropdown-item">烘培發酵介紹</a>
 						<a href="knowl3.html" class="dropdown-item">製茶步驟介紹</a>
 					</div>
 				</div>
-                <a href="#" class="nav-item nav-link active">茶遊此地</a>
+			<a href="#" class="nav-item nav-link active">茶遊此地</a>
                 <a href="contact.html" class="nav-item nav-link">關於我們</a>
 				<div class="nav-item nav-link">
 					<div class="box">
-						<form action="show.jsp" autocomplete="off">
+						<form action="showfun.jsp" autocomplete="off">
 							<input name="search" type="keyword" placeholder="Search...">		
-							<i  class="fas fa-search" type="submit" value="Rechercher"></i>
+							<i class="fas fa-search" type="submit" value="Rechercher"></i>
 						</form>
 					</div>
 				</div>
 				<div class="nav-item dropdown">
-					<div class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+					<div id="user-icon" class="nav-link dropdown-toggle"  data-bs-toggle="dropdown">
 						<small class="fa fa-user text-primary"></small>
-					</div>	
+					</div>
 					<div class="dropdown-menu border-light m-0">
 						<a href="login.html" class="dropdown-item">登入/註冊</a>
 						<a href="index.html#exampleModaltest" class="dropdown-item">心理測驗</a>
@@ -103,7 +104,8 @@
 					<div class="carousel-item active">
 						<p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3">木柵</p>
 						<img src="img/map.png" class="d-block w-100" alt="...">
-						<div class="pin" onclick="jumpIcon(this)" data-target="f1">⭐</div>
+						<div class="pin" onclick="jumpIcon(this)" data-target="f3">⭐</div>
+                    <div class="pin" onclick="jumpIcon(this)" data-target="f1">❤️</div>
 					</div>
 					<div class="carousel-item">
 						<p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3">坪林</p>
@@ -155,7 +157,7 @@
 			
 			<div class="row g-4 align-items-end mb-4">
 				<div class="col-lg-5 wow fadeInUp" data-wow-delay="0.1s">
-                    <img class="img-fluid rounded" src="img/fun-1.jpg" alt="">
+                    <img class="img-fluid rounded " src="img/fun-1.jpg" alt="">
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
                     <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3 mb-1">大稻埕</p>

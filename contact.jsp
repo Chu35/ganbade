@@ -1,5 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*" %>
 <!DOCTYPE html>
-<html lang="zh-Hant-TW">
+<% String memberName = (String) session.getAttribute("memberName"); %>
+<html>
 <head>
     <meta charset="utf-8">
     <title>甘吧茶ㄉㄟˊ</title>
@@ -45,10 +48,10 @@
 <div class="container-fluid fixed-top px-0 wow fadeIn top-0" data-wow-delay="0.1s">
         <div class="row gx-0 align-items-center d-none d-lg-flex"> </div>
     <nav class="navbar navbar-expand-lg navbar-light py-lg-0 px-lg-4 wow fadeIn" data-wow-delay="0.1s">
-	<a class="navbar-brand logo" href="index.html">
+	<a class="navbar-brand logo" href="index.jsp">
         <img src="img/logo.png" alt="Website Logo" width="70px"/>
       </a>
-        <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
+        <a href="index.jsp" class="navbar-brand ms-4 ms-lg-0">
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
             </a>
             <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
@@ -56,33 +59,41 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav ms-auto p-4 p-lg-0">
-				  <a href="index.html" class="nav-item nav-link">首頁</a>
-                  <a href="index.html#life" class="nav-item nav-link">茶的一生</a>
-                <div class="nav-item dropdown">
-                    <a href="knowl.jsp" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
-                        aria-expanded="true">知識調查局</a>
-                    <div class="dropdown-menu border-light m-0" data-bs-popper="none">
-                        <a href="knowl.jsp" class="dropdown-item">茶種介紹</a>
-                        <a href="knowl2.html" class="dropdown-item">烘培發酵介紹</a>
-                        <a href="knowl3.html" class="dropdown-item">製茶步驟介紹</a>
-                    </div>
-                </div>
-              <a href="fun.jsp" class="nav-item nav-link">茶遊此地</a>
-                  <a href="#" class="nav-item nav-link active">關於我們</a>
+				<div class="navbar-nav ms-auto p-4 p-lg-0">
+					<a href="index.jsp#home" class="nav-item nav-link">首頁</a>
+					<a href="index.jsp#life" class="nav-item nav-link">茶的一生</a>
+					<div class="nav-item dropdown">
+						<a href="knowl.jsp" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+							aria-expanded="true">知識調查局</a>
+						<div class="dropdown-menu border-light m-0" data-bs-popper="none">
+							<a href="knowl.jsp" class="dropdown-item">茶種介紹</a>
+							<a href="knowl2.html" class="dropdown-item">烘培發酵介紹</a>
+							<a href="knowl3.html" class="dropdown-item">製茶步驟介紹</a>
+						</div>
+					</div>
+					<a href="fun.jsp" class="nav-item nav-link">茶遊此地</a>
+					<a href="contact.jsp" class="nav-item nav-link">關於我們</a>
 					<div class="nav-item dropdown">
 						<div id="user-icon" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><small
-                            class="fa fa-user text-primary"></small></div>
-                    <div class="dropdown-menu border-light m-0">
-							<a href="login.html" class="dropdown-item">登入/註冊</a>
-							<a href="index.html#exampleModaltest" class="dropdown-item">心理測驗</a>
-							<a href="member.html" class="dropdown-item">客製滴滴</a>
+							class="fa fa-user text-primary"></small></div>
+                            <div class="dropdown-menu border-light m-0">
+                                <% if (memberName != null) { %>
+                                    <a class="dropdown-item"><%= memberName %>, 你好</a>
+                                <% } else { %>
+                                    <a class="dropdown-item" href="login.html">登入/註冊</a>
+                                <% } %>
+                                <a href="index.jsp" class="dropdown-item">心理測驗</a>
+                                <a href="member.jsp" class="dropdown-item">客製滴滴</a>
+                                <% if (memberName != null) { %>
+                                    <a class="dropdown-item" href="logout.jsp">登出</a>
+                                <% }%>
+                            </div>
                         </div>
 					</div>
 				</div>
-            </div>
-        </nav>
-    </div>
+			</div>
+		</nav>
+	</div>
     <!-- Navbar End -->
 
 
@@ -91,7 +102,7 @@
         <div class="container">
             <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
                 <h1  class="display-3 mb-4 animated"> </h1>
-                <h1 class="display-5 mb-4">Team</h1>
+                <h1 class="display-5 mb-4" style="font-family:DFKai-sb;">茶葉探險隊</h1>
             </div>
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -138,79 +149,55 @@
         </div>
     </div>
     <!-- Team End -->
-		<div class="container">
-			<div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h2 class="display-5 mb-4">合作夥伴</h2>
-			</div>
-			<div id="partner" class="container" data-wow-delay="0.9s">
-			<div class="partner-carousel owl-carousel" align="center">
-				<div class="item1">
-					<a href="https://www.example1.com" target="_blank" >
-						<img src="img/s1.png" alt="小三美日" >
-					</a>
-				</div>
-				<div class="item1">
-					<a href="https://www.example2.com" target="_blank">
-						<img src="img/s2.png" alt="騎士穀堡">
-					</a>
-				</div>
-				<div class="item1">
-					<a href="https://www.example2.com" target="_blank">
-						<img src="img/s3.png" alt="貓空茶神">
-					</a>
-				</div>
-				<div class="item1">
-					<a href="https://www.example2.com" target="_blank">
-						<img src="img/s4.png" alt="邀月茶坊">
-					</a>
-				</div>				
-				<div class="item1">
-					<a href="https://www.example2.com" target="_blank">
-						<img src="img/s5.jpg" alt="煎茶院">
-					</a>
-				</div>
-				<div class="item1">
-					<a href="https://www.example2.com" target="_blank">
-						<img src="img/s6.jpg" alt="祥泰茶業">
-					</a>
-				</div>
-				<div class="item1">
-					<a href="https://www.example2.com" target="_blank">
-						<img src="img/s7.jpg" alt="晨曦茶坊">
-					</a>
-				</div>
-				<div class="item1">
-					<a href="https://www.example2.com" target="_blank">
-						<img src="img/s8.jpg" alt="Housuxi">
-					</a>
-				</div>
-				<div class="item1">
-					<a href="https://www.example2.com" target="_blank">
-						<img src="img/s9.png" alt="uanuan">
-					</a>
-				</div>
-				<div class="item1">
-					<a href="https://www.example2.com" target="_blank">
-						<img src="img/s10.png" alt="macu">
-					</a>
-				</div>
-				<div class="item1">
-					<a href="https://www.facebook.com/muheLAdesign/?locale=zh_TW" target="_blank">
-						<img src="img/s11.jpg" alt="木荷景觀工程">
-					</a>
-				</div>				
-				<div class="item1">
-					<a href="https://www.facebook.com/muheLAdesign/?locale=zh_TW" target="_blank">
-						<img src="img/s12.png" alt="布拉格">
-					</a>
-				</div>
-			</div>
-				<div class="carousel-navigation">
-					<div class="carousel-nav-prev"><i class="fas fa-chevron-left"></i></div>
-					<div class="carousel-nav-next"><i class="fas fa-chevron-right"></i></div>
-				</div>
-			</div>
-	</div>
+    <div class="container">
+        <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <h2 class="display-5 mb-4">合作夥伴</h2>
+        </div>
+        <div id="partner" class="container" data-wow-delay="0.9s">
+            <div class="partner-carousel owl-carousel" align="center">   
+                <% 
+                Connection conn = null;
+                Statement stmt = null;
+                ResultSet rs = null;
+                try {
+                    Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                    String url = "jdbc:sqlserver://127.0.0.1:1433;database=ganbade";
+                    String user = "chu";
+                    String password = "0725";
+                    conn = DriverManager.getConnection(url, user, password);
+                    stmt = conn.createStatement();
+                    String query = "SELECT * FROM sugardaddy ORDER BY id";
+                    rs = stmt.executeQuery(query);
+    
+                    while (rs.next()) {
+                        String id = rs.getString("id");
+                        String name = rs.getString("name");
+                        String imagePath = rs.getString("imagepath");
+                        String href = rs.getString("href");
+                %>
+                <div  class="item1">
+                    <a href="<%= href %>" target="_blank">
+                        <img src="<%= imagePath %>" alt="<%= name %>">
+                    </a>
+                </div>
+                <% 
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } finally {
+                    try { rs.close(); } catch (Exception e) {  }
+                    try { stmt.close(); } catch (Exception e) {  }
+                    try { conn.close(); } catch (Exception e) {  }
+                }
+                %>
+            </div>
+            <div class="carousel-navigation">
+                <div class="carousel-nav-prev"><i class="fas fa-chevron-left"></i></div>
+                <div class="carousel-nav-next"><i class="fas fa-chevron-right"></i></div>
+            </div>
+        </div>
+    </div>
+    
 
 <!-- Copyright Start -->
     <div class="container-fluid copyright py-4">

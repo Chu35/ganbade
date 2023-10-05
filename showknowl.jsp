@@ -64,15 +64,15 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link">首頁</a>
-                <a href="index.html#life" class="nav-item nav-link">茶的一生</a>
+                <a href="index.jsp" class="nav-item nav-link">首頁</a>
+                <a href="index.jsp#life" class="nav-item nav-link">茶的一生</a>
                 <div class="nav-item dropdown">
                     <a href="#knowl" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"
                         aria-expanded="true">知識調查局</a>
                     <div class="dropdown-menu border-light m-0" data-bs-popper="none">
                         <a href="knowl.jsp" class="dropdown-item active">茶種介紹</a>
                         <a href="knowl2.jsp" class="dropdown-item">烘焙發酵介紹</a>
-                        <a href="process.jsp" class="dropdown-item">製茶步驟介紹</a>
+                        <a href="knowl3.jsp" class="dropdown-item">製茶步驟介紹</a>
                     </div>
                 </div>
                 <a href="fun.jsp" class="nav-item nav-link">茶遊此地</a>
@@ -89,23 +89,15 @@
                     <div class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><small
                             class="fa fa-user text-primary"></small></div>
                     <div class="dropdown-menu border-light m-0">
-                        <% if (memberName != null) { %>
-                            <a class="dropdown-item"><%= memberName %>, 你好</a>
-                        <% } else { %>
-                            <a class="dropdown-item" href="login.html">登入/註冊</a>
-                        <% } %>
+                        <a href="login.html" class="dropdown-item">登入/註冊</a>
                         <a href="index.jsp" class="dropdown-item">心理測驗</a>
                         <a href="member.jsp" class="dropdown-item">客製滴滴</a>
-                        <% if (memberName != null) { %>
-                            <a class="dropdown-item" href="logout.jsp">登出</a>
-                        <% }%>
                     </div>
                 </div>
             </div>
         </div>
     </nav>
 </div>
-
 <div class="page_box page_search_tea">
     <div id="knowl" class="search_tea">
         <div class="inner">
@@ -131,45 +123,45 @@
                     </ul>
                 </div>
             </div>
-            
-            <div class="search_tea_content_box">
-                <div class="search_tea_body">
-                    <ul class="tea_list clearfix" id="teaList">
-                        <% 
-                        // Establish database connection
-                        Connection conn = null;
-                        Statement stmt = null;
-                        ResultSet rs = null;
-                        try {
-                            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-                            String url = "jdbc:sqlserver://127.0.0.1:1433;database=ganbade";
-                            String user = "chu";
-                            String password = "0725";
-                            conn = DriverManager.getConnection(url, user, password);
-                            // Query tea data from database
-                            stmt = conn.createStatement();
-                            String query = "SELECT * FROM Knowledge";
-                            rs = stmt.executeQuery(query);
-                        
-                            while (rs.next()) {
-                                String id = rs.getString("id");
-                                String name = rs.getString("name");
-                                String type = rs.getString("type");
-                                String ferment = rs.getString("ferment");
-                                String bake = rs.getString("bake");
-                                String shape = rs.getString("shape");
-                                String season = rs.getString("season");
-                                String classification = rs.getString("classification");
-                                String introduce = rs.getString("introduce");
-                                String imagePath = rs.getString("image_path");
-                        
-                                // Create unique modal ID
-                                String modalId = "exampleModal" + id;
-                        %>
+                <div class="search_tea_content_box">
+                    <div class="search_tea_body">
+                        <ul class="tea_list clearfix" id="teaList">
+                            <!-- Tea items will be displayed here based on user selection and database data -->
+                            <%
+                                String searchKeyword = request.getParameter("search");
+                                Connection conn = null;
+                                Statement stmt = null;
+                                ResultSet rs = null;
+                                try {
+                                    Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                                    String url = "jdbc:sqlserver://127.0.0.1:1433;database=ganbade";
+                                    String user = "chu";
+                                    String password = "0725";
+                                    conn = DriverManager.getConnection(url, user, password);
+                                    String sqlQuery = "SELECT * FROM Knowledge WHERE name LIKE ?";
+                                    PreparedStatement preparedStatement = conn.prepareStatement(sqlQuery);
+                                    preparedStatement.setString(1, "%" + searchKeyword + "%");
+                                    rs = preparedStatement.executeQuery();
 
-                         <!-- Generate HTML content for each tea -->
+                                    while (rs.next()) {
+                                        String id = rs.getString("id");
+                                        String name = rs.getString("name");
+                                        String type = rs.getString("type");
+                                        String ferment = rs.getString("ferment");
+                                        String bake = rs.getString("bake");
+                                        String shape = rs.getString("shape");
+                                        String season = rs.getString("season");
+                                        String classification = rs.getString("classification");
+                                        String introduce = rs.getString("introduce");
+                                        String imagePath = rs.getString("image_path");
+                                
+                                        // Create unique modal ID
+                                        String modalId = "exampleModal" + id;
+                                %>
+                            <!-- Generate HTML content for each tea -->
                          <li class="item" data-category="<%= bake %>" data-taste="<%= ferment %>">
                             <div class="img">
+                                <!-- Use the image_path to load the image -->                                
                                 <img data-bs-toggle="modal" data-bs-target="#<%= modalId %>" src="<%= imagePath %>" alt="<%= name %>">
                             </div>
                             <div class="title"><%= name %></div>
@@ -191,7 +183,7 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <form action="collect.jsp">
-                                                <i id="collectButton<%= id %>" class=" bi bi-bookmark-heart" style="cursor: pointer;"></i>
+                                                <i id="collectButton<%= id %>" class="fa fa-regular fa-bookmark fa-xl" style="cursor: pointer;"></i>
                                                 <script>
                                                     var collectButton<%= id %> = document.getElementById("collectButton<%= id %>");
                                                     collectButton<%= id %>.addEventListener("click", function() {
@@ -200,7 +192,7 @@
                                                 </script>
                                             </form>    
                                             <i type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></i>
-                                        </div>                                        
+                                        </div>        
                                         <div class="modal-body">
                                             <div class=".col-md-6">
                                                 <img class="imagemodal" data-bs-toggle="modal" data-bs-target="#exampleModal1" src="<%= imagePath %>" alt="<%= name %>">
@@ -239,40 +231,44 @@
                             </div>
                             
                         </li>
-                        <% 
-                    }
-                } catch (Exception e) {
-                     e.printStackTrace();
-                    } finally {
-                          // Close database resources
-                          try { rs.close(); } catch (Exception e) { /* Ignore */ }
-                          try { stmt.close(); } catch (Exception e) { /* Ignore */ }
-                          try { conn.close(); } catch (Exception e) { /* Ignore */ }
-                        }
-                        %>
-                    </ul>
+                            <%
+                                    }
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                } finally {
+                                    // Close database resources
+                                    try {
+                                        if (rs != null) rs.close();
+                                        if (stmt != null) stmt.close();
+                                        if (conn != null) conn.close();
+                                    } catch (SQLException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            %>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
-    <!-- Back to Top -->
-	<a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top">
-		<i class="bi bi-arrow-up"></i>
-	</a>
+<!-- Back to Top -->
+<a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top">
+    <i class="bi bi-arrow-up"></i>
+</a>
 
 
-	<!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
+<!-- JavaScript Libraries -->
+<script typet="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="lib/wow/wow.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/waypoints/waypoints.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="lib/counterup/counterup.min.js"></script>
 
-	<!-- Template Javascript -->
-    <script src="js/main.js"></script>
+<!-- Template Javascript -->
+<script src="js/main.js"></script>
 </body>
 </html>

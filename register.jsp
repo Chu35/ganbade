@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=utf-8" import="java.sql.*, java.util.regex.*" %>
 <html>
 <head>
-    <title>Registration Result</title>
+    <title>甘吧茶ㄉㄟˊ</title>
     <script>
         function showAlert(message, redirectTo) {
             alert(message);
@@ -34,7 +34,7 @@
             if (rs.next()) {
                 out.println("<script>showAlert('" + user + " 名稱已被使用已經存在', 'signin.html');</script>");
             } else {
-                String insertSql = "INSERT INTO member VALUES (?, ?, ?, ?)";
+                String insertSql = "INSERT INTO member (id, gender, name, pwd) VALUES (?, ?, ?, ?)";
                 PreparedStatement insertStmt = con.prepareStatement(insertSql);
                 insertStmt.setString(1, user);
                 insertStmt.setString(2, gender);
@@ -45,7 +45,7 @@
             }
         } catch (Exception e) {
             e.printStackTrace();
-            out.println("<script>showAlert('發生錯誤', 'signin.html');</script>");
+            out.println("<script>showAlert('發生錯誤：" + e.getMessage() + "', 'signin.html');</script>");
         }
     } 
     %>

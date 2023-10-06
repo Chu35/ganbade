@@ -143,13 +143,13 @@ window.addEventListener('load', function() {
     var imageUrl = image.getAttribute('src');
     var delay = delays[imageUrl];
     
-    // 使用setTimeout来延迟启动动画
     setTimeout(function() {
-      // 在此处添加启动动画的代码，例如给图像添加CSS类来触发动画
-      // 例如：image.classList.add('animate');
+      image.style.opacity = "1";
+      image.style.transform = "translateX(0)";
     }, delay);
   });
 });
+
 
 
   // Initialize the partner carousel

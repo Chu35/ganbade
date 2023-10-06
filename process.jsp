@@ -101,22 +101,28 @@
 <div class="process">
   <div class="progress_inner">
     <div class="inner_step">
-      <label for="step-1">採茶</label>
+      <label for="step-1">採菁</label>
     </div>
     <div class="inner_step">
-      <label for="step-2">浪菁</label>
+      <label for="step-2">萎凋</label>
     </div>
     <div class="inner_step">
-      <label for="step-3">殺菁</label>
+      <label for="step-3">浪菁</label>
     </div>
     <div class="inner_step">
-      <label for="step-4">萎凋</label>
+      <label for="step-4">殺菁</label>
     </div>
     <div class="inner_step">
-      <label for="step-5">萎凋</label>
+      <label for="step-5">揉捻</label>
     </div>
     <div class="inner_step">
-      <label for="step-6">萎凋</label>
+      <label for="step-6">發酵</label>
+    </div>
+    <div class="inner_step">  
+      <label for="step-7">乾燥</label>
+    </div>
+    <div class="inner_step">
+      <label for="step-8">烘培</label>
     </div>
     <input checked="checked" id="step-1" name="step" type="radio">
     <input id="step-2" name="step" type="radio">
@@ -124,49 +130,58 @@
     <input id="step-4" name="step" type="radio">
     <input id="step-5" name="step" type="radio">
     <input id="step-6" name="step" type="radio">
+    <input id="step-7" name="step" type="radio">
+    <input id="step-8" name="step" type="radio">
     <div class="innerbar"></div>
     <div class="progress_inner__bar--set"></div>
     <div class="progress_inner__tabs">
       <div class="tab">
-        <h1>採茶</h1>
+        <h1>採菁</h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tortor ipsum,
-          eleifend vitae massa non, dignissim finibus eros. Maecenas non eros tristique nisl maximus sollicitudin.
+          採菁是摘斷葉間幼梗的中部。採摘標準視老嫩程度而定，一般為一心兩葉至三葉，茶菁的完整度關係到茶葉製造的品質。
+        </p>
+      </div>
+      <div class="tab">
+        <h1>萎凋</h1>
+        <p>
+          萎凋過程可使茶葉重量、體積、硬度降低，促進化學反應產生特殊香氣及滋味。
         </p>
       </div>
       <div class="tab">
         <h1>浪菁</h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tortor ipsum,
-          eleifend vitae massa non, dignissim finibus eros. Maecenas non eros tristique nisl maximus sollicitudin.
+          初期:藉由翻動，使茶菁水分重新分配，減低茶梗水分。<br>
+          後期:藉由攪拌使茶葉細胞摩擦破損，增加多元酚氧化酶及兒茶素作用，進而控制茶葉發酵的程度。
         </p>
       </div>
       <div class="tab">
-        <h1>炒菁</h1>
+        <h1>殺菁</h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tortor ipsum,
-          eleifend vitae massa non, dignissim finibus eros. Maecenas non eros tristique nisl maximus sollicitudin.
+          藉由熱破壞茶葉中酵素活性，促使茶葉水分消散、葉片軟化，利於後續揉捻成形，並去除茶葉不良的菁味及穩定茶菁色澤及香氣。
         </p>
       </div>
       <div class="tab">
-        <h1>萎凋</h1>
+        <h1>揉捻</h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tortor ipsum,
-          eleifend vitae massa non, dignissim finibus eros. Maecenas non eros tristique nisl maximus sollicitudin.
+          藉由熱破壞茶葉中酵素活性，促使茶葉水分消散、葉片軟化，利於後續揉捻成形，並去除茶葉不良的菁味、穩定茶菁色澤與香氣。
         </p>
       </div>
       <div class="tab">
-        <h1>萎凋</h1>
+        <h1>發酵</h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tortor ipsum,
-          eleifend vitae massa non, dignissim finibus eros. Maecenas non eros tristique nisl maximus sollicitudin.
+          因揉捻後的茶葉發酵程度不足，所以需將茶葉堆疊進行補足發酵，使多元酚氧化酶與兒茶素類充分反應。
         </p>
       </div>
       <div class="tab">
-        <h1>萎凋</h1>
+        <h1>乾燥</h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tortor ipsum,
-          eleifend vitae massa non, dignissim finibus eros. Maecenas non eros tristique nisl maximus sollicitudin.
+          熱風去除茶葉中的水分，延長保存期限，並可停止發酵作用及其他生化反應。
+        </p>
+      </div>
+      <div class="tab">
+        <h1>烘培</h1>
+        <p>
+          烘焙具有去除水分效果，有效延長茶葉貯藏壽命，並改善茶帶有之菁臭味，增加茶葉特殊香氣。
         </p>
       </div>
     </div>

@@ -1,40 +1,53 @@
 /*process*/
-body .progress_inner #step-1:checked + input + input + input + input + input + div + div + div + div > .base{
-  background-image: url('../img/採茶.gif'); 
+body .progress_inner #step-1:checked + input + input + input + input + input + input + input + div + div + div + div > .base{
+  background-image: url('../img/採菁.gif'); 
   background-size: cover;
   background-position: center;
   opacity: 1;
 }
-body .progress_inner #step-2:checked + input + input + input + input + div + div + div + div > .base {
-  background-image: url('../img/浪菁.gif'); 
-  background-size: cover;
-  background-position: center;
-  opacity: 1;
-}
-body .progress_inner #step-3:checked + input + input + input + div + div + div + div > .base{
-  background-image: url('../img/殺菁.gif'); 
-  background-size: cover;
-  background-position: center;
-  opacity: 1;
-}
-body .progress_inner #step-4:checked + input + input + div + div + div + div > .base{
+body .progress_inner #step-2:checked + input + input + input + input + input + input + div + div + div + div > .base {
   background-image: url('../img/萎凋.gif'); 
   background-size: cover;
   background-position: center;
   opacity: 1;
 }
-body .progress_inner #step-5:checked + input + div + div + div + div > .base {
-  background-image: url('../img/4in1.ico');
+body .progress_inner #step-3:checked + input + input + input + input + input + div + div + div + div > .base{
+  background-image: url('../img/浪菁.gif'); 
+  background-size: cover;
+  background-position: center;
+  opacity: 1;
+}
+body .progress_inner #step-4:checked + input + input + input + input + div + div + div + div > .base{
+  background-image: url('../img/殺菁.gif'); 
+  background-size: cover;
+  background-position: center;
+  opacity: 1;
+}
+body .progress_inner #step-5:checked + input + input + input + div + div + div + div > .base {
+  background-image: url('../img/揉捻.gif');
   background-size: cover;
   background-position: center; 
   opacity: 1;
 }
-body .progress_inner #step-6:checked + div + div + div + div > .base {
-  background-image: url('../img/4in1.ico');
+body .progress_inner #step-6:checked + input + input + div + div + div + div > .base {
+  background-image: url('../img/發酵.gif');
   background-size: cover;
   background-position: center; 
   opacity: 1;
 }
+body .progress_inner #step-7:checked + input+ div + div + div + div > .base {
+  background-image: url('../img/乾燥.gif');
+  background-size: cover;
+  background-position: center; 
+  opacity: 1;
+}
+body .progress_inner #step-8:checked + div + div + div + div > .base {
+  background-image: url('../img/烘焙.gif');
+  background-size: cover;
+  background-position: center; 
+  opacity: 1;
+}
+
 body .status .base, body .progress_inner, body .inner_step:before {
   position: absolute;
   left: 0;
@@ -71,7 +84,7 @@ body .inner_step:before {
 }
 
 body .inner_step {
-  width: 10%;
+  width: 12.5%;
   font-size: 16px;
   padding: 0 10px;
   transition: all 0.4s;
@@ -96,69 +109,91 @@ body .inner_step:hover:before {
 
 .progress_inner {
   height: auto;
-  width: 1160px;
+  width: 900px;
 }
-body .progress_inner #step-6:checked + div {
+body .progress_inner #step-8:checked + div {
+  width: 90%;
+}
+body .progress_inner #step-8:checked + div + div + div + div {
+  right: -2%;
+}
+body .progress_inner #step-8:checked + div + div + div > .tab:nth-of-type(8) {
+  opacity: 1;
+  top: 0;
+}
+
+body .progress_inner #step-7:checked + input + div {
+  width: 75%;
+}
+body .progress_inner #step-7:checked + input + div + div + div + div {
+  right: 10%;
+}
+body .progress_inner #step-7:checked + input + div + div + div > .tab:nth-of-type(7) {
+  opacity: 1;
+  top: 0;
+}
+
+body .progress_inner #step-6:checked + input + input + div {
+  width: 65%;
+}
+body .progress_inner #step-6:checked + input + input + div + div + div + div {
+  right: 23%;
+}
+body .progress_inner #step-6:checked + input + input + div + div + div > .tab:nth-of-type(6) {
+  opacity: 1;
+  top: 0;
+}
+
+body .progress_inner #step-5:checked + input + input + input + div {
   width: 50%;
 }
-body .progress_inner #step-6:checked + div + div + div + div {
-  right: 45%;
-}
-body .progress_inner #step-6:checked + div + div + div > .tab:nth-of-type(6) {
+body .progress_inner #step-5:checked + input + input + input + div + div + div > .tab:nth-of-type(5) {
   opacity: 1;
   top: 0;
 }
-
-body .progress_inner #step-5:checked + input + div {
-  width: 40%;
-}
-body .progress_inner #step-5:checked + input + div + div + div > .tab:nth-of-type(5) {
-  opacity: 1;
-  top: 0;
-}
-body .progress_inner #step-5:checked + input + div + div + div + div {
-  right: 55%;
+body .progress_inner #step-5:checked + input + input + input + div + div + div + div {
+  right: 35%;
 }
 
-body .progress_inner #step-4:checked + input+ input + div {
-  width: 30%; /*進度條*/
+body .progress_inner #step-4:checked + input + input + input+ input + div {
+  width: 40%; /*進度條*/
 }
-body .progress_inner #step-4:checked + input + input + div + div + div > .tab:nth-of-type(4) {
+body .progress_inner #step-4:checked + input + input + input + input + div + div + div > .tab:nth-of-type(4) {
   opacity: 1; /*文字框*/
   top: 0;
 }
-body .progress_inner #step-4:checked + input + input + div + div + div + div {
-  right: 65%; /*前進*/
+body .progress_inner #step-4:checked + input + input + input + input + div + div + div + div {
+  right: 48%; /*前進*/
 }
 
-body .progress_inner #step-3:checked + input + input + input + div {
-  width: 20%;
+body .progress_inner #step-3:checked + input + input + input + input + input + div {
+  width: 25%;
 }
-body .progress_inner #step-3:checked + input + input + input + div + div + div > .tab:nth-of-type(3) {
+body .progress_inner #step-3:checked + input + input + input + input + input + div + div + div > .tab:nth-of-type(3) {
   opacity: 1;
   top: 0;
 }
-body .progress_inner #step-3:checked + input + input + input + div + div + div + div {
-  right: 75%;
+body .progress_inner #step-3:checked + input + input + input + input + input + div + div + div + div {
+  right: 60%;
 }
 
-body .progress_inner #step-2:checked + input + input + input + input + div {
-  width: 10%;
+body .progress_inner #step-2:checked + input + input + input + input + input + input + div {
+  width: 15%;
 }
-body .progress_inner #step-2:checked + input + input + input + input + div + div + div > .tab:nth-of-type(2) {
+body .progress_inner #step-2:checked + input + input + input + input + input + input + div + div + div > .tab:nth-of-type(2) {
   opacity: 1;
   top: 0;
 }
-body .progress_inner #step-2:checked + input + input + input + input + div + div + div + div {
+body .progress_inner #step-2:checked + input + input + input + input + input + input + div + div + div + div {
+  right: 73%;
+}
+
+body .progress_inner #step-1:checked + input + input + input + input + input + input + input + div + div + div > .tab:nth-of-type(1) {
+  opacity: 1;
+  top: 0;
+}
+body .progress_inner #step-1:checked + input + input + input + input + input + input + input + div + div + div + div {
   right: 85%;
-}
-
-body .progress_inner #step-1:checked + input + input + input + input + input + div + div + div > .tab:nth-of-type(1) {
-  opacity: 1;
-  top: 0;
-}
-body .progress_inner #step-1:checked + input + input + input + input + input + div + div + div + div {
-  right: 95%;
 }
 
 body .inner_step:nth-of-type(1):before {
@@ -179,6 +214,12 @@ body .inner_step:nth-of-type(5):before {
 body .inner_step:nth-of-type(6):before {
   content: "6";
 }
+body .inner_step:nth-of-type(7):before {
+  content: "7";
+}
+body .inner_step:nth-of-type(8):before {
+  content: "8";
+}
 body .progress_inner__bar--set {
   width: 90%;
   top: -6px;
@@ -197,6 +238,7 @@ body .progress_inner__tabs .tab {
   background: white;
   border-radius: 10px;
   transition: all 0.2s;
+  width: -webkit-fill-available;
 }
 
 body .progress_inner__tabs .tab p {
@@ -219,7 +261,7 @@ body .status .base {
   height: 200px;
   border-radius: 20px;
   top: -50px;
-  left: -80px;
+  left: auto;
 }
 
 body .progress_inner input[type=radio] {

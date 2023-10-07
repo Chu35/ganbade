@@ -52,7 +52,7 @@ body .status .base, body .progress_inner, body .inner_step:before {
   position: absolute;
   left: 0;
   right: 0;
-  top: 50%;
+  top: 58%;
   transform: translateY(-50%);
   margin: auto;
 }

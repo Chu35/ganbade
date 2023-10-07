@@ -132,7 +132,7 @@
 						var currentImageIndex = 0; // 當前圖片索引
 					
 						// 綁定點擊事件
-						document.querySelector('.fa-pencil-square-o').addEventListener('click', function () {
+						document.querySelector('.bi-brush').addEventListener('click', function () {
 							// 切換圖片
 							currentImageIndex = (currentImageIndex + 1) % imagePaths.length; // 循環切換圖片
 							var newImagePath = imagePaths[currentImageIndex];

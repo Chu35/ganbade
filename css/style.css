@@ -920,3 +920,6 @@ ul li {
   object-fit: cover; /* 控制图片在指定大小的框中填充，保持纵横比 */
 }
 
+#user-icon img{
+ width: 10px;
+}

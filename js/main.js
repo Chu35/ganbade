@@ -140,7 +140,7 @@ window.addEventListener("load", function() {
   
   images.forEach(function(image) { 
     var src = image.getAttribute("src");
-    var delay = delays[src] || 1000; // 使用對應的延遲時間，如果未定則默認1000(毫秒)
+    var delay = delays[src] || 500; 
     
     setTimeout(function() {
       image.style.opacity = "1";
@@ -328,5 +328,6 @@ if (typeof (Storage) !== "undefined") {
   document.getElementById("count").innerHTML = "Sorry";
 }
   
-//收藏
+
+
 

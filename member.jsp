@@ -115,15 +115,16 @@
 					
 					<div class="big-circle">
 						<img id="pic" class="no-repeat" src="img/t1.png" alt="">
-						<i class="bi bi-brush clothes btn btn-primary" type="button"
+						<% if (memberName != null) { %>
+						<i class="bi bi-arrow-repeat clothes btn btn-primary" type="button"
 						   data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample"></i>
-						<div class="collapse collapse-horizontal" id="collapseWidthExample">
+						<!-- <div class="collapse collapse-horizontal" id="collapseWidthExample">
 							<div class="card">
 								<div class="card-body">
 									<img id="replacement-pic" class="no-repeat" src="img/t2.png" alt="">
 								</div>
 							</div>
-						</div>
+						</div> -->
 					</div>
 					
 					<script>
@@ -132,13 +133,14 @@
 						var currentImageIndex = 0; // 當前圖片索引
 					
 						// 綁定點擊事件
-						document.querySelector('.bi-brush').addEventListener('click', function () {
+						document.querySelector('.bi-arrow-repeat').addEventListener('click', function () {
 							// 切換圖片
 							currentImageIndex = (currentImageIndex + 1) % imagePaths.length; // 循環切換圖片
 							var newImagePath = imagePaths[currentImageIndex];
 							document.getElementById('pic').src = newImagePath;
 						});
 					</script>
+					<% }%>
 					
 					<div class="display-5 mb-3"> </div>
 					<div class="mb-5" align="center">

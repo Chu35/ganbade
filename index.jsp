@@ -1,4 +1,5 @@
-<%@ page contentType="text/html;charset=utf-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*" %>
 <!DOCTYPE html>
 <html>
     <% String memberName = (String) session.getAttribute("memberName"); %>
@@ -74,7 +75,7 @@
 					<a href="contact.jsp" class="nav-item nav-link">關於我們</a>
 					<div class="nav-item dropdown">
 						<div id="user-icon" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><small
-							class="fa fa-user text-primary"></small></div>
+							class="fa <%= session.getAttribute("userIcon") %> text-primary"></small></div>
 						<div class="dropdown-menu border-light m-0">
 								<% if (memberName != null) { %>
 									<a class="dropdown-item"><%= memberName %>, 你好</a>

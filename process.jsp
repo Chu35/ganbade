@@ -65,8 +65,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link">首頁</a>
-                <a href="index.html#life" class="nav-item nav-link">茶的一生</a>
+                <a href="index.jsp" class="nav-item nav-link">首頁</a>
+                <a href="index.jsp#life" class="nav-item nav-link">茶的一生</a>
                 <div class="nav-item dropdown">
                     <a href="#knowl" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"
                         aria-expanded="true">知識調查局</a>

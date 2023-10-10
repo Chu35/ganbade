@@ -74,8 +74,8 @@
 					<a href="fun.jsp" class="nav-item nav-link">茶遊此地</a>
 					<a href="contact.jsp" class="nav-item nav-link">關於我們</a>
 					<div class="nav-item dropdown">
-						<div id="user-icon" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><small
-							class="fa <%= session.getAttribute("userIcon") %> text-primary"></small></div>
+						<div class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><small
+                            class="fa fa-user text-primary"></small></div>
 						<div class="dropdown-menu border-light m-0">
 								<% if (memberName != null) { %>
 									<a class="dropdown-item"><%= memberName %>, 你好</a>

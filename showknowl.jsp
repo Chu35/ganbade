@@ -72,11 +72,11 @@
                     <div class="dropdown-menu border-light m-0" data-bs-popper="none">
                         <a href="knowl.jsp" class="dropdown-item active">茶種介紹</a>
                         <a href="knowl2.jsp" class="dropdown-item">烘焙發酵介紹</a>
-                        <a href="knowl3.jsp" class="dropdown-item">製茶步驟介紹</a>
+                        <a href="process.jsp" class="dropdown-item">製茶步驟介紹</a>
                     </div>
                 </div>
                 <a href="fun.jsp" class="nav-item nav-link">茶遊此地</a>
-                <a href="contact.html" class="nav-item nav-link">關於我們</a>
+                <a href="contact.jsp" class="nav-item nav-link">關於我們</a>
                 <div class="nav-item nav-link">
                     <div class="box">
                         <form action="showknowl.jsp" autocomplete="off">

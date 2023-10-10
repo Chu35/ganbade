@@ -68,7 +68,7 @@
 						<div class="dropdown-menu border-light m-0" data-bs-popper="none">
 							<a href="knowl.jsp" class="dropdown-item">茶種介紹</a>
 							<a href="knowl2.html" class="dropdown-item">烘培發酵介紹</a>
-							<a href="knowl3.html" class="dropdown-item">製茶步驟介紹</a>
+							<a href="process.jsp" class="dropdown-item">製茶步驟介紹</a>
 						</div>
 					</div>
 					<a href="fun.jsp" class="nav-item nav-link">茶遊此地</a>

@@ -61,8 +61,8 @@ body .status .base, body .progress_inner, body .inner_step:before {
 body .progress_inner__bar--set, body .innerbar { 
   height: 6px;
   left: 5%;
-  background: repeating-linear-gradient(45deg, #1ea4ec, #1ea4ec 4px, #1f8bc5 4px, #1f8bc5 10px);
-  transition: width 800ms cubic-bezier(0.915, 0.015, 0.3, 1.005,);
+  background: repeating-linear-gradient(45deg, #7f6f50, #7f6f50 4px, #5c5039 4px, #5c5039 10px);
+  transition: width 900ms cubic-bezier(0.915, 0.015, 0.3, 1.005);
   border-radius: 6px;
   width: 0;
   position: relative;
@@ -72,7 +72,7 @@ body .progress_inner__bar--set, body .innerbar {
 body .inner_step:before {
   width: 30px;
   height: 30px;
-  color: #70afd0;
+  color: #8E7D5C;
   background: white;
   line-height: 30px;
   font-size: 16px;
@@ -104,7 +104,7 @@ body .inner_step:hover {
 }
 body .inner_step:hover:before {
   color: white;
-  background: #1ea4ec;
+  background: #8E7D5C;
 }
 
 .progress_inner {
@@ -223,7 +223,7 @@ body .inner_step:nth-of-type(8):before {
 body .progress_inner__bar--set {
   width: 90%;
   top: -6px;
-  background: #70afd0;
+  background: #8E7D5C;
   position: relative;
   z-index: -2;
 }
@@ -233,7 +233,7 @@ body .progress_inner__tabs .tab {
   top: 40px;
   text-align: center;
   margin-top: 80px;
-  box-shadow: 0px 2px 1px #80b7d5;
+  box-shadow: 0px 2px 1px #8E7D5C;
   padding: 30px;
   background: white;
   border-radius: 10px;
@@ -267,3 +267,4 @@ body .status .base {
 body .progress_inner input[type=radio] {
   display: none;
 }
+

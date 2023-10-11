@@ -1,54 +1,91 @@
 <%@ page contentType="text/html;charset=utf-8" import="java.sql.*" %>
 <html>
 <head>
-    <title>Modification Result</title>
-    <script>
-        function showAlert(message, redirectTo) {
-            alert(message);
-            window.location.href = redirectTo;
-        }
-    </script>
+    <title>修改會員資料</title>
 </head>
 <body>
     <%
-        String modifyUser = request.getParameter("modifyUser");
-        String modifyPwd = request.getParameter("modifyPwd");
-        String modifyField = request.getParameter("modifyField"); // 用户选择要修改的字段
+    String user = request.getParameter("user");
+    String pwd = request.getParameter("pwd");
+    String name = request.getParameter("name");
 
-        if (modifyField != null && !modifyField.isEmpty()) {
-            // 执行修改操作
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            String url = "jdbc:sqlserver://127.0.0.1:1433;database=ganbade";
-            try (Connection con = DriverManager.getConnection(url, "chu", "0725")) {
-                String updateSql = "";
-                
-                if ("user".equals(modifyField)) {
-                    updateSql = "UPDATE member SET user = ? WHERE name = ?";
-                } else if ("pwd".equals(modifyField)) {
-                    updateSql = "UPDATE member SET pwd = ? WHERE user = ?";
-                }
-                
-                if (!updateSql.isEmpty()) {
-                    PreparedStatement updateStmt = con.prepareStatement(updateSql);
-                    updateStmt.setString(1, "user".equals(modifyField) ? modifyUser : modifyPwd);
-                    updateStmt.setString(2, modifyUser);
-                    int rowsUpdated = updateStmt.executeUpdate();
+    Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+    String url = "jdbc:sqlserver://127.0.0.1:1433;database=ganbade";
+    Connection con = DriverManager.getConnection(url, "chu", "0725");
+    Statement st = con.createStatement();
 
-                    if (rowsUpdated > 0) {
-                        out.println("<script>showAlert('修改完成', 'member.jsp');</script>");
-                    } else {
-                        out.println("<script>showAlert('找不到該用戶', 'member.jsp');</script>");
-                    }
-                } else {
-                    out.println("<script>showAlert('無效的操作', 'member.jsp');</script>");
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-                out.println("<script>showAlert('發生錯誤', 'member.jsp');</script>");
+    // 检查用户是否存在
+    String checkSql = "select * from member where id = ?";
+    PreparedStatement checkPs = con.prepareStatement(checkSql);
+    checkPs.setString(1, user);
+    ResultSet checkRs = checkPs.executeQuery();
+
+    if (checkRs.next()) {
+        // 用户存在，执行更新操作
+        if (pwd != null && !pwd.isEmpty()) {
+            // 如果密码字段不为空，更新密码
+            String updatePwdSql = "update member set pwd=? where id=?";
+            PreparedStatement updatePwdPs = con.prepareStatement(updatePwdSql);
+            updatePwdPs.setString(1, pwd);
+            updatePwdPs.setString(2, user);
+
+            int pwdRowsUpdated = updatePwdPs.executeUpdate();
+            if (pwdRowsUpdated > 0) {
+                %>
+                <script>
+                    alert("<%= user %> 帳號的密碼已更新");
+                    window.location.href = "member.jsp";
+                </script>
+                <%
+            } else {
+                %>
+                <script>
+                    alert("無法更新 <%= user %> 帳號的密碼");
+                    window.location.href = "member.jsp";
+                </script>
+                <%
             }
-        } else {
-            out.println("<script>showAlert('請選擇要修改的字段', 'member.jsp');</script>");
+            updatePwdPs.close();
         }
+
+        if (name != null && !name.isEmpty()) {
+            // 如果名字字段不为空，更新名字
+            String updateNameSql = "update member set name=? where id=?";
+            PreparedStatement updateNamePs = con.prepareStatement(updateNameSql);
+            updateNamePs.setString(1, name);
+            updateNamePs.setString(2, user);
+
+            int nameRowsUpdated = updateNamePs.executeUpdate();
+            if (nameRowsUpdated > 0) {
+                %>
+                <script>
+                    alert("<%= user %> 帳號的名字已更新");
+                    window.location.href = "member.jsp";
+                </script>
+                <%
+            } else {
+                %>
+                <script>
+                    alert("無法更新 <%= user %> 帳號的名字");
+                    window.location.href = "member.jsp";
+                </script>
+                <%
+            }
+            updateNamePs.close();
+        }
+    } else {
+        %>
+        <script>
+            alert("<%= user %> 帳號不存在，無法更新");
+            window.location.href = "member.jsp";
+        </script>
+        <%
+    }
+
+    checkRs.close();
+    checkPs.close();
+    st.close();
+    con.close();
     %>
 </body>
 </html>

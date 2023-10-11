@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+    <style>
+        #seq {
+            position: fixed;
+        }
+
+        .animated {
+            position: absolute;
+            display: none;
+            top: 0;
+            left: 0;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+    <div id="seq">
+        <img src="http://s23.postimage.org/t57meexkb/horse_1.png" class="animated" />
+        <img src="http://s23.postimage.org/i86apnasr/horse_2.png" class="animated" />
+        <img src="http://s23.postimage.org/6kc8v3lnv/horse_3.png" class="animated" />
+        <img src="http://s23.postimage.org/w4ej1j71n/horse_4.png" class="animated" />
+        <img src="http://s23.postimage.org/ddclrdch7/horse_5.png" class="animated" />
+        <img src="http://s23.postimage.org/nbxkdulwr/horse_6.png" class="animated" />
+        <img src="http://s23.postimage.org/phrv8cpd7/horse_7.png" class="animated" />
+        <img src="http://s23.postimage.org/n1un88wob/horse_8.png" class="animated" />
+        <img src="http://s23.postimage.org/9yz0oz6gb/horse_9.png" class="animated" />
+        <img src="http://s23.postimage.org/6gn0sl5kb/horse_10.png" class="animated" />
+        <img src="http://s23.postimage.org/vnxwsu8ob/horse_11.png" class="animated" />
+        <img src="http://s23.postimage.org/bhuetyd0r/horse_12.png" class="animated" />
+        <img src="http://s23.postimage.org/imc82zka3/horse_13.png" class="animated" />
+        <img src="http://s23.postimage.org/auvi4fg4r/horse_14.png" class="animated" />
+    </div>
+    <div style="height: 2000px; width: 100px;"></div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var scrollResolution = 50;
+
+            $(window).on('scroll', function () {
+                var currentScrollPosition = $(window).scrollTop();
+                var imageIndex = Math.floor(currentScrollPosition / scrollResolution);
+
+                // Ensure that the last image remains visible
+                if (imageIndex >= $("#seq img").length - 1) {
+                    imageIndex = $("#seq img").length - 1;
+                }
+
+                $("#seq img").removeClass("show");
+                $("#seq img:eq(" + imageIndex + ")").addClass("show");
+            });
+        });
+    </script>
+</body>
+</html>
+
+        
+    

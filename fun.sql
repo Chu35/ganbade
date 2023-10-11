@@ -16,8 +16,8 @@ drop table fun
 ALTER TABLE fun add web NVARCHAR(60);
 ALTER TABLE fun ALTER COLUMN name NVARCHAR(50);
 insert into fun values
-('f7','img\f7-2.jpg','img\f7-1.jpg','HANKO 60 如醉如夢','https://www.instagram.com/barhanko60/','https://www.facebook.com/hanko60','沙發酒吧','台北市萬華區漢口街二段60號','週日至週四 20:00～02:00、週五週六 20:00–03:00','02 2381 0808',null,null,'西門町',null)
+('f9','img\f9-2.jpg','img\f9-1.jpg','台北市鐵觀音包種茶研發推廣中心',null,'https://www.facebook.com/pinglin.tea.m/?locale=zh_TW','博物館','台北市文山區指南路三段40巷8之2號','週二至週日 09:00～17:00','02 2234 0568',null,'https://reurl.cc/xGd0MN','木柵',null)
 
-UPDATE fun SET time='10:30～18:20（最後點餐 : 17:20）' WHERE id='f6';
+UPDATE fun SET time='週一至週五 09:00～17:00、週六及週日 09:00～17:30(閉館前30分鐘停止售票)' WHERE id='f8'
 
 UPDATE  fun SET web='https://openmuseum.tw/museum/sinhongchoon' WHERE id = 'f3';

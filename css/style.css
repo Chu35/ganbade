@@ -921,5 +921,23 @@ ul li {
 }
 
 #user-icon img{
- width: 10px;
+ width: 30px;
 }
+
+/*動畫*/
+.ani {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 600px; /* Set the height of the container */
+}
+.ani img {
+  top: 40px;
+  display: none;
+  width: 130%; /* Set the width of the images */
+  height: auto; /* Set the height of the images */
+}
+.ani img:first-child {
+  display: block;
+}
+

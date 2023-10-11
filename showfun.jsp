@@ -69,8 +69,8 @@
                     <a href="#knowl" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
                         aria-expanded="true">知識調查局</a>
                     <div class="dropdown-menu border-light m-0" data-bs-popper="none">
-                        <a href="knowl.jsp" class="dropdown-item">茶種介紹</a>
-                        <a href="knowl2.jsp" class="dropdown-item">烘焙發酵介紹</a>
+                        <a href="knowl.jsp" class="dropdown-item">茶葉介紹</a>
+                        <a href="crafts.jsp" class="dropdown-item">烘焙發酵介紹</a>
                         <a href="process.jsp" class="dropdown-item">製茶步驟介紹</a>
                     </div>
                 </div>

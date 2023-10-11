@@ -70,8 +70,8 @@
                     <a href="#knowl" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"
                         aria-expanded="true">知識調查局</a>
                     <div class="dropdown-menu border-light m-0" data-bs-popper="none">
-                        <a href="knowl.jsp" class="dropdown-item active">茶種介紹</a>
-                        <a href="knowl2.jsp" class="dropdown-item">烘焙發酵介紹</a>
+                        <a href="knowl.jsp" class="dropdown-item active">茶葉介紹</a>
+                        <a href="crafts.jsp" class="dropdown-item">烘焙發酵介紹</a>
                         <a href="process.jsp" class="dropdown-item">製茶步驟介紹</a>
                     </div>
                 </div>
@@ -86,8 +86,8 @@
                     </div>
                 </div>
                 <div class="nav-item dropdown">
-                    <div class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><small
-                            class="fa fa-user text-primary"></small></div>
+                    <div id="user-icon" class="nav-link dropdown-toggle"  data-bs-toggle="dropdown"><small
+                        class="fa fa-user text-primary"></small></div>
                     <div class="dropdown-menu border-light m-0">
                         <% if (memberName != null) { %>
                             <a class="dropdown-item"><%= memberName %>, 你好</a>
@@ -179,11 +179,11 @@
                                 <div class="info_desc"><%= rs.getString("place") %></div>
                             </div>
                             <div class="info clearfix">
-                                <div class="info_title">品種</div>
+                                <div class="info_title">茶樹品種</div>
                                 <div class="info_desc"><%= type %></div>
                             </div>
                             <div class="info clearfix">
-                                <div class="info_title">分類</div>
+                                <div class="info_title">茶種</div>
                                 <div class="info_desc"><%= rs.getString("classification") %></div>
                             </div>
                             <div class="modal fade" id="<%= modalId %>" tabindex="-1" aria-labelledby="<%= modalId %>" aria-hidden="true">
@@ -234,7 +234,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <hr>
                                 </div>
                             </div>
                             

@@ -65,8 +65,8 @@
 						<a href="knowl.jsp" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
 							aria-expanded="true">知識調查局</a>
 						<div class="dropdown-menu border-light m-0" data-bs-popper="none">
-							<a href="knowl.jsp" class="dropdown-item">茶種介紹</a>
-							<a href="knowl2.html" class="dropdown-item">烘培發酵介紹</a>
+							<a href="knowl.jsp" class="dropdown-item">茶葉介紹</a>
+							<a href="crafts.jsp" class="dropdown-item">烘培發酵介紹</a>
 							<a href="process.jsp" class="dropdown-item">製茶步驟介紹</a>
 						</div>
 					</div>
@@ -126,35 +126,55 @@
 		</div>
 	</div>
 	<!-- keyvision End -->
-	
+
 	
 	<!-- Tealife Start -->
 	<div id="life" class="container-xxl py-4"></div>
 	<div class="container-xxl py-4">
     <div class="container">
-        <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.2s" style="max-width: 700px;">
+        <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.2s" style="max-width: 1000px;">
             <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-interval="false">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <h1 class="tealife py-1 px-3"><font color="#d05600">紅茶</font>的一生</h1>
-                        <div class="video-container">
-                            <video class="d-block w-100" autoplay muted loop playsinline>
-                                <source src="img/採菁.mp4" type="video/mp4" >
-                            </video>
-                            <video class="d-block w-100" autoplay muted loop playsinline>
-                                <source src="img/萎凋.mp4" type="video/mp4">
-                            </video>
-							<video class="d-block w-100" autoplay muted loop playsinline>
-                                <source src="img/發酵.mp4" type="video/mp4">
-                            </video>
-							<video class="d-block w-100" autoplay muted loop playsinline>
-                                <source src="img/揉捻.mp4" type="video/mp4">
-                            </video>
-							<video class="d-block w-100" autoplay muted loop playsinline>
-                                <source src="img/乾燥.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
+						<div class="ani" id="seq">
+							<img src="http://s23.postimage.org/t57meexkb/horse_1.png" id="pic1" />
+							<img src="http://s23.postimage.org/i86apnasr/horse_2.png" id="pic2" />
+							<img src="http://s23.postimage.org/6kc8v3lnv/horse_3.png" id="pic3" />
+							<img src="http://s23.postimage.org/w4ej1j71n/horse_4.png" id="pic4" />
+							<img src="http://s23.postimage.org/ddclrdch7/horse_5.png" id="pic5" />
+							<img src="http://s23.postimage.org/nbxkdulwr/horse_6.png" id="pic6" />
+							<img src="http://s23.postimage.org/phrv8cpd7/horse_7.png" id="pic7" />
+							<img src="http://s23.postimage.org/n1un88wob/horse_8.png" id="pic8" />
+						</div>
+						<script>
+							var nowPic = 1;
+
+							function MouseWheel(e) {
+								var pic;
+								e = e || window.event;
+								for (var i = 1; i < 9; i++) { // Change the loop range to cover all image elements (1-8)
+									pic = document.getElementById("pic" + i);
+									if (i === nowPic) {
+										pic.style.display = "block";
+									} else {
+										pic.style.display = "none";
+									}
+								}
+								if (nowPic >= 8) { // Change the check for the last image
+									nowPic = 1;
+								} else {
+									nowPic++;
+								}
+							}
+
+							/* Firefox event registration */
+							if (document.addEventListener) {
+								document.addEventListener("DOMMouseScroll", MouseWheel, false);
+							}
+							window.onmousewheel = document.onmousewheel = MouseWheel; // IE/Opera/Chrome
+						</script>
+						</div>
                     <div class="carousel-item">
                         <h1 class="tealife py-1 px-3"><font color="#ecddb0">綠茶</font>的一生</h1>
                         <div class="video-container">
@@ -183,6 +203,9 @@
                             </video>
 							<video class="d-block w-100" autoplay muted loop playsinline>
                                 <source src="img/浪菁.mp4" type="video/mp4">
+                            </video>
+							<video class="d-block w-100" autoplay muted loop playsinline>
+                                <source src="img/發酵.mp4" type="video/mp4">
                             </video>
 							<video class="d-block w-100" autoplay muted loop playsinline>
                                 <source src="img/殺菁.mp4" type="video/mp4">
@@ -248,5 +271,4 @@
 	<script src="js/main.js"></script>
 	<script src="js/test.js"></script>
 </body>
-
 </html>

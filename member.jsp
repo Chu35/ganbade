@@ -66,8 +66,8 @@
 						<a href="knowl.jsp" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
 							aria-expanded="true">知識調查局</a>
 						<div class="dropdown-menu border-light m-0" data-bs-popper="none">
-							<a href="knowl.jsp" class="dropdown-item">茶種介紹</a>
-							<a href="knowl2.jsp" class="dropdown-item">烘培發酵介紹</a>
+							<a href="knowl.jsp" class="dropdown-item">茶葉介紹</a>
+							<a href="crafts.jsp" class="dropdown-item">烘培發酵介紹</a>
 							<a href="process.jsp" class="dropdown-item">製茶步驟介紹</a>
 						</div>
 					</div>
@@ -146,10 +146,12 @@
 					<div class="mb-5" align="center">
 						<% if (memberName != null) { %>
 						<form id="membermodify" action="modify.jsp" method="post" autocomplete="off">
-							帳號：<input class="m1" type="text" name="user" placeholder="<%= memberName %>" />
-							<input class="btn btn-primary" type="submit" name="modifyUser" value="修改" /><br><br>
-							密碼：<input class="m1" type="password" name="pwd" value="" />
-							<input class="btn btn-primary" type="submit" name="modifyPwd" value="修改" /><br><br>
+							帳號：<input class="m1" type="text" name="user" placeholder="<%= memberName %>"/><br><br>
+							密碼：<input class="m1" type="password" name="pwd"/><br><br>
+							<div class="form-table">
+								<input class="btn btn-primary" type="submit" value="修改" />&emsp;
+								<input class="btn btn-primary" type="reset" value="清除"/>
+							</div>
 						</form>
 						<% }%>
 					</div>

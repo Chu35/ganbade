@@ -68,9 +68,9 @@
                 <a href="index.jsp" class="nav-item nav-link">茶的一生</a>
                 <div class="nav-item dropdown">
                     <a href="knowl.jsp" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
-                        aria-expanded="true">知識調查局</a>
+                        aria-expanded="true">知識調茶局</a>
                     <div class="dropdown-menu border-light m-0" data-bs-popper="none">
-                        <a href="knowl.jsp" class="dropdown-item">茶葉介紹</a>
+                        <a href="knowl.jsp" class="dropdown-item">茶種介紹</a>
                         <a href="crafts.jsp" class="dropdown-item">烘焙發酵介紹</a>
                         <a href="process.jsp" class="dropdown-item">製茶步驟介紹</a>
                     </div>
@@ -185,6 +185,15 @@
                 <img class="img-fluid rounded" src="<%= imagePath %>" alt="<%= name %>" style=" width: 550px;height: 350px;">
             </div>
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.2s">
+                <form action="collectfun.jsp">
+                    <i id="collectFunButton<%= id %>" class="bi bi-bookmark-heart" style="cursor: pointer;"></i>
+                    <script>
+                        var collectFunButton<%= id %> = document.getElementById("collectFunButton<%= id %>");
+                        collectFunButton<%= id %>.addEventListener("click", function() {
+                            window.location.href = "collectfun.jsp?fun_id=<%= id %>";
+                        });
+                    </script>
+                </form>                
                 <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3 mb-1"><%= type %></p>
                 <div class="display-5 mb-1">
                     <img src="<%= imagePathicon %>" alt="<%= name %>" class="btn btn-l btn-lg-square rounded-circle" style="display:inline;"><h1 style="display:inline;font-family:monospace;">&ensp;<%= name %></h1>

@@ -10,19 +10,19 @@
     String memberName = (String) session.getAttribute("memberName");
 
     if (memberName != null && !memberName.isEmpty()) {
-        String knowledgeId = request.getParameter("knowledge_id");
+        String funId = request.getParameter("fun_id");
 
-        if (knowledgeId != null && !knowledgeId.isEmpty()) {
+        if (funId != null && !funId.isEmpty()) {
             try {
                 Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
                 String url = "jdbc:sqlserver://127.0.0.1:1433;database=ganbade";
                 Connection con = DriverManager.getConnection(url, "chu", "0725");
 
                 // 查询是否已收藏
-                String checkSql = "SELECT * FROM member_collect WHERE member_name = ? AND knowledge_id = ?";
+                String checkSql = "SELECT * FROM member_collect WHERE member_name = ? AND fun_id = ?";
                 PreparedStatement checkPs = con.prepareStatement(checkSql);
                 checkPs.setString(1, memberName);
-                checkPs.setString(2, knowledgeId);
+                checkPs.setString(2, funId);
                 ResultSet checkRs = checkPs.executeQuery();
 
                 if (checkRs.next()) {
@@ -33,10 +33,10 @@
     <%
                 } else {
                     // 未收藏，执行插入操作
-                    String insertSql = "INSERT INTO member_collect (member_name, knowledge_id) VALUES (?, ?)";
+                    String insertSql = "INSERT INTO member_collect (member_name, fun_id) VALUES (?, ?)";
                     PreparedStatement insertPs = con.prepareStatement(insertSql);
                     insertPs.setString(1, memberName);
-                    insertPs.setString(2, knowledgeId);
+                    insertPs.setString(2, funId);
 
                     int rowsInserted = insertPs.executeUpdate();
 
@@ -77,14 +77,14 @@
         if (confirmed) {
             window.location.href = "login.html"; // Redirect to the login page
         } else {
-            window.location.href = "knowl.jsp";
+            window.location.href = "fun.jsp";
         }
     </script>
     <%
     }
     %>
     <script>
-        window.location.href = "knowl.jsp";
+        window.location.href = "fun.jsp";
     </script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
 <!DOCTYPE html>
+<% String memberName = (String) session.getAttribute("memberName"); %>
 <html>
     <head>
         <meta charset="utf-8">
@@ -67,9 +68,9 @@
                 <a href="index.jsp#life" class="nav-item nav-link">茶的一生</a>
                 <div class="nav-item dropdown">
                     <a href="#knowl" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
-                        aria-expanded="true">知識調查局</a>
+                        aria-expanded="true">知識調茶局</a>
                     <div class="dropdown-menu border-light m-0" data-bs-popper="none">
-                        <a href="knowl.jsp" class="dropdown-item">茶葉介紹</a>
+                        <a href="knowl.jsp" class="dropdown-item">茶種介紹</a>
                         <a href="crafts.jsp" class="dropdown-item">烘焙發酵介紹</a>
                         <a href="process.jsp" class="dropdown-item">製茶步驟介紹</a>
                     </div>
@@ -85,20 +86,20 @@
                     </div>
                 </div>
                 <div class="nav-item dropdown">
-                    <div class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><small
-                            class="fa fa-user text-primary"></small></div>
-                            <div class="dropdown-menu border-light m-0">
-                                <% if (memberName != null) { %>
-                                    <a class="dropdown-item"><%= memberName %>, 你好</a>
-                                <% } else { %>
-                                    <a class="dropdown-item" href="login.html">登入/註冊</a>
-                                <% } %>
-                                <a href="index.jsp" class="dropdown-item">心理測驗</a>
-                                <a href="member.jsp" class="dropdown-item">客製滴滴</a>
-                                <% if (memberName != null) { %>
-                                    <a class="dropdown-item" href="logout.jsp">登出</a>
-                                <% }%>
-                            </div>
+                    <div id="user-icon" class="nav-link dropdown-toggle"  data-bs-toggle="dropdown"><small
+                        class="fa fa-user text-primary"></small></div>
+                    <div class="dropdown-menu border-light m-0">
+                        <% if (memberName != null) { %>
+                            <a class="dropdown-item"><%= memberName %>, 你好</a>
+                        <% } else { %>
+                            <a class="dropdown-item" href="login.html">登入/註冊</a>
+                        <% } %>
+                        <a href="index.jsp" class="dropdown-item">心理測驗</a>
+                        <a href="member.jsp" class="dropdown-item">客製滴滴</a>
+                        <% if (memberName != null) { %>
+                            <a class="dropdown-item" href="logout.jsp">登出</a>
+                        <% }%>
+                    </div>
                 </div>
             </div>
         </div>
@@ -157,6 +158,15 @@
                 <img class="img-fluid rounded" src="<%= imagePath %>" alt="<%= name %>">
             </div>
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                <form action="collectfun.jsp">
+                    <i id="collectButton<%= id %>" class=" bi bi-bookmark-heart" style="cursor: pointer;"></i>
+                    <script>
+                        var collectButton<%= id %> = document.getElementById("collectButton<%= id %>");
+                        collectButton<%= id %>.addEventListener("click", function() {
+                            window.location.href = "collectfun.jsp?fun_id=<%= id %>";
+                        });
+                    </script>
+                </form>
                 <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3 mb-1"><%= type %></p>
                 <div class="display-5 mb-1">
                     <img src="<%= imagePathicon %>" alt="<%= name %>" class="btn btn-l btn-lg-square rounded-circle" style="display:inline;"><h1 style="display:inline;">&nbsp;<%= name %></h1>

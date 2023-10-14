@@ -68,9 +68,9 @@
                 <a href="index.jsp#life" class="nav-item nav-link">茶的一生</a>
                 <div class="nav-item dropdown">
                     <a href="#knowl" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"
-                        aria-expanded="true">知識調查局</a>
+                        aria-expanded="true">知識調茶局</a>
                     <div class="dropdown-menu border-light m-0" data-bs-popper="none">
-                        <a href="knowl.jsp" class="dropdown-item active">茶葉介紹</a>
+                        <a href="knowl.jsp" class="dropdown-item active">茶種介紹</a>
                         <a href="crafts.jsp" class="dropdown-item">烘焙發酵介紹</a>
                         <a href="process.jsp" class="dropdown-item">製茶步驟介紹</a>
                     </div>

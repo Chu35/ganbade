@@ -64,7 +64,7 @@
 					<a href="index.jsp#life" class="nav-item nav-link">茶的一生</a>
 					<div class="nav-item dropdown">
 						<a href="knowl.jsp" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
-							aria-expanded="true">知識調查局</a>
+							aria-expanded="true">知識調茶局</a>
 						<div class="dropdown-menu border-light m-0" data-bs-popper="none">
 							<a href="knowl.jsp" class="dropdown-item">茶葉介紹</a>
 							<a href="crafts.jsp" class="dropdown-item">烘培發酵介紹</a>
@@ -153,37 +153,116 @@
 								<input class="btn btn-primary" type="reset" value="清除"/>
 							</div>
 						</form>
-						<% }%>
 					</div>
-					<h1 class="mb-4"><i class="fa fa-heart" aria-hidden="true"></i>&nbsp;收藏</h1>
-					<div class="row">
-						<div class="col-sm-3 mb-3 mb-sm-0">
-							<div class="card">
-								<div class="card-body">
-									<h5 class="card-title">Special title treatment</h5>
-									<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-									<a href="#" class="btn btn-primary">Go somewhere</a>
+						<% }else { %>
+                        <% } %>
+
+						<%
+						if (memberName != null) {
+							try {
+								String dbUrl = "jdbc:sqlserver://127.0.0.1:1433;databaseName=ganbade";
+								String dbUser = "chu";
+								String dbPassword = "0725";
+								Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+								Connection conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+						
+								String sql = "SELECT knowledge.id, knowledge.name, knowledge.image_path FROM member_collect " +
+											 "INNER JOIN knowledge ON member_collect.knowledge_id = knowledge.id " +
+											 "WHERE member_name = ?";
+								String sql2 = "SELECT fun.id, fun.name, fun.imagePath FROM member_collect " +
+											  "INNER JOIN fun ON member_collect.fun_id = fun.id " +
+											  "WHERE member_name = ?";
+								PreparedStatement preparedStatement = conn.prepareStatement(sql);
+								preparedStatement.setString(1, memberName);
+								ResultSet result = preparedStatement.executeQuery();
+						%>
+						<div class="row">
+							<h1 class="mb-4"><i class="fa fa-heart" aria-hidden="true"></i>&nbsp;收藏</h1>
+							<div class="col-sm-8 mb-3 mb-sm-0">
+								<div class="card">
+									<div class="card-body">
+										<div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
+											<button class="nav-link fw-semi-bold active" id="nav-story-tab" data-bs-toggle="tab" data-bs-target="#nav-story"
+												type="button" role="tab" aria-controls="nav-story" aria-selected="true">知識調茶局</button>
+											<button class="nav-link fw-semi-bold" id="nav-mission-tab" data-bs-toggle="tab" data-bs-target="#nav-mission"
+												type="button" role="tab" aria-controls="nav-mission" aria-selected="false">好玩der</button>
+										</div>
+										<div class="tab-content" id="nav-tabContent">
+											<div class="tab-pane fade show active" id="nav-story" role="tabpanel" aria-labelledby="nav-story-tab">
+												<div class="image-grid">
+													<%
+													while (result.next()) {
+													%>
+													<div>
+														<a href="knowl.jsp?id=<%= result.getString("id") %>">
+															<img src="<%= result.getString("image_path") %>" alt="<%= result.getString("name") %>">
+														</a>
+														<h5 class="card-title" style="line-height: 3;"><%= result.getString("name") %></h5>
+													</div>
+													<%
+													}
+													%>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="nav-mission" role="tabpanel" aria-labelledby="nav-mission-tab">
+												<div class="image-grid">
+													<% // Reset the ResultSet pointer for the second query
+													result.close();
+													preparedStatement.close();
+													preparedStatement = conn.prepareStatement(sql2);
+													preparedStatement.setString(1, memberName);
+													result = preparedStatement.executeQuery();
+													while (result.next()) {
+													%>
+													<div>
+														<a href="fun.jsp?id=<%= result.getString("id") %>">
+															<img src="<%= result.getString("imagePath") %>" alt="<%= result.getString("name") %>">
+														</a>
+														<h5 class="card-title" style="line-height: 3;"><%= result.getString("name") %></h5>
+													</div>
+													<%
+													}
+													%>
+												</div>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
-						<div class="col-sm-3 mb-3 mb-sm-0">
-							<div class="card">
-								<div class="card-body">
-									<h5 class="card-title">Special title treatment</h5>
-									<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-									<a href="#" class="btn btn-primary">Go somewhere</a>
+						<%
+								result.close();
+								preparedStatement.close();
+								conn.close();
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+						} else {
+						%>
+						<div class="row">
+							<div class="col-sm-3 mb-3 mb-sm-0">
+								<div class="card">
+									<div class="card-body">
+										<h5 class="card-title">加入會員解鎖更多</h5>
+										<a href="signin.html" class="btn btn-primary">GO GO !!!</a>
+									</div>
 								</div>
 							</div>
 						</div>
+						<%
+						}
+						%>
+						
+						
+						
+							</div>
+						</div>
 					</div>
-                </div>
-            </div>
-		</div>
-    </div>
+				</div>
 	
     <!-- About End -->
 
-
+	
 	
 	
 	<!-- Back to Top -->

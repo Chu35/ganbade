@@ -17,21 +17,42 @@
 
 
     // Fixed Navbar
-    $(window).scroll(function () {
-        if ($(window).width() < 992) {
-            if ($(this).scrollTop() > 45) {
-                $('.fixed-top').addClass('bg-white shadow');
-            } else {
-                $('.fixed-top').removeClass('bg-white shadow');
-            }
-        } else {
-            if ($(this).scrollTop() > 45) {
-                $('.fixed-top').addClass('bg-white shadow').css('top', -45);
-            } else {
-                $('.fixed-top').removeClass('bg-white shadow').css('top', 0);
-            }
-        }
-    });
+    $(document).ready(function () {
+      let lastScrollTop = 0;
+      let navbar = $('.fixed-top');
+      let navItems = $('.navbar .nav-item');
+      let navLinks = $('.navbar .nav-link');
+  
+      $(window).scroll(function () {
+          let currentScrollTop = $(this).scrollTop();
+  
+          if (currentScrollTop > lastScrollTop) {
+              // 用户向下滚动
+              navbar.removeClass('bg-white shadow').css('top', -45);
+              navItems.css('display', 'none');
+              navLinks.css('padding', '0');
+          } else {
+              // 用户向上滚动
+              if ($(window).width() < 992) {
+                  navbar.addClass('bg-white shadow');
+              } else {
+                  navbar.addClass('bg-white shadow').css('top', 0);
+              }
+              navItems.css('display', 'block');
+              navLinks.css('padding', '25px 15px');
+          }
+  
+          // 检查是否滚动到顶部
+          if (currentScrollTop === 0) {
+              navbar.removeClass('bg-white shadow');
+          }
+  
+          lastScrollTop = currentScrollTop;
+      });
+  });
+  
+
+  
     
     
     // Back to top button
@@ -131,16 +152,16 @@ function simulateTestCompletion() {
 window.addEventListener("load", function() {
   var images = document.querySelectorAll(".image");
   var delays = {
-    "img/kv3.png": 2500,
-    "img/kv4.png": 2500,
-    "img/kv5.png": 2500,
-    "img/kv7.png": 3500,	
-    "img/kv9.png": 3500
+    "img/kv3.png": 1500,
+    "img/kv4.png": 1500,
+    "img/kv5.png": 1500,
+    "img/kv7.png": 2500,	
+    "img/kv9.png": 2500
   }; // 不同圖片的延遲時間（毫秒）
   
   images.forEach(function(image) { 
     var src = image.getAttribute("src");
-    var delay = delays[src] || 500; 
+    var delay = delays[src] || 1000; 
     
     setTimeout(function() {
       image.style.opacity = "1";
@@ -323,7 +344,7 @@ if (typeof (Storage) !== "undefined") {
   } else {
       localStorage.pagecount = 1;
   }
-  document.getElementById("count").innerHTML = "This " + localStorage.pagecount + " time(s).";
+  document.getElementById("count").innerHTML = "網站瀏覽人數：" + localStorage.pagecount;
 } else {
   document.getElementById("count").innerHTML = "Sorry";
 }

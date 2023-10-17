@@ -64,9 +64,9 @@
 					<a href="knowl.jsp" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="true">知識調茶局</a>
 					<div class="dropdown-menu border-light m-0" data-bs-popper="none">
 						<a href="knowl.jsp" class="dropdown-item">茶種介紹</a>
-						<a href="crafts.jsp" class="dropdown-item">烘培發酵介紹</a>
-						<a href="process.jsp" class="dropdown-item">製茶步驟介紹</a>
-					</div>
+                        <a href="process.jsp" class="dropdown-item">製茶步驟介紹</a>
+                        <a href="fix.jsp" class="dropdown-item">烘培發酵介紹</a>
+                </div>
 				</div>
                   <a href="fun.jsp" class="nav-item nav-link">茶遊此地</a>
                   <a href="contact.jsp" class="nav-item nav-link">關於我們</a>
@@ -75,7 +75,7 @@
                         <div class="dropdown-menu border-light m-0">
 							<a href="login.html" class="dropdown-item active">登入/註冊</a>
                             <a href="index.jsp" class="dropdown-item">心理測驗</a>
-							<a href="member.jsp" class="dropdown-item">客製滴滴</a>
+							<a href="member.jsp" class="dropdown-item">會員中心</a>
                         </div>
 					</div>
 				</div>
@@ -91,43 +91,27 @@
             <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
                 <h1 class="display-5 mb-5">成為滴滴一員</h1>
             </div>
-			<div class=" mb-5" align="center"> 
-			<form action="register.jsp" method="post">
-        <table class="form-table" >
-            <tr>
-                <td>暱稱：</td>
-                <td><input type="text" name="user" autocomplete="off" required/></td>
-            </tr>
-            <tr>
-                <td>性別：</td>
-                <td>
-					<label><input type="radio" name="gender" value="M" />男</label>
-                    <label><input type="radio" name="gender" value="F">女</label>
-                    <label><input type="radio" name="gender" value="N/A">不透漏</label>
-                </td>
-            </tr>
-            <tr>
-                <td>帳號：</td>
-                <td><input type="text" name="name" autocomplete="off" required/></td>
-            </tr>
-            <tr>
-                <td>密碼：</td>
-                <td>
-					<input type="password" name="pwd"/>
-					<div class="password-requirements" required pattern="^(?=.*[0-9])(?=.*[a-zA-Z]).+$">
-                        <font size="1" color="#747474">密碼需包含英文以及數字</font></div>
-				</td>
-            </tr>
-        </table>
-        <br>
-        <div class="form-table">
-            <input class="btn btn-primary" type="submit" value="存檔" />&emsp;
-            <input class="btn btn-primary" type="reset" value="清除"/>
+            <div class=" mb-5" align="center">
+                <form id="membermodify" action="register.jsp" method="post" autocomplete="off">
+                    暱稱：<input class="m1" type="text" name="user" autocomplete="off" required /><br><br>
+                    性別：&ensp;<label><input type="radio" name="gender" value="M" />男</label>&emsp;
+                    <label><input type="radio" name="gender" value="F">女</label>&emsp;
+                    <label><input type="radio" name="gender" value="N/A">不透漏</label><br><br>
+                    帳號：<input class="m1" type="text" name="name" autocomplete="off" required /><br><br>
+                    密碼：<input class="m1" type="password" name="pwd" />
+                    <div class="password-requirements" required pattern="^(?=.*[0-9])(?=.*[a-zA-Z]).+$">
+                        <font size="1" color="red">*密碼需包含英文以及數字*</font>
+                    </div>
+                    </input>
+                    </from><br>
+                    <div class="form-table">
+                        <input class="btn btn-primary" type="submit" value="存檔" />&emsp;
+                        <input class="btn btn-primary" type="reset" value="清除" />
+                    </div>
+                </form>
+            </div>
         </div>
-    </form>
-			</div>
         </div>
-    </div>
     <!-- login End -->
 
 

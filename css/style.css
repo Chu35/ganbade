@@ -1,9 +1,10 @@
+@import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
 body,
 html{
 	margin: 0;
 	padding: 0;
 	height: 100%;
-	background: #F9EDDD
+	background: #F9EDDD;
 }
 
 .back-to-top {
@@ -15,12 +16,17 @@ html{
 	box-shadow: none!important;
 }
 
+
+body,html,h1,h2,h3,h4,h5,h6,div{
+  font-family: cwTeXYen, sans-serif !important;
+}
+
 h1,
 .h1,
 h2,
 .h2,
 .fw-bold {
-    font-weight: 700 !important;
+    font-weight: 600 !important;
 }
 
 h3,
@@ -28,7 +34,7 @@ h3,
 h4,
 .h4,
 .fw-medium {
-    font-weight: 600 !important;
+    font-weight: 500 !important;
 }
 
 h5,
@@ -36,7 +42,7 @@ h5,
 h6,
 .h6,
 .fw-semi-bold {
-    font-weight: 500 !important;
+    font-weight: 400 !important;
 }
 
 
@@ -286,7 +292,7 @@ h6,
 
 .copyright {
     color: var(--light);
-    background: #000B1C;
+    background: #F9EDDD;
 }
 
 .copyright a {
@@ -493,7 +499,7 @@ h6,
 
 /* 會員中心 */
 #pic{
-	border:1px solid black;
+	border:1px solid #8E7D5C;
 	border-radius:50%;
 	width:200px;
 	height:200px;
@@ -550,20 +556,6 @@ input[type="keyword"]:focus {
   z-index: 1;
   border-bottom: 1px solid #BBB;
   cursor: text;
-}
-
-
-/* signin */
-.form-table td {
-	text-align: left;
-	padding: 5px;
-}
-.form-table input[type="text"],
-.form-table input[type="password"] {
-	width: 100%;
-}
- .password-warning {
-	 color: #ff0000;
 }
 
 /* 置中*/
@@ -854,12 +846,15 @@ ul li {
       box-shadow: transparent;
     }
     
+    /* member 框 */
     #membermodify .m1{
       border: none;
+      outline: none;
       border-bottom: 2px solid #4d4d4d;
       background: none;
     }
     #membermodify .btn{
+      border: none;
       width: 70px;
       cursor: pointer;
     }  
@@ -867,29 +862,152 @@ ul li {
     /* 圖標 */
   .pin[data-target="f1"] {
   position: absolute;
-  top: 110px;
-  right: 10px;
+  top: 179px;
+  right: 295px;
   font-size: 24px;
   cursor: pointer;
-  transition: transform 0.3s ease; /* 添加過渡效果，使變化平滑 */
+  transition: transform 0.3s ease; 
 }
-
+.pin[data-target="f2"] {
+  position: absolute;
+  top: 171px;
+  right: 8px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease; 
+}
 .pin[data-target="f3"] {
   position: absolute;
-  top: 65px;
-  right: 10px;
+  top: 104px;
+  right: 95px;
   font-size: 24px;
   cursor: pointer;
-  transition: transform 0.3s ease; /* 添加过渡效果，使变化平滑 */
+  transition: transform 0.3s ease; 
+}
+.pin[data-target="f4"] {
+  position: absolute;
+  top: 201px;
+  right: 49px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease; 
 }
 
 .pin[data-target="f5"] {
   position: absolute;
-  top: 65px;
-  right: 10px;
+  top: 201px;
+  right: 224px;
   font-size: 24px;
   cursor: pointer;
-  transition: transform 0.3s ease; /* 添加过渡效果，使变化平滑 */
+  transition: transform 0.3s ease; 
+}
+
+.pin[data-target="f6"] {
+  position: absolute;
+  top: 222px;
+  right: 328px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease; 
+}
+.pin[data-target="f7"] {
+  position: absolute;
+  top: 69px;
+  right: 312px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease; 
+}
+
+.pin[data-target="f8"] {
+  position: absolute;
+  top: 249px;
+  right: 256px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease; 
+}
+.pin[data-target="f9"] {
+  position: absolute;
+  top: 96px;
+  right: 148px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease; 
+}
+
+.pin[data-target="f10"] {
+  position: absolute;
+  top: 198px;
+  right: 312px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease; 
+}
+.pin[data-target="f11"] {
+  position: absolute;
+  top: 265px;
+  right: 661px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease; 
+}
+
+.pin[data-target="f12"] {
+  position: absolute;
+  top: 210px;
+  right: 416px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease; 
+}
+.pin[data-target="f13"] {
+  position: absolute;
+  top: 252px;
+  right: 514px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease; 
+}
+.pin[data-target="f14"] {
+  position: absolute;
+  top: 243px;
+  right: 482px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease; 
+}
+.pin[data-target="f15"] {
+  position: absolute;
+  top: 351px;
+  right: 331px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease; 
+}
+.pin[data-target="f16"] {
+  position: absolute;
+  top: 355px;
+  right: 220px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease; 
+}
+.pin[data-target="f17"] {
+  position: absolute;
+  top: 288px;
+  right: 509px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease; 
+}
+.pin[data-target="f18"] {
+  position: absolute;
+  top: 94px;
+  right: 225px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease; 
 }
 
 /* 定義跳動效果 */
@@ -920,11 +1038,8 @@ ul li {
   object-fit: cover; /* 控制图片在指定大小的框中填充，保持纵横比 */
 }
 
-#user-icon img{
- width: 30px;
-}
 
-/*動畫*/
+/*index動畫*/
 .ani {
   display: flex;
   justify-content: center;
@@ -941,13 +1056,35 @@ ul li {
   display: block;
 }
 
+/* member 收藏 */
 .image-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px; /* 调整图像之间的间距 */
+  grid-gap: 10px; 
+}
+.image-grid img {
+  padding: 10px;
+  max-width: 200px;
+  height: 185px;
+  object-fit: cover;
+}
+.memhov:hover {
+  border-radius: 5px;
+  padding: 5px;
+  border: 1px solid transparent;
+  outline: 1px solid transparent;
+  background:
+    linear-gradient(90deg, #8E7D5C 50%, transparent 0) repeat-x,
+    linear-gradient(90deg, #8E7D5C 50%, transparent 0) repeat-x,
+    linear-gradient(0deg, #8E7D5C 50%, transparent 0) repeat-y,
+    linear-gradient(0deg, #8E7D5C 50%, transparent 0) repeat-y;
+  background-size: 10px 1px, 10px 1px, 1px 10px, 1px 10px;
+  background-position: 0 0, 0 100%, 0 0, 100% 0;
+  animation: linearGradientMove .3s infinite linear;
+}
+@keyframes linearGradientMove {
+  100% {
+    background-position: 10px 0, -10px 100%, 0 -10px, 100% 10px;
+  }
 }
 
-.image-grid img {
-  max-width: 100%;
-  height: auto;
-}

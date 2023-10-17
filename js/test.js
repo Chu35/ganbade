@@ -5,28 +5,28 @@ var questions = [
         choices: ["早起幹活", "睡到餓醒"],
 		scores: [1, 3],
 		answered: false,
-		imgtest: "https://image1.thenewslens.com/2020/4/f67e18wo2jc0hmw9hp8qc9ap0b7jt0.jpg?auto=compress&h=648&q=80&w=1080%201080w"
+		imgtest: "img/t1-1.png"
       },
       {
         question: "2：肚子餓了，早餐你會？",
         choices: ["叫外送", "自己煮", "懶得吃"],
 		scores: [1, 2, 3],
 		answered: false,
-		imgtest: "https://image1.thenewslens.com/2018/5/v8xarqw6f3e35sman9va5h297jq7s6.jpg?auto=compress&h=90&q=80&w=150"
+		imgtest: "img/t2.png"
       },
       {
         question: "3：手機響了，你覺得是誰？",
         choices: ["垃圾詐騙電話", "朋友揪出門", "同事找你代班"],
 		scores: [1, 2, 3],
 		answered: false,
-		imgtest:"https://i1.jueshifan.com/2f5221d51dedbc4f9f/7b077d83/78067f8b/3d522e8301aca54ac078.jpg"
+		imgtest:"img/t3.png"
       },
       {
         question: "4：出門被鳥屎砸到，你會？",
         choices: ["默默清理", "發限時動態", "幸運之神降落，趕快買張樂透"],
 		scores: [1, 2, 3],
 		answered: false,
-		imgtest:"https://p3-sign.toutiaoimg.com/mosaic-legacy/7a60008d80887d8a22f~tplv-tt-large.jpeg?x-expires=2002189946&x-signature=XQxv%2FtSqQqGi55afj5TexYpJr9s%3D"
+		imgtest:"img/t4.png"
       }
     ];
 
@@ -86,7 +86,7 @@ var questions = [
       var iconPath = ''; // 假設這是本地圖標的基本路徑
 
       if (score >= 3 && score <= 5) {
-          iconPath = 'img/C46BB46B-A101-4EE7-9937-13E46FEC9086 (1).ico'; 
+          iconPath = 'img/4in1.ico'; 
       } else if (score >= 6 && score <= 8) {
           iconPath = 'img/4in2.ico'; 
       } else if (score >= 9 && score <= 11) {

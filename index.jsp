@@ -67,12 +67,13 @@
 							aria-expanded="true">知識調茶局</a>
 						<div class="dropdown-menu border-light m-0" data-bs-popper="none">
 							<a href="knowl.jsp" class="dropdown-item">茶種介紹</a>
-							<a href="crafts.jsp" class="dropdown-item">烘培發酵介紹</a>
 							<a href="process.jsp" class="dropdown-item">製茶步驟介紹</a>
+							<a href="fix.jsp" class="dropdown-item">烘培發酵介紹</a>
 						</div>
 					</div>
 					<a href="fun.jsp" class="nav-item nav-link">茶遊此地</a>
 					<a href="contact.jsp" class="nav-item nav-link">關於我們</a>
+					<a href="fix.jsp" class="nav-item nav-link">滴滴商城</a>
 					<div class="nav-item dropdown">
 						<div id="user-icon" class="nav-link dropdown-toggle"  data-bs-toggle="dropdown"><small
 							class="fa fa-user text-primary"></small></div>
@@ -83,7 +84,7 @@
 									<a class="dropdown-item" href="login.html">登入/註冊</a>
 								<% } %>
 								<a id="openTestButton" class="dropdown-item" style="cursor: pointer;">心理測驗</a>
-								<a href="member.jsp" class="dropdown-item">客製滴滴</a>
+								<a href="member.jsp" class="dropdown-item">會員中心</a>
 								<% if (memberName != null) { %>
 									<a class="dropdown-item" href="logout.jsp">登出</a>
 								<% }%>
@@ -140,7 +141,7 @@
 	<div id="life" class="container-xxl py-4"></div>
 	<div class="container-xxl py-4">
     <div class="container">
-        <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.2s" style="max-width: 700px;">
+        <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.2s" style="max-width: 1000px;">
             <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-interval="false">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -164,7 +165,7 @@
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <h1 class="tealife py-1 px-3"><font color="#ecddb0">綠茶</font>的一生</h1>
+                        <h1 class="tealife py-1 px-3"><font color="#249911">綠茶</font>的一生</h1>
                         <div class="video-container">
                             <video class="d-block w-100" autoplay muted loop playsinline>
                                 <source src="img/採菁.mp4" type="video/mp4" >
@@ -181,7 +182,7 @@
                         </div>
                     </div>
 					<div class="carousel-item">
-                        <h1 class="tealife py-1 px-3"><font color="#f1db97">青茶</font>的一生</h1>
+                        <h1 class="tealife py-1 px-3"><font color="#c98233">青茶</font>的一生</h1>
                         <div class="video-container">
                             <video class="d-block w-100" autoplay muted loop playsinline>
                                 <source src="img/採菁.mp4" type="video/mp4" >

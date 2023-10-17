@@ -49,7 +49,7 @@
 			<a class="navbar-brand logo" href="index.html">
 				<img src="img/logo.png" alt="Website Logo" width="70px" />
 			</a>
-			<p id="count"></p>
+			
 			<a href="index.html" class="navbar-brand ms-4 ms-lg-0">
 				<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
 			</a>
@@ -66,19 +66,20 @@
 							aria-expanded="true">知識調茶局</a>
 						<div class="dropdown-menu border-light m-0" data-bs-popper="none">
 							<a href="knowl.jsp" class="dropdown-item">茶種介紹</a>
-							<a href="crafts.jsp" class="dropdown-item">烘培發酵介紹</a>
 							<a href="process.jsp" class="dropdown-item">製茶步驟介紹</a>
+							<a href="fix.jsp" class="dropdown-item">烘培發酵介紹</a>
 						</div>
 					</div>
 					<a href="fun.jsp" class="nav-item nav-link">茶遊此地</a>
-					<a href="contact.jsp" class="nav-item nav-link">關於我們</a>
+					<a href="contact.jsp" class="nav-item nav-link">關於我們</a>                    <a href="fix.jsp" class="nav-item nav-link">滴滴商城</a>
+                    <a href="fix.jsp" class="nav-item nav-link">滴滴商城</a>
 					<div class="nav-item dropdown">
 						<div id="user-icon" class="nav-link dropdown-toggle"  data-bs-toggle="dropdown"><small
 								class="fa fa-user text-primary"></small></div>
 						<div class="dropdown-menu border-light m-0">
 							<a href="login.html" class="dropdown-item">登入/註冊</a>
 							<a id="openTestButton" class="dropdown-item" style="cursor: pointer;">心理測驗</a>
-							<a href="member.jsp" class="dropdown-item">客製滴滴</a>
+							<a href="member.jsp" class="dropdown-item">會員中心</a>
 						</div>
 					</div>
 				</div>
@@ -137,59 +138,26 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <h1 class="tealife py-1 px-3"><font color="#d05600">紅茶</font>的一生</h1>
-						<div class="ani" id="seq">
-							<img src="http://s23.postimage.org/t57meexkb/horse_1.png" id="pic1"/>
-							<img src="http://s23.postimage.org/i86apnasr/horse_2.png" id="pic2"/>
-							<img src="http://s23.postimage.org/6kc8v3lnv/horse_3.png" id="pic3" />
-							<img src="http://s23.postimage.org/w4ej1j71n/horse_4.png" id="pic4" />
-							<img src="http://s23.postimage.org/ddclrdch7/horse_5.png" id="pic5" />
-							<img src="http://s23.postimage.org/nbxkdulwr/horse_6.png" id="pic6" />
-							<img src="http://s23.postimage.org/phrv8cpd7/horse_7.png" id="pic7" />
-							<img src="http://s23.postimage.org/n1un88wob/horse_8.png" id="pic8"/>
-						</div>
-						<script>
-							var currentPic = 1;
-							var isScrolling = false;
-							
-							function showNextPic() {
-								var pic;
-								for (var i = 1; i < 9; i++) {
-									pic = document.getElementById("pic" + i);
-									if (i === currentPic) {
-										pic.style.display = "block";
-									} else {
-										pic.style.display = "none";
-									}
-								}
-								if (currentPic >= 8) {
-									currentPic = 1;
-								} else {
-									currentPic++;
-								}
-								isScrolling = false;
-							}
-						
-							function MouseWheel(e) {
-								if (!isScrolling) {
-									showNextPic();
-									isScrolling = true;
-									setTimeout(function() {
-										isScrolling = false;
-									}, 70); // 调整此处的延迟时间以控制图像切换速度
-								}
-							}
-						
-							/* Firefox event registration */
-							if (document.addEventListener) {
-								document.addEventListener("DOMMouseScroll", MouseWheel, false);
-							}
-							window.onmousewheel = document.onmousewheel = MouseWheel; // IE/Opera/Chrome
-						</script>
-						
-						
-						</div>
+                        <div class="video-container">
+                            <video class="d-block w-100" autoplay muted loop playsinline>
+                                <source src="img/採菁.mp4" type="video/mp4" >
+                            </video>
+                            <video class="d-block w-100" autoplay muted loop playsinline>
+                                <source src="img/萎凋.mp4" type="video/mp4">
+                            </video>
+							<video class="d-block w-100" autoplay muted loop playsinline>
+                                <source src="img/揉捻.mp4" type="video/mp4">
+                            </video>
+							<video class="d-block w-100" autoplay muted loop playsinline>
+                                <source src="img/發酵.mp4" type="video/mp4">
+                            </video>
+							<video class="d-block w-100" autoplay muted loop playsinline>
+                                <source src="img/乾燥.mp4" type="video/mp4">
+                            </video>
+                        </div>
+					</div>
                     <div class="carousel-item">
-                        <h1 class="tealife py-1 px-3"><font color="#ecddb0">綠茶</font>的一生</h1>
+                        <h1 class="tealife py-1 px-3"><font color="#249911">綠茶</font>的一生</h1>
                         <div class="video-container">
                             <video class="d-block w-100" autoplay muted loop playsinline>
                                 <source src="img/採菁.mp4" type="video/mp4" >
@@ -206,7 +174,7 @@
                         </div>
                     </div>
 					<div class="carousel-item">
-                        <h1 class="tealife py-1 px-3"><font color="#f1db97">青茶</font>的一生</h1>
+                        <h1 class="tealife py-1 px-3"><font color="#c98233">青茶</font>的一生</h1>
                         <div class="video-container">
                             <video class="d-block w-100" autoplay muted loop playsinline>
                                 <source src="img/採菁.mp4" type="video/mp4" >
@@ -261,7 +229,17 @@
 
 	<!-- About End -->
 
-
+<!-- Copyright Start -->
+<div class="container-fluid copyright py-4">
+	<div class="container">
+		<div class="row">
+		  <div class="col-md-6 text-center text-md mb-3 mb-md-0" align="center">
+			<p id="count"></p>
+		  </div>
+		</div>
+	</div>
+</div>
+<!-- Copyright End -->
 
 
 

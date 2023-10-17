@@ -72,12 +72,13 @@
                         aria-expanded="true">知識調茶局</a>
                     <div class="dropdown-menu border-light m-0" data-bs-popper="none">
                         <a href="knowl.jsp" class="dropdown-item">茶種介紹</a>
-                        <a href="crafts.jsp" class="dropdown-item">烘焙發酵介紹</a>
                         <a href="process.jsp" class="dropdown-item active">製茶步驟介紹</a>
-                    </div>
+                        <a href="fix.jsp" class="dropdown-item">烘培發酵介紹</a>
+                      </div>
                 </div>
                 <a href="fun.jsp" class="nav-item nav-link">茶遊此地</a>
                 <a href="contact.jsp" class="nav-item nav-link">關於我們</a>
+                <a href="fix.jsp" class="nav-item nav-link">滴滴商城</a>
                 <div class="nav-item dropdown">
                     <div class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><small
                             class="fa fa-user text-primary"></small></div>
@@ -88,7 +89,7 @@
                             <a class="dropdown-item" href="login.html">登入/註冊</a>
                         <% } %>
                         <a href="index.jsp" class="dropdown-item">心理測驗</a>
-                        <a href="member.jsp" class="dropdown-item">客製滴滴</a>
+                        <a href="member.jsp" class="dropdown-item">會員中心</a>
                         <% if (memberName != null) { %>
                             <a class="dropdown-item" href="logout.jsp">登出</a>
                         <% }%>
@@ -110,13 +111,13 @@
       <label for="step-3">浪菁</label>
     </div>
     <div class="inner_step">
-      <label for="step-4">殺菁</label>
+      <label for="step-4">發酵</label>
     </div>
     <div class="inner_step">
-      <label for="step-5">揉捻</label>
+      <label for="step-5">殺菁</label>
     </div>
     <div class="inner_step">
-      <label for="step-6">發酵</label>
+      <label for="step-6">揉捻</label>
     </div>
     <div class="inner_step">  
       <label for="step-7">乾燥</label>
@@ -138,51 +139,47 @@
       <div class="tab">
         <h1>採菁</h1>
         <p>
-          採菁是摘斷葉間幼梗的中部。採摘標準視老嫩程度而定，一般為一心兩葉至三葉，茶菁的完整度關係到茶葉製造的品質。
+          採菁是摘斷葉間幼梗的中部。採摘標準視老嫩程度而定，<br>一般為一心兩葉至三葉，茶菁的完整度關係到茶葉製造的品質。
         </p>
       </div>
       <div class="tab">
         <h1>萎凋</h1>
         <p>
-          萎凋過程可使茶葉重量、體積、硬度降低，促進化學反應產生特殊香氣及滋味。
-        </p>
+          萎凋可分為日光（熱風）萎凋及室內萎凋，日光（熱風）萎凋室<br>藉由熱能使茶葉水分消散，日光萎凋後移入室內進行室內萎凋繼續使茶葉水分消散。<br>萎凋過程可使茶葉重量、體積、硬度降低，促進化學反應產生特殊香氣及滋味。        </p>
       </div>
       <div class="tab">
         <h1>浪菁</h1>
         <p>
-          初期:藉由翻動，使茶菁水分重新分配，減低茶梗水分。<br>
-          後期:藉由攪拌使茶葉細胞摩擦破損，增加多元酚氧化酶及兒茶素作用，進而控制茶葉發酵的程度。
-        </p>
-      </div>
-      <div class="tab">
-        <h1>殺菁</h1>
-        <p>
-          藉由熱破壞茶葉中酵素活性，促使茶葉水分消散、葉片軟化，利於後續揉捻成形，並去除茶葉不良的菁味及穩定茶菁色澤及香氣。
-        </p>
-      </div>
-      <div class="tab">
-        <h1>揉捻</h1>
-        <p>
-          藉由熱破壞茶葉中酵素活性，促使茶葉水分消散、葉片軟化，利於後續揉捻成形，並去除茶葉不良的菁味、穩定茶菁色澤與香氣。
+          製作部分發酵茶時，初期藉由翻動，使茶菁水分重新分配，達到減低茶梗水分的目的。<br>後續藉由攪拌使茶葉細胞摩擦破損，增加多元酚氧化酶及兒茶素作用，進而控制茶葉發酵的程度。
         </p>
       </div>
       <div class="tab">
         <h1>發酵</h1>
         <p>
-          因揉捻後的茶葉發酵程度不足，所以需將茶葉堆疊進行補足發酵，使多元酚氧化酶與兒茶素類充分反應。
+          因揉捻後的茶葉發酵程度不足，所以需將茶葉堆疊進行補足發酵，<br>使多元酚氧化酶與兒茶素類充分反應。
         </p>
+      </div>
+      <div class="tab">
+        <h1>殺菁</h1>
+        <p>
+          藉由熱破壞茶葉中酵素活性，並促使茶葉水分消散、葉片軟化，<br>利於後續揉捻成形，並去除茶葉不良的菁味及穩定茶菁色澤及香氣。
+        </p>
+      </div>
+      <div class="tab">
+        <h1>揉捻</h1>
+        <p>
+          使茶葉捲曲形成條狀，並破壞茶葉的細胞組織，使茶葉的汁液流出附著於表面，<br>增加沖泡時的風味；在揉捻中使茶葉細胞劇烈破壞，促使多元酚氧化酶及兒茶素反應。        </p>
       </div>
       <div class="tab">
         <h1>乾燥</h1>
         <p>
-          熱風去除茶葉中的水分，延長保存期限，並可停止發酵作用及其他生化反應。
+          以熱風去除茶葉中的水分，使其含水量降至 5% 以下，延長保存期限，<br>並可停止發酵作用及其他生化反應，使品質固定。此外加熱過程亦可引起<br>若干化學成分的變化促使茶葉香氣形成。茶葉烘乾後可使形狀固定，方便包裝及運輸。
         </p>
       </div>
       <div class="tab">
         <h1>烘培</h1>
         <p>
-          烘焙具有去除水分效果，有效延長茶葉貯藏壽命，並改善茶帶有之菁臭味，增加茶葉特殊香氣。
-        </p>
+          烘焙具有去除水分效果，有效延長茶葉貯藏壽命，並改善粗製茶<br>普遍帶有之臭味和不良雜味，增加茶葉的特殊香氣及特色性。        </p>
       </div>
     </div>
     <!-- gift -->

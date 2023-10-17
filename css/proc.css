@@ -18,19 +18,19 @@ body .progress_inner #step-3:checked + input + input + input + input + input + d
   opacity: 1;
 }
 body .progress_inner #step-4:checked + input + input + input + input + div + div + div + div > .base{
-  background-image: url('../img/殺菁.gif'); 
+  background-image: url('../img/發酵.gif'); 
   background-size: cover;
   background-position: center;
   opacity: 1;
 }
 body .progress_inner #step-5:checked + input + input + input + div + div + div + div > .base {
-  background-image: url('../img/揉捻.gif');
+  background-image: url('../img/殺菁.gif');
   background-size: cover;
   background-position: center; 
   opacity: 1;
 }
 body .progress_inner #step-6:checked + input + input + div + div + div + div > .base {
-  background-image: url('../img/發酵.gif');
+  background-image: url('../img/揉捻.gif');
   background-size: cover;
   background-position: center; 
   opacity: 1;

@@ -71,12 +71,13 @@
                         aria-expanded="true">知識調茶局</a>
                     <div class="dropdown-menu border-light m-0" data-bs-popper="none">
                         <a href="knowl.jsp" class="dropdown-item active">茶種介紹</a>
-                        <a href="crafts.jsp" class="dropdown-item">烘焙發酵介紹</a>
                         <a href="process.jsp" class="dropdown-item">製茶步驟介紹</a>
-                    </div>
+                        <a href="fix.jsp" class="dropdown-item">烘培發酵介紹</a>
+                </div>
                 </div>
                 <a href="fun.jsp" class="nav-item nav-link">茶遊此地</a>
                 <a href="contact.jsp" class="nav-item nav-link">關於我們</a>
+                <a href="fix.jsp" class="nav-item nav-link">滴滴商城</a>
                 <div class="nav-item nav-link">
                     <div class="box">
                         <form action="showknowl.jsp" autocomplete="off">
@@ -95,7 +96,7 @@
                             <a class="dropdown-item" href="login.html">登入/註冊</a>
                         <% } %>
                         <a href="index.jsp" class="dropdown-item">心理測驗</a>
-                        <a href="member.jsp" class="dropdown-item">客製滴滴</a>
+                        <a href="member.jsp" class="dropdown-item">會員中心</a>
                         <% if (memberName != null) { %>
                             <a class="dropdown-item" href="logout.jsp">登出</a>
                         <% }%>

@@ -71,12 +71,13 @@
                         aria-expanded="true">知識調茶局</a>
                     <div class="dropdown-menu border-light m-0" data-bs-popper="none">
                         <a href="knowl.jsp" class="dropdown-item">茶種介紹</a>
-                        <a href="crafts.jsp" class="dropdown-item">烘焙發酵介紹</a>
                         <a href="process.jsp" class="dropdown-item">製茶步驟介紹</a>
-                    </div>
+                        <a href="fix.jsp" class="dropdown-item">烘培發酵介紹</a>
+                </div>
                 </div>
                 <a href="#" class="nav-item nav-link active">茶遊此地</a>
                 <a href="contact.jsp" class="nav-item nav-link">關於我們</a>
+                <a href="fix.jsp" class="nav-item nav-link">滴滴商城</a>
                 <div class="nav-item nav-link">
                     <div class="box">
                         <form action="showfun.jsp" autocomplete="off">
@@ -95,7 +96,7 @@
                             <a class="dropdown-item" href="login.html">登入/註冊</a>
                         <% } %>
                         <a href="index.jsp" class="dropdown-item">心理測驗</a>
-                        <a href="member.jsp" class="dropdown-item">客製滴滴</a>
+                        <a href="member.jsp" class="dropdown-item">會員中心</a>
                         <% if (memberName != null) { %>
                             <a class="dropdown-item" href="logout.jsp">登出</a>
                         <% }%>
@@ -105,31 +106,54 @@
         </div>
     </nav>
 </div>
+
+
+
  <!-- Map Start -->
  <div class="container-xxl py-4">
     <div class="container">
         <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
             <h1 class="display-3 mb-5">  </h1>
-            <h1 class="display-5 mb-4">Have a nice day！</h1>
+            <h1 class="display-5 mb-4">  </h1>
         </div>
         <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.2s" style="max-width: 700px;">
           <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-interval="false">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3">木柵</p>
-                    <img src="img/map.png" class="d-block w-100" alt="木柵">
-                    <div class="pin" onclick="jumpIcon(this)" data-target="f3">📍</div>
-                    <div class="pin" onclick="jumpIcon(this)" data-target="f1">❤️</div>
+                    <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3">貓空</p>
+                    <img src="img/貓空.png"  class="d-block w-100" alt="貓空">                    
+                    <div class="pin" onclick="jumpIcon(this)" data-target="f1"><img src="img/pin.png" title="貓空 找茶屋 found your tea"></div>
+                    <div class="pin" onclick="jumpIcon(this)" data-target="f2"><img src="img/pin.png" title="邀月茶坊"></div>
+                    <div class="pin" onclick="jumpIcon(this)" data-target="f4"><img src="img/pin.png" title="煎茶院"></div>
+                    <div class="pin" onclick="jumpIcon(this)" data-target="f9"><img src="img/pin.png" title="台北市鐵觀音包種茶研發推廣中心"></div>
+                    <div class="pin" onclick="jumpIcon(this)" data-target="f10"><img src="img/pin.png" title="貓空茶神 MaoKong Tea Master"></div>
+                    <div class="pin" onclick="jumpIcon(this)" data-target="f11"><img src="img/pin.png" title="晨曦茶坊"></div>
                 </div>
                 <div class="carousel-item">
                     <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3">坪林</p>
-                    <img src="img/map.png" class="d-block w-100" alt="坪林">
-                    <div class="pin" onclick="jumpIcon(this)" data-target="f5">❤️</div>
+                    <img src="img/坪林.png" class="d-block w-100" alt="坪林">
+                    <div class="pin" onclick="jumpIcon(this)" data-target="f5"><img src="img/pin.png" title="心茶合一 TeaFlow"></div>
+                    <div class="pin" onclick="jumpIcon(this)" data-target="f8"><img src="img/pin.png" title="坪林茶業博物館"></div>
+                    <div class="pin" onclick="jumpIcon(this)" data-target="f12"><img src="img/pin.png" title="祥泰茶莊"></div>
+                    <div class="pin" onclick="jumpIcon(this)" data-target="f13"><img src="img/pin.png" title="東成茶葉"></div>
+                    <div class="pin" onclick="jumpIcon(this)" data-target="f14"><img src="img/pin.png" title="天薌茶行"></div>
                 </div>
                 <div class="carousel-item">
                     <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3">大稻埕</p>
-                    <img src="img/map.png" class="d-block w-100" alt="大稻埕">
+                    <img src="img/大稻埕.png" class="d-block w-100" alt="大稻埕">
+                    <div class="pin" onclick="jumpIcon(this)" data-target="f3"><img src="img/pin.png" title="新芳春茶行"></div>
+                    <div class="pin" onclick="jumpIcon(this)" data-target="f6"><img src="img/pin.png" title="南街得意"></div>
+                    <div class="pin" onclick="jumpIcon(this)" data-target="f15"><img src="img/pin.png" title="沃森茶酒館 WOSOM / Teahouse & Bar"></div>
                 </div>
+                <div class="carousel-item">
+                    <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3">西門町</p>
+                    <img src="img/西門.png" class="d-block w-100" alt="西門町">
+                    <div class="pin" onclick="jumpIcon(this)" data-target="f7"><img src="img/pin.png" title="HANKO 60 如醉如夢"></div>
+                    <div class="pin" onclick="jumpIcon(this)" data-target="f16"><img src="img/pin.png" title="八拾捌茶輪番所"></div>
+                    <div class="pin" onclick="jumpIcon(this)" data-target="f17"><img src="img/pin.png" title="摸摸茶舖 TouchTea"></div>
+                    <div class="pin" onclick="jumpIcon(this)" data-target="f18"><img src="img/pin.png" title="臺灣之寶茗茶"></div>
+                </div>
+                
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -198,14 +222,17 @@
                 <div class="display-5 mb-1">
                     <img src="<%= imagePathicon %>" alt="<%= name %>" class="btn btn-l btn-lg-square rounded-circle" style="display:inline;"><h1 style="display:inline;font-family:monospace;">&ensp;<%= name %></h1>
                 </div>
-                <p><%= classification %></p>
-                <p class="mb-4">
+                <p class="mb-1"><%= classification %></p>
+                <p class="mb-1">
                     <% if (web != null) { %>
                         <a class="bi bi-globe" href="<%= web %>"> Website&emsp;</a>
                     <% } %>
+                    <% if (instagram != null) { %>
                     <a class="bi bi-instagram" href="<%= instagram %>"> Instagram&emsp;</a>
+                    <% } %>
+                    <% if (facebook != null) { %>
                     <a class="bi bi-facebook" href="<%= facebook %>"> Facebook</a><br>
-                    
+                    <% } %>
                     📍地址：<%= place %><br>
                     ⏰開放時間：<%= time %><br>
                     <% if (guidedtour != null) { %>

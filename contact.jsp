@@ -67,12 +67,13 @@
 							aria-expanded="true">知識調茶局</a>
 						<div class="dropdown-menu border-light m-0" data-bs-popper="none">
 							<a href="knowl.jsp" class="dropdown-item">茶種介紹</a>
-							<a href="crafts.jsp" class="dropdown-item">烘培發酵介紹</a>
 							<a href="process.jsp" class="dropdown-item">製茶步驟介紹</a>
+							<a href="fix.jsp" class="dropdown-item">烘培發酵介紹</a>
 						</div>
 					</div>
 					<a href="fun.jsp" class="nav-item nav-link">茶遊此地</a>
-					<a href="contact.jsp" class="nav-item nav-link">關於我們</a>
+					<a href="contact.jsp" class="nav-item nav-link active">關於我們</a>
+                    <a href="fix.jsp" class="nav-item nav-link">滴滴商城</a>
 					<div class="nav-item dropdown">
 						<div id="user-icon" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><small
 							class="fa fa-user text-primary"></small></div>
@@ -83,7 +84,7 @@
                                     <a class="dropdown-item" href="login.html">登入/註冊</a>
                                 <% } %>
                                 <a href="index.jsp" class="dropdown-item">心理測驗</a>
-                                <a href="member.jsp" class="dropdown-item">客製滴滴</a>
+                                <a href="member.jsp" class="dropdown-item">會員中心</a>
                                 <% if (memberName != null) { %>
                                     <a class="dropdown-item" href="logout.jsp">登出</a>
                                 <% }%>
@@ -101,31 +102,25 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h1  class="display-3 mb-4 animated"> </h1>
-                <h1 class="display-5 mb-4" style="font-family:DFKai-sb;">茶葉探險隊</h1>
+                <h1 class="display-3 mb-4 animated"> </h1>
+                <h1 class="display-5 mb-4">茶葉探險隊</h1>
             </div>
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-item">
-                        <img class="img-fluid rounded" src="img/Pm.png" alt="">
+                        <img class="img-fluid rounded" src="img/Vd.png" alt="" style="line-height: 3;">
                         <div class="team-text">
-                            <h4 class="mb-0">蘇妍童</h4>
+                            <h4 class="mb-1">視覺設計師</h4>
+                            <h4 class="mb-0">梁子晴</h4>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
                     <div class="team-item">
-                        <img class="img-fluid rounded" src="img/Vd.png" alt="">
-                        <div class="team-text">
-                            <h4 class="mb-0">梁子晴</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="team-item">
-                        <img class="img-fluid rounded" src="img/Sa.png" alt="">
-                        <div class="team-text">
-                            <h4 class="mb-0">鐘筑蘋</h4>
+                        <img class="img-fluid rounded" src="img/Pm.png" alt="">
+                        <div class="team-text" >
+                            <h4 class="mb-1">專案經理</h4>
+                            <h4 class="mb-0">蘇妍童</h4>
                         </div>
                     </div>
                 </div>
@@ -133,7 +128,17 @@
                     <div class="team-item">
                         <img class="img-fluid rounded" src="img/Mm.png" alt="">
                         <div class="team-text">
+                            <h4 class="mb-1">市場經理</h4>
                             <h4 class="mb-0">馬聖烜</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="team-item">
+                        <img class="img-fluid rounded" src="img/Sa.png" alt="">
+                        <div class="team-text">
+                            <h4 class="mb-1">系統分析師</h4>
+                            <h4 class="mb-0">鐘筑蘋</h4>
                         </div>
                     </div>
                 </div>
@@ -141,6 +146,7 @@
                     <div class="team-item">
                         <img class="img-fluid rounded" src="img/Pr.png" alt="">
                         <div class="team-text">
+                            <h4 class="mb-1">社群行銷經理</h4>
                             <h4 class="mb-0">潘恩皓</h4>
                         </div>
                     </div>
@@ -198,13 +204,17 @@
         </div>
     </div>
     
-
-<!-- Copyright Start -->
+    <div class="container">
+        <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <h4 class="mb-4">特別感謝網站資料來源<a href="https://www.jsy-tea.com/">京盛宇</a></h4>
+        </div>
+        </div>
+    <!-- Copyright Start -->
     <div class="container-fluid copyright py-4">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 text-center text-md mb-3 mb-md-0" align="center">
-                    Copyright &copy;  2023 <a href="#">cheerstea</a>. All rights reserved
+              <div class="col-md-6 text-center text-md mb-3 mb-md-0" align="center">
+                    Copyright &copy;  2023 .<a href="#">Ganbade</a> All rights reserved
               </div>
             </div>
         </div>

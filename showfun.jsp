@@ -112,7 +112,7 @@
         <div class="container">
             <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
                 <h1 class="display-3 mb-5">  </h1>
-				<h1 class="display-5 mb-2">Have a nice day！</h1>
+				<h1 class="display-5 mb-2">  </h1>
 			</div>
 		</div>
 	</div>
@@ -146,6 +146,7 @@
                     String imagePathicon = rs.getString("imagePathicon"); // 修改了变量名
                     String instagram = rs.getString("instagram");
                     String facebook = rs.getString("facebook");
+                    String web = rs.getString("web");
                     String classification = rs.getString("classification");
                     String place = rs.getString("place");
                     String time = rs.getString("time");
@@ -171,10 +172,17 @@
                 <div class="display-5 mb-1">
                     <img src="<%= imagePathicon %>" alt="<%= name %>" class="btn btn-l btn-lg-square rounded-circle" style="display:inline;"><h1 style="display:inline;">&nbsp;<%= name %></h1>
                 </div>
-                <p><%= classification %></p>
-                <p class="mb-4">
+                <p class="mb-1"><%= classification %></p>
+                <p class="mb-1">
+                    <% if (web != null) { %>
+                        <a class="bi bi-globe" href="<%= web %>"> Website&emsp;</a>
+                    <% } %>
+                    <% if (instagram != null) { %>
                     <a class="bi bi-instagram" href="<%= instagram %>"> Instagram&emsp;</a>
+                    <% } %>
+                    <% if (facebook != null) { %>
                     <a class="bi bi-facebook" href="<%= facebook %>"> Facebook</a><br>
+                    <% } %>
                     📍地址：<%= place %><br>
                     ⏰開放時間：<%= time %><br>
                     <% if (guidedtour != null) { %>

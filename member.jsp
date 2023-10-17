@@ -67,12 +67,13 @@
 							aria-expanded="true">知識調茶局</a>
 						<div class="dropdown-menu border-light m-0" data-bs-popper="none">
 							<a href="knowl.jsp" class="dropdown-item">茶葉介紹</a>
-							<a href="crafts.jsp" class="dropdown-item">烘培發酵介紹</a>
 							<a href="process.jsp" class="dropdown-item">製茶步驟介紹</a>
+							<a href="fix.jsp" class="dropdown-item">烘培發酵介紹</a>
 						</div>
 					</div>
 					<a href="fun.jsp" class="nav-item nav-link">茶遊此地</a>
 					<a href="contact.jsp" class="nav-item nav-link">關於我們</a>
+					<a href="fix.jsp" class="nav-item nav-link">滴滴商城</a>
 					<div class="nav-item dropdown">
 						<div id="user-icon" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><small
 							class="fa fa-user text-primary"></small></div>
@@ -83,7 +84,7 @@
                             <a class="dropdown-item" href="login.html">登入/註冊</a>
                         <% } %>
                         <a href="index.jsp" class="dropdown-item">心理測驗</a>
-                        <a href="member.jsp" class="dropdown-item">客製滴滴</a>
+                        <a href="member.jsp" class="dropdown-item active">會員中心</a>
                         <% if (memberName != null) { %>
                             <a class="dropdown-item" href="logout.jsp">登出</a>
                         <% }%>
@@ -146,7 +147,7 @@
 					<div class="mb-5" align="center">
 						<% if (memberName != null) { %>
 						<form id="membermodify" action="modify.jsp" method="post" autocomplete="off">
-							帳號：<input class="m1" type="text" name="user" placeholder="<%= memberName %>"/><br><br>
+							帳號：<input class="m1" type="text" name="user" placeholder="<%= memberName %>" /><br><br>
 							密碼：<input class="m1" type="password" name="pwd"/><br><br>
 							<div class="form-table">
 								<input class="btn btn-primary" type="submit" value="修改" />&emsp;
@@ -193,11 +194,11 @@
 													<%
 													while (result.next()) {
 													%>
-													<div>
+													<div class="memhov">
 														<a href="knowl.jsp?id=<%= result.getString("id") %>">
 															<img src="<%= result.getString("image_path") %>" alt="<%= result.getString("name") %>">
 														</a>
-														<h5 class="card-title" style="line-height: 3;"><%= result.getString("name") %></h5>
+														<h5 class="card-text"><%= result.getString("name") %></h5>
 													</div>
 													<%
 													}
@@ -214,11 +215,11 @@
 													result = preparedStatement.executeQuery();
 													while (result.next()) {
 													%>
-													<div>
+													<div class="memhov">
 														<a href="fun.jsp?id=<%= result.getString("id") %>">
 															<img src="<%= result.getString("imagePath") %>" alt="<%= result.getString("name") %>">
 														</a>
-														<h5 class="card-title" style="line-height: 3;"><%= result.getString("name") %></h5>
+														<h5 class="card-text"><%= result.getString("name") %></h5>
 													</div>
 													<%
 													}
@@ -244,7 +245,7 @@
 								<div class="card">
 									<div class="card-body">
 										<h5 class="card-title">加入會員解鎖更多</h5>
-										<a href="signin.html" class="btn btn-primary">GO GO !!!</a>
+										<a href="login.html" class="btn btn-primary">GO GO !!!</a>
 									</div>
 								</div>
 							</div>

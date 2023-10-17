@@ -65,9 +65,9 @@
 					<a href="knowl.jsp" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="true">知識調茶局</a>
 					<div class="dropdown-menu border-light m-0" data-bs-popper="none">
 						<a href="knowl.jsp" class="dropdown-item">茶種介紹</a>
-						<a href="crafts.jsp" class="dropdown-item">烘培發酵介紹</a>
-						<a href="process.jsp" class="dropdown-item">製茶步驟介紹</a>
-					</div>
+                        <a href="process.jsp" class="dropdown-item">製茶步驟介紹</a>
+                        <a href="fix.jsp" class="dropdown-item">烘培發酵介紹</a>
+                </div>
 				</div>
                   <a href="fun.jsp" class="nav-item nav-link">茶遊此地</a>
                   <a href="contact.jsp" class="nav-item nav-link">關於我們</a>
@@ -78,7 +78,7 @@
                     <div class="dropdown-menu border-light m-0">
                         <a href="signin.html" class="dropdown-item active">登入/註冊</a>
                         <a href="index.html" class="dropdown-item">心理測驗</a>
-                        <a href="member.jsp" class="dropdown-item">客製滴滴</a>
+                        <a href="member.jsp" class="dropdown-item">會員中心</a>
                     </div>
                 </div>
 				</div>
@@ -97,17 +97,9 @@
                 <h1 class="display-5 mb-5">Login</h1>
             </div>
 			<div class="mb-5" align="center"> 
-			<form action="verify.jsp">
-				<table class="form-table" >
-					<tr>
-						<td>帳號:</td>
-						<td><input type="text" placeholder="請輸入帳號" name="user" autocomplete="off"/></td>
-					</tr> 
-					<tr>
-						<td>密碼:</td>
-						<td><input type="password" name="pwd" autocomplete="off"/></td>
-					</tr> 
-				</table><br>
+			<form id="membermodify" action="verify.jsp">
+					帳號：<input class="m1" type="text" name="user" autocomplete="off" /><br><br>
+					密碼：<input class="m1" type="password" name="pwd"/><br><br>
 				<input class="btn btn-primary" type="submit" value="登入"/>&emsp;   
 				<a href="signin.html">註冊</a>
 			</form>

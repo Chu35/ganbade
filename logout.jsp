@@ -14,7 +14,7 @@
         Timestamp logoutTime = new Timestamp(System.currentTimeMillis());
 
         // 更新 MS SQL 中的登出時間
-        String jdbcUrl = "jdbc:sqlserver://127.0.0.1:1433;database=ganbade";
+        String jdbcUrl = "jdbc:sqlserver://127.0.0.1:1433;database=109_ganbade";
         String dbUsername = "chu";
         String dbPassword = "0725";
         

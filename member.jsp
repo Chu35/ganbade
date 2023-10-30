@@ -161,7 +161,7 @@
 						<%
 						if (memberName != null) {
 							try {
-								String dbUrl = "jdbc:sqlserver://127.0.0.1:1433;databaseName=ganbade";
+								String dbUrl = "jdbc:sqlserver://127.0.0.1:1433;databaseName=109_ganbade";
 								String dbUser = "chu";
 								String dbPassword = "0725";
 								Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");

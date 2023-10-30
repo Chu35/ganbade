@@ -54,7 +54,7 @@
     <div class="row gx-0 align-items-center d-none d-lg-flex"> </div>
     <nav class="navbar navbar-expand-lg navbar-light py-lg-0 px-lg-4 wow fadeIn" data-wow-delay="0.1s">
         <a class="navbar-brand logo" href="index.jsp">
-            <img src="img/logo.png" alt="Website Logo" width="70px" />
+            <img src="img/logo.png" alt="Website Logo" width="70px" height="auto"/>
         </a>
         <a href="index.jsp" class="navbar-brand ms-4 ms-lg-0">
             <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
@@ -78,7 +78,7 @@
                 </div>
                 <a href="fun.jsp" class="nav-item nav-link">茶遊此地</a>
                 <a href="contact.jsp" class="nav-item nav-link">關於我們</a>
-                <a href="fix.jsp" class="nav-item nav-link">滴滴商城</a>
+                <a href="store.jsp" class="nav-item nav-link"><small class="fa fa-shopping-cart text-primary"></small></a>
                 <div class="nav-item dropdown">
                     <div class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><small
                             class="fa fa-user text-primary"></small></div>

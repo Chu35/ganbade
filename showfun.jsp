@@ -129,7 +129,7 @@
             ResultSet rs = null;
             try {
                 Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-                String url = "jdbc:sqlserver://127.0.0.1:1433;database=ganbade";
+                String url = "jdbc:sqlserver://127.0.0.1:1433;database=109_ganbade";
                 String user = "chu";
                 String password = "0725";
                 conn = DriverManager.getConnection(url, user, password);

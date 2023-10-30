@@ -10,7 +10,7 @@
     String name = request.getParameter("name");
 
     Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-    String url = "jdbc:sqlserver://127.0.0.1:1433;database=ganbade";
+    String url = "jdbc:sqlserver://127.0.0.1:1433;database=109_ganbade";
     Connection con = DriverManager.getConnection(url, "chu", "0725");
     Statement st = con.createStatement();
 

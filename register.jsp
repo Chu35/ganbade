@@ -23,7 +23,7 @@
         out.println("<script>showAlert('密碼必須包含英文和數字', 'signin.html');</script>");
     } else {
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        String url = "jdbc:sqlserver://127.0.0.1:1433;database=ganbade";
+        String url = "jdbc:sqlserver://127.0.0.1:1433;database=109_ganbade";
         try (Connection con = DriverManager.getConnection(url, "chu", "0725");
             Statement st = con.createStatement()) {
             String checkSql = "SELECT * FROM member WHERE id = ?";

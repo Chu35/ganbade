@@ -143,7 +143,7 @@
                         ResultSet rs = null;
                         try {
                             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-                            String url = "jdbc:sqlserver://127.0.0.1:1433;database=ganbade";
+                            String url = "jdbc:sqlserver://127.0.0.1:1433;database=109_ganbade";
                             String user = "chu";
                             String password = "0725";
                             conn = DriverManager.getConnection(url, user, password);
@@ -183,9 +183,13 @@
                                 <div class="info_title">茶樹品種</div>
                                 <div class="info_desc"><%= type %></div>
                             </div>
-                            <div class="info clearfix">
+                            <!-- <div class="info clearfix">
                                 <div class="info_title">茶種</div>
                                 <div class="info_desc"><%= rs.getString("classification") %></div>
+                            </div> -->
+                            <div class="info clearfix">
+                                <div class="info_title">烘培發酵</div>
+                                <div class="info_desc"><%= rs.getString("bake") %>、<%= rs.getString("ferment") %></div>
                             </div>
                             <div class="modal fade" id="<%= modalId %>" tabindex="-1" aria-labelledby="<%= modalId %>" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -235,13 +239,12 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
                                 </div>
-                            </div>
-                            
-                        </li>
-                        <% 
-                    }
-                } catch (Exception e) {
+                            </li>
+                            <% 
+                        }
+                    } catch (Exception e) {
                      e.printStackTrace();
                     } finally {
                           // Close database resources

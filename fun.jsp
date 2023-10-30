@@ -77,7 +77,7 @@
                 </div>
                 <a href="#" class="nav-item nav-link active">茶遊此地</a>
                 <a href="contact.jsp" class="nav-item nav-link">關於我們</a>
-                <a href="fix.jsp" class="nav-item nav-link">滴滴商城</a>
+                <a href="store.jsp" class="nav-item nav-link">滴滴商城</a>
                 <div class="nav-item nav-link">
                     <div class="box">
                         <form action="showfun.jsp" autocomplete="off">
@@ -178,7 +178,7 @@
         ResultSet rs = null;
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            String url = "jdbc:sqlserver://127.0.0.1:1433;database=ganbade";
+            String url = "jdbc:sqlserver://127.0.0.1:1433;database=109_ganbade";
             String user = "chu";
             String password = "0725";
             conn = DriverManager.getConnection(url, user, password);

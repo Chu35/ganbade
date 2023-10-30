@@ -15,7 +15,7 @@
         if (knowledgeId != null && !knowledgeId.isEmpty()) {
             try {
                 Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-                String url = "jdbc:sqlserver://127.0.0.1:1433;database=ganbade";
+                String url = "jdbc:sqlserver://127.0.0.1:1433;database=109_ganbade";
                 Connection con = DriverManager.getConnection(url, "chu", "0725");
 
                 // 查询是否已收藏
@@ -32,7 +32,6 @@
     </script>
     <%
                 } else {
-                    // 未收藏，执行插入操作
                     String insertSql = "INSERT INTO member_collect (member_name, knowledge_id) VALUES (?, ?)";
                     PreparedStatement insertPs = con.prepareStatement(insertSql);
                     insertPs.setString(1, memberName);

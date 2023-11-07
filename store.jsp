@@ -111,94 +111,67 @@
         </div>
         <div class="product">
             <div class="ProductList-breadcrumb hidden-xs hidden-sm">
-                <a class="Label" href="">全部商品</a>&ensp;/
-                <a class="Label" href="">所有商品</a>&ensp;/
-                <a class="Label" href="">熱賣商品</a>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="#">Home</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Library</li>
+                    </ol>
+                  </nav>
             </div>
             <div class="ProductList-content">
-                <div class="left-c-box hidden-xs hidden-sm">
+                <div class="left-c-box hidden-xs">
                     <ul class="ProductList-categoryMenu">
-                        <li class="List-item ProductList-nestedList js-productlist-nestedlist sl-dropdown  ng-isolate-scope is-collapsed"
-                            is-collapsed="true" is-mobile-collapsed="true"> <a class="Label tertiary-hover-color"
-                                link-highlight=" " href="">所有商品</a>
-                            <ul id="product-list-nested-list-5ef172da7f424f0027fb70a4"
-                                class="ProductList-nestedList-dropdown js-productlist-nestedlist-dropdown second-layer">
-                                <li class="List-item second-layer-content" is-collapsed="true"
-                                    is-mobile-collapsed="true"> <a class="Label primary-color-hover" link-highlight=""
-                                        href=""> 本季新品 </a> </li>
-                                <li class="List-item js-productlist-nestedlist second-layer-content" is-collapsed="true"
-                                    is-mobile-collapsed="true"> <a class="Label primary-color-hover" link-highlight=""
-                                        href=""> 熱賣商品
-                                        <i class="fa fa-angle-right" href=""></i> </a>
-                                    <ul class="ProductList-nestedList-dropdown NestedList-Wrapper js-productlist-nestedlist-dropdown"
-                                        id="product-list-nested-list-63eef4fa1b7e440023f110b1">
-                                        <li class="List-item"> <a class="Label primary-color-hover" link-highlight=""
-                                                href=""> 熱賣日常必備 </a> </li>
-                                    </ul>
-                                </li>
-                                <li class="List-item second-layer-content" is-collapsed="true"
-                                    is-mobile-collapsed="true"> <a class="Label primary-color-hover" link-highlight=""
-                                        href=""> 人生必喝清單📋 </a> </li>
+                        <li><a href="#" class="category" onclick="toggleSubcategory('newArrivals')">本季新品</a></li>
+                        <li><a href="#" class="category" onclick="toggleSubcategory('bestSellers')">熱賣商品</a></li>
+                        <li><a href="#" class="category" onclick="toggleSubcategory('collaborations')">聯名系列&ensp;<i class="fa fa-angle-right"></i></a></li>
+                        <div class="subcategory" id="collaborations" style="display: none;">
+                            <ul>
+                                <li><a href="#">ganbade X 祥泰茶莊</a></li>
                             </ul>
-                        </li>
-                        <li class="List-item ProductList-nestedList js-productlist-nestedlist sl-dropdown  ng-isolate-scope is-collapsed"
-                            is-collapsed="true" is-mobile-collapsed="true"> <a class="Label tertiary-hover-color"
-                                link-highlight="" href="">聯名系列</a>
-                            <ul id="product-list-nested-list-65016c04fed20d0022574fb0"
-                                class="ProductList-nestedList-dropdown js-productlist-nestedlist-dropdown second-layer">
-                                <li class="List-item second-layer-content" is-collapsed="true"
-                                    is-mobile-collapsed="true"> <a class="Label primary-color-hover" link-highlight=""
-                                        href="">ganbade X 祥泰茶莊</a> </li>
-                            </ul>
-                        </li>
+                        </div>
+                        <li><a href="#" class="category" onclick="toggleSubcategory('mustDrinkList')">人生必喝清單📋</a></li>
                     </ul>
                 </div>
+                
                 <div class="right-c-box">
                     <div class="info">
                         <img src="https://via.placeholder.com/200" alt="Product Image">
-                        <h2>Product Title</h2>
                         <p>Product Description</p>
                         <p>$10.00</p>
                         <button>Add to Cart</button>
                     </div>
                     <div class="info">
                         <img src="https://via.placeholder.com/200" alt="Product Image">
-                        <h2>Product Title</h2>
                         <p>Product Description</p>
                         <p>$10.00</p>
                         <button>Add to Cart</button>
                     </div>
                     <div class="info">
                         <img src="https://via.placeholder.com/200" alt="Product Image">
-                        <h2>Product Title</h2>
                         <p>Product Description</p>
                         <p>$10.00</p>
                         <button>Add to Cart</button>
                     </div>
                     <div class="info">
                         <img src="https://via.placeholder.com/200" alt="Product Image">
-                        <h2>Product Title</h2>
                         <p>Product Description</p>
                         <p>$10.00</p>
                         <button>Add to Cart</button>
                     </div>
                     <div class="info">
                         <img src="https://via.placeholder.com/200" alt="Product Image">
-                        <h2>Product Title</h2>
                         <p>Product Description</p>
                         <p>$10.00</p>
                         <button>Add to Cart</button>
                     </div>
                     <div class="info">
                         <img src="https://via.placeholder.com/200" alt="Product Image">
-                        <h2>Product Title</h2>
                         <p>Product Description</p>
                         <p>$10.00</p>
                         <button>Add to Cart</button>
                     </div>
                     <div class="info">
                         <img src="https://via.placeholder.com/200" alt="Product Image">
-                        <h2>Product Title</h2>
                         <p>Product Description</p>
                         <p>$10.00</p>
                         <button>Add to Cart</button>
@@ -208,65 +181,7 @@
         </div>
     </div>
 </div>
-</div>
-<style>
-    .product {
-        display: flex;
-        flex-wrap: wrap;
-    }
 
-    .product .info {
-        width: 23%;
-        padding: 10px;
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .product img {
-        max-width: 100%;
-        margin: 0 auto;
-    }
-
-    .product .info h2 {
-        margin: 5px;
-    }
-
-    .product .info p {
-        margin: 7px;
-    }
-
-    .product .info button {
-        max-width: 100%;
-        margin-top: 10px;
-        padding: 5px 10px;
-        background-color: #f1c40f;
-        color: #fff;
-        border: none;
-        cursor: pointer;
-    }
-
-    .left-c-box {
-        width: 20%;
-        padding: 25px 23px 0;
-    }
-
-    .right-c-box {
-        width: 78%;
-        margin-left: auto;
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    .ProductList-breadcrumb.hidden-xs {
-        position: relative;
-    }
-    .ProductList-content {
-
-    display: flex;
-}
-</style>
 <!-- Map End -->
 
 <!-- Back to Top -->

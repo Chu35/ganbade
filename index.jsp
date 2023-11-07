@@ -72,8 +72,10 @@
 					</div>
 					<a href="fun.jsp" class="nav-item nav-link">茶遊此地</a>
 					<a href="contact.jsp" class="nav-item nav-link">關於我們</a>
-					<a href="store.jsp" class="nav-item nav-link">滴滴商城</a>
-					<div class="nav-item dropdown">
+					<a href="store.jsp" class="nav-item nav-link">
+						<small class="fa fa-shopping-cart text-primary"></small>
+					</a>
+						<div class="nav-item dropdown">
 						<div id="user-icon" class="nav-link dropdown-toggle"  data-bs-toggle="dropdown"><small
 							class="fa fa-user text-primary"></small></div>
 						<div class="dropdown-menu border-light m-0">
@@ -136,111 +138,267 @@
 	<!-- keyvision End -->
 	
 
-	<!-- Tealife Start -->
-	<div id="life" class="container-xxl py-4"></div>
+	<!-- proc Start -->
+	<div id="life" class="container-xxl py-4">
+		<div class="container">
+			<div class="text-center mx-auto" style="max-width: 1000px;">
+				<div class="head text-center">
+					<h1 class="mb-3" style="position: absolute;">製茶流程</h1>
+					<div class="images-box" id="imageContainer">
+						<img id="img1" src="img/採菁.gif" alt="stack" class="scroll-img">
+						<img id="img2" src="img/萎凋.gif" alt="stack" class="scroll-img">
+						<img id="img3" src="img/浪菁.gif" alt="stack" class="scroll-img">
+						<img id="img4" src="img/發酵.gif" alt="stack" class="scroll-img">
+						<img id="img5" src="img/殺菁.gif" alt="stack" class="scroll-img">
+						<img id="img6" src="img/揉捻.gif" alt="stack" class="scroll-img">
+						<img id="img7" src="img/乾燥.gif" alt="stack" class="scroll-img">
+						<img id="img8" src="img/烘培.gif" alt="stack" class="scroll-img">
+					</div>
+					<div class="content-box">
+						<div class="heading" id="heading1">
+							<h2>採菁</h2>
+							<p>採菁是摘斷葉間幼梗的中部。採摘標準視老嫩程度而定，一般為一心兩葉至三葉，茶菁的完整度關係到茶葉製造的品質。</p>
+						</div>
+						<div class="heading" id="heading2">
+							<h2>萎凋</h2>
+							<p>萎凋可分為日光（熱風）萎凋及室內萎凋，日光（熱風）萎凋室藉由熱能使茶葉水分消散，日光萎凋後移入室內進行室內萎凋繼續使茶葉水分消散。萎凋過程可使茶葉重量、體積、硬度降低，促進化學反應產生特殊香氣及滋味。</p>
+						</div>
+						<div class="heading" id="heading3">
+							<h2>浪菁</h2>
+							<p>製作部分發酵茶時，初期藉由翻動，使茶菁水分重新分配，達到減低茶梗水分的目的。後續藉由攪拌使茶葉細胞摩擦破損，增加多元酚氧化酶及兒茶素作用，進而控制茶葉發酵的程度。</p>
+						</div>
+						<div class="heading" id="heading4">
+							<h2>發酵</h2>
+							<p>因揉捻後的茶葉發酵程度不足，所以需將茶葉堆疊進行補足發酵，使多元酚氧化酶與兒茶素類充分反應。</p>
+						</div>
+						<div class="heading" id="heading5">
+							<h2>殺菁</h2>
+							<p>藉由熱破壞茶葉中酵素活性，並促使茶葉水分消散、葉片軟化，利於後續揉捻成形，並去除茶葉不良的菁味及穩定茶菁色澤及香氣。<p>
+						</div>
+						<div class="heading" id="heading6">
+							<h2>揉捻</h2>
+							<p>使茶葉捲曲形成條狀，並破壞茶葉的細胞組織，使茶葉的汁液流出附著於表面，增加沖泡時的風味；在揉捻中使茶葉細胞劇烈破壞，促使多元酚氧化酶及兒茶素反應。</p>
+						</div>
+						<div class="heading" id="heading7">
+							<h2>乾燥</h2>
+							<p>以熱風去除茶葉中的水分，使其含水量降至5%以下，延長保存期限，並可停止發酵作用及其他生化反應，使品質固定。此外加熱過程亦可引起若干化學成分的變化促使茶葉香氣形成。茶葉烘乾後可使形狀固定，方便包裝及運輸。</p>
+						</div>
+						<div class="heading" id="heading8">
+							<h2>烘培</h2>
+							<p>烘焙具有去除水分效果，有效延長茶葉貯藏壽命，並改善粗製茶普遍帶有之臭味和不良雜味，增加茶葉的特殊香氣及特色性。</p>
+						</div>
+					</div>
+				</div>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/gsap.min.js"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/ScrollTrigger.min.js"></script>
+				<script>
+					gsap.registerPlugin(ScrollTrigger);
+					function setScrollElement(selector, start, end) {
+						gsap.to(selector, {
+							scrollTrigger: {
+								trigger: selector,
+								toggleActions: 'play reverse play reverse',
+								start: start,
+								end: end,
+							},
+							opacity: 1,
+						});
+					}
+					setScrollElement('#heading1', '0s', '+=1000s');
+					setScrollElement('#heading2', '+=1000s', '+=1000s');
+					setScrollElement('#heading3', '+=2000s', '+=1000s');
+					setScrollElement('#heading4', '+=3000s', '+=1000s');
+					setScrollElement('#heading5', '+=4000s', '+=1000s');
+					setScrollElement('#heading6', '+=5000s', '+=1000s');
+					setScrollElement('#heading7', '+=6000s', '+=1000s');
+					setScrollElement('#heading8', '+=7000s', '+=1000s');
+					setScrollElement('#img1', '0s', '+=1000s');
+					setScrollElement('#img2', '+=1000s', '+=1000s');
+					setScrollElement('#img3', '+=2000s', '+=1000s');
+					setScrollElement('#img4', '+=3000s', '+=1000s');
+					setScrollElement('#img5', '+=4000s', '+=1000s');
+					setScrollElement('#img6', '+=5000s', '+=1000s');
+					setScrollElement('#img7', '+=6000s', '+=1000s');
+					setScrollElement('#img8', '+=7000s', '+=1000s');
+					gsap.to('.head', {
+						scrollTrigger: {
+							pin: '.head',
+							end: '+=5000s',
+							pinSpacing: true,
+						},
+					});
+				</script>
+			</div>
+		</div>
+	</div>
+	<!-- proc End -->
+
+	<!-- knowledge -->
 	<div class="container-xxl py-4">
-    <div class="container">
-        <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.2s" style="max-width: 1000px;">
-            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-interval="false">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <h1 class="tealife py-1 px-3"><font color="#d05600">紅茶</font>的一生</h1>
-                        <div class="video-container">
-                            <video class="d-block w-100" autoplay muted loop playsinline>
-                                <source src="img/採菁.mp4" type="video/mp4" >
-                            </video>
-                            <video class="d-block w-100" autoplay muted loop playsinline>
-                                <source src="img/萎凋.mp4" type="video/mp4">
-                            </video>
-							<video class="d-block w-100" autoplay muted loop playsinline>
-                                <source src="img/揉捻.mp4" type="video/mp4">
-                            </video>
-							<video class="d-block w-100" autoplay muted loop playsinline>
-                                <source src="img/發酵.mp4" type="video/mp4">
-                            </video>
-							<video class="d-block w-100" autoplay muted loop playsinline>
-                                <source src="img/乾燥.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <h1 class="tealife py-1 px-3"><font color="#249911">綠茶</font>的一生</h1>
-                        <div class="video-container">
-                            <video class="d-block w-100" autoplay muted loop playsinline>
-                                <source src="img/採菁.mp4" type="video/mp4" >
-                            </video>
-                            <video class="d-block w-100" autoplay muted loop playsinline>
-                                <source src="img/殺菁.mp4" type="video/mp4">
-                            </video>
-							<video class="d-block w-100" autoplay muted loop playsinline>
-                                <source src="img/揉捻.mp4" type="video/mp4">
-                            </video>
-							<video class="d-block w-100" autoplay muted loop playsinline>
-                                <source src="img/乾燥.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-					<div class="carousel-item">
-                        <h1 class="tealife py-1 px-3"><font color="#c98233">青茶</font>的一生</h1>
-                        <div class="video-container">
-                            <video class="d-block w-100" autoplay muted loop playsinline>
-                                <source src="img/採菁.mp4" type="video/mp4" >
-                            </video>
-                            <video class="d-block w-100" autoplay muted loop playsinline>
-                                <source src="img/萎凋.mp4" type="video/mp4">
-                            </video>
-							<video class="d-block w-100" autoplay muted loop playsinline>
-                                <source src="img/浪菁.mp4" type="video/mp4">
-                            </video>
-							<video class="d-block w-100" autoplay muted loop playsinline>
-                                <source src="img/發酵.mp4" type="video/mp4">
-                            </video>
-							<video class="d-block w-100" autoplay muted loop playsinline>
-                                <source src="img/殺菁.mp4" type="video/mp4">
-                            </video>
-							<video class="d-block w-100" autoplay muted loop playsinline>
-                                <source src="img/揉捻.mp4" type="video/mp4">
-                            </video>													
-							<video class="d-block w-100" autoplay muted loop playsinline>
-                                <source src="img/乾燥.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-					<div class="carousel-item">
-                        <h1 class="tealife py-1 px-3"><font color="#ebc286">白茶</font>的一生</h1>
-                        <div class="video-container">
-                            <video class="d-block w-100" autoplay muted loop playsinline>
-                                <source src="img/採菁.mp4" type="video/mp4" >
-                            </video>
-                            <video class="d-block w-100" autoplay muted loop playsinline>
-                                <source src="img/萎凋.mp4" type="video/mp4">
-                            </video>
-							<video class="d-block w-100" autoplay muted loop playsinline>
-                                <source src="img/乾燥.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
+		<div class="container">
+		  <div class="text-center mx-auto" style="max-width: 1000px; height: auto;">
+			<h1 class="mb-2">不同茶種有不同的風味與特色</h1>
+			<p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam enim vel veritatis natus quos necessitatibus! Incidunt dolore sequi repudiandae! Beatae quis sint vel, praesentium delectus magnam numquam deleniti dolor illum?</p>
+			<div id="type" class="slider">
+			  <div class="slide-track">
+				<%
+				Connection conn = null;
+				Statement stmt = null;
+				ResultSet rs = null;
+				try {
+				  Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+				  String url = "jdbc:sqlserver://127.0.0.1:1433;database=109_ganbade";
+				  String user = "chu";
+				  String password = "0725";
+				  conn = DriverManager.getConnection(url, user, password);
+				  // Query tea data from the database
+				  stmt = conn.createStatement();
+				  String query = "SELECT * FROM Knowledge";
+				  rs = stmt.executeQuery(query);
+	  
+				  while (rs.next()) {
+					String id = rs.getString("id");
+					String name = rs.getString("name");
+					String imagePath = rs.getString("image_path");
+	  
+					// Create a unique modal ID
+					String modalId = "exampleModal" + id;
+				%>
+				
+				<div class="slide">
+				  <div class="img">
+					<img data-bs-toggle="modal" data-bs-target="#<%= modalId %>" src="<%= imagePath %>" alt="<%= name %>">
+				  </div>
+				  <div class="title"><%= name %></div>
+				</div>
+				<script>
+					document.addEventListener("DOMContentLoaded", function () {
+					  const slider = document.querySelector(".slider");
+					  const slideTrack = document.querySelector(".slide-track");
+				
+					  // Clone the slides and append them to the end of the slider
+					  const slides = document.querySelectorAll(".slide");
+					  const numSlides = slides.length;
+					  const cloneSlides = Array.from(slides).map((slide) => slide.cloneNode(true));
+				
+					  for (let i = 0; i < numSlides; i++) {
+						slideTrack.appendChild(cloneSlides[i]);
+					  }
+				
+					  let scrollAmount = 0;
+					  const scrollSpeed = 1; // You can adjust the scroll speed
+				
+					  function scrollSlider() {
+						scrollAmount += scrollSpeed;
+						slideTrack.style.transform = `translateX(-${scrollAmount}px)`;
+				
+						if (scrollAmount >= slideTrack.scrollWidth - slider.offsetWidth) {
+						  // When the last slide is reached, reset the scroll position
+						  scrollAmount = 0;
+						  slideTrack.style.transition = "transform 0s"; // Disable transition for instant jump
+						  slideTrack.style.transform = `translateX(0)`;
+						  // Re-enable transition to smoothly loop back to the first slide
+						  setTimeout(() => {
+							slideTrack.style.transition = "transform 0.5s";
+						  }, 0);
+						}
+					  }
+				
+					  setInterval(scrollSlider, 10); // Adjust the interval as needed
+					});
+				  </script>
+				
+				<%
+				  }
+				} catch (Exception e) {
+				  e.printStackTrace();
+				} finally {
+				  // Close database resources
+				  try { rs.close(); } catch (Exception e) { /* Ignore */ }
+				  try { stmt.close(); } catch (Exception e) { /* Ignore */ }
+				  try { conn.close(); } catch (Exception e) { /* Ignore */ }
+				}
+				%>
+			  </div>
+			</div>
+		  </div>			  
+		  <a href="knowl.jsp" id="knowlbtn" class="btn btn-primary">看更多</a>
+		</div>
+	  </div>
+	<!-- knowledge -->
 
-	<!-- About End -->
+	<!-- fun -->
+	<div class="container-xxl py-4">
+		<div class="container">
+			<div class="text-center mx-auto" style="max-width: 800px;">
+				<h1 class="mb-3">台北哪裡有茶</h1>
+				<img src="img/貓空.png" class="d-block w-100" alt="貓空">
+			</div>
+		</div>
+	</div>
+	<!-- fun -->
 
+	<!-- store -->
+		<div class="container-xxl py-4">
+			<div class="container">
+				<div class="text-center mx-auto" style="max-width: 1000px;">
+					<h1 class="mb-5">想買茶回家喝嗎</h1>
+					<h1 class=" mb-3">滴滴商城</h1>
+					<a href="store.jsp" class="btn btn-primary">Shop now !!!</a>
+				</div>
+			</div>
+		</div>
+	<!-- store -->
+	
 	<!-- Back to Top -->
 	<a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top">
 		<i class="bi bi-arrow-up"></i>
 	</a>
+	<!-- Back to Top -->
 
+	<!-- footer -->
+	<footer class="footer-distributed">
+		<div class="footer-left">	
+			<img src="img/logo.png" alt="logo" width="150px">
+			<p class="footer-links">
+				<a href="#" class="link-1">Home</a>
+				<a href="#">Blog</a>
+				<a href="#">Pricing</a>
+				<a href="#">About</a>
+				<a href="#">Faq</a>
+				<a href="#">Contact</a>
+			</p>
+			<p class="footer-company-name">Ganbade © 2023</p>
+		</div>
+		<div class="footer-center">
+			<div>
+				<i class="fa fa-map-marker"></i>
+				<p><span>444 S. Cedros Ave</span> Solana Beach, California</p>
+			</div>
+			<div>
+				<i class="fa fa-phone"></i>
+				<p>+1.555.555.5555</p>
+			</div>
+			<div>
+				<i class="fa fa-envelope"></i>
+				<p><a href="mailto:icscheerstea@gmail.com">icscheerstea@gmail.com</a></p>
+			</div>
+		</div>
+		<div class="footer-right">
+			<p class="footer-company-about">
+				<span>About the company</span>
+				Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus
+				vehicula sit amet.
+			</p>
+			<div class="footer-icons">
+				<a href="#"><i class="fa fa-facebook"></i></a>
+				<a href="#"><i class="fa fa-twitter"></i></a>
+				<a href="#"><i class="fa fa-linkedin"></i></a>
+				<a href="#"><i class="fa fa-github"></i></a>
+			</div>
+		</div>
+	</footer>
+	<!-- footer -->
 
 	<!-- JavaScript Libraries -->
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

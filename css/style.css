@@ -528,7 +528,7 @@ h6,
 }
 .box:hover input{
 	width: 150px;	
-	border-bottom: 2px dashed #4d4d4d;
+	border-bottom: 1px solid #4d4d4d
 }
 .box input{
 	width: 0;
@@ -765,6 +765,9 @@ ul li {
 }
 .tea_list .item .info+.info+.info+.info .info_title {
 	background-color: #92cee8
+}
+.tea_list .item .info+.info+.info+.info+.info .info_title {
+	background-color: #cbe892
 }
 .tea_list .item .info .info_title {
 	width: 84px;
@@ -1091,3 +1094,327 @@ ul li {
   }
 }
 
+.product {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product .info {
+  width: 23%;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product img {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.product .info h2 {
+  margin: 5px;
+}
+
+.product .info p {
+  margin: 7px;
+}
+
+.product .info button {
+  max-width: 100%;
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #d6c5a4;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.left-c-box {
+  width: 20%;
+  padding: 20px 0px 0;
+}
+.right-c-box {
+  width: 78%;
+  margin-left: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.ProductList-breadcrumb.hidden-xs {
+  position: relative;
+}
+.ProductList-content {
+display: flex;
+}
+
+/* storelist */
+.category {
+  cursor: pointer;
+}
+
+/* 區塊 */
+#color{
+  background:url(https://png.pngtree.com/background/20210715/original/pngtree-white-marble-texture-background-picture-image_1309543.jpg)
+  no-repeat center center fixed;
+  background-size: cover;
+  height: 855px;
+}
+
+/* index proc */
+.head {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding-top: 60px;
+}
+.content-box {
+  display: flex;
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  height: 100%; 
+  width: 50%;
+  font-size: 20px;
+  padding-left: 4em;
+  text-align: center;
+}
+.images-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+}
+.scroll-img {
+  width: 30vw;
+  opacity: 0;
+  position: absolute;
+  top: auto;
+}
+.heading {
+  opacity: 0;
+  position: absolute;
+  top: auto;
+  max-width: 500px;
+}
+.active {
+  opacity: 1;
+}
+@media (max-width: 880px) {
+	.content-box,
+	.images-box{
+		width: 100%;
+		margin-bottom: 40px;
+		text-align: center;
+	}
+	.images-box{
+		margin-left: 0;
+	}
+}
+/* index knowl */
+#knowlbtn {
+  position: absolute;
+  width: 70px;
+  right: 10%;
+  margin: 10px;
+}
+
+#type {
+  display: flex;
+  height: 100%;
+  font-size: 20px;
+  justify-content: center;
+}
+
+.slider {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.slide-track {
+  display: inline-block;
+  animation: scroll 20s linear infinite;
+}
+
+.slide {
+  display: inline-block;
+  width: 250px; /* Adjust the slide width as needed */
+  /* Your existing slide styles */
+}
+
+.slide .img {
+  display: flex;
+  width: 150px;
+  height: 250px;
+  justify-content: center;
+  object-fit: cover;
+  object-position: center center;
+  margin: 2px;
+  padding: 20px;
+}
+
+.slide .title {
+  display: flex;
+  width: 150px;
+  justify-content: center;
+  object-fit: cover;
+  object-position: center center;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 7));
+  }
+}
+
+/* index footer */
+.footer-distributed{
+	background: #d6c5a4;
+	box-sizing: border-box;
+	width: 100%;
+	text-align: left;
+	font: bold 16px sans-serif;
+	padding: 55px 50px;
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right{
+	display: inline-block;
+	vertical-align: top;
+}
+
+/* Footer left */
+.footer-distributed .footer-left{
+	width: 40%;
+}
+/* Footer links */
+.footer-distributed .footer-links{
+	color:  #ffffff;
+	margin: 20px 0 12px;
+	padding: 0;
+}
+
+.footer-distributed .footer-links a{
+	display:inline-block;
+	line-height: 1.8;
+  font-weight:400;
+	text-decoration: none;
+	color:  inherit;
+}
+
+.footer-distributed .footer-company-name{
+	color:  #222;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+}
+/* Footer Center */
+.footer-distributed .footer-center{
+	width: 35%;
+}
+.footer-distributed .footer-center i{
+	background-color:  #F9EDDD;
+	color: #ffffff;
+	font-size: 20px;
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 42px;
+	margin: 10px 15px;
+	vertical-align: middle;
+}
+
+.footer-distributed .footer-center i.fa-envelope{
+	font-size: 17px;
+	line-height: 38px;
+}
+
+.footer-distributed .footer-center p{
+	display: inline-block;
+	color: #ffffff;
+  font-weight:400;
+	vertical-align: middle;
+	margin:0;
+}
+.footer-distributed .footer-center p span{
+	display:block;
+	font-weight: normal;
+	font-size:14px;
+	line-height:2;
+}
+.footer-distributed .footer-center p a{
+	color:  #F9EDDD;
+	text-decoration: none;;
+}
+.footer-distributed .footer-links a:before {
+  content: "|";
+  font-weight:300;
+  font-size: 20px;
+  left: 0;
+  color: #fff;
+  display: inline-block;
+  padding-right: 5px;
+}
+.footer-distributed .footer-links .link-1:before {
+  content: none;
+}
+/* Footer Right */
+.footer-distributed .footer-right{
+	width: 20%;
+}
+.footer-distributed .footer-company-about{
+	line-height: 20px;
+	color:  #92999f;
+	font-size: 13px;
+	font-weight: normal;
+	margin: 0;
+}
+.footer-distributed .footer-company-about span{
+	display: block;
+	color:  #ffffff;
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+.footer-distributed .footer-icons{
+	margin-top: 25px;
+}
+.footer-distributed .footer-icons a{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+	background-color:  #F9EDDD;
+	border-radius: 2px;
+	font-size: 20px;
+	color: #ffffff;
+	text-align: center;
+	line-height: 35px;
+	margin-right: 3px;
+	margin-bottom: 5px;
+}
+@media (max-width: 880px) {
+	.footer-distributed{
+		font: bold 14px sans-serif;
+	}
+	.footer-distributed .footer-left,
+	.footer-distributed .footer-center,
+	.footer-distributed .footer-right{
+		display: block;
+		width: 100%;
+		margin-bottom: 40px;
+		text-align: center;
+	}
+	.footer-distributed .footer-center i{
+		margin-left: 0;
+	}
+}

@@ -190,7 +190,7 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <form action="collect.jsp">
-                                                <i id="collectButton<%= id %>" class="fa fa-regular fa-bookmark fa-xl" style="cursor: pointer;"></i>
+                                                <i id="collectButton<%= id %>" class="bi bi-bookmark-heart" style="cursor: pointer;"></i>
                                                 <script>
                                                     var collectButton<%= id %> = document.getElementById("collectButton<%= id %>");
                                                     collectButton<%= id %>.addEventListener("click", function() {

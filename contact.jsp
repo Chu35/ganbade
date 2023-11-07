@@ -155,7 +155,8 @@
         </div>
     </div>
     <!-- Team End -->
-    <div class="container">
+    <div  id="color">
+    <div class="container"> 
         <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
             <h2 class="display-5 mb-4">合作夥伴</h2>
         </div>
@@ -209,6 +210,7 @@
             <h4 class="mb-4">特別感謝網站資料來源<a href="https://www.jsy-tea.com/">京盛宇</a></h4>
         </div>
         </div>
+        
     <!-- Copyright Start -->
     <div class="container-fluid copyright py-4">
         <div class="container">

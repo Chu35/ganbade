@@ -349,6 +349,18 @@ if (typeof (Storage) !== "undefined") {
   document.getElementById("count").innerHTML = "Sorry";
 }
 
+//store list
+    function toggleSubcategory(subcategoryID) {
+        var subcategory = document.getElementById(subcategoryID);
+        if (subcategory.style.display === 'none') {
+            subcategory.style.display = 'block';
+        } else {
+            subcategory.style.display = 'none';
+        }
+    }
+
+
+
 
 
 

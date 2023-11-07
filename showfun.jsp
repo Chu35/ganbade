@@ -77,6 +77,9 @@
                 </div>
                 <a href="fun.jsp" class="nav-item nav-link active">茶遊此地</a>
                 <a href="contact.jsp" class="nav-item nav-link">關於我們</a>
+                <a href="store.jsp" class="nav-item nav-link">
+                    <small class="fa fa-shopping-cart text-primary"></small>
+                </a>
                 <div class="nav-item nav-link">
                     <div class="box">
                         <form action="showfun.jsp" autocomplete="off">
@@ -117,8 +120,7 @@
 		</div>
 	</div>
     <!-- Map End -->
-
-
+    
 <div class="container-xxl py-1">
     <div class="container">
         <div class="row g-4 align-items-end mb-4">
@@ -155,22 +157,23 @@
                     String phone = rs.getString("phone");     
                     String type = rs.getString("type");
         %>
+        <div id="<%= id %>" class="row g-4 align-items-end mb-4">
             <div class="col-lg-5 wow fadeInUp" data-wow-delay="0.1s">
-                <img class="img-fluid rounded" src="<%= imagePath %>" alt="<%= name %>">
+                <img class="img-fluid rounded" src="<%= imagePath %>" alt="<%= name %>" style=" width: 550px;height: 350px;">
             </div>
-            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.2s">
                 <form action="collectfun.jsp">
-                    <i id="collectButton<%= id %>" class=" bi bi-bookmark-heart" style="cursor: pointer;"></i>
+                    <i id="collectFunButton<%= id %>" class="bi bi-bookmark-heart" style="cursor: pointer;"></i>
                     <script>
-                        var collectButton<%= id %> = document.getElementById("collectButton<%= id %>");
-                        collectButton<%= id %>.addEventListener("click", function() {
+                        var collectFunButton<%= id %> = document.getElementById("collectFunButton<%= id %>");
+                        collectFunButton<%= id %>.addEventListener("click", function() {
                             window.location.href = "collectfun.jsp?fun_id=<%= id %>";
                         });
                     </script>
-                </form>
+                </form>                
                 <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3 mb-1"><%= type %></p>
                 <div class="display-5 mb-1">
-                    <img src="<%= imagePathicon %>" alt="<%= name %>" class="btn btn-l btn-lg-square rounded-circle" style="display:inline;"><h1 style="display:inline;">&nbsp;<%= name %></h1>
+                    <img src="<%= imagePathicon %>" alt="<%= name %>" class="btn btn-l btn-lg-square rounded-circle" style="display:inline;"><h1 style="display:inline;font-family:monospace;">&ensp;<%= name %></h1>
                 </div>
                 <p class="mb-1"><%= classification %></p>
                 <p class="mb-1">
@@ -189,11 +192,11 @@
                         🎙️導覽時段：<%= guidedtour %><br>
                     <% } %>
                     <% if (reserve != null) { %>
-                        ✍🏻導覽預約：<a href="<%= reserve %>"><%= reserve %></a><br>
+                        ✍🏻預約：<a href="<%= reserve %>"><%= reserve %></a><br>
                     <% } %>                 
-                    &nbsp;☎&nbsp;電話：<a href="tel:<%= phone %>"><%= phone %></a>
+                    ☎️電話：<a href="tel:<%= phone %>"><%= phone %></a>
                 </p>
-            </div>
+            </div></div>
             <%
                 }
             } catch (Exception e) {

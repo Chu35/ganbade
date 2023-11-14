@@ -34,7 +34,6 @@
 	<!-- Template Stylesheet -->
 	<link href="css/style.css" rel="stylesheet">
 </head>
-
 <body>
 	<!-- Spinner Start -->
 	<div id="spinner"
@@ -95,33 +94,33 @@
 			</div>
 		</nav>
 	</div>
-
 	<!-- Navbar End -->
 	
 	<!-- Test Start -->
-	<div class="modal fade" id="exampleModaltest" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false"><div class="center">
-		<div class="modal-dialog modal-dialog-centered modal-lg">
-		  <div class="modal-content">
-			<div class="modal-header">
-			  <i type="button" id="closetest" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></i>
-				<button id="back" onclick="goBack()">&laquo; back</button>
-			</div>
-			<div class="modal-body">
-			  <div class="container-xxl py-3">
-				  <div class="text-center mx-auto" style="max-width: 600px;">
-					  <img id="imgtest" alt="Question Image">
-					  <div id="question1"></div>
-					  <div id="choices"></div>
-					  <div id="results"></div>
-				  </div>
+	<div class="modal fade" id="exampleModaltest" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true"
+		data-bs-backdrop="static" data-bs-keyboard="false">
+		<div class="center">
+			<div class="modal-dialog modal-dialog-centered modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<i type="button" id="closetest" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></i>
+						<button id="back" onclick="goBack()">&laquo; back</button>
+					</div>
+					<div class="modal-body">
+						<div class="container-xxl py-3">
+							<div class="text-center mx-auto" style="max-width: 600px;">
+								<img id="imgtest" alt="Question Image">
+								<div id="question1"></div>
+								<div id="choices"></div>
+								<div id="results"></div>
+							</div>
+						</div>
+					</div>
 				</div>
-			  </div>
-			</div>
 			</div>
 		</div>
-		</div>
-		<!-- Test End -->
-	
+	</div>
+	<!-- Test End -->
 	
 	<!-- Keyvision Start -->
 	<div id="home" class="container-fluid p-0 mb-1 wow fadeIn">
@@ -133,6 +132,14 @@
 			<img src="img/kv5.png" alt="Right Image" class="image right-image w-100">
 			<img src="img/kv7.png" alt="Left Image" class="image left-image w-100">
 			<img src="img/kv9.png" alt="Right Image" class="image right-image w-100">
+			<div class="scroll-icon">
+				<div class="scroll-down bounce">
+					<a href="#life" style="color: #fff;">
+						<i class="fa fa-chevron-down"></i>
+						<p>Scroll Down</p>
+					</a>
+				</div>
+			</div>
 		</div>
 	</div>
 	<!-- keyvision End -->
@@ -238,9 +245,10 @@
 		<div class="container">
 		  <div class="text-center mx-auto" style="max-width: 1000px; height: auto;">
 			<h1 class="mb-2">不同茶種有不同的風味與特色</h1>
-			<p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam enim vel veritatis natus quos necessitatibus! Incidunt dolore sequi repudiandae! Beatae quis sint vel, praesentium delectus magnam numquam deleniti dolor illum?</p>
+			<div class="mb-3"><p >Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam enim vel veritatis natus quos necessitatibus! Incidunt dolore sequi repudiandae! Beatae quis sint vel, praesentium delectus magnam numquam deleniti dolor illum?<br></p>
+			<a href="knowl.jsp" id="knowlbtn" class="btn btn-primary">看更多</a></div>
 			<div id="type" class="slider">
-			  <div class="slide-track">
+			  <div class="slide-track" id="slideTrack">
 				<%
 				Connection conn = null;
 				Statement stmt = null;
@@ -271,43 +279,6 @@
 				  </div>
 				  <div class="title"><%= name %></div>
 				</div>
-				<script>
-					document.addEventListener("DOMContentLoaded", function () {
-					  const slider = document.querySelector(".slider");
-					  const slideTrack = document.querySelector(".slide-track");
-				
-					  // Clone the slides and append them to the end of the slider
-					  const slides = document.querySelectorAll(".slide");
-					  const numSlides = slides.length;
-					  const cloneSlides = Array.from(slides).map((slide) => slide.cloneNode(true));
-				
-					  for (let i = 0; i < numSlides; i++) {
-						slideTrack.appendChild(cloneSlides[i]);
-					  }
-				
-					  let scrollAmount = 0;
-					  const scrollSpeed = 1; // You can adjust the scroll speed
-				
-					  function scrollSlider() {
-						scrollAmount += scrollSpeed;
-						slideTrack.style.transform = `translateX(-${scrollAmount}px)`;
-				
-						if (scrollAmount >= slideTrack.scrollWidth - slider.offsetWidth) {
-						  // When the last slide is reached, reset the scroll position
-						  scrollAmount = 0;
-						  slideTrack.style.transition = "transform 0s"; // Disable transition for instant jump
-						  slideTrack.style.transform = `translateX(0)`;
-						  // Re-enable transition to smoothly loop back to the first slide
-						  setTimeout(() => {
-							slideTrack.style.transition = "transform 0.5s";
-						  }, 0);
-						}
-					  }
-				
-					  setInterval(scrollSlider, 10); // Adjust the interval as needed
-					});
-				  </script>
-				
 				<%
 				  }
 				} catch (Exception e) {
@@ -322,7 +293,6 @@
 			  </div>
 			</div>
 		  </div>			  
-		  <a href="knowl.jsp" id="knowlbtn" class="btn btn-primary">看更多</a>
 		</div>
 	  </div>
 	<!-- knowledge -->

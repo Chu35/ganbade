@@ -313,7 +313,7 @@ filterOptions.forEach(option => {
     });
   });
 });//teas end
-
+ 
 //fun pin
 function jumpIcon(pin) {
   pin.classList.add('jump');
@@ -358,9 +358,4 @@ if (typeof (Storage) !== "undefined") {
             subcategory.style.display = 'none';
         }
     }
-
-
-
-
-
 

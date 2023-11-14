@@ -16,7 +16,6 @@ html{
 	box-shadow: none!important;
 }
 
-
 body,html,h1,h2,h3,h4,h5,h6,div{
   font-family: cwTeXYen, sans-serif !important;
 }
@@ -1043,8 +1042,10 @@ ul li {
   height: 350px; /* 高度自动调整以保持比例 */
   object-fit: cover; /* 控制图片在指定大小的框中填充，保持纵横比 */
 }
-
-
+#mc1{
+  cursor: url('https://res.cloudinary.com/dvkugaw3b/image/upload/v1641562028/cursor_ad12rf.png'), auto;
+  }
+  
 /*index動畫*/
 .ani {
   display: flex;
@@ -1216,34 +1217,18 @@ display: flex;
 	}
 }
 /* index knowl */
-#knowlbtn {
-  position: absolute;
+#knowlbtn{
+  position: static;
+  /*position: absolute;*/
   width: 70px;
-  right: 10%;
+  /* right: 10%; */
   margin: 10px;
 }
-
 #type {
   display: flex;
   height: 100%;
   font-size: 20px;
   justify-content: center;
-}
-
-.slider {
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.slide-track {
-  display: inline-block;
-  animation: scroll 20s linear infinite;
-}
-
-.slide {
-  display: inline-block;
-  width: 250px; /* Adjust the slide width as needed */
-  /* Your existing slide styles */
 }
 
 .slide .img {
@@ -1256,23 +1241,66 @@ display: flex;
   margin: 2px;
   padding: 20px;
 }
-
-.slide .title {
+.slide .title{
   display: flex;
   width: 150px;
   justify-content: center;
   object-fit: cover;
   object-position: center center;
 }
+.slider {
+  height: 300px;
+  margin: auto;
+  overflow: hidden;
+}
+@-webkit-keyframes scroll {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(calc(-250px * 7));
+	}
+}
 
 @keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc(-250px * 7));
-  }
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(calc(-250px * 7));
+	}
 }
+.slider::before, .slider::after {
+  height: 300px;
+  position: absolute;
+  width: 200px;
+  z-index: 2;
+}
+
+.slider::after {
+  right: 0;
+  top: 0;
+  -webkit-transform: rotateZ(0deg);
+  transform: rotateZ(0deg);
+}
+
+.slider::before {
+  left: 0;
+  top: 0;
+}
+
+.slider .slide-track {
+  -webkit-animation: scroll 10s linear infinite ;
+  animation: scroll 10s linear infinite ;
+  display: flex;
+  width: calc(250px * 14);
+}
+
+.slider .slide {
+  height: 300px;
+  width: 250px;
+}
+
 
 /* index footer */
 .footer-distributed{
@@ -1281,7 +1309,7 @@ display: flex;
 	width: 100%;
 	text-align: left;
 	font: bold 16px sans-serif;
-	padding: 55px 50px;
+	padding: 30px 45px;
 }
 
 .footer-distributed .footer-left,
@@ -1417,4 +1445,83 @@ display: flex;
 	.footer-distributed .footer-center i{
 		margin-left: 0;
 	}
+}
+
+/* keyvisiov scroll */
+.scroll-icon {
+  position: absolute; 
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 15px; 
+  color: #fff; 
+  cursor: pointer; 
+  text-align: center;
+}
+.scroll-down {
+  animation:bounce 1s infinite alternate;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+.scroll-down i {
+  font-size: 24px; 
+}
+.scroll-down p {
+  font-size: 15px;
+  margin-top: 5px; 
+}
+@keyframes bounce {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(20px);
+  }
+}
+
+
+/* store */
+.card {
+  width: calc(33.3333% - 20px); /* Adjust the width as needed, considering margins */
+  margin: 10px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: inline-block;
+  vertical-align: top;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.card-img-top {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.card-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: calc(50% - 20px); /* Two cards per row on smaller screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .card {
+    width: 100%; /* One card per row on extra small screens */
+  }
 }

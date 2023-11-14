@@ -83,6 +83,7 @@
                         <form action="showfun.jsp" autocomplete="off">
                             <input name="search" type="keyword" placeholder="Search...">		
                             <i class="fas fa-search" type="submit" value="Rechercher"></i>
+                            <div id="searchResults"></div>
                         </form>
                     </div>
                 </div>
@@ -119,7 +120,7 @@
         <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.2s" style="max-width: 700px;">
           <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-interval="false">
             <div class="carousel-inner">
-                <div class="carousel-item active">
+                <div id="mc1" class="carousel-item active">
                     <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3">貓空</p>
                     <img src="img/貓空.png"  class="d-block w-100" alt="貓空">                    
                     <div class="pin" onclick="jumpIcon(this)" data-target="f1"><img src="img/pin.png" title="貓空 找茶屋 found your tea"></div>
@@ -255,7 +256,31 @@
               try { conn.close(); } catch (Exception e) { /* Ignore */ }
             }
             %>
-        
+            <script>
+                function searchFun() {
+                    var searchInput = document.getElementById("searchInput").value;
+                    var searchResultsDiv = document.getElementById("searchResults");
+            
+                    if (searchInput.length > 0) {
+                        // Use AJAX to fetch data from the server
+                        var xhr = new XMLHttpRequest();
+                        xhr.onreadystatechange = function () {
+                            if (xhr.readyState == 4 && xhr.status == 200) {
+                                // Update the search results div with the fetched data
+                                searchResultsDiv.innerHTML = xhr.responseText;
+                            }
+                        };
+                        
+                        // Send a GET request to the server with the search term
+                        xhr.open("GET", "searchfun.jsp?search=" + searchInput, true);
+                        xhr.send();
+                    } else {
+                        // Clear the search results if the search input is empty
+                        searchResultsDiv.innerHTML = "";
+                    }
+                }
+            </script>
+            
     </div>
 </div>
 <!-- Projects End -->

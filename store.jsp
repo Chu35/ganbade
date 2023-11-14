@@ -27,7 +27,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
             integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    
+
         <!-- Libraries Stylesheet -->
         <link href="lib/animate/animate.min.css" rel="stylesheet">
         <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
@@ -78,7 +78,9 @@
                 <a href="fun.jsp" class="nav-item nav-link">茶遊此地</a>
                 <a href="contact.jsp" class="nav-item nav-link">關於我們</a>
                 <a href="#" class="nav-item nav-link">
-                    <small class="fa fa-shopping-cart text-primary"></small>
+                    <small class="fa fa-shopping-cart text-primary" data-toggle="modal" data-target="#cart"><span
+                        class="total-count"></small>
+                    
                 </a>
                 <div class="nav-item dropdown">
                     <div id="user-icon" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
@@ -102,7 +104,7 @@
     </nav>
 </div>
 
- <!-- Map Start -->
+ <!-- store -->
 <div class="container-xxl py-4">
     <div class="container">
         <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s">
@@ -113,17 +115,18 @@
             <div class="ProductList-breadcrumb hidden-xs hidden-sm">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                      <li class="breadcrumb-item"><a href="#">Home</a></li>
-                      <li class="breadcrumb-item active" aria-current="page">Library</li>
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Library</li>
                     </ol>
-                  </nav>
+                </nav>
             </div>
             <div class="ProductList-content">
                 <div class="left-c-box hidden-xs">
                     <ul class="ProductList-categoryMenu">
                         <li><a href="#" class="category" onclick="toggleSubcategory('newArrivals')">本季新品</a></li>
                         <li><a href="#" class="category" onclick="toggleSubcategory('bestSellers')">熱賣商品</a></li>
-                        <li><a href="#" class="category" onclick="toggleSubcategory('collaborations')">聯名系列&ensp;<i class="fa fa-angle-right"></i></a></li>
+                        <li><a href="#" class="category" onclick="toggleSubcategory('collaborations')">聯名系列&ensp;<i
+                                    class="fa fa-angle-right"></i></a></li>
                         <div class="subcategory" id="collaborations" style="display: none;">
                             <ul>
                                 <li><a href="#">ganbade X 祥泰茶莊</a></li>
@@ -132,57 +135,84 @@
                         <li><a href="#" class="category" onclick="toggleSubcategory('mustDrinkList')">人生必喝清單📋</a></li>
                     </ul>
                 </div>
-                
                 <div class="right-c-box">
-                    <div class="info">
-                        <img src="https://via.placeholder.com/200" alt="Product Image">
-                        <p>Product Description</p>
-                        <p>$10.00</p>
-                        <button>Add to Cart</button>
+                    <div class="container mb-5">
+                        <div class="row" style="justify-content:flex-start;">
+                            <% 
+                        Connection conn = null;
+                        Statement stmt = null;
+                        ResultSet rs = null;
+                        
+                        try {
+                            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                            String url = "jdbc:sqlserver://127.0.0.1:1433;database=109_ganbade";
+                            String user = "chu";
+                            String password = "0725";
+                            conn = DriverManager.getConnection(url, user, password);
+                            
+                            // Query tea data from the database
+                            stmt = conn.createStatement();
+                            String query = "SELECT * FROM store";
+                            rs = stmt.executeQuery(query);
+                
+                            while (rs.next()) {
+                                int id = rs.getInt("id");
+                                String name = rs.getString("name");
+                                String imgpath = rs.getString("imgpath");
+                                double price = rs.getDouble("price");  
+                        %>
+                        <div class="card">
+                            <img class="card-img-top" src="<%= imgpath %>" alt="<%= name %>">
+                            <div class="card-block">
+                                <h4 class="card-title"><%= name %></h4>
+                                <p class="card-text">₩ <%= Math.round(price) %></p>
+                                <a href="#" data-name="<%= name %>" data-price="<%= price %>" class="add-to-cart btn btn-primary">Add to
+                                    cart</a>
+                            </div>
+                        </div>
+                                    <% 
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        } finally {
+                            // Close database resources
+                            try { rs.close(); } catch (Exception e) { /* Ignore */ }
+                            try { stmt.close(); } catch (Exception e) { /* Ignore */ }
+                            try { conn.close(); } catch (Exception e) { /* Ignore */ }
+                        }
+                        %>
                     </div>
-                    <div class="info">
-                        <img src="https://via.placeholder.com/200" alt="Product Image">
-                        <p>Product Description</p>
-                        <p>$10.00</p>
-                        <button>Add to Cart</button>
-                    </div>
-                    <div class="info">
-                        <img src="https://via.placeholder.com/200" alt="Product Image">
-                        <p>Product Description</p>
-                        <p>$10.00</p>
-                        <button>Add to Cart</button>
-                    </div>
-                    <div class="info">
-                        <img src="https://via.placeholder.com/200" alt="Product Image">
-                        <p>Product Description</p>
-                        <p>$10.00</p>
-                        <button>Add to Cart</button>
-                    </div>
-                    <div class="info">
-                        <img src="https://via.placeholder.com/200" alt="Product Image">
-                        <p>Product Description</p>
-                        <p>$10.00</p>
-                        <button>Add to Cart</button>
-                    </div>
-                    <div class="info">
-                        <img src="https://via.placeholder.com/200" alt="Product Image">
-                        <p>Product Description</p>
-                        <p>$10.00</p>
-                        <button>Add to Cart</button>
-                    </div>
-                    <div class="info">
-                        <img src="https://via.placeholder.com/200" alt="Product Image">
-                        <p>Product Description</p>
-                        <p>$10.00</p>
-                        <button>Add to Cart</button>
+                </div>
+            </div>
+                
+                
+                <div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Cart</h5>
+                                <span class="close" data-dismiss="modal" aria-label="Close" aria-hidden="true"
+                                    style="font-size: 1.5em; cursor: pointer;">&times;</span>
+                            </div>
+                            <div class="modal-body">
+                                <table class="show-cart table">
+                                </table>
+                                <div>Total price: $<span class="total-cart"></span></div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="clear-cart btn btn-danger">Clear Cart</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Order now</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-<!-- Map End -->
+<!-- store -->
 
 <!-- Back to Top -->
 <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top">
@@ -197,8 +227,11 @@
 <script src="lib/easing/easing.min.js"></script>
 <script src="lib/waypoints/waypoints.min.js"></script>
 <script src="lib/counterup/counterup.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 <!-- Template Javascript -->
 <script src="js/main.js"></script>
+<script src="js/store.js"></script>
 </body>
 </html>

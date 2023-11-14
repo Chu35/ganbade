@@ -82,7 +82,7 @@
                 </a>
                 <div class="nav-item nav-link">
                     <div class="box">
-                        <form action="showfun.jsp" autocomplete="off">
+                        <form action="showfun.jsp" autocomplete="">
                             <input name="search" type="keyword" placeholder="Search...">		
                             <i class="fas fa-search" type="submit" value="Rechercher"></i>
                         </form>

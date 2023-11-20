@@ -36,8 +36,7 @@
 </head>
 <body>
 	<!-- Spinner Start -->
-	<div id="spinner"
-		class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+	<div id="spinner" class="show position-fixed ">
 		<div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
 	</div>
 	<!-- Spinner End -->
@@ -71,9 +70,7 @@
 					</div>
 					<a href="fun.jsp" class="nav-item nav-link">茶遊此地</a>
 					<a href="contact.jsp" class="nav-item nav-link">關於我們</a>
-					<a href="store.jsp" class="nav-item nav-link">
-						<small class="fa fa-shopping-cart text-primary"></small>
-					</a>
+					<a href="store.jsp" class="nav-item nav-link">滴滴商城</a>
 						<div class="nav-item dropdown">
 						<div id="user-icon" class="nav-link dropdown-toggle"  data-bs-toggle="dropdown"><small
 							class="fa fa-user text-primary"></small></div>
@@ -159,7 +156,7 @@
 						<img id="img5" src="img/殺菁.gif" alt="stack" class="scroll-img">
 						<img id="img6" src="img/揉捻.gif" alt="stack" class="scroll-img">
 						<img id="img7" src="img/乾燥.gif" alt="stack" class="scroll-img">
-						<img id="img8" src="img/烘培.gif" alt="stack" class="scroll-img">
+						<img id="img8" src="img/烘焙.gif" alt="stack" class="scroll-img">
 					</div>
 					<div class="content-box">
 						<div class="heading" id="heading1">
@@ -230,7 +227,7 @@
 					gsap.to('.head', {
 						scrollTrigger: {
 							pin: '.head',
-							end: '+=5000s',
+							end: '+=8000s',
 							pinSpacing: true,
 						},
 					});

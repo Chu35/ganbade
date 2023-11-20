@@ -42,10 +42,9 @@
 <body>
     
     <!-- Spinner Start -->
-    <div id="spinner"
-        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
-    </div>
+	<div id="spinner" class="show position-fixed ">
+		<div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
+	</div>
     <!-- Spinner End -->
 
 <!-- Navbar Start -->
@@ -79,8 +78,7 @@
                 <a href="contact.jsp" class="nav-item nav-link">關於我們</a>
                 <a href="#" class="nav-item nav-link">
                     <small class="fa fa-shopping-cart text-primary" data-toggle="modal" data-target="#cart"><span
-                        class="total-count"></small>
-                    
+                        class="total-count"></small>                    
                 </a>
                 <div class="nav-item dropdown">
                     <div id="user-icon" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
@@ -112,29 +110,48 @@
             <h1 class="display-5 mb-4">E-commerce Shop</h1>
         </div>
         <div class="product">
-            <div class="ProductList-breadcrumb hidden-xs hidden-sm">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Library</li>
-                    </ol>
-                </nav>
-            </div>
-            <div class="ProductList-content">
+            <div class="leftlist">
+                <div class="ProductList-breadcrumb hidden-xs hidden-sm">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"></li>
+                        </ol>
+                    </nav>
+                </div>
                 <div class="left-c-box hidden-xs">
                     <ul class="ProductList-categoryMenu">
-                        <li><a href="#" class="category" onclick="toggleSubcategory('newArrivals')">本季新品</a></li>
-                        <li><a href="#" class="category" onclick="toggleSubcategory('bestSellers')">熱賣商品</a></li>
-                        <li><a href="#" class="category" onclick="toggleSubcategory('collaborations')">聯名系列&ensp;<i
-                                    class="fa fa-angle-right"></i></a></li>
+                        <li class="category" data-list="全部">全部</li>
+                        <li class="category" data-list="本季新品">本季新品</li>
+                        <li class="category" data-list="熱賣商品">熱賣商品</li>
+                        <li class="category" data-list="聯名系列">聯名系列</li>
+                        <li class="category" data-list="人生必喝清單📋">人生必喝清單📋</li>
+                        <li class="category" data-list="聯名系列" onclick="toggleSubcategory('collaborations')">聯名系列&ensp;<i
+                                class="fa fa-angle-right"></i></li>
                         <div class="subcategory" id="collaborations" style="display: none;">
                             <ul>
-                                <li><a href="#">ganbade X 祥泰茶莊</a></li>
+                                <li class="category" data-list="ganbade X 祥泰茶莊">ganbade X 祥泰茶莊</li>
                             </ul>
                         </div>
-                        <li><a href="#" class="category" onclick="toggleSubcategory('mustDrinkList')">人生必喝清單📋</a></li>
                     </ul>
                 </div>
+            </div>
+            <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+            <script>
+                $(document).ready(function () {
+                    // Event handler for category clicks
+                    $(".category").on("click", function () {
+                        // Get the text of the clicked category
+                        var categoryText = $(this).data("list");
+            
+                        // Update the breadcrumb with the clicked category
+                        $(".breadcrumb-item.active").text(categoryText);
+            
+                        // Show the breadcrumb
+                        $(".ProductList-breadcrumb").show();
+                    });
+                });
+            </script>
                 <div class="right-c-box">
                     <div class="container mb-5">
                         <div class="row" style="justify-content:flex-start;">
@@ -149,8 +166,6 @@
                             String user = "chu";
                             String password = "0725";
                             conn = DriverManager.getConnection(url, user, password);
-                            
-                            // Query tea data from the database
                             stmt = conn.createStatement();
                             String query = "SELECT * FROM store";
                             rs = stmt.executeQuery(query);
@@ -159,29 +174,64 @@
                                 int id = rs.getInt("id");
                                 String name = rs.getString("name");
                                 String imgpath = rs.getString("imgpath");
+                                String list = rs.getString("list");
                                 double price = rs.getDouble("price");  
                         %>
-                        <div class="card">
+                        <div class="shopping" data-list="<%= list %>">
                             <img class="card-img-top" src="<%= imgpath %>" alt="<%= name %>">
                             <div class="card-block">
                                 <h4 class="card-title"><%= name %></h4>
-                                <p class="card-text">₩ <%= Math.round(price) %></p>
-                                <a href="#" data-name="<%= name %>" data-price="<%= price %>" class="add-to-cart btn btn-primary">Add to
-                                    cart</a>
+                                <p class="card-text">NT$ <%= Math.round(price) %></p>
+                                <a href="#" data-name="<%= name %>" data-price="<%= price %>" class="add-to-cart btn btn-primary">Add to cart</a>
                             </div>
                         </div>
-                                    <% 
-                            }
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        } finally {
-                            // Close database resources
-                            try { rs.close(); } catch (Exception e) { /* Ignore */ }
-                            try { stmt.close(); } catch (Exception e) { /* Ignore */ }
-                            try { conn.close(); } catch (Exception e) { /* Ignore */ }
+                        <style>.hidden {
+                            display: none;
                         }
-                        %>
-                    </div>
+                        </style>
+                        
+                        <% 
+                    }
+                } catch (Exception e) {
+                 e.printStackTrace();
+                } finally {
+                      // Close database resources
+                      try { rs.close(); } catch (Exception e) { /* Ignore */ }
+                      try { stmt.close(); } catch (Exception e) { /* Ignore */ }
+                      try { conn.close(); } catch (Exception e) { /* Ignore */ }
+                    }
+                    %>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function () {
+                            var categoryItems = document.querySelectorAll('.ProductList-categoryMenu .category');
+                    
+                            categoryItems.forEach(function (item) {
+                                item.addEventListener('click', function () {
+                                    var selectedCategory = item.getAttribute('data-list');
+                                    filterProducts(selectedCategory);
+                                });
+                            });
+                        });
+                    
+                        function toggleSubcategory(subcategoryId) {
+                            var subcategory = document.getElementById(subcategoryId);
+                            subcategory.style.display = subcategory.style.display === 'none' ? 'block' : 'none';
+                        }
+                    
+                        function filterProducts(category) {
+                            var productItems = document.querySelectorAll('.right-c-box .shopping');
+                    
+                            productItems.forEach(function (product) {
+                                var productCategory = product.getAttribute('data-list');
+                    
+                                if (productCategory === category || category === "全部") {
+                                    product.classList.remove('hidden');
+                                } else {
+                                    product.classList.add('hidden');
+                                }
+                            });
+                        }
+                    </script>
                 </div>
             </div>
                 

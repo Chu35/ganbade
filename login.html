@@ -71,6 +71,7 @@
 				</div>
                   <a href="fun.jsp" class="nav-item nav-link">茶遊此地</a>
                   <a href="contact.jsp" class="nav-item nav-link">關於我們</a>
+                  <a href="store.jsp" class="nav-item nav-link">滴滴商城</a>
                   <div class="nav-item dropdown">
                     <div id="user-icon" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                         <small class="fa fa-user text-primary"></small>
@@ -92,20 +93,72 @@
     <!-- login Start -->
     <div class="container-xxl py-5">
         <div class="center">
-            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <div class="text-center mx-auto" style="max-width: 600px;">
                 <h1 class="display-3 mb-4 animated">  </h1>
                 <h1 class="display-5 mb-5">Login</h1>
             </div>
 			<div class="mb-5" align="center"> 
-			<form id="membermodify" action="verify.jsp">
-					帳號：<input class="m1" type="text" name="user" autocomplete="off" /><br><br>
-					密碼：<input class="m1" type="password" name="pwd"/><br><br>
-				<input class="btn btn-primary" type="submit" value="登入"/>&emsp;   
-				<a href="signin.html">註冊</a>
-			</form>
+                <div class="form-container">
+                    <div class="form" id="form-container">
+                        <!-- 登入表單 -->
+                        <form id="login-form" action="verify.jsp" class="show">
+                            帳號：<input class="m1" type="text" name="user" autocomplete="off" /><br><br>
+                            密碼：<input class="m1" type="password" name="pwd"/><br><br>
+                            <input class="btn btn-primary" type="submit" value="登入"/>&emsp;   
+                            <a href="#" id="register-link">註冊</a>
+                        </form>
+            
+                        <!-- 註冊表單 -->
+                        <form id="register-form" action="register.jsp" method="post" autocomplete="off" class="hide">
+                            暱稱：<input class="m1" type="text" name="user" autocomplete="off" required /><br><br>
+                    性別：&ensp;<label><input type="radio" name="gender" value="M" />男</label>&emsp;
+                    <label><input type="radio" name="gender" value="F">女</label>&emsp;
+                    <label><input type="radio" name="gender" value="N/A">不透漏</label><br><br>
+                    帳號：<input class="m1" type="text" name="name" autocomplete="off" required /><br><br>
+                    密碼：<input class="m1" type="password" name="pwd" />
+                    <div class="password-requirements" required pattern="^(?=.*[0-9])(?=.*[a-zA-Z]).+$">
+                        <font size="1" color="red">*密碼需包含英文以及數字*</font>
+                            </div><br>
+                            <div class="form-table">
+                                <input class="btn btn-primary" type="submit" value="存檔" />&emsp;
+                                <input class="btn btn-primary" type="reset" value="清除" />
+                            </div>
+                            <a href="#" id="back-link">返回</a>
+                        </form>
+                    </div>
+                </div>
 			</div>
         </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var formContainer = document.getElementById("form-container");
+
+            // 點擊註冊連結時，切換到註冊表單
+            document.getElementById("register-link").addEventListener("click", function() {
+                document.getElementById("login-form").classList.remove("show");
+                document.getElementById("login-form").classList.add("hide");
+
+                document.getElementById("register-form").classList.remove("hide");
+                document.getElementById("register-form").classList.add("show");
+
+                formContainer.style.transform = "translateX(-50%)";
+                document.querySelector('.display-5').textContent = "Register";
+            });
+
+            // 點擊返回連結時，切換回登入表單
+            document.getElementById("back-link").addEventListener("click", function() {
+                document.getElementById("register-form").classList.remove("show");
+                document.getElementById("register-form").classList.add("hide");
+
+                document.getElementById("login-form").classList.remove("hide");
+                document.getElementById("login-form").classList.add("show");
+
+                formContainer.style.transform = "translateX(0)";
+                document.querySelector('.display-5').textContent = "Login";
+            });
+        });
+    </script>
     <!-- login End -->
 
 

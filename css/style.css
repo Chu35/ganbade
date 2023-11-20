@@ -47,16 +47,20 @@ h6,
 
 /*** Spinner ***/
 #spinner {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity .5s ease-out, visibility 0s linear .5s;
-    z-index: 99999;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-out, visibility 0s linear 0.5s;
+  z-index: 99999;
 }
 
 #spinner.show {
-    transition: opacity .5s ease-out, visibility 0s linear 0s;
-    visibility: visible;
-    opacity: 1;
+  transition: opacity 0.5s ease-out, visibility 0s linear 0s;
+  visibility: visible;
+  opacity: 1;
 }
 
 
@@ -1132,28 +1136,6 @@ ul li {
   cursor: pointer;
 }
 
-.left-c-box {
-  width: 20%;
-  padding: 20px 0px 0;
-}
-.right-c-box {
-  width: 78%;
-  margin-left: auto;
-  display: flex;
-  flex-wrap: wrap;
-}
-.ProductList-breadcrumb.hidden-xs {
-  position: relative;
-}
-.ProductList-content {
-display: flex;
-}
-
-/* storelist */
-.category {
-  cursor: pointer;
-}
-
 /* 區塊 */
 #color{
   background:url(https://png.pngtree.com/background/20210715/original/pngtree-white-marble-texture-background-picture-image_1309543.jpg)
@@ -1480,9 +1462,38 @@ display: flex;
   }
 }
 
-
 /* store */
-.card {
+
+.left-c-box {
+  padding: 2px 2px 0px;
+  position: relative;
+  margin: 10px;
+}
+
+.right-c-box {
+  flex: 1;
+  margin-left: 5%;
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 300px;
+}
+.roductList{
+  padding: 0 !important;
+}
+.hidden {
+  display: none;
+}
+.ProductList-breadcrumb.hidden-xs {
+  position: relative;
+}
+/* storelist */
+.category {
+  cursor: pointer;
+  color: #d6c5a4;
+}
+
+/* store product */
+.shopping {
   width: calc(33.3333% - 20px); /* Adjust the width as needed, considering margins */
   margin: 10px;
   border-radius: 15px;
@@ -1494,7 +1505,7 @@ display: flex;
   padding: 0;
 }
 
-.card:hover {
+.shopping:hover {
   transform: scale(1.03);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
@@ -1515,13 +1526,46 @@ display: flex;
 }
 
 @media (max-width: 768px) {
-  .card {
-    width: calc(50% - 20px); /* Two cards per row on smaller screens */
+  .shopping {
+    width: calc(100% - 20px); /* Two cards per row on smaller screens */
   }
 }
 
 @media (max-width: 576px) {
-  .card {
+  .shopping {
     width: 100%; /* One card per row on extra small screens */
   }
+}
+
+/* login*/
+.form-container {
+  width: 300px;
+  margin: 50px auto;
+  overflow: hidden;
+}
+
+.form {
+  display: flex;
+  width: 600px;
+  transition: transform 1s;
+}
+
+.form form {
+  width: 300px;
+  border-radius: 5px;
+  display: none;
+}
+.form-container .m1{
+  border: none;
+outline: none;
+border-bottom: 2px solid #4d4d4d;
+background: none;
+}
+
+#register-form {
+  transform: translateX(100%);
+}
+
+.show {
+  display: block !important;
 }

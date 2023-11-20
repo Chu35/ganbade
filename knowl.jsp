@@ -42,11 +42,10 @@
 <body>
 
     	<!-- Spinner Start -->
-	<div id="spinner"
-    class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-    <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
-</div>
-<!-- Spinner End -->
+        <div id="spinner" class="show position-fixed ">
+            <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
+        </div>
+    <!-- Spinner End -->
 
 <!-- Navbar Start -->
 <div class="container-fluid fixed-top px-0 wow fadeIn top-0" data-wow-delay="0.1s">
@@ -77,7 +76,7 @@
                 </div>
                 <a href="fun.jsp" class="nav-item nav-link">茶遊此地</a>
                 <a href="contact.jsp" class="nav-item nav-link">關於我們</a>
-                <a href="store.jsp" class="nav-item nav-link"><small class="fa fa-shopping-cart text-primary"></small></a>
+                <a href="store.jsp" class="nav-item nav-link">滴滴商城</a>
                 <div class="nav-item nav-link">
                     <div class="box">
                         <form action="showknowl.jsp" autocomplete="off">
@@ -147,7 +146,6 @@
                             String user = "chu";
                             String password = "0725";
                             conn = DriverManager.getConnection(url, user, password);
-                            // Query tea data from database
                             stmt = conn.createStatement();
                             String query = "SELECT * FROM Knowledge";
                             rs = stmt.executeQuery(query);

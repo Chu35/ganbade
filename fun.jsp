@@ -42,11 +42,10 @@
 <body>
 
     	<!-- Spinner Start -->
-	<div id="spinner"
-    class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-    <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
-</div>
-<!-- Spinner End -->
+        <div id="spinner" class="show position-fixed ">
+            <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
+        </div>
+    <!-- Spinner End -->
 
 <!-- Navbar Start -->
 <div class="container-fluid fixed-top px-0 wow fadeIn top-0" data-wow-delay="0.1s">
@@ -123,9 +122,9 @@
                 <div id="mc1" class="carousel-item active">
                     <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3">貓空</p>
                     <img src="img/貓空.png"  class="d-block w-100" alt="貓空">                    
-                    <div class="pin" onclick="jumpIcon(this)" data-target="f1"><img src="img/pin.png" title="貓空 找茶屋 found your tea"></div>
-                    <div class="pin" onclick="jumpIcon(this)" data-target="f2"><img src="img/pin.png" title="邀月茶坊"></div>
-                    <div class="pin" onclick="jumpIcon(this)" data-target="f4"><img src="img/pin.png" title="煎茶院"></div>
+                    <div class="pin" onclick="jumpIcon(this)" data-target="f1"><img src="img/pin1.png" title="貓空 找茶屋 found your tea"></div>
+                    <div class="pin" onclick="jumpIcon(this)" data-target="f2"><img src="img/pin1.png" title="邀月茶坊"></div>
+                    <div class="pin" onclick="jumpIcon(this)" data-target="f4"><img src="img/pin1.png" title="煎茶院"></div>
                     <div class="pin" onclick="jumpIcon(this)" data-target="f9"><img src="img/pin.png" title="台北市鐵觀音包種茶研發推廣中心"></div>
                     <div class="pin" onclick="jumpIcon(this)" data-target="f10"><img src="img/pin.png" title="貓空茶神 MaoKong Tea Master"></div>
                     <div class="pin" onclick="jumpIcon(this)" data-target="f11"><img src="img/pin.png" title="晨曦茶坊"></div>
@@ -170,6 +169,7 @@
 </div>
 <!-- Map End -->
 
+<!-- Projects -->
 <div class="container-xxl py-5">
     <div class="container">
         <% 
@@ -283,7 +283,7 @@
             
     </div>
 </div>
-<!-- Projects End -->
+
 
 
 

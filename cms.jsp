@@ -260,69 +260,203 @@
                 </div>
 
                 <div class="container-fluid">
-                    <!-- non -->
+
+                    <!-- count -->
                     <div class="row">
+                    <%
+                    String dbURL = "jdbc:sqlserver://127.0.0.1:1433;database=109_ganbade";
+                    String user = "chu";
+                    String password = "0725";
+                    
+                    try {
+                        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                        // Member
+                        Connection connMember = DriverManager.getConnection(dbURL, user, password);
+                        String countQueryMember = "select count(*) as recordCount from member";
+                        Statement stMember = connMember.createStatement();
+                        ResultSet countResultMember = stMember.executeQuery(countQueryMember);
+                        int recordCountMember = 0;
+                        if (countResultMember.next()) {
+                            recordCountMember = countResultMember.getInt("recordCount");
+                        }
+                        String updateTimeQueryMember = "SELECT FORMAT(modify_date, 'yyyy/MM/dd HH:mm:ss') AS LastUpdateTime FROM sys.objects WHERE object_id = OBJECT_ID(N'member')";                        ResultSet updateTimeResultMember = stMember.executeQuery(updateTimeQueryMember);
+                        String lastUpdateTimeMember = "";
+                        if (updateTimeResultMember.next()) {
+                            lastUpdateTimeMember = updateTimeResultMember.getString("LastUpdateTime");
+                        }
+                    
+                        // Knowledge
+                        Connection connKnowledge = DriverManager.getConnection(dbURL, user, password);
+                        String countQueryKnowledge = "select count(*) as recordCount from Knowledge";
+                        Statement stKnowledge = connKnowledge.createStatement();
+                        ResultSet countResultKnowledge = stKnowledge.executeQuery(countQueryKnowledge);
+                        int recordCountKnowledge = 0;
+                        if (countResultKnowledge.next()) {
+                            recordCountKnowledge = countResultKnowledge.getInt("recordCount");
+                        }
+                        String updateTimeQueryKnowledge = "SELECT FORMAT(modify_date, 'yyyy/MM/dd HH:mm:ss') AS LastUpdateTime FROM sys.objects WHERE object_id = OBJECT_ID(N'Knowledge')";                        
+                        ResultSet updateTimeResultKnowledge = stKnowledge.executeQuery(updateTimeQueryKnowledge);
+                        String lastUpdateTimeKnowledge = "";
+                        if (updateTimeResultKnowledge.next()) {
+                            lastUpdateTimeKnowledge = updateTimeResultKnowledge.getString("LastUpdateTime");
+                        }
+                    
+                        // Fun
+                        Connection connFun = DriverManager.getConnection(dbURL, user, password);
+                        String countQueryFun = "select count(*) as recordCount from fun";
+                        Statement stFun = connFun.createStatement();
+                        ResultSet countResultFun = stFun.executeQuery(countQueryFun);
+                        int recordCountFun = 0;
+                        if (countResultFun.next()) {
+                            recordCountFun = countResultFun.getInt("recordCount");
+                        }
+                        String updateTimeQueryFun = "SELECT FORMAT(modify_date, 'yyyy/MM/dd HH:mm:ss') AS LastUpdateTime FROM sys.objects WHERE object_id = OBJECT_ID(N'fun')";                        
+                        ResultSet updateTimeResultFun = stFun.executeQuery(updateTimeQueryFun);
+                        String lastUpdateTimeFun = "";
+                        if (updateTimeResultFun.next()) {
+                            lastUpdateTimeFun = updateTimeResultFun.getString("LastUpdateTime");
+                        }
+                    
+                        // Store
+                        Connection connStore = DriverManager.getConnection(dbURL, user, password);
+                        String countQueryStore = "select count(*) as recordCount from store";
+                        Statement stStore = connStore.createStatement();
+                        ResultSet countResultStore = stStore.executeQuery(countQueryStore);
+                        int recordCountStore = 0;
+                        if (countResultStore.next()) {
+                            recordCountStore = countResultStore.getInt("recordCount");
+                        }
+                        String updateTimeQueryStore = "SELECT FORMAT(modify_date, 'yyyy/MM/dd HH:mm:ss') AS LastUpdateTime FROM sys.objects WHERE object_id = OBJECT_ID(N'Store')";                        
+                        ResultSet updateTimeResultStore = stStore.executeQuery(updateTimeQueryStore);
+                        String lastUpdateTimeStore = "";
+                        if (updateTimeResultStore.next()) {
+                            lastUpdateTimeStore = updateTimeResultStore.getString("LastUpdateTime");
+                        }
+
+                        // Sugardaddy
+                        Connection connSugardaddy = DriverManager.getConnection(dbURL, user, password);
+                        String countQuerySugardaddy = "select count(*) as recordCount from Sugardaddy";
+                        Statement stSugardaddy = connSugardaddy.createStatement();
+                        ResultSet countResultSugardaddy = stSugardaddy.executeQuery(countQuerySugardaddy);
+                        int recordCountSugardaddy = 0;
+                        if (countResultSugardaddy.next()) {
+                            recordCountSugardaddy = countResultSugardaddy.getInt("recordCount");
+                        }
+                        String updateTimeQuerySugardaddy = "SELECT FORMAT(modify_date, 'yyyy/MM/dd HH:mm:ss') AS LastUpdateTime FROM sys.objects WHERE object_id = OBJECT_ID(N'Sugardaddy')";
+                        ResultSet updateTimeResultSugardaddy = stSugardaddy.executeQuery(updateTimeQuerySugardaddy);
+                        String lastUpdateTimeSugardaddy = "";
+                        if (updateTimeResultSugardaddy.next()) {
+                            lastUpdateTimeSugardaddy = updateTimeResultSugardaddy.getString("LastUpdateTime");
+                        }
+                        
+                    %>
+                    
                         <div class="col-sm-12 col-lg-3">
                             <div class="card card-hover">
                                 <div class="card-body">
                                     <div class="d-flex">
                                         <div class="mr-4">
                                             Member
-                                            <h4 class="mb-0">6</h4>
+                                            <h4 class="mb-0"><%= recordCountMember %></h4>
                                         </div>
-                                        <div class="chart ml-auto">
-                                            更新時間
+                                        <div class="chart ml-auto text-right">
+                                             <%= lastUpdateTimeMember %>
                                         </div>
                                     </div>
-                                </div>
+                                </div>                                
                             </div>
-                        </div>
+                        </div>                        
                         <div class="col-sm-12 col-lg-3">
                             <div class="card card-hover">
                                 <div class="card-body">
                                     <div class="d-flex">
                                         <div class="mr-4">
                                             Knowledge
-                                            <h4 class="mb-0">15</h4>
+                                            <h4 class="mb-0"><%= recordCountKnowledge %></h4>
                                         </div>
-                                        <div class="chart ml-auto">
-                                            更新時間
+                                        <div class="chart ml-auto text-right">
+                                            <%= lastUpdateTimeKnowledge %>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> 
                         <div class="col-sm-12 col-lg-3">
                             <div class="card card-hover">
                                 <div class="card-body">
                                     <div class="d-flex">
                                         <div class="mr-4">
                                             Fun
-                                            <h4 class="mb-0">18</h4>
+                                            <h4 class="mb-0"><%= recordCountFun %></h4>
                                         </div>
-                                        <div class="chart ml-auto">
-                                            更新時間
+                                        <div class="chart ml-auto text-right">
+                                            <%= lastUpdateTimeFun %>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> 
                         <div class="col-sm-12 col-lg-3">
                             <div class="card card-hover">
                                 <div class="card-body">
                                     <div class="d-flex">
                                         <div class="mr-4">
                                             Store
-                                            <h4 class="mb-0">5</h4>
+                                            <h4 class="mb-0"><%= recordCountStore %></h4>
                                         </div>
-                                        <div class="chart ml-auto">
-                                            更新時間
+                                        <div class="chart ml-auto text-right">
+                                            <%= lastUpdateTimeStore %>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> 
+                        <div class="col-sm-12 col-lg-3">
+                            <div class="card card-hover">
+                                <div class="card-body">
+                                    <div class="d-flex">
+                                        <div class="mr-4">
+                                            Sugardaddy
+                                            <h4 class="mb-0"><%= recordCountSugardaddy %></h4>
+                                        </div>
+                                        <div class="chart ml-auto text-right">
+                                            <%= lastUpdateTimeSugardaddy %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    <%
+                        countResultMember.close();
+                        updateTimeResultMember.close();
+                        stMember.close();
+                        connMember.close();
+                    
+                        countResultKnowledge.close();
+                        updateTimeResultKnowledge.close();
+                        stKnowledge.close();
+                        connKnowledge.close();
+                    
+                        countResultFun.close();
+                        updateTimeResultFun.close();
+                        stFun.close();
+                        connFun.close();
+                    
+                        countResultStore.close();
+                        updateTimeResultStore.close();
+                        stStore.close();
+                        connStore.close();
+
+                        countResultSugardaddy.close();
+                        updateTimeResultSugardaddy.close();
+                        stSugardaddy.close();
+                        connSugardaddy.close();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    %>
                     </div>
+                    
                     <!-- member -->
                     <div class="row">
                         <div class="col-sm-12">
@@ -380,17 +514,10 @@
                                                 <th class="border-top-0">Name</th>
                                                 <th class="border-top-0">Password</th>
                                                 <th class="border-top-0">Gender</th>
-                                                <th class="border-top-0"> </th>
-                                                <th class="border-top-0"> </th>
-                                                <th class="border-top-0"> </th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <%
-                                            String dbURL = "jdbc:sqlserver://127.0.0.1:1433;database=109_ganbade";
-                                            String user = "chu";
-                                            String password = "0725";
-                                        
                                             try {
                                                 Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
                                                 Connection conn = DriverManager.getConnection(dbURL, user, password);
@@ -408,10 +535,11 @@
                                             <tr class="text-center">
                                                 <td>
                                                     <div class="d-flex align-items-center">
-                                                        <div class="m-r-10"><a class="btn btn-circle btn-info text-white"><%= id %></a>
+                                                        <div class="m-r-10" style="margin-left:20px">
+                                                            <a class="btn btn-circle btn-info text-white"><%= id %></a>
                                                         </div>
                                                         <div class="">
-                                                            <h4 class="m-b-0 font-16 text-center"><%= id %></h4>
+                                                            <h4 class="m-b-0 font-16 "><%= id %></h4>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -419,11 +547,6 @@
                                                 <td><%= pwd %></td>
                                                 <td>
                                                     <label class="label label-danger"><%= gender %></label>
-                                                </td>
-                                                <td> </td>
-                                                <td> </td>
-                                                <td>
-                                                    <h5 class="m-b-0"> </h5>
                                                 </td>
                                             </tr>
                                             <%
@@ -513,9 +636,8 @@
                                 </div>
                             </div>
                         </div>
-                        
                         <!-- fun -->
-                        <div class="col-lg-6">
+                        <div class="col-lg-12">
                             <div class="card has-shadow">
                                 <div class="card-body border-top">
                                     <h4 class="card-title">Stocks</h4>
@@ -608,6 +730,53 @@
                                                 <td>
                                                     <span class="badge badge-warning font-weight-100"><%= list %></span>
                                                 </td>
+                                            </tr>
+                                            <%
+                                                }
+                                                result.close();
+                                                statement.close();
+                                                conn.close();
+                                            } catch (Exception e) {
+                                                e.printStackTrace();
+                                            }
+                                            %>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Sugardaddy -->
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Sugardaddy</h4>
+                                    <table class="table text-center">
+                                        <thead>
+                                            <tr>
+                                                <th>Image</th>
+                                                <th>Name</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <%
+                                            try {
+                                                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                                                Connection conn = DriverManager.getConnection(dbURL, user, password);
+                                                String sqlQuery = "SELECT * FROM sugardaddy";
+                                                Statement statement = conn.createStatement();
+                                                ResultSet result = statement.executeQuery(sqlQuery);
+                    
+                                                while (result.next()) {
+                                                    String id = result.getString("id");
+                                                    String name = result.getString("name");
+                                                    String imagepath = result.getString("imagepath");
+                                                    String href = result.getString("href");
+                                            %>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <img src="<%= imagepath %>" style="width:50px" alt="iPhone">
+                                                </td>
+                                                <td><%= name %></td>
                                             </tr>
                                             <%
                                                 }

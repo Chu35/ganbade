@@ -268,3 +268,93 @@ body .progress_inner input[type=radio] {
   display: none;
 }
 
+
+/*like*/
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;700;800;900&display=swap');
+.likeicon-child input[type="checkbox"]{
+  display: none;    
+}
+
+.likeicon {
+    color: red;
+}
+
+.likeicon-child {
+    width: 1em;
+    height: 1em;
+    position: relative;
+    z-index: 3;
+    cursor: pointer;
+}
+
+.heart-empty {
+    position: absolute;
+    left: 0;
+    opacity: 1;
+}
+
+.heart-fill {
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    transform: scale(0);
+    transition: transform 0.25s ease-in-out, opacity 0.2s ease-in-out;
+}
+.likeicon-child:hover .heart-fill {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.likeicon-child:hover .heart-empty {
+    transition-delay: 0.25s;
+    opacity: 0;
+}
+
+#like:checked~.heart-empty {
+    opacity: 0;
+}
+
+#like:checked~.heart-fill {
+    animation: like-animation 0.25s ease-in-out forwards;
+}
+
+#like:not(:checked)~.heart-fill {
+    animation: unlike-animation 0.25s ease-in-out;
+}
+
+@keyframes like-animation {
+    0% {
+        opacity: 1;
+        transform: scale(1)
+    }
+
+    50% {
+        opacity: 1;
+        color: hsl(0, 98%, 44%);
+        transform: scale(0.5);
+    }
+
+    100% {
+        opacity: 1;
+        color: hsl(0, 98%, 44%);
+        transform: scale(1.0);
+    }
+}
+
+@keyframes unlike-animation {
+    0% {
+        opacity: 1;
+        transform: scale(1)
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(0.5);
+    }
+
+    100% {
+        opacity: 1;
+        color: varyellow;
+        transform: scale(1.0);
+    }
+}

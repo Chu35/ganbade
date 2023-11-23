@@ -186,27 +186,36 @@
 												type="button" role="tab" aria-controls="nav-story" aria-selected="true">知識調茶局</button>
 											<button class="nav-link fw-semi-bold" id="nav-mission-tab" data-bs-toggle="tab" data-bs-target="#nav-mission"
 												type="button" role="tab" aria-controls="nav-mission" aria-selected="false">好玩der</button>
+												<i id="editIcon" class="fa fa-fw fa-pencil-alt" style="right: 15px; position: absolute; cursor: pointer;"></i>
+												  <style>.fa-pencil-alt.active {
+													color: red; /* 或者任何你想要的其他樣式 */
+												  }
+												  </style>
+												  
 										</div>
 										<div class="tab-content" id="nav-tabContent">
+											<!-- knowledge -->
 											<div class="tab-pane fade show active" id="nav-story" role="tabpanel" aria-labelledby="nav-story-tab">
-												<div class="image-grid">
+												<div class="row content-container">
 													<%
 													while (result.next()) {
 													%>
-													<div class="memhov">
+													<div id="memhov" class="col-lg-4 col-md-6 col-sm-12">
 														<a href="knowl.jsp?id=<%= result.getString("id") %>">
-															<img src="<%= result.getString("image_path") %>" alt="<%= result.getString("name") %>">
+															<img class="img-fluid" src="<%= result.getString("image_path") %>" alt="<%= result.getString("name") %>" >
 														</a>
 														<h5 class="card-text"><%= result.getString("name") %></h5>
+														<a href="delete.jsp?knowledge_id=<%= result.getString("id") %>" style="right: 15px;cursor: pointer;">a</a>
 													</div>
 													<%
 													}
 													%>
 												</div>
 											</div>
+											<!-- fun -->
 											<div class="tab-pane fade" id="nav-mission" role="tabpanel" aria-labelledby="nav-mission-tab">
-												<div class="image-grid">
-													<% // Reset the ResultSet pointer for the second query
+												<div class="row content-container">
+													<% 
 													result.close();
 													preparedStatement.close();
 													preparedStatement = conn.prepareStatement(sql2);
@@ -214,11 +223,13 @@
 													result = preparedStatement.executeQuery();
 													while (result.next()) {
 													%>
-													<div class="memhov">
+													<div id="memhov" class="col-lg-4 col-md-6 col-sm-12">
 														<a href="fun.jsp?id=<%= result.getString("id") %>">
-															<img src="<%= result.getString("imagePath") %>" alt="<%= result.getString("name") %>">
+															<img id="img-member" class="img-fluid" src="<%= result.getString("imagePath") %>" alt="<%= result.getString("name") %>" >
 														</a>
 														<h5 class="card-text"><%= result.getString("name") %></h5>
+														<!-- 新增的部分 -->
+														<a href="delete.jsp?fun_id=<%= result.getString("id") %>" style="right: 15px;cursor: pointer;">&times;</a>
 													</div>
 													<%
 													}
@@ -228,6 +239,7 @@
 										</div>
 									</div>
 								</div>
+								
 							</div>
 						</div>
 						<%
@@ -258,7 +270,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+	</div>
 	
     <!-- About End -->
 

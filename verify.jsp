@@ -27,15 +27,12 @@
 
            // Check if the user is "chu" and the password is "chu0725"
            if (user.equals("chu") && pwd.equals("chu0725")) {
-           
 %>
-            // Redirect to cms.jsp for the specific user
-               <script>
-                   window.location.href = "cms.jsp"; 
-               </script>
+            <script>
+                window.location.href = "cms.jsp"; 
+            </script>
 <%
            } else {
-               // Redirect to index.jsp for other users
 %>
                <script>
                    alert("<%= memberName %> 歡迎光臨!!");
@@ -44,11 +41,12 @@
 <%
            }
       } else {
-        密碼錯誤 = true;
+          密碼錯誤 = true;
       }
   } else {
-    未註冊 = true; 
+      未註冊 = true;
   }
+  
   rs.close();
   st.close();
   con.close();
@@ -62,17 +60,21 @@
 <body>
 <%
     if (!登錄成功) {
-%>
-    <script>
         if (密碼錯誤) {
-            alert("帳號或密碼錯誤");
-            window.location.href = "login.html";
-        } else if (未註冊) {
-            alert("尚未註冊");
-            window.location.href = "signin.html"; 
-        }
-    </script>
+%>
+            <script>
+                alert("帳號或密碼錯誤");
+                window.location.href = "login.html";
+            </script>
 <%
+        } else if (未註冊) {
+%>
+            <script>
+                alert("尚未註冊");
+                window.location.href = "signin.html"; 
+            </script>
+<%
+        }
     }
 %>
 </body>

@@ -38,6 +38,7 @@
     
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
+        <link href="css/proc.css" rel="stylesheet">
     </head>
 <body>
 
@@ -109,6 +110,7 @@
 
 
 
+
  <!-- Map Start -->
  <div class="container-xxl py-4">
     <div class="container">
@@ -169,6 +171,9 @@
 </div>
 <!-- Map End -->
 
+
+  
+</div>
 <!-- Projects -->
 <div class="container-xxl py-5">
     <div class="container">
@@ -210,15 +215,16 @@
                 <img class="img-fluid rounded" src="<%= imagePath %>" alt="<%= name %>" style=" width: 550px;height: 350px;">
             </div>
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.2s">
+                <a href="collect.jsp?fun_id=<%= rs.getString("id") %>" style="cursor: pointer;"><i class="bi bi-bookmark" style="cursor: pointer;"></i></a>
                 <form action="collectfun.jsp">
-                    <i id="collectFunButton<%= id %>" class="bi bi-bookmark-heart" style="cursor: pointer;"></i>
-                    <script>
-                        var collectFunButton<%= id %> = document.getElementById("collectFunButton<%= id %>");
-                        collectFunButton<%= id %>.addEventListener("click", function() {
-                            window.location.href = "collectfun.jsp?fun_id=<%= id %>";
-                        });
-                    </script>
-                </form>                
+                    <div id="collectFunButton<%= id %>" class="likeicon">
+                        <label for="like" class="likeicon-child">
+                            <input type="checkbox" id="like<%= id %>" name="like">
+                            <i class="far fa-heart heart-empty"></i>
+                            <i class="fas fa-heart heart-fill"></i>
+                        </label>
+                    </div>
+                </form>
                 <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3 mb-1"><%= type %></p>
                 <div class="display-5 mb-1">
                     <img src="<%= imagePathicon %>" alt="<%= name %>" class="btn btn-l btn-lg-square rounded-circle" style="display:inline;"><h1 style="display:inline;font-family:monospace;">&ensp;<%= name %></h1>

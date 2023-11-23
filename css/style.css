@@ -1,4 +1,6 @@
 @import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;700;800;900&display=swap');
+
 body,
 html{
 	margin: 0;
@@ -1047,7 +1049,7 @@ ul li {
   object-fit: cover; /* 控制图片在指定大小的框中填充，保持纵横比 */
 }
 #mc1{
-  cursor: url('https://res.cloudinary.com/dvkugaw3b/image/upload/v1641562028/cursor_ad12rf.png'), auto;
+  cursor: url('../img/4in1.ico'), auto;
   }
   
 /*index動畫*/
@@ -1068,18 +1070,22 @@ ul li {
 }
 
 /* member 收藏 */
-.image-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px; 
+.content-container {
+  justify-content: flex-start;
 }
-.image-grid img {
-  padding: 10px;
-  max-width: 200px;
-  height: 185px;
-  object-fit: cover;
+#img-member {
+  width: 150px; 
+  height: 150px; 
+  object-fit: cover; 
+  margin: 15px;
 }
-.memhov:hover {
+#memhov {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+#memhov:hover {
   border-radius: 5px;
   padding: 5px;
   border: 1px solid transparent;
@@ -1093,12 +1099,15 @@ ul li {
   background-position: 0 0, 0 100%, 0 0, 100% 0;
   animation: linearGradientMove .3s infinite linear;
 }
+
 @keyframes linearGradientMove {
   100% {
     background-position: 10px 0, -10px 100%, 0 -10px, 100% 10px;
   }
 }
 
+
+/*   */
 .product {
   display: flex;
   flex-wrap: wrap;
@@ -1569,3 +1578,5 @@ background: none;
 .show {
   display: block !important;
 }
+
+

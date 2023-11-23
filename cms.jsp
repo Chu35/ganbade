@@ -19,12 +19,31 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
         integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://bootadmin.org/style/core/style.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <style> 
 .topbar{
  background-color: #d6c5a4;
 }
+.btn-primary{
+    color: #fff;
+    background-color: #d6c5a4!important;
+    border-color: #d6c5a4!important;
+}
+.btn-primary:active,.btn-primary:hover {
+    color: #fff;
+    background-color: #8E7D5C!important;
+    border-color: none!important;
+}
+.btn{
+    box-shadow: none!important;
+}
+.table td {
+    text-align: center;
+    vertical-align: middle!important;
+}
+
 </style>
 <body id="landing" class="sidebar-open">
     <div class="page-container animsition">
@@ -36,8 +55,7 @@
                         <div class="col-md-5 hidden-xs">
                             <div class="logo">
                                 <a href="/">
-                                    <span class="logo-emblem"><img src="img/ad.jpg"
-                                            alt=" " /></span>
+                                    <span class="logo-emblem"><img src="img/ad.jpg" alt=" " /></span>
                                     <span class="logo-full">甘吧茶ㄉㄟˊ</span>
                                 </a>
                             </div>
@@ -49,7 +67,7 @@
                             <ul>
                                 <!-- Profile Menu -->
                                 <li class="btn-group user-account">
-                                    <a href="javascript:;" class="btn dropdown-toggle" data-toggle="dropdown"
+                                    <a href="javascript:;" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false">
                                         <div class="user-content">
                                             <div class="user-name">Chu</div>
@@ -60,24 +78,22 @@
                                         </div>
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><a href=""
-                                                class="animsition-link dropdown-item wave-effect"><i
-                                                    class="feather icon-user"></i> Profile</a></li>
-                                        <li><a href=""
-                                                class="animsition-link dropdown-item wave-effect"><i
-                                                    class="feather icon-settings"></i> Settings</a></li>
-                                        <li><a href="" class="animsition-link dropdown-item wave-effect"><i
-                                                    class="feather icon-log-in"></i> Logout</a></li>
+                                        <li><a href="" class="animsition-link dropdown-item wave-effect">
+                                            <i class="feather icon-user"></i> Profile</a></li>
+                                        <li><a href="" class="animsition-link dropdown-item wave-effect">
+                                            <i class="feather icon-settings"></i> Settings</a></li>
+                                        <li><a href="logout.jsp" class="animsition-link dropdown-item wave-effect">
+                                            <i class="feather icon-log-in"></i> Logout</a></li>
                                     </ul>
                                 </li>
                                 <!-- settings Menu -->
                                 <li>
-                                    <a href="#" class="btn wave-effect offcanvas-toggle"><i
-                                            class="feather icon-settings"></i></a>
+                                    <a href="#" class="btn btn-primary wave-effect offcanvas-toggle">
+                                        <i class="feather icon-settings"></i></a>
                                 </li>
                                 <!-- Notification Menu-->
                                 <li class="btn-group notification">
-                                    <a href="javascript:;" class="btn dropdown-toggle wave-effect"
+                                    <a href="javascript:;" class="btn btn-primary dropdown-toggle wave-effect"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="feather icon-bell"><span class="notification-count">7</span></i>
                                     </a>
@@ -85,22 +101,20 @@
                                         <li>
                                             <a href="#" class="wave-effect">
                                                 <span class="avatar">
-                                                    <img src="img/ad.jpg"
-                                                        alt=" " />
+                                                    <img src="img/ad.jpg" alt=" " />
                                                 </span>
                                                 <span class="name">Jas Gillionaire</span>
                                                 <span class="message">Like your post: “Contact Form 7 Multi-Step”</span>
                                                 <span class="time">45 min</span>
                                             </a>
                                         </li>
-                                        <li><a href=""
-                                                class="dropdown-item all-notifications wave-effect">See more messages <i
-                                                    class="feather icon-arrow-down"></i></a></li>
+                                        <li><a href="" class="dropdown-item all-notifications wave-effect">See more messages 
+                                            <i class="feather icon-arrow-down"></i></a></li>
                                     </ul>
                                 </li>
                                 <!-- mobile hamburger Menu-->
                                 <li class="mobile-menu-toggle">
-                                    <a href="#" class="menu-toggle wave-effect">
+                                    <a href="#" class="btn btn-primary menu-toggle wave-effect">
                                         <i class="feather icon-menu"></i>
                                     </a>
                                 </li>
@@ -168,22 +182,52 @@
                             data-toggle="collapse" href="#navDashboard" aria-expanded="false"
                             aria-controls="page-dashboards">
                             <i class="feather icon-grid"></i>
-                            <span class="menu-title">內容</span>
+                            <span class="menu-title">新增/修改內容</span>
                             <i class="feather icon-chevron-down down-arrow"></i>
                         </a>
                         <div class="collapse" id="navDashboard">
                             <ul class="flex-column sub-menu">
                                 <li class="nav-item">
-                                    <a class="nav-link wave-effect" href="">
+                                    <a class="nav-link wave-effect" href="#knowledge">
                                         <i class="feather icon-layout"></i>
-                                        <span class="menu-title">新增文章</span>
+                                        <span class="menu-title">knowledge</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="collapse" id="navDashboard">
+                            <ul class="flex-column sub-menu">
+                                <li class="nav-item">
+                                    <a class="nav-link wave-effect" href="#fun">
+                                        <i class="feather icon-layout"></i>
+                                        <span class="menu-title">fun</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="collapse" id="navDashboard">
+                            <ul class="flex-column sub-menu">
+                                <li class="nav-item">
+                                    <a class="nav-link wave-effect" href="#store">
+                                        <i class="feather icon-shopping-bag"></i>
+                                        <span class="menu-title">eCommerce</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="collapse" id="navDashboard">
+                            <ul class="flex-column sub-menu">
+                                <li class="nav-item">
+                                    <a class="nav-link wave-effect" href="#sugardaddy">
+                                        <i class="feather icon-layout"></i>
+                                        <span class="menu-title">sugardaddy</span>
                                     </a>
                                 </li>
                             </ul>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link wave-effect nav-single">
+                        <a href="#member" class="nav-link wave-effect nav-single">
                             <i class="feather icon-layout"></i>
                             <span class="menu-title">會員管理</span>
                         </a>
@@ -260,7 +304,42 @@
                 </div>
 
                 <div class="container-fluid">
-
+                    <style>
+                        .arrow-up, .arrow-down {
+                            display: none;
+                        }
+                    
+                        .sortable-header {
+                            position: relative;
+                            cursor: pointer;
+                            display: inline-block;
+                        }
+                    
+                        .sortable-header:hover .arrow-up {
+                            display: inline-block;
+                        }
+                    
+                        .sortable-header:hover .arrow-down {
+                            display: inline-block;
+                        }
+                    
+                        .arrow-up::before {
+                            content: "\25BC";
+                            position: absolute;
+                            top: 8px;
+                            right: -15px;
+                            font-size: 10px;
+                        }
+                    
+                        .arrow-down::before {
+                            content: "\25B2";
+                            position: absolute;
+                            bottom: 8px;
+                            right: -15px;
+                            font-size: 10px;
+                        }
+                    </style>
+                    
                     <!-- count -->
                     <div class="row">
                     <%
@@ -456,129 +535,158 @@
                     }
                     %>
                     </div>
-                    
                     <!-- member -->
-                    <div class="row">
+                    <div id="member" class="row">
                         <div class="col-sm-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <div class="d-md-flex align-items-center"><h4 class="card-title">會員</h4>
-                                        <div class="ml-auto">
-                                            <div class="dl">
-                                                <select class="custom-select" id="sortSelect">
-                                                    <option value="0" selected="">..</option>
-                                                    <option value="1">最近新增</option>
-                                                    <option value="2">A-Z排序</option>
-                                                </select>
-                                                <script>
-                                                    $(document).ready(function () {
-                                                        function sortTable() {
-                                                            var selectedValue = $("#sortSelect").val();
-                                                            var rows = $('#memberTable tbody tr').get();
+                                    <h4 class="card-title">Member</h4>
+                                    <div class="table-responsive">
+                                        <table id="memberTable" class="table v-middle">
+                                            <thead>
+                                                <tr class="text-uppercase text-center">
+                                                    <th class="border-top-0" data-index="0">
+                                                        <div class="sortable-header">
+                                                            Id
+                                                            <span class="arrow-up"></span>
+                                                            <span class="arrow-down"></span>
+                                                        </div>
+                                                    </th>
+                                                    <th class="border-top-0" data-index="1">
+                                                        <div class="sortable-header">
+                                                            Name
+                                                            <span class="arrow-up"></span>
+                                                            <span class="arrow-down"></span>
+                                                        </div>
+                                                    </th>
+                                                    <th class="border-top-0" data-index="2">
+                                                        <div class="sortable-header">
+                                                            Password
+                                                            <span class="arrow-up"></span>
+                                                            <span class="arrow-down"></span>
+                                                        </div>
+                                                    </th>
+                                                    <th class="border-top-0" data-index="3">
+                                                        <div class="sortable-header">
+                                                            Gender
+                                                            <span class="arrow-up"></span>
+                                                            <span class="arrow-down"></span>
+                                                        </div>
+                                                    </th>
+                                                    <th class="border-top-0" data-index="4">
+                                                        <div class="sortable-header">
+                                                            Collect
+                                                            <span class="arrow-up"></span>
+                                                            <span class="arrow-down"></span>
+                                                        </div>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <% 
+                                                try { 
+                                                    Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver"); 
+                                                    Connection conn = DriverManager.getConnection(dbURL, user, password); 
+                                                    String sqlQuery = "SELECT * FROM member order by id asc"; 
+                                                    String countQueryMember = "SELECT COUNT(*) as name_count FROM member_collect where member_name=?";
+                                                    
+                                                    PreparedStatement countStatement = conn.prepareStatement(countQueryMember);
+                                                    
+                                                    Statement statement = conn.createStatement(); 
+                                                    ResultSet result = statement.executeQuery(sqlQuery);
                                             
-                                                            rows.sort(function (a, b) {
-                                                                var keyA = $(a).children('td').eq(selectedValue).text().toUpperCase();
-                                                                var keyB = $(b).children('td').eq(selectedValue).text().toUpperCase();
+                                                    while (result.next()) { 
+                                                        String id = result.getString("id"); 
+                                                        String name = result.getString("name"); 
+                                                        String gender = result.getString("gender"); 
+                                                        String pwd = result.getString("pwd"); 
                                             
-                                                                if (selectedValue === "3") {
-                                                                    keyA = $(a).find('label').attr('class');
-                                                                    keyB = $(b).find('label').attr('class');
-                                                                }
+                                                        // Set the parameter for the member name
+                                                        countStatement.setString(1, name);
+                                                        ResultSet countResultMemberCollect = countStatement.executeQuery();
+                                                        int recordCountMemberCollect = 0;
                                             
-                                                                if (keyA < keyB) return -1;
-                                                                if (keyA > keyB) return 1;
-                                                                return 0;
-                                                            });
-                                            
-                                                            $.each(rows, function (index, row) {
-                                                                $('#memberTable').children('tbody').append(row);
-                                                            });
+                                                        if (countResultMemberCollect.next()) {
+                                                            recordCountMemberCollect = countResultMemberCollect.getInt("name_count");
                                                         }
                                             
-                                                        $("#sortSelect").change(function () {
-                                                            sortTable();
-                                                        });
-                                            
-                                                        sortTable();
-                                                    });
-                                                </script>
-                                            </div>
-                                        </div>
+                                                        countResultMemberCollect.close();
+                                                %>
+                                                        <tr class="text-center">
+                                                            <td>
+                                                                <div class="d-flex align-items-center">
+                                                                    <div class="m-r-10" style="margin-left:20px">
+                                                                        <a class="btn btn-circle btn-info text-white"><%= id %></a>
+                                                                    </div>
+                                                                    <div class="">
+                                                                        <h4 class="m-b-0 font-16 "><%= id %></h4>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td><%= name %></td>
+                                                            <td><%= pwd %></td>
+                                                            <td>
+                                                                <label class="label label-danger"><%= gender %></label>
+                                                            </td>
+                                                            <td><%= recordCountMemberCollect %></td>
+                                                        </tr>
+                                                <%
+                                                    } 
+                                                    result.close(); 
+                                                    statement.close(); 
+                                                    countStatement.close();
+                                                    conn.close(); 
+                                                } catch (Exception e) {
+                                                    e.printStackTrace(); 
+                                                } 
+                                            %>
+                                            </tbody>
+                                        </table>
                                     </div>
-                                </div>
-                                <div class="table-responsive">
-                                    <table class="table v-middle" id="memberTable">
-                                        <thead>
-                                            <tr class="text-uppercase text-center">
-                                                <th class="border-top-0">Id</th>
-                                                <th class="border-top-0">Name</th>
-                                                <th class="border-top-0">Password</th>
-                                                <th class="border-top-0">Gender</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <%
-                                            try {
-                                                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-                                                Connection conn = DriverManager.getConnection(dbURL, user, password);
-                                        
-                                                String sqlQuery = "SELECT * FROM member";
-                                                Statement statement = conn.createStatement();
-                                                ResultSet result = statement.executeQuery(sqlQuery);
-                                        
-                                                while (result.next()) {
-                                                    String id = result.getString("id");
-                                                    String name = result.getString("name");
-                                                    String gender = result.getString("gender");
-                                                    String pwd = result.getString("pwd");
-                                            %>
-                                            <tr class="text-center">
-                                                <td>
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="m-r-10" style="margin-left:20px">
-                                                            <a class="btn btn-circle btn-info text-white"><%= id %></a>
-                                                        </div>
-                                                        <div class="">
-                                                            <h4 class="m-b-0 font-16 "><%= id %></h4>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td><%= name %></td>
-                                                <td><%= pwd %></td>
-                                                <td>
-                                                    <label class="label label-danger"><%= gender %></label>
-                                                </td>
-                                            </tr>
-                                            <%
-                                                }
-                                                result.close();
-                                                statement.close();
-                                                conn.close();
-                                            } catch (Exception e) {
-                                                e.printStackTrace();
-                                            }
-                                            %>
-                                        </tbody>
-                                    </table>
                                 </div>
                             </div>
                         </div>
-                    </div>               
-
+                    </div>
+                    
+                    
                     <div class="row">          
                         <!-- Knowledge -->             
-                        <div class="col-lg-12">
+                        <div id="knowledge" class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Knowledge</h4>
-                                    <table class="table table-striped table-hover table-borderless table-vcenter font-size-sm">
+                                    <table id="KnowledgeTable" class="table table-striped table-hover table-borderless table-vcenter font-size-sm">
                                         <thead>
-                                            <tr class="text-uppercase" id="knowlTable">
-                                                <th class="font-w700 text-center">Image</th>
-                                                <th class="font-w700 text-center">Name</th>
-                                                <th class="d-none d-sm-table-cell font-w700 text-center">Type</th>
-                                                <th class="font-w700 text-center">Classification</th>
-                                                <th class="d-none d-sm-table-cell font-w700 text-center">Bake、Ferment</th>
+                                            <tr class="text-uppercase text-center">
+                                                <th class="text-center">Image</th>
+                                                <th class="border-top-0" data-index="1">
+                                                    <div class="sortable-header">
+                                                        Name
+                                                        <span class="arrow-up"></span>
+                                                        <span class="arrow-down"></span>
+                                                    </div>
+                                                </th>
+                                                <th class="border-top-0" data-index="2">
+                                                    <div class="sortable-header">
+                                                        Type
+                                                        <span class="arrow-up"></span>
+                                                        <span class="arrow-down"></span>
+                                                    </div>
+                                                </th>
+                                                <th class="border-top-0" data-index="3">
+                                                    <div class="sortable-header">
+                                                        Classification
+                                                        <span class="arrow-up"></span>
+                                                        <span class="arrow-down"></span>
+                                                    </div>
+                                                </th>
+                                                <th class="border-top-0" data-index="4">
+                                                    <div class="sortable-header">
+                                                        Bake、Ferment
+                                                        <span class="arrow-up"></span>
+                                                        <span class="arrow-down"></span>
+                                                    </div>
+                                                </th>
                                                 <th class="text-center">Actions</th>
                                             </tr>
                                         </thead>
@@ -587,7 +695,7 @@
                                             try {
                                                 Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
                                                 Connection conn = DriverManager.getConnection(dbURL, user, password);
-                                                String sqlQuery = "SELECT * FROM knowledge";
+                                                String sqlQuery = "SELECT * FROM knowledge order by id asc";
                                                 Statement statement = conn.createStatement();
                                                 ResultSet result = statement.executeQuery(sqlQuery);
                     
@@ -637,13 +745,13 @@
                             </div>
                         </div>
                         <!-- fun -->
-                        <div class="col-lg-12">
+                        <div id="fun" class="col-lg-12">
                             <div class="card has-shadow">
                                 <div class="card-body border-top">
-                                    <h4 class="card-title">Stocks</h4>
+                                    <h4 class="card-title">Fun</h4>
                                     <table class="table mb-0">
                                         <thead>
-                                            <tr>
+                                            <tr class="text-center">
                                                 <th>Image</th>
                                                 <th>Name</th>
                                                 <th>Place</th>
@@ -668,7 +776,7 @@
                                                     String phone = result.getString("phone");
                                                     String imagePathicon = result.getString("imagePathicon");
                                             %>
-                                            <tr>
+                                            <tr class="text-center">
                                                 <td>
                                                     <img src="<%= imagePathicon %>" style="width:50px" alt="">
                                                 </td>
@@ -692,10 +800,10 @@
                             </div>
                         </div>
                         <!-- Store -->
-                        <div class="col-lg-6">
+                        <div id="store" class="col-lg-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Store</h4>
+                                    <h4 class="card-title">eCommerce</h4>
                                     <table class="table text-center">
                                         <thead>
                                             <tr>
@@ -746,7 +854,7 @@
                             </div>
                         </div>
                         <!-- Sugardaddy -->
-                        <div class="col-lg-6">
+                        <div id="sugardaddy" class="col-lg-6">
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Sugardaddy</h4>
@@ -793,12 +901,189 @@
                             </div>
                         </div>
                     </div>
+                    <script>
+                        // knowledge Table Sorting
+                        $(document).ready(function () {
+                            var knowledgeSortDirection = 1; 
+                            var knowledgeLastSortedColumn = 0;
+                            function sortKnowledgeTable(selectedValue) {
+                                var knowledgeRows = $('#KnowledgeTable tbody tr').get();
+                    
+                                knowledgeRows.sort(function (a, b) {
+                                    var keyA = $(a).children('td').eq(selectedValue).text().toUpperCase();
+                                    var keyB = $(b).children('td').eq(selectedValue).text().toUpperCase();
+                    
+                                    if (selectedValue === 5) {
+                                        keyA = $(a).find('label').text().toUpperCase();
+                                        keyB = $(b).find('label').text().toUpperCase();
+                                    }
+                                    if (keyA < keyB) return -1 * knowledgeSortDirection;
+                                    if (keyA > keyB) return 1 * knowledgeSortDirection;
+                                    return 0;
+                                });
+                    
+                                $.each(knowledgeRows, function (index, row) {
+                                    $('#KnowledgeTable tbody').append(row);
+                                });
+                            }
+                    
+                            $('#KnowledgeTable th').hover(
+                                function () {
+                                    // Hover in
+                                    $(this).find('.arrow-up').show();
+                                    $(this).find('.arrow-down').show();
+                                },
+                                function () {
+                                    // Hover out
+                                    $(this).find('.arrow-up').hide();
+                                    $(this).find('.arrow-down').hide();
+                                }
+                            );
+                    
+                            $('#KnowledgeTable th').click(function () {
+                                var columnIndex = $(this).data('index');
+                                if (knowledgeLastSortedColumn === columnIndex) {
+                                    knowledgeSortDirection = -knowledgeSortDirection;
+                                } else {
+                                    knowledgeSortDirection = 1;
+                                }
+                                sortKnowledgeTable(columnIndex);
+                                updateKnowledgeHeaderIcons($(this), knowledgeSortDirection);
+                                knowledgeLastSortedColumn = columnIndex;
+                            });
+                            sortKnowledgeTable(0);
+                            function updateKnowledgeHeaderIcons(clickedHeader, direction) {
+                                $('#KnowledgeTable th').each(function () {
+                                    if (this !== clickedHeader[0]) {
+                                        $(this).find('.arrow-up').hide().css('color', ''); 
+                                        $(this).find('.arrow-down').hide().css('color', ''); 
+                                    }
+                                });
+                    
+                                if (direction === 1) {
+                                    clickedHeader.find('.arrow-up').css('color', '#d6c5a4'); 
+                                    clickedHeader.find('.arrow-down').css('color', ''); 
+                                } else {
+                                    clickedHeader.find('.arrow-up').css('color', ''); 
+                                    clickedHeader.find('.arrow-down').css('color', '#d6c5a4');
+                                }
+                            }
+                    
+                            // Member Table Sorting
+                            var memberSortDirection = 1; 
+                            var memberLastSortedColumn = 0;
+                    
+                            function sortMemberTable(selectedValue) {
+                                var memberRows = $('#memberTable tbody tr').get();
+                    
+                                memberRows.sort(function (a, b) {
+                                    var keyA = $(a).children('td').eq(selectedValue).text().toUpperCase();
+                                    var keyB = $(b).children('td').eq(selectedValue).text().toUpperCase();
+                    
+                                    if (selectedValue === 3) {
+                                        keyA = $(a).find('label').text().toUpperCase();
+                                        keyB = $(b).find('label').text().toUpperCase();
+                                    }
+                    
+                                    if (keyA < keyB) return -1 * memberSortDirection;
+                                    if (keyA > keyB) return 1 * memberSortDirection;
+                                    return 0;
+                                });
+                    
+                                $.each(memberRows, function (index, row) {
+                                    $('#memberTable tbody').append(row);
+                                });
+                            }
+                    
+                            $('#memberTable th').hover(
+                                function () {
+                                    // Hover in
+                                    $(this).find('.arrow-up').show();
+                                    $(this).find('.arrow-down').show();
+                                },
+                                function () {
+                                    // Hover out
+                                    $(this).find('.arrow-up').hide();
+                                    $(this).find('.arrow-down').hide();
+                                }
+                            );
+                    
+                            $('#memberTable th').click(function () {
+                                var columnIndex = $(this).data('index');
+                    
+                                if (memberLastSortedColumn === columnIndex) {
+                                    memberSortDirection = -memberSortDirection;
+                                } else {
+                                    memberSortDirection = 1;
+                                }
+                    
+                                sortMemberTable(columnIndex);
+                                updateMemberHeaderIcons($(this), memberSortDirection);
+                                memberLastSortedColumn = columnIndex;
+                            });
+                    
+                            sortMemberTable(0);
+                    
+                            function updateMemberHeaderIcons(clickedHeader, direction) {
+                                $('#memberTable th').each(function () {
+                                    if (this !== clickedHeader[0]) {
+                                        $(this).find('.arrow-up').hide().css('color', ''); 
+                                        $(this).find('.arrow-down').hide().css('color', ''); 
+                                    }
+                                });
+                    
+                                if (direction === 1) {
+                                    clickedHeader.find('.arrow-up').css('color', '#d6c5a4'); 
+                                    clickedHeader.find('.arrow-down').css('color', ''); 
+                                } else {
+                                    clickedHeader.find('.arrow-up').css('color', ''); 
+                                    clickedHeader.find('.arrow-down').css('color', '#d6c5a4');
+                                }
+                            }
+                        });
+                    </script>                    
                 </div>
             </main>
         </div>
     </div>
-
-
+    
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top">
+        <i class="bi bi-arrow-up"></i>
+        <style>
+            .back-to-top {
+                position: fixed;
+                display: none;
+                right: 30px;
+                bottom: 30px;
+                z-index: 99;
+                box-shadow: none!important;
+            }
+            .btn-lg-square {
+                width: 48px;
+                height: 48px;
+                padding: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: normal;
+            }
+            </style>
+        <script>
+        // Back to top button
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 300) {
+                    $('.back-to-top').fadeIn('slow');
+                } else {
+                    $('.back-to-top').fadeOut('slow');
+                }
+            });
+            $('.back-to-top').click(function () {
+                $('html, body').animate({scrollTop: 0}, 100, 'easeInOutExpo');
+                return false;
+            });
+        </script>
+    </a>
 
     <!-- Le Javascript -->
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"
@@ -808,9 +1093,6 @@
         crossorigin="anonymous"></script>
     <script src="https://bootadmin.org/scripts/vendor/bootstrap.min.js"></script>
     <script src="https://bootadmin.org/scripts/vendor/library.min.js"></script>
-
-
-
     <script src="https://bootadmin.org/scripts/core/main.js"></script>
 
     <script>
@@ -823,6 +1105,7 @@
         ga('create', 'UA-104952515-1', 'auto');
         ga('send', 'pageview');
     </script>
+
 
 </body>
 

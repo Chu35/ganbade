@@ -114,14 +114,13 @@
                 <div class="ProductList-breadcrumb hidden-xs hidden-sm">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href=" ">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page"></li>
                         </ol>
                     </nav>
                 </div>
                 <div class="left-c-box hidden-xs">
                     <ul class="ProductList-categoryMenu">
-                        <li class="category" data-list="全部">全部</li>
                         <li class="category" data-list="本季新品">本季新品</li>
                         <li class="category" data-list="熱賣商品">熱賣商品</li>
                         <li class="category" data-list="聯名系列">聯名系列</li>

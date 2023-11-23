@@ -192,16 +192,8 @@
                             <div class="modal fade" id="<%= modalId %>" tabindex="-1" aria-labelledby="<%= modalId %>" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-lg">
                                     <div class="modal-content">
-                                        <div class="modal-header">
-                                            <form action="collect.jsp">
-                                                <i id="collectButton<%= id %>" class="bi bi-bookmark-heart" style="cursor: pointer;"></i>
-                                                <script>
-                                                    var collectButton<%= id %> = document.getElementById("collectButton<%= id %>");
-                                                    collectButton<%= id %>.addEventListener("click", function() {
-                                                        window.location.href = "collect.jsp?knowledge_id=<%= id %>";
-                                                    });
-                                                </script>
-                                            </form>    
+                                        <div class="modal-header">  
+                                            <a href="collect.jsp?knowledge_id=<%= rs.getString("id") %>" style="cursor: pointer;"><i class="bi bi-bookmark" style="cursor: pointer;"></i></a>
                                             <i type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></i>
                                         </div>                                        
                                         <div class="modal-body">

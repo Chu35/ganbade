@@ -6,56 +6,119 @@
     String user = "chu";
     String password = "0725";
 
-    String id = request.getParameter("id");
-    String newImgpath = request.getParameter("newImgpath");
-    String newName = request.getParameter("newName");
-    String newList = request.getParameter("newList");
-    String newPrice = request.getParameter("newPrice");
+    // Update for "knowledge" Table
+    String knowledgeId = request.getParameter("knowledgeId");
+    String newKnowledgeImgpath = request.getParameter("newKnowledgeImgpath");
+    String newKnowledgeName = request.getParameter("newKnowledgeName");
+    String newKnowledgeType = request.getParameter("newKnowledgeType");
+    String newKnowledgeClassification = request.getParameter("newKnowledgeClassification");
+
+    // Update for "store" Table
+    String storeId = request.getParameter("storeId");
+    String newStoreImagePath = request.getParameter("newStoreImgpath");
+    String newStoreName = request.getParameter("newStoreName");
+    String newStoreList = request.getParameter("newStoreList");
+    String newStorePrice = request.getParameter("newStorePrice");
+
+    // Update for "Sugardaddy" Table
+    String sugardaddyId = request.getParameter("sugardaddyId");
+    String newSugardaddyImagepath = request.getParameter("newSugardaddyImagepath");
+    String newSugardaddyName = request.getParameter("newSugardaddyName");
+    String newSugardaddyHref = request.getParameter("newSugardaddyHref");
 
     try {
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         try (Connection conn = DriverManager.getConnection(dbURL, user, password)) {
-            String updateQuery = "UPDATE store SET imgpath=?, name=?, list=?, Price=? WHERE id=?";
-            try (PreparedStatement pstmt = conn.prepareStatement(updateQuery)) {
-                pstmt.setString(1,newImgpath);
-                pstmt.setString(2, newName);
-                pstmt.setString(3, newList);
-                pstmt.setString(4, newPrice);
-                pstmt.setString(5, id);
 
-                int rowsUpdated = pstmt.executeUpdate();
+            // Update for "knowledge" Table
+            String updateKnowledgeQuery = "UPDATE knowledge SET image_path=?, name=?, type=?, classification=? WHERE id=?";
+            try (PreparedStatement pstmtKnowledge = conn.prepareStatement(updateKnowledgeQuery)) {
+                pstmtKnowledge.setString(1, newKnowledgeImgpath);
+                pstmtKnowledge.setString(2, newKnowledgeName);
+                pstmtKnowledge.setString(3, newKnowledgeType);
+                pstmtKnowledge.setString(4, newKnowledgeClassification);
+                pstmtKnowledge.setString(5, knowledgeId);
 
-                // Check if rows were updated
-                if (rowsUpdated > 0) {
+                int knowledgeRowsUpdated = pstmtKnowledge.executeUpdate();
+
+                // Check if rows were updated for "knowledge" Table
+                if (knowledgeRowsUpdated > 0) {
 %>
                     <script>
-                        alert("Update successful!");
+                        alert("Knowledge update successful!");
                         window.location.href = "cms.jsp";
                     </script>
 <%
-                } else {
-%>
-                    <script>
-                        alert("No rows updated. Check your parameters."); 
-                        window.location.href = "cms.jsp"; 
-                    </script>
-<%
+                    return;  // End the script execution here
                 }
             }
+
+            // Update for "store" Table
+            String updateStoreQuery = "UPDATE store SET imgpath=?, name=?, list=?, price=? WHERE id=?";
+            try (PreparedStatement pstmtStore = conn.prepareStatement(updateStoreQuery)) {
+                pstmtStore.setString(1, newStoreImagePath);
+                pstmtStore.setString(2, newStoreName);
+                pstmtStore.setString(3, newStoreList);
+                pstmtStore.setString(4, newStorePrice);
+                pstmtStore.setString(5, storeId);
+
+                int storeRowsUpdated = pstmtStore.executeUpdate();
+
+                // Check if rows were updated for "store" Table
+                if (storeRowsUpdated > 0) {
+%>
+                    <script>
+                        alert("Store update successful!");
+                        window.location.href = "cms.jsp";
+                    </script>
+<%
+                    return;  // End the script execution here
+                }
+            }
+
+            // Update for "Sugardaddy" Table
+            String updateSugardaddyQuery = "UPDATE sugardaddy SET imagepath=?, name=?, href=? WHERE id=?";
+            try (PreparedStatement pstmtSugardaddy = conn.prepareStatement(updateSugardaddyQuery)) {
+                pstmtSugardaddy.setString(1, newSugardaddyImagepath);
+                pstmtSugardaddy.setString(2, newSugardaddyName);
+                pstmtSugardaddy.setString(3, newSugardaddyHref);
+                pstmtSugardaddy.setString(4, sugardaddyId);
+
+                int SugardaddyRowsUpdated = pstmtSugardaddy.executeUpdate();
+
+                // Check if rows were updated for "Sugardaddy" Table
+                if (SugardaddyRowsUpdated > 0) {
+%>
+                    <script>
+                        alert("Sugardaddy update successful!");
+                        window.location.href = "cms.jsp";
+                    </script>
+<%
+                    return;  // End the script execution here
+                }
+            }
+
+            // If no rows were updated in either table
+%>
+            <script>
+                alert("No rows updated. Check your parameters.");
+                window.location.href = "cms.jsp";
+            </script>
+<%
         }
     } catch (SQLException se) {
         se.printStackTrace();
 %>
     <script>
-        alert("SQL Exception: <%= se.getMessage() %>"); 
-        window.location.href = "cms.jsp"; 
+        alert("SQL Exception: <%= se.getMessage() %>");
+        window.location.href = "cms.jsp";
     </script>
 <%
     } catch (Exception e) {
         e.printStackTrace();
 %>
     <script>
-        alert("Error updating rows: <%= e.getMessage() %>"); 
+        alert("Error updating rows: <%= e.getMessage() %>");
         window.location.href = "cms.jsp";
     </script>
 <%

@@ -876,7 +876,7 @@ ul li {
   top: 179px;
   right: 295px;
   font-size: 24px;
-  cursor: pointer;
+  cursor: url('../img/4in2.ico'), auto;
   transition: transform 0.3s ease; 
 }
 .pin[data-target="f2"] {
@@ -1051,7 +1051,7 @@ ul li {
 #mc1{
   cursor: url('../img/4in1.ico'), auto;
   }
-  
+
 /*index動畫*/
 .ani {
   display: flex;

@@ -775,15 +775,15 @@ button {
                                                 <td class="d-none d-sm-table-cell knowledge-bakeferment" data-id="<%= id %>"><%= bake %>、<%= ferment %></td>
                                                 <td class="text-center">
                                                     <form class="editForm" method="post" action="updateData.jsp" onsubmit="return handleFormSubmit2('<%= id %>', '<%= imagePath %>', '<%= name %>', '<%= type %>', '<%= classification %>')">
-                                                        <input type="hidden" name="id" value="<%= id %>">
+                                                        <input type="hidden" name="knowledgeId" value="<%= id %>">
                                                         <input type="hidden" name="originalImagePath" value="<%= imagePath %>">
                                                         <input type="hidden" name="originalName" value="<%= name %>">
                                                         <input type="hidden" name="originalType" value="<%= type %>">
                                                         <input type="hidden" name="originalClassification" value="<%= classification %>">
-                                                        <input type="hidden" name="newImagePath" id="newImagePath_<%= id %>" value="">
-                                                        <input type="hidden" name="newName" id="newName_<%= id %>" value="">
-                                                        <input type="hidden" name="newType" id="newType_<%= id %>" value="">
-                                                        <input type="hidden" name="newClassification" id="newClassification_<%= id %>" value="">
+                                                        <input type="hidden" name="newKnowledgeImgpath" id="newKnowledgeImgpath_<%= id %>" value="">
+                                                        <input type="hidden" name="newKnowledgeName" id="newKnowledgeName_<%= id %>" value="">
+                                                        <input type="hidden" name="newKnowledgeType" id="newKnowledgeType_<%= id %>" value="">
+                                                        <input type="hidden" name="newKnowledgeClassification" id="newKnowledgeClassification_<%= id %>" value="">
                                                         <button type="submit" class="js-tooltip-enabled edit-icon" data-id="<%= id %>">
                                                             <i class="fa fa-fw fa-pencil-alt"></i>
                                                         </button>
@@ -792,19 +792,19 @@ button {
                                                 <script>
                                                     function handleFormSubmit2(id, originalImagePath, originalName, originalType, originalClassification) {
                                                         // Prompt user for new data
-                                                        var newImagePath = prompt("Enter the new imagePath:", originalImagePath);
-                                                        var newName = prompt("Enter the new name:", originalName);
-                                                        var newType = prompt("Enter the new Type:", originalType);
-                                                        var newClassification = prompt("Enter the new Classification:", originalClassification);
+                                                        var newKnowledgeImgpath = prompt("Enter the new imagePath:", originalImagePath);
+                                                        var newKnowledgeName = prompt("Enter the new name:", originalName);
+                                                        var newKnowledgeType = prompt("Enter the new Type:", originalType);
+                                                        var newKnowledgeClassification = prompt("Enter the new Classification:", originalClassification);
                                                         // If user clicks Cancel on all prompts, return false to prevent form submission
-                                                        if (newImagePath === null && newName === null && newType === null && newClassification === null) {
+                                                        if (newKnowledgeImgpath === null && newKnowledgeName === null && newKnowledgeType === null && newKnowledgeClassification === null) {
                                                             return false;
                                                         }
                                                         // Set the values of hidden form fields
-                                                        document.getElementById('newImagePath_' + id).value = (newImagePath !== null) ? newImagePath : originalImagePath;
-                                                        document.getElementById('newName_' + id).value = (newName !== null) ? newName : originalName;
-                                                        document.getElementById('newType_' + id).value = (newType !== null) ? newType : originalType;
-                                                        document.getElementById('newClassification_' + id).value = (newClassification !== null) ? newClassification : originalClassification;
+                                                        document.getElementById('newKnowledgeImgpath_' + id).value = (newKnowledgeImgpath !== null) ? newKnowledgeImgpath : originalImagePath;
+                                                        document.getElementById('newKnowledgeName_' + id).value = (newKnowledgeName !== null) ? newKnowledgeName : originalName;
+                                                        document.getElementById('newKnowledgeType_' + id).value = (newKnowledgeType !== null) ? newKnowledgeType : originalType;
+                                                        document.getElementById('newKnowledgeClassification_' + id).value = (newKnowledgeClassification !== null) ? newKnowledgeClassification : originalClassification;
                                                         // Return true to submit the form
                                                         return true;
                                                     }
@@ -926,44 +926,41 @@ button {
                                                     <span class="badge badge-warning font-weight-100"><%= list %></span>
                                                 </td>
                                                 <td class="text-center">
-                                                    <form class="editForm" method="post" action="updateData.jsp" onsubmit="return handleFormSubmit('<%= id %>', '<%= imgpath %>', '<%= name %>', '<%= price %>', '<%= list %>')">
-                                                        <input type="hidden" name="id" value="<%= id %>">
+                                                    <form class="editForm" method="post" action="updateData.jsp" onsubmit="return handleFormSubmit3('<%= id %>', '<%= imgpath %>', '<%= name %>', '<%= price %>', '<%= list %>')">
+                                                        <input type="hidden" name="storeId" value="<%= id %>">
                                                         <input type="hidden" name="originalImgpath" value="<%= imgpath %>">
                                                         <input type="hidden" name="originalName" value="<%= name %>">
                                                         <input type="hidden" name="originalPrice" value="<%= price %>">
                                                         <input type="hidden" name="originalList" value="<%= list %>">
-                                                        <input type="hidden" name="newImgpath" id="newImgpath_<%= id %>" value="">
-                                                        <input type="hidden" name="newName" id="newName_<%= id %>" value="">
-                                                        <input type="hidden" name="newPrice" id="newPrice_<%= id %>" value="">
-                                                        <input type="hidden" name="newList" id="newList_<%= id %>" value="">
+                                                        <input type="hidden" name="newStoreImgpath" id="newStoreImgpath_<%= id %>" value="">
+                                                        <input type="hidden" name="newStoreName" id="newStoreName_<%= id %>" value="">
+                                                        <input type="hidden" name="newStorePrice" id="newStorePrice_<%= id %>" value="">
+                                                        <input type="hidden" name="newStoreList" id="newStoreList_<%= id %>" value="">
                                                         <button type="submit" class="js-tooltip-enabled edit-icon" data-id="<%= id %>">
                                                             <i class="fa fa-fw fa-pencil-alt"></i>
                                                         </button>
                                                     </form>
                                                 </td>
                                                 <script>
-                                                    function handleFormSubmit(id, originalImgpath, originalName, originalPrice, originalList) {
+                                                    function handleFormSubmit3(id, originalImgpath, originalName, originalPrice, originalList) {
                                                         // Prompt user for new data
-                                                        var newImgpath = prompt("Enter the new imgpath:", originalImgpath);
-                                                        var newName = prompt("Enter the new name:", originalName);
-                                                        var newPrice = prompt("Enter the new Price:", originalPrice);
-                                                        var newList = prompt("Enter the new list:", originalList);
-                                                
+                                                        var newStoreImgpath = prompt("Enter the new imgpath:", originalImgpath);
+                                                        var newStoreName = prompt("Enter the new name:", originalName);
+                                                        var newStorePrice = prompt("Enter the new Price:", originalPrice);
+                                                        var newStoreList = prompt("Enter the new list:", originalList);
                                                         // If user clicks Cancel on all prompts, return false to prevent form submission
-                                                        if (newImgpath === null && newName === null && newPrice === null && newList === null) {
+                                                        if (newStoreImgpath === null && newStoreName === null && newStorePrice === null && newStoreList === null) {
                                                             return false;
                                                         }
-                                                
                                                         // Set the values of hidden form fields
-                                                        document.getElementById('newImgpath_' + id).value = (newImgpath !== null) ? newImgpath : originalImgpath;
-                                                        document.getElementById('newName_' + id).value = (newName !== null) ? newName : originalName;
-                                                        document.getElementById('newPrice_' + id).value = (newPrice !== null) ? newPrice : originalPrice;
-                                                        document.getElementById('newList_' + id).value = (newList !== null) ? newList : originalList;
-                                                
-                                                        // Return true to submit the form
+                                                        document.getElementById('newStoreImgpath_' + id).value = (newStoreImgpath !== null) ? newStoreImgpath : originalImgpath;
+                                                        document.getElementById('newStoreName_' + id).value = (newStoreName !== null) ? newStoreName : originalName;
+                                                        document.getElementById('newStorePrice_' + id).value = (newStorePrice !== null) ? newStorePrice : originalPrice;
+                                                        document.getElementById('newStoreList_' + id).value = (newStoreList !== null) ? newStoreList : originalList;
                                                         return true;
                                                     }
                                                 </script>
+                                                </tr>
                                             <%
                                                 }
                                                 result.close();
@@ -1013,12 +1010,37 @@ button {
                                                 </td>
                                                 <td><%= name %></td>
                                                 <td><%= href %></td>
-                                                <td>
-                                                    <button type="submit" class="js-tooltip-enabled edit-icon" data-id="<%= id %>">
-                                                        <i class="fa fa-fw fa-pencil-alt"></i>
-                                                    </button>
+                                                <td class="text-center">
+                                                    <form class="editForm" method="post" action="updateData.jsp" onsubmit="return handleFormSubmit4('<%= id %>', '<%= imagepath %>', '<%= name %>', '<%= href %>')">
+                                                        <input type="hidden" name="sugardaddyId" value="<%= id %>">
+                                                        <input type="hidden" name="originalImagepath" value="<%= imagepath %>">
+                                                        <input type="hidden" name="originalName" value="<%= name %>">
+                                                        <input type="hidden" name="originalHref" value="<%= href %>">
+                                                        <input type="hidden" name="newSugardaddyImagepath" id="newSugardaddyImagepath_<%= id %>" value="">
+                                                        <input type="hidden" name="newSugardaddyName" id="newSugardaddyName_<%= id %>" value="">
+                                                        <input type="hidden" name="newSugardaddyHref" id="newSugardaddyHref_<%= id %>" value="">
+                                                        <button type="submit" class="js-tooltip-enabled edit-icon" data-id="<%= id %>">
+                                                            <i class="fa fa-fw fa-pencil-alt"></i>
+                                                        </button>
+                                                    </form>
                                                 </td>
+                                                <script>
+                                                    function handleFormSubmit4(id, originalImagepath, originalName, originalHref) {
+                                                        var newSugardaddyImagepath = prompt("Enter the new imgpath:", originalImagepath);
+                                                        var newSugardaddyName = prompt("Enter the new name:", originalName);
+                                                        var newSugardaddyHref = prompt("Enter the new Href:", originalHref);
+                                                        if (newSugardaddyImagepath === null && newSugardaddyName === null && newSugardaddyHref === null) {
+                                                            return false;
+                                                        }
+                                                        document.getElementById('newSugardaddyImagepath_' + id).value = (newSugardaddyImagepath !== null) ? newSugardaddyImagepath : originalImagepath;
+                                                        document.getElementById('newSugardaddyName_' + id).value = (newSugardaddyName !== null) ? newSugardaddyName : originalName;
+                                                        document.getElementById('newSugardaddyHref_' + id).value = (newSugardaddyHref !== null) ? newSugardaddyHref : originalHref;
+                                                        return true;
+                                                    }
+                                                </script>
                                             </tr>
+                                            
+                                            
                                             <%
                                                 }
                                                 result.close();

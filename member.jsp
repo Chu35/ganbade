@@ -187,12 +187,7 @@
 											<button class="nav-link fw-semi-bold" id="nav-mission-tab" data-bs-toggle="tab" data-bs-target="#nav-mission"
 												type="button" role="tab" aria-controls="nav-mission" aria-selected="false">好玩der</button>
 												<i id="editIcon" class="fa fa-fw fa-pencil-alt" style="right: 15px; position: absolute; cursor: pointer;"></i>
-												  <style>.fa-pencil-alt.active {
-													color: red; /* 或者任何你想要的其他樣式 */
-												  }
-												  </style>
-												  
-										</div>
+											</div>
 										<div class="tab-content" id="nav-tabContent">
 											<!-- knowledge -->
 											<div class="tab-pane fade show active" id="nav-story" role="tabpanel" aria-labelledby="nav-story-tab">
@@ -205,7 +200,23 @@
 															<img class="img-fluid" src="<%= result.getString("image_path") %>" alt="<%= result.getString("name") %>" >
 														</a>
 														<h5 class="card-text"><%= result.getString("name") %></h5>
-														<a href="delete.jsp?knowledge_id=<%= result.getString("id") %>" style="right: 15px;cursor: pointer;">a</a>
+														<a id="deleteLink" href="delete.jsp?knowledge_id=<%= result.getString("id") %>" style="right: 15px;cursor: pointer; display: none;">a</a>
+														<script>
+															// 获取编辑图标和链接元素
+															var editIcon = document.getElementById('editIcon');
+															var deleteLink = document.getElementById('deleteLink');
+														
+															// 监听编辑图标的点击事件
+															editIcon.addEventListener('click', function() {
+																// 切换链接元素的显示状态
+																if (deleteLink.style.display === 'none') {
+																	deleteLink.style.display = 'inline'; // 或者使用 'block'，根据需要选择
+																} else {
+																	deleteLink.style.display = 'none';
+																}
+															});
+														</script>
+
 													</div>
 													<%
 													}

@@ -215,7 +215,9 @@
                 <img class="img-fluid rounded" src="<%= imagePath %>" alt="<%= name %>" style=" width: 550px;height: 350px;">
             </div>
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.2s">
-                <a href="collect.jsp?fun_id=<%= rs.getString("id") %>" style="cursor: pointer;"><i class="bi bi-bookmark" style="cursor: pointer;"></i></a>
+                <a href="collect.jsp?fun_id=<%= rs.getString("id") %>" style="cursor: pointer;">
+                    <i class="bi bi-bookmark" style="cursor: pointer;"></i>
+                </a>
                 <form action="collectfun.jsp">
                     <div id="collectFunButton<%= id %>" class="likeicon">
                         <label for="like" class="likeicon-child">
@@ -227,7 +229,8 @@
                 </form>
                 <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3 mb-1"><%= type %></p>
                 <div class="display-5 mb-1">
-                    <img src="<%= imagePathicon %>" alt="<%= name %>" class="btn btn-l btn-lg-square rounded-circle" style="display:inline;"><h1 style="display:inline;font-family:monospace;">&ensp;<%= name %></h1>
+                    <img src="<%= imagePathicon %>" alt="<%= name %>" class="btn btn-l btn-lg-square rounded-circle" style="display:inline;">
+                    <h1 style="display:inline;font-family:monospace;">&ensp;<%= name %></h1>
                 </div>
                 <p class="mb-1"><%= classification %></p>
                 <p class="mb-1">

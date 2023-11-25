@@ -43,6 +43,16 @@
     text-align: center;
     vertical-align: middle!important;
 }
+.edit-icon{
+    background: none;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    text-decoration: underline;
+}
+button {
+    outline: none !important;
+}
 
 </style>
 <body id="landing" class="sidebar-open">
@@ -540,7 +550,25 @@
                         <div class="col-sm-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Member</h4>
+                                    <div class="d-md-flex align-items-center">
+                                        <h4 class="card-title">Member</h4>
+                                        <div class="ml-auto">
+                                            <div class="dl">
+                                                <input type="text" id="searchInput" placeholder="Search..." style="border:none;outline: none;">
+                                            </div>
+                                        </div>
+                                        <script>
+                                            $(document).ready(function () {
+                                                $("#searchInput").on("keyup", function () {
+                                                    var value = $(this).val().toLowerCase();
+                                                    $("#memberTable tbody tr").filter(function () {
+                                                        var nameColumn = $(this).find("td:eq(1)").text().toLowerCase();
+                                                        $(this).toggle(nameColumn.indexOf(value) > -1);
+                                                    });
+                                                });
+                                            });
+                                        </script>  
+                                    </div>
                                     <div class="table-responsive">
                                         <table id="memberTable" class="table v-middle">
                                             <thead>
@@ -580,6 +608,7 @@
                                                             <span class="arrow-down"></span>
                                                         </div>
                                                     </th>
+                                                    <th class="border-top-0">Actions</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -629,6 +658,11 @@
                                                                 <label class="label label-danger"><%= gender %></label>
                                                             </td>
                                                             <td><%= recordCountMemberCollect %></td>
+                                                            <td>
+                                                                <button type="submit" class="js-tooltip-enabled edit-icon" data-id="<%= id %>">
+                                                                    <i class="fa fa-fw fa-pencil-alt"></i>
+                                                                </button>
+                                                            </td>
                                                         </tr>
                                                 <%
                                                     } 
@@ -647,14 +681,31 @@
                             </div>
                         </div>
                     </div>
-                    
-                    
+
                     <div class="row">          
                         <!-- Knowledge -->             
                         <div id="knowledge" class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Knowledge</h4>
+                                    <div class="d-md-flex align-items-center">
+                                        <h4 class="card-title">Knowledge</h4>
+                                        <div class="ml-auto">
+                                            <div class="dl">
+                                                <input type="text" id="searchInput2" placeholder="Search..." style="border:none;outline: none;">
+                                            </div>
+                                        </div>
+                                        <script>
+                                            $(document).ready(function () {
+                                                $("#searchInput2").on("keyup", function () {
+                                                    var value = $(this).val().toLowerCase();
+                                                    $("#KnowledgeTable tbody tr").filter(function () {
+                                                        var nameColumn = $(this).find("td:eq(1)").text().toLowerCase();
+                                                        $(this).toggle(nameColumn.indexOf(value) > -1);
+                                                    });
+                                                });
+                                            });
+                                        </script>  
+                                    </div>
                                     <table id="KnowledgeTable" class="table table-striped table-hover table-borderless table-vcenter font-size-sm">
                                         <thead>
                                             <tr class="text-uppercase text-center">
@@ -708,29 +759,58 @@
                                                     String ferment = result.getString("ferment");
                                                     String imagePath = result.getString("image_path");
                                             %>
-                                                    <tr class="text-center">
-                                                        <td>
-                                                            <img src="<%= imagePath %>" style="width:50px" alt="">
-                                                        </td>
-                                                        <td>
-                                                            <span class="font-w600"><%= name %></span>
-                                                        </td>
-                                                        <td class="d-none d-sm-table-cell">
-                                                            <span class="font-size-sm text-muted"><%= type %></span>
-                                                        </td>
-                                                        <td>
-                                                            <span class="font-w600 text-success"><%= classification %></span>
-                                                        </td>
-                                                        <td class="d-none d-sm-table-cell"><%= bake %>、<%= ferment %></td>
-                                                        <td class="text-center">
-                                                            <a href="javascript:void(0)" data-toggle="tooltip" data-placement="left"
-                                                                title="Manage" class="js-tooltip-enabled edit-icon"
-                                                                data-original-title="Manage" data-id="<%= id %>">
-                                                                <i class="fa fa-fw fa-pencil-alt"></i>
-                                                            </a>
-                                                        </td>
-                                                    </tr>
-                                                    <%
+                                            <tr class="text-center">
+                                                <td>
+                                                    <img class="knowledge-image" src="<%= imagePath %>" style="width:50px" alt="">
+                                                </td>
+                                                <td>
+                                                    <span class="font-w600 knowledge-name" data-id="<%= id %>"><%= name %></span>
+                                                </td>
+                                                <td class="d-none d-sm-table-cell">
+                                                    <span class="font-size-sm text-muted knowledge-type" data-id="<%= id %>"><%= type %></span>
+                                                </td>
+                                                <td>
+                                                    <span class="font-w600 text-success knowledge-classification" data-id="<%= id %>"><%= classification %></span>
+                                                </td>
+                                                <td class="d-none d-sm-table-cell knowledge-bakeferment" data-id="<%= id %>"><%= bake %>、<%= ferment %></td>
+                                                <td class="text-center">
+                                                    <form class="editForm" method="post" action="updateData.jsp" onsubmit="return handleFormSubmit2('<%= id %>', '<%= imagePath %>', '<%= name %>', '<%= type %>', '<%= classification %>')">
+                                                        <input type="hidden" name="id" value="<%= id %>">
+                                                        <input type="hidden" name="originalImagePath" value="<%= imagePath %>">
+                                                        <input type="hidden" name="originalName" value="<%= name %>">
+                                                        <input type="hidden" name="originalType" value="<%= type %>">
+                                                        <input type="hidden" name="originalClassification" value="<%= classification %>">
+                                                        <input type="hidden" name="newImagePath" id="newImagePath_<%= id %>" value="">
+                                                        <input type="hidden" name="newName" id="newName_<%= id %>" value="">
+                                                        <input type="hidden" name="newType" id="newType_<%= id %>" value="">
+                                                        <input type="hidden" name="newClassification" id="newClassification_<%= id %>" value="">
+                                                        <button type="submit" class="js-tooltip-enabled edit-icon" data-id="<%= id %>">
+                                                            <i class="fa fa-fw fa-pencil-alt"></i>
+                                                        </button>
+                                                    </form>
+                                                </td>
+                                                <script>
+                                                    function handleFormSubmit2(id, originalImagePath, originalName, originalType, originalClassification) {
+                                                        // Prompt user for new data
+                                                        var newImagePath = prompt("Enter the new imagePath:", originalImagePath);
+                                                        var newName = prompt("Enter the new name:", originalName);
+                                                        var newType = prompt("Enter the new Type:", originalType);
+                                                        var newClassification = prompt("Enter the new Classification:", originalClassification);
+                                                        // If user clicks Cancel on all prompts, return false to prevent form submission
+                                                        if (newImagePath === null && newName === null && newType === null && newClassification === null) {
+                                                            return false;
+                                                        }
+                                                        // Set the values of hidden form fields
+                                                        document.getElementById('newImagePath_' + id).value = (newImagePath !== null) ? newImagePath : originalImagePath;
+                                                        document.getElementById('newName_' + id).value = (newName !== null) ? newName : originalName;
+                                                        document.getElementById('newType_' + id).value = (newType !== null) ? newType : originalType;
+                                                        document.getElementById('newClassification_' + id).value = (newClassification !== null) ? newClassification : originalClassification;
+                                                        // Return true to submit the form
+                                                        return true;
+                                                    }
+                                                </script>
+                                            </tr>    
+                                            <%
                                                 }
                                                 result.close();
                                                 statement.close();
@@ -757,6 +837,7 @@
                                                 <th>Place</th>
                                                 <th>classification</th>
                                                 <th>Phone</th>
+                                                <th>Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -784,6 +865,11 @@
                                                 <td><%= classification %></td>
                                                 <td><%= place %></td>
                                                 <td class="color-green"><%= phone %></td>
+                                                <td>
+                                                    <button type="submit" class="js-tooltip-enabled edit-icon" data-id="<%= id %>">
+                                                        <i class="fa fa-fw fa-pencil-alt"></i>
+                                                    </button>
+                                                </td>
                                             </tr>
                                             <%
                                                 }
@@ -800,7 +886,7 @@
                             </div>
                         </div>
                         <!-- Store -->
-                        <div id="store" class="col-lg-6">
+                        <div id="store" class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">eCommerce</h4>
@@ -811,6 +897,7 @@
                                                 <th>Name</th>
                                                 <th>Price</th>
                                                 <th>List</th>
+                                                <th>Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -838,7 +925,45 @@
                                                 <td>
                                                     <span class="badge badge-warning font-weight-100"><%= list %></span>
                                                 </td>
-                                            </tr>
+                                                <td class="text-center">
+                                                    <form class="editForm" method="post" action="updateData.jsp" onsubmit="return handleFormSubmit('<%= id %>', '<%= imgpath %>', '<%= name %>', '<%= price %>', '<%= list %>')">
+                                                        <input type="hidden" name="id" value="<%= id %>">
+                                                        <input type="hidden" name="originalImgpath" value="<%= imgpath %>">
+                                                        <input type="hidden" name="originalName" value="<%= name %>">
+                                                        <input type="hidden" name="originalPrice" value="<%= price %>">
+                                                        <input type="hidden" name="originalList" value="<%= list %>">
+                                                        <input type="hidden" name="newImgpath" id="newImgpath_<%= id %>" value="">
+                                                        <input type="hidden" name="newName" id="newName_<%= id %>" value="">
+                                                        <input type="hidden" name="newPrice" id="newPrice_<%= id %>" value="">
+                                                        <input type="hidden" name="newList" id="newList_<%= id %>" value="">
+                                                        <button type="submit" class="js-tooltip-enabled edit-icon" data-id="<%= id %>">
+                                                            <i class="fa fa-fw fa-pencil-alt"></i>
+                                                        </button>
+                                                    </form>
+                                                </td>
+                                                <script>
+                                                    function handleFormSubmit(id, originalImgpath, originalName, originalPrice, originalList) {
+                                                        // Prompt user for new data
+                                                        var newImgpath = prompt("Enter the new imgpath:", originalImgpath);
+                                                        var newName = prompt("Enter the new name:", originalName);
+                                                        var newPrice = prompt("Enter the new Price:", originalPrice);
+                                                        var newList = prompt("Enter the new list:", originalList);
+                                                
+                                                        // If user clicks Cancel on all prompts, return false to prevent form submission
+                                                        if (newImgpath === null && newName === null && newPrice === null && newList === null) {
+                                                            return false;
+                                                        }
+                                                
+                                                        // Set the values of hidden form fields
+                                                        document.getElementById('newImgpath_' + id).value = (newImgpath !== null) ? newImgpath : originalImgpath;
+                                                        document.getElementById('newName_' + id).value = (newName !== null) ? newName : originalName;
+                                                        document.getElementById('newPrice_' + id).value = (newPrice !== null) ? newPrice : originalPrice;
+                                                        document.getElementById('newList_' + id).value = (newList !== null) ? newList : originalList;
+                                                
+                                                        // Return true to submit the form
+                                                        return true;
+                                                    }
+                                                </script>
                                             <%
                                                 }
                                                 result.close();
@@ -854,7 +979,7 @@
                             </div>
                         </div>
                         <!-- Sugardaddy -->
-                        <div id="sugardaddy" class="col-lg-6">
+                        <div id="sugardaddy" class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Sugardaddy</h4>
@@ -863,6 +988,8 @@
                                             <tr>
                                                 <th>Image</th>
                                                 <th>Name</th>
+                                                <th>Href</th>
+                                                <th>Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -885,6 +1012,12 @@
                                                     <img src="<%= imagepath %>" style="width:50px" alt="iPhone">
                                                 </td>
                                                 <td><%= name %></td>
+                                                <td><%= href %></td>
+                                                <td>
+                                                    <button type="submit" class="js-tooltip-enabled edit-icon" data-id="<%= id %>">
+                                                        <i class="fa fa-fw fa-pencil-alt"></i>
+                                                    </button>
+                                                </td>
                                             </tr>
                                             <%
                                                 }

@@ -202,15 +202,12 @@
 														<h5 class="card-text"><%= result.getString("name") %></h5>
 														<a id="deleteLink" href="delete.jsp?knowledge_id=<%= result.getString("id") %>" style="right: 15px;cursor: pointer; display: none;">a</a>
 														<script>
-															// 获取编辑图标和链接元素
 															var editIcon = document.getElementById('editIcon');
 															var deleteLink = document.getElementById('deleteLink');
 														
-															// 监听编辑图标的点击事件
 															editIcon.addEventListener('click', function() {
-																// 切换链接元素的显示状态
 																if (deleteLink.style.display === 'none') {
-																	deleteLink.style.display = 'inline'; // 或者使用 'block'，根据需要选择
+																	deleteLink.style.display = 'inline'; 
 																} else {
 																	deleteLink.style.display = 'none';
 																}
@@ -239,7 +236,6 @@
 															<img id="img-member" class="img-fluid" src="<%= result.getString("imagePath") %>" alt="<%= result.getString("name") %>" >
 														</a>
 														<h5 class="card-text"><%= result.getString("name") %></h5>
-														<!-- 新增的部分 -->
 														<a href="delete.jsp?fun_id=<%= result.getString("id") %>" style="right: 15px;cursor: pointer;">&times;</a>
 													</div>
 													<%

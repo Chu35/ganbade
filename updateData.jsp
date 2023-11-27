@@ -6,6 +6,13 @@
     String user = "chu";
     String password = "0725";
 
+    // Update for "member" Table
+    String memberId = request.getParameter("memberId");
+    String newMemberId = request.getParameter("newMemberId");
+    String newMemberName = request.getParameter("newMemberName");
+    String newMemberPassword = request.getParameter("newMemberPwd");
+    String newMemberGender = request.getParameter("newMemberGender");
+
     // Update for "knowledge" Table
     String knowledgeId = request.getParameter("knowledgeId");
     String newKnowledgeImgpath = request.getParameter("newKnowledgeImgpath");
@@ -26,9 +33,42 @@
     String newSugardaddyName = request.getParameter("newSugardaddyName");
     String newSugardaddyHref = request.getParameter("newSugardaddyHref");
 
+    // Update for "fun" Table
+    String funId = request.getParameter("funId");
+    String newFunimagePathicon = request.getParameter("newFunimagePathicon");
+    String newFunName = request.getParameter("newFunName");
+    String newFunClassification = request.getParameter("newFunClassification");
+    String newFunPlace = request.getParameter("newFunPlace");
+    String newFunPhone = request.getParameter("newFunPhone");
+
+
     try {
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         try (Connection conn = DriverManager.getConnection(dbURL, user, password)) {
+
+
+            // Update for "member" Table
+            String updateMemberQuery = "UPDATE member SET id=?, name=?, pwd=?, gender=? WHERE id=?";
+            try (PreparedStatement pstmtMember = conn.prepareStatement(updateMemberQuery)) {
+                pstmtMember.setString(1, newMemberId);
+                pstmtMember.setString(2, newMemberName);
+                pstmtMember.setString(3, newMemberPassword);
+                pstmtMember.setString(4, newMemberGender);
+                pstmtMember.setString(5, memberId);
+
+                int memberRowsUpdated = pstmtMember.executeUpdate();
+
+                // Check if rows were updated for "Member" Table
+                if (memberRowsUpdated > 0) {
+%>
+                    <script>
+                        alert("Member update successful!");
+                        window.location.href = "cms.jsp";
+                    </script>
+<%
+                    return;  // End the script execution here
+                }
+            }
 
             // Update for "knowledge" Table
             String updateKnowledgeQuery = "UPDATE knowledge SET image_path=?, name=?, type=?, classification=? WHERE id=?";
@@ -98,8 +138,30 @@
                 }
             }
 
-            // If no rows were updated in either table
+            // Update for "Fun" Table
+            String updateFunQuery = "UPDATE fun SET imagePathicon=?, name=?, classification=?, place=?, phone=? WHERE id=?";
+            try (PreparedStatement pstmtFun = conn.prepareStatement(updateFunQuery)) {
+                pstmtFun.setString(1, newFunimagePathicon);
+                pstmtFun.setString(2, newFunName);
+                pstmtFun.setString(3, newFunClassification);
+                pstmtFun.setString(4, newFunPlace);
+                pstmtFun.setString(5, newFunPhone);
+                pstmtFun.setString(6, funId);
+
+                int FunRowsUpdated = pstmtFun.executeUpdate();
+
+                // Check if rows were updated for "Fun" Table
+                if (FunRowsUpdated > 0) {
 %>
+                    <script>
+                        alert("Fun update successful!");
+                        window.location.href = "cms.jsp";
+                    </script>
+                    <%
+                    return;  
+                }
+            }
+            %>
             <script>
                 alert("No rows updated. Check your parameters.");
                 window.location.href = "cms.jsp";

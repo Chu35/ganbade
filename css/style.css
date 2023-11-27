@@ -871,12 +871,15 @@ ul li {
     }  
 
     /* 圖標 */
+.pin{
+  cursor: url('../img/4in3.ico'), auto;
+}
+
   .pin[data-target="f1"] {
   position: absolute;
   top: 179px;
   right: 295px;
   font-size: 24px;
-  cursor: url('../img/4in2.ico'), auto;
   transition: transform 0.3s ease; 
 }
 .pin[data-target="f2"] {
@@ -884,7 +887,6 @@ ul li {
   top: 171px;
   right: 8px;
   font-size: 24px;
-  cursor: pointer;
   transition: transform 0.3s ease; 
 }
 .pin[data-target="f3"] {
@@ -892,7 +894,6 @@ ul li {
   top: 104px;
   right: 95px;
   font-size: 24px;
-  cursor: pointer;
   transition: transform 0.3s ease; 
 }
 .pin[data-target="f4"] {
@@ -900,7 +901,6 @@ ul li {
   top: 201px;
   right: 49px;
   font-size: 24px;
-  cursor: pointer;
   transition: transform 0.3s ease; 
 }
 
@@ -909,7 +909,6 @@ ul li {
   top: 201px;
   right: 224px;
   font-size: 24px;
-  cursor: pointer;
   transition: transform 0.3s ease; 
 }
 
@@ -918,7 +917,6 @@ ul li {
   top: 222px;
   right: 328px;
   font-size: 24px;
-  cursor: pointer;
   transition: transform 0.3s ease; 
 }
 .pin[data-target="f7"] {
@@ -926,7 +924,6 @@ ul li {
   top: 69px;
   right: 312px;
   font-size: 24px;
-  cursor: pointer;
   transition: transform 0.3s ease; 
 }
 
@@ -935,7 +932,6 @@ ul li {
   top: 249px;
   right: 256px;
   font-size: 24px;
-  cursor: pointer;
   transition: transform 0.3s ease; 
 }
 .pin[data-target="f9"] {
@@ -943,7 +939,6 @@ ul li {
   top: 96px;
   right: 148px;
   font-size: 24px;
-  cursor: pointer;
   transition: transform 0.3s ease; 
 }
 
@@ -952,7 +947,6 @@ ul li {
   top: 198px;
   right: 312px;
   font-size: 24px;
-  cursor: pointer;
   transition: transform 0.3s ease; 
 }
 .pin[data-target="f11"] {
@@ -960,7 +954,6 @@ ul li {
   top: 265px;
   right: 661px;
   font-size: 24px;
-  cursor: pointer;
   transition: transform 0.3s ease; 
 }
 
@@ -969,7 +962,6 @@ ul li {
   top: 210px;
   right: 416px;
   font-size: 24px;
-  cursor: pointer;
   transition: transform 0.3s ease; 
 }
 .pin[data-target="f13"] {
@@ -977,7 +969,6 @@ ul li {
   top: 252px;
   right: 514px;
   font-size: 24px;
-  cursor: pointer;
   transition: transform 0.3s ease; 
 }
 .pin[data-target="f14"] {
@@ -985,7 +976,6 @@ ul li {
   top: 243px;
   right: 482px;
   font-size: 24px;
-  cursor: pointer;
   transition: transform 0.3s ease; 
 }
 .pin[data-target="f15"] {
@@ -993,7 +983,6 @@ ul li {
   top: 351px;
   right: 331px;
   font-size: 24px;
-  cursor: pointer;
   transition: transform 0.3s ease; 
 }
 .pin[data-target="f16"] {
@@ -1001,7 +990,6 @@ ul li {
   top: 355px;
   right: 220px;
   font-size: 24px;
-  cursor: pointer;
   transition: transform 0.3s ease; 
 }
 .pin[data-target="f17"] {
@@ -1009,7 +997,6 @@ ul li {
   top: 288px;
   right: 509px;
   font-size: 24px;
-  cursor: pointer;
   transition: transform 0.3s ease; 
 }
 .pin[data-target="f18"] {
@@ -1017,7 +1004,6 @@ ul li {
   top: 94px;
   right: 225px;
   font-size: 24px;
-  cursor: pointer;
   transition: transform 0.3s ease; 
 }
 

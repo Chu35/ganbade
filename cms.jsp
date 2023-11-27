@@ -24,6 +24,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <style> 
+a:hover{
+    color: #8E7D5C!important;
+}
 .topbar{
  background-color: #d6c5a4;
 }
@@ -67,8 +70,6 @@ button {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
-
 .close {
         color: #aaa;
         float: right;

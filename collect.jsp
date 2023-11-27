@@ -114,10 +114,23 @@
             }
         } else {
     %>
-        <script>
-            var confirmed = confirm("請先登錄會員帳號以使用收藏功能");
+    <script>
+        var confirmed = confirm("請先登錄會員帳號以使用收藏功能");
+    
+        if (!confirmed) {
+            var currentLocation = window.location.href;
+            
+            if (currentLocation.includes("fun")) {
+                window.location.href = "fun.jsp";
+            } else if (currentLocation.includes("knowl")) {
+                window.location.href = "knowl.jsp";
+            }
+        } else {
             window.location.href = "login.html";
-        </script>
+        }
+    </script>
+    
+    
     <%
         }
     %>

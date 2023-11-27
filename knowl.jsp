@@ -193,7 +193,8 @@
                                 <div class="modal-dialog modal-dialog-centered modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header">  
-                                            <a href="collect.jsp?knowledge_id=<%= rs.getString("id") %>" style="cursor: pointer;"><i class="bi bi-bookmark" style="cursor: pointer;"></i></a>
+                                            <a href="collect.jsp?knowledge_id=<%= rs.getString("id") %>" style="cursor: pointer;">
+                                                <i class="bi bi-bookmark" style="cursor: pointer;"></i></a>
                                             <i type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></i>
                                         </div>                                        
                                         <div class="modal-body">

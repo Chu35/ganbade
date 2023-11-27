@@ -218,15 +218,7 @@
                 <a href="collect.jsp?fun_id=<%= rs.getString("id") %>" style="cursor: pointer;">
                     <i class="bi bi-bookmark" style="cursor: pointer;"></i>
                 </a>
-                <form action="collectfun.jsp">
-                    <div id="collectFunButton<%= id %>" class="likeicon">
-                        <label for="like" class="likeicon-child">
-                            <input type="checkbox" id="like<%= id %>" name="like">
-                            <i class="far fa-heart heart-empty"></i>
-                            <i class="fas fa-heart heart-fill"></i>
-                        </label>
-                    </div>
-                </form>
+                
                 <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3 mb-1"><%= type %></p>
                 <div class="display-5 mb-1">
                     <img src="<%= imagePathicon %>" alt="<%= name %>" class="btn btn-l btn-lg-square rounded-circle" style="display:inline;">
@@ -253,7 +245,8 @@
                     <% } %>                 
                     ☎️電話：<a href="tel:<%= phone %>"><%= phone %></a>
                 </p>
-            </div></div>
+            </div>
+        </div>
             <% 
         }
     } catch (Exception e) {

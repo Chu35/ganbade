@@ -58,14 +58,12 @@
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<div class="navbar-nav ms-auto p-4 p-lg-0">
 					<a href="index.jsp#home" class="nav-item nav-link">首頁</a>
-					<a href="index.jsp#life" class="nav-item nav-link">茶的一生</a>
 					<div class="nav-item dropdown">
 						<a href="knowl.jsp" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
 							aria-expanded="true">知識調茶局</a>
 						<div class="dropdown-menu border-light m-0" data-bs-popper="none">
 							<a href="knowl.jsp" class="dropdown-item">茶種介紹</a>
-							<a href="process.jsp" class="dropdown-item">製茶步驟介紹</a>
-							<a href="fix.jsp" class="dropdown-item">烘培發酵介紹</a>
+							<a href="crafts.jsp" class="dropdown-item">烘培發酵介紹</a>
 						</div>
 					</div>
 					<a href="fun.jsp" class="nav-item nav-link">茶遊此地</a>
@@ -76,11 +74,9 @@
 							class="fa fa-user text-primary"></small></div>
 						<div class="dropdown-menu border-light m-0">
 								<% if (memberName != null) { %>
-									<a class="dropdown-item"><%= memberName %>, 你好</a>
-								<% } else { %>
+									<span class="dropdown-item disabled-text"><%= memberName %>, 你好</span>								<% } else { %>
 									<a class="dropdown-item" href="login.html">登入/註冊</a>
 								<% } %>
-								<a id="openTestButton" class="dropdown-item" style="cursor: pointer;">心理測驗</a>
 								<a href="member.jsp" class="dropdown-item">會員中心</a>
 								<% if (memberName != null) { %>
 									<a class="dropdown-item" href="logout.jsp">登出</a>
@@ -92,33 +88,7 @@
 		</nav>
 	</div>
 	<!-- Navbar End -->
-	
-	<!-- Test Start -->
-	<div class="modal fade" id="exampleModaltest" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true"
-		data-bs-backdrop="static" data-bs-keyboard="false">
-		<div class="center">
-			<div class="modal-dialog modal-dialog-centered modal-lg">
-				<div class="modal-content">
-					<div class="modal-header">
-						<i type="button" id="closetest" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></i>
-						<button id="back" onclick="goBack()">&laquo; back</button>
-					</div>
-					<div class="modal-body">
-						<div class="container-xxl py-3">
-							<div class="text-center mx-auto" style="max-width: 600px;">
-								<img id="imgtest" alt="Question Image">
-								<div id="question1"></div>
-								<div id="choices"></div>
-								<div id="results"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Test End -->
-	
+
 	<!-- Keyvision Start -->
 	<div id="home" class="container-fluid p-0 mb-1 wow fadeIn">
 		<div id="image-container">
@@ -378,7 +348,6 @@
 
 	<!-- Template Javascript -->
 	<script src="js/main.js"></script>
-	<script src="js/test.js"></script>
 </body>
 
 </html>

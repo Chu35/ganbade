@@ -19,6 +19,8 @@
     String newKnowledgeName = request.getParameter("newKnowledgeName");
     String newKnowledgeType = request.getParameter("newKnowledgeType");
     String newKnowledgeClassification = request.getParameter("newKnowledgeClassification");
+    String newKnowledgeBake = request.getParameter("newKnowledgeBake");
+    String newKnowledgeFerment = request.getParameter("newKnowledgeFerment");
 
     // Update for "store" Table
     String storeId = request.getParameter("storeId");
@@ -71,13 +73,15 @@
             }
 
             // Update for "knowledge" Table
-            String updateKnowledgeQuery = "UPDATE knowledge SET image_path=?, name=?, type=?, classification=? WHERE id=?";
+            String updateKnowledgeQuery = "UPDATE knowledge SET image_path=?, name=?, type=?, classification=?, bake=?, ferment=? WHERE id=?";
             try (PreparedStatement pstmtKnowledge = conn.prepareStatement(updateKnowledgeQuery)) {
                 pstmtKnowledge.setString(1, newKnowledgeImgpath);
                 pstmtKnowledge.setString(2, newKnowledgeName);
                 pstmtKnowledge.setString(3, newKnowledgeType);
                 pstmtKnowledge.setString(4, newKnowledgeClassification);
-                pstmtKnowledge.setString(5, knowledgeId);
+                pstmtKnowledge.setString(5, newKnowledgeBake);
+                pstmtKnowledge.setString(6, newKnowledgeFerment);
+                pstmtKnowledge.setString(7, knowledgeId);
 
                 int knowledgeRowsUpdated = pstmtKnowledge.executeUpdate();
 

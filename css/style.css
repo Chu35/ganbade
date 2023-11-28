@@ -1565,4 +1565,10 @@ background: none;
   display: block !important;
 }
 
-
+/* member name */
+.disabled-text {
+  pointer-events: none; 
+  cursor: default; 
+  color: inherit !important;
+  text-decoration: none;
+}

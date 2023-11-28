@@ -123,31 +123,6 @@ filterOptions.forEach(option => {
   });
 });//teas end
 
-//心理測驗	
-var openTestButton = document.getElementById('openTestButton');
-var userIcon = document.getElementById('user-icon');
-
-openTestButton.addEventListener('click', function() {
-  currentQuestion = 0; // 重置为第一个问题
-  answers = []; // 清空答案
-  // 调用显示第一个问题的函数
-  displayQuestion();
-  
-  // 在点击"openTestButton"时打开模态框
-  var myModal = new bootstrap.Modal(document.getElementById('exampleModaltest'));
-  myModal.show();
-});
-
-userIcon.addEventListener('click', function() {
-  simulateTestCompletion(); // 执行关闭模态框的逻辑
-});
-
-function simulateTestCompletion() {
-  var myModal = new bootstrap.Modal(document.getElementById('exampleModaltest'));
-  myModal.hide(); // 关闭模态框
-}
-
-
 // keyvision
 window.addEventListener("load", function() {
   var images = document.querySelectorAll(".image");

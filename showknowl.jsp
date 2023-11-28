@@ -64,14 +64,12 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="index.jsp" class="nav-item nav-link">首頁</a>
-                <a href="index.jsp#life" class="nav-item nav-link">茶的一生</a>
                 <div class="nav-item dropdown">
                     <a href="#knowl" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"
                         aria-expanded="true">知識調茶局</a>
                     <div class="dropdown-menu border-light m-0" data-bs-popper="none">
                         <a href="knowl.jsp" class="dropdown-item active">茶種介紹</a>
                         <a href="crafts.jsp" class="dropdown-item">烘焙發酵介紹</a>
-                        <a href="process.jsp" class="dropdown-item">製茶步驟介紹</a>
                     </div>
                 </div>
                 <a href="fun.jsp" class="nav-item nav-link">茶遊此地</a>
@@ -89,12 +87,10 @@
                         class="fa fa-user text-primary"></small></div>
                     <div class="dropdown-menu border-light m-0">
                         <% if (memberName != null) { %>
-                            <a class="dropdown-item"><%= memberName %>, 你好</a>
-                        <% } else { %>
+                            <span class="dropdown-item disabled-text"><%= memberName %>, 你好</span>								<% } else { %>
                             <a class="dropdown-item" href="login.html">登入/註冊</a>
                         <% } %>
-                        <a href="index.jsp" class="dropdown-item">心理測驗</a>
-                        <a href="member.jsp" class="dropdown-item">客製滴滴</a>
+                        <a href="member.jsp" class="dropdown-item">會員中心</a>
                         <% if (memberName != null) { %>
                             <a class="dropdown-item" href="logout.jsp">登出</a>
                         <% }%>

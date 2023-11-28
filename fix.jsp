@@ -61,33 +61,29 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
 				<div class="navbar-nav ms-auto p-4 p-lg-0">
 					<a href="index.jsp#home" class="nav-item nav-link">首頁</a>
-					<a href="index.jsp#life" class="nav-item nav-link">茶的一生</a>
 					<div class="nav-item dropdown">
 						<a href="knowl.jsp" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
 							aria-expanded="true">知識調茶局</a>
 						<div class="dropdown-menu border-light m-0" data-bs-popper="none">
 							<a href="knowl.jsp" class="dropdown-item">茶種介紹</a>
-							<a href="process.jsp" class="dropdown-item">製茶步驟介紹</a>
-							<a href="fix.jsp" class="dropdown-item">烘培發酵介紹</a>
+							<a href="crafts.jsp" class="dropdown-item">烘培發酵介紹</a>
 						</div>
 					</div>
 					<a href="fun.jsp" class="nav-item nav-link">茶遊此地</a>
 					<a href="contact.jsp" class="nav-item nav-link">關於我們</a>
-                    <a href="fix.jsp" class="nav-item nav-link">滴滴商城</a>
+                    <a href="store.jsp" class="nav-item nav-link">滴滴商城</a>
 					<div class="nav-item dropdown">
 						<div id="user-icon" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><small
 							class="fa fa-user text-primary"></small></div>
                             <div class="dropdown-menu border-light m-0">
                                 <% if (memberName != null) { %>
-                                    <a class="dropdown-item"><%= memberName %>, 你好</a>
-                                <% } else { %>
-                                    <a class="dropdown-item" href="login.html">登入/註冊</a>
-                                <% } %>
-                                <a href="index.jsp" class="dropdown-item">心理測驗</a>
-                                <a href="member.jsp" class="dropdown-item">會員中心</a>
-                                <% if (memberName != null) { %>
-                                    <a class="dropdown-item" href="logout.jsp">登出</a>
-                                <% }%>
+									<span class="dropdown-item disabled-text"><%= memberName %>, 你好</span>								<% } else { %>
+									<a class="dropdown-item" href="login.html">登入/註冊</a>
+								<% } %>
+								<a href="member.jsp" class="dropdown-item">會員中心</a>
+								<% if (memberName != null) { %>
+									<a class="dropdown-item" href="logout.jsp">登出</a>
+								<% }%>
                             </div>
                         </div>
 					</div>

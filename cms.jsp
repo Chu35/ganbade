@@ -23,6 +23,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
+
 <style> 
 a:hover{
     color: #8E7D5C!important;
@@ -71,37 +72,37 @@ button {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-    }
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
 
-    .close:hover,
-    .close:focus {
-        color: black;
-        text-decoration: none;
-        cursor: pointer;
-    }
+label {
+    font-weight: bold;
+    margin-top: 5px;
+}
 
-    .editForm {
-        display: grid;
-        gap: 10px;
-    }
+.edit{
+    float: right;
+}
 
-    label {
-        font-weight: bold;
+input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
     }
-
-    input {
-        width: 100%;
-        padding: 8px;
-        box-sizing: border-box;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-    }
-
 </style>
+
 <body id="landing" class="sidebar-open">
     <div class="page-container animsition">
         <div id="dashboardPage">
@@ -222,9 +223,15 @@ button {
                         <span class="profile-image">
                             <img src="img/efw.jpg" alt="profile" />
                         </span>
-                        <span class="profile-name"><%= memberName %></span>
+                        <% if (memberName != null) { %>
+                            <span class="profile-name"><%= memberName %></span>
+                        <% } else { %>
+                            <script>
+                                window.location.href = "login.html";
+                            </script>
+                        <% } %>
                         <span class="profile-info">admin</span>
-                    </li>
+                    </li>                    
                     <!--
                     <li class="title">
                         <i class="feather icon-more-horizontal"></i>
@@ -721,8 +728,12 @@ button {
                                                                         <label for="newMemberPwd">New Password:</label>
                                                                         <input type="text" id="newMemberPwd" name="newMemberPwd">
                                                                         <label for="newMemberGender">New Gender:</label>
-                                                                        <input type="text" id="newMemberGender" name="newMemberGender">
-                                                                        <button type="submit" class="js-tooltip-enabled edit-icon">Save Changes</button>
+                                                                        <select id="newMemberGender" name="newMemberGender">
+                                                                            <option value="M">Male</option>
+                                                                            <option value="F">Female</option>
+                                                                            <option value="N/A">N/A</option>
+                                                                        </select>
+                                                                        <button type="submit" class="btn btn-primary  js-tooltip-enabled edit">Save Changes</button>
                                                                     </form>
                                                                 </div>
                                                             </div>
@@ -856,7 +867,7 @@ button {
                                                 </td>
                                                 <td class="d-none d-sm-table-cell knowledge-bakeferment" data-id="<%= id %>"><%= bake %>、<%= ferment %></td>
                                                 <td class="text-center">
-                                                    <button type="button" class="js-tooltip-enabled edit-icon" data-id="<%= id %>" onclick="openEditDialog2('<%= id %>', '<%= imagePath %>', '<%= name %>', '<%= type %>', '<%= classification %>')">
+                                                    <button type="button" class="js-tooltip-enabled edit-icon" data-id="<%= id %>" onclick="openEditDialog2('<%= id %>', '<%= imagePath %>', '<%= name %>', '<%= type %>', '<%= classification %>', '<%= bake %>', '<%= ferment %>')">
                                                         <i class="fa fa-fw fa-pencil-alt"></i>
                                                     </button>
                                                 </td>
@@ -869,6 +880,8 @@ button {
                                                             <input type="hidden" name="originalName" value="<%= name %>">
                                                             <input type="hidden" name="originalType" value="<%= type %>">
                                                             <input type="hidden" name="originalClassification" value="<%= classification %>">
+                                                            <input type="hidden" name="originalBake" value="<%= bake %>"> <!-- Separated bake and ferment -->
+                                                            <input type="hidden" name="originalFerment" value="<%= ferment %>">
                                                             <label for="newKnowledgeImgpath">New ImagePath:</label>
                                                             <input type="text" id="newKnowledgeImgpath" name="newKnowledgeImgpath">
                                                             <label for="newKnowledgeName">New Name:</label>
@@ -876,18 +889,24 @@ button {
                                                             <label for="newKnowledgeType">New Type:</label>
                                                             <input type="text" id="newKnowledgeType" name="newKnowledgeType">
                                                             <label for="newKnowledgeClassification">New Classification:</label>
-                                                            <input type="text" id="newKnowledgeClassification" name="newKnowledgeClassification">
-                                                            <button type="submit" class="js-tooltip-enabled edit-icon">Save Changes</button>
+                                                            <input type="text" id="newKnowledgeClassification" name="newKnowledgeClassification"> <!-- Corrected id -->
+                                                            <label for="newKnowledgeBake">New Bake:</label>
+                                                            <input type="text" id="newKnowledgeBake" name="newKnowledgeBake">
+                                                            <label for="newKnowledgeFerment">New Ferment:</label> <!-- Corrected label -->
+                                                            <input type="text" id="newKnowledgeFerment" name="newKnowledgeFerment">
+                                                            <button type="submit" class="btn btn-primary js-tooltip-enabled edit">Save Changes</button>
                                                         </form>
                                                     </div>
                                                 </div>
                                                 
                                                 <script>
-                                                    function openEditDialog2(id, originalImagePath, originalName, originalType, originalClassification) {
+                                                    function openEditDialog2(id, originalImagePath, originalName, originalType, originalClassification, originalBake, originalFerment) {
                                                         document.getElementById('newKnowledgeImgpath').value = originalImagePath;
                                                         document.getElementById('newKnowledgeName').value = originalName;
                                                         document.getElementById('newKnowledgeType').value = originalType;
                                                         document.getElementById('newKnowledgeClassification').value = originalClassification;
+                                                        document.getElementById('newKnowledgeBake').value = originalBake;
+                                                        document.getElementById('newKnowledgeFerment').value = originalFerment;
                                                         document.getElementById('editDialog2').style.display = 'block';
                                                     }
                                                 
@@ -900,6 +919,7 @@ button {
                                                         return true;
                                                     }
                                                 </script>
+                                                
                                             </tr>    
                                             <%
                                                 }
@@ -920,121 +940,143 @@ button {
                             <div class="card has-shadow">
                                 <div class="card-body border-top">
                                     <div class="d-md-flex align-items-center">
-                                    <h4 class="card-title">Fun</h4>
-                                    <div class="ml-auto">
-                                        <div class="dl">
-                                            <input type="text" id="searchInput3" placeholder="Search..." style="border:none;outline: none;">
+                                        <h4 class="card-title">Fun</h4>
+                                        <div class="ml-auto">
+                                            <div class="dl">
+                                                <input type="text" id="searchInput3" placeholder="Search..." style="border:none;outline: none;">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <script>
-                                        $(document).ready(function () {
-                                            $("#searchInput3").on("keyup", function () {
-                                                var value = $(this).val().toLowerCase();
-                                                $("#funTable tbody tr").filter(function () {
-                                                    var nameColumn = $(this).find("td:eq(1)").text().toLowerCase();
-                                                    $(this).toggle(nameColumn.indexOf(value) > -1);
+                                        <script>
+                                            $(document).ready(function () {
+                                                $("#searchInput3").on("keyup", function () {
+                                                    var value = $(this).val().toLowerCase();
+                                                    $("#funTable tbody tr").filter(function () {
+                                                        var nameColumn = $(this).find("td:eq(1)").text().toLowerCase();
+                                                        $(this).toggle(nameColumn.indexOf(value) > -1);
+                                                    });
                                                 });
                                             });
-                                        });
-                                    </script>  
+                                        </script>
                                     </div>
-                                    <table id="funTable" class=" table-borderless table">
-                                        <thead>
-                                            <tr class="text-center">
-                                                <th>Image</th>
-                                                <th>Name</th>
-                                                <th>classification</th>
-                                                <th>Place</th>
-                                                <th>Phone</th>
-                                                <th>Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <%
-                                            try {
-                                                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-                                                Connection conn = DriverManager.getConnection(dbURL, user, password);
-                                                String sqlQuery = "SELECT * FROM fun";
-                                                Statement statement = conn.createStatement();
-                                                ResultSet result = statement.executeQuery(sqlQuery);
-                    
-                                                while (result.next()) {
-                                                    String id = result.getString("id");
-                                                    String name = result.getString("name");
-                                                    String classification = result.getString("classification");
-                                                    String place = result.getString("place");
-                                                    String phone = result.getString("phone");
-                                                    String imagePathicon = result.getString("imagePathicon");
-                                            %>
-                                            <tr class="text-center">
-                                                <td>
-                                                    <img src="<%= imagePathicon %>" style="width:50px" alt="">
-                                                </td>
-                                                <td><%= name %></td>
-                                                <td><%= classification %></td>
-                                                <td><%= place %></td>
-                                                <td class="color-green">
-                                                    <%= phone %>
-                                                </td>
-                                                <td class="text-center">
-                                                    <button type="button" class="js-tooltip-enabled edit-icon" data-id="<%= id %>"
-                                                        onclick="openEditDialog3('<%= id %>', '<%= imagePathicon %>', '<%= name %>', '<%= classification %>','<%= place %>','<%= phone %>')">
-                                                        <i class="fa fa-fw fa-pencil-alt"></i>
-                                                    </button>
-                                                </td>
-                                                <div id="editDialog3" class="modal">
-                                                    <div class="modalcontent">
-                                                        <span class="close" onclick="closeEditDialog3()">&times;</span>
-                                                        <form class="editForm" method="post" action="updateData.jsp" onsubmit="return handleFormSubmit3()">
-                                                            <input type="hidden" name="funId" value="<%= id %>">
-                                                            <input type="hidden" name="originalImagePathicon" value="<%= imagePathicon %>">
-                                                            <input type="hidden" name="originalName" value="<%= name %>">
-                                                            <input type="hidden" name="originalClassification" value="<%= classification %>">
-                                                            <input type="hidden" name="originalPlace" value="<%= place %>">
-                                                            <input type="hidden" name="originalPhone" value="<%= phone %>">
-                                                            <label for="newFunimagePathicon">New imagePathicon:</label>
-                                                            <input type="text" id="newFunimagePathicon" name="newFunimagePathicon">
-                                                            <label for="newFunName">New Name:</label>
-                                                            <input type="text" id="newFunName" name="newFunName">
-                                                            <label for="newFunClassification">New Classification:</label>
-                                                            <input type="text" id="newFunClassification" name="newFunClassification">
-                                                            <label for="newFunPlace">New Place:</label>
-                                                            <input type="text" id="newFunPlace" name="newFunPlace">
-                                                            <label for="newFunPhone">New Phone:</label>
-                                                            <input type="text" id="newFunPhone" name="newFunPhone">
-                                                            <button type="submit" class="js-tooltip-enabled edit-icon">Save Changes</button>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                                <script>
-                                                    function openEditDialog3(id, originalImagePathicon, originalName, originalClassification, originalPlace, originalPhone) {
-                                                        document.getElementById('newFunimagePathicon').value = originalImagePathicon;
-                                                        document.getElementById('newFunName').value = originalName;
-                                                        document.getElementById('newFunClassification').value = originalClassification;
-                                                        document.getElementById('newFunPlace').value = originalPlace;
-                                                        document.getElementById('newFunPhone').value = originalPhone;
-                                                        document.getElementById('editDialog3').style.display = 'block';
-                                                    }
-                                                    function closeEditDialog3() {
-                                                        document.getElementById('editDialog3').style.display = 'none';
-                                                    }
-                                                    function handleFormSubmit3() {
-                                                        closeEditDialog3();
-                                                        return true;
-                                                    }
-                                                </script>
+                                    
+                                        <table id="funTable" class=" table-borderless table">
+                                            <thead>
+                                                <tr class="text-center">
+                                                <tr class="text-uppercase text-center">
+                                                    <th class="border-top-0">Image</th>
+                                                    <th class="border-top-0" data-index="1">
+                                                        <div class="sortable-header">
+                                                            Name
+                                                            <span class="arrow-up"></span>
+                                                            <span class="arrow-down"></span>
+                                                        </div>
+                                                    </th>
+                                                    <th class="border-top-0" data-index="2">
+                                                        <div class="sortable-header">
+                                                            Classification
+                                                            <span class="arrow-up"></span>
+                                                            <span class="arrow-down"></span>
+                                                        </div>
+                                                    </th>
+                                                    <th class="border-top-0" data-index="3">
+                                                        <div class="sortable-header">
+                                                            Place
+                                                            <span class="arrow-up"></span>
+                                                            <span class="arrow-down"></span>
+                                                        </div>
+                                                    </th>
+                                                    <th class="border-top-0" data-index="4">
+                                                        <div class="sortable-header">
+                                                            Phone
+                                                            <span class="arrow-up"></span>
+                                                            <span class="arrow-down"></span>
+                                                        </div>
+                                                    </th>
+                                                    <th class="border-top-0">Actions</th>
                                                 </tr>
-                                            <%
-                                                }
-                                                result.close();
-                                                statement.close();
-                                                conn.close();
-                                            } catch (Exception e) {
-                                                e.printStackTrace();
-                                            }
-                                            %>
-                                        </tbody>
-                                    </table>
+                                            </thead>
+                                            <tbody>
+                                                <% try { Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver"); Connection
+                                                    conn=DriverManager.getConnection(dbURL, user, password); String sqlQuery="SELECT * FROM fun"
+                                                    ; Statement statement=conn.createStatement(); ResultSet
+                                                    result=statement.executeQuery(sqlQuery); while (result.next()) { String
+                                                    id=result.getString("id"); String name=result.getString("name"); String
+                                                    classification=result.getString("classification"); String place=result.getString("place");
+                                                    String phone=result.getString("phone"); String
+                                                    imagePathicon=result.getString("imagePathicon"); %>
+                                                    <tr class="text-center">
+                                                        <td>
+                                                            <img src="<%= imagePathicon %>" style="width:50px" alt="">
+                                                        </td>
+                                                        <td>
+                                                            <%= name %>
+                                                        </td>
+                                                        <td>
+                                                            <%= classification %>
+                                                        </td>
+                                                        <td>
+                                                            <%= place %>
+                                                        </td>
+                                                        <td class="color-green">
+                                                            <%= phone %>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <button type="button" class="js-tooltip-enabled edit-icon" data-id="<%= id %>"
+                                                                onclick="openEditDialog3('<%= id %>', '<%= imagePathicon %>', '<%= name %>', '<%= classification %>','<%= place %>','<%= phone %>')">
+                                                                <i class="fa fa-fw fa-pencil-alt"></i>
+                                                            </button>
+                                                        </td>
+                                                        <div id="editDialog3" class="modal">
+                                                            <div class="modalcontent">
+                                                                <span class="close" onclick="closeEditDialog3()">&times;</span>
+                                                                <form class="editForm" method="post" action="updateData.jsp"
+                                                                    onsubmit="return handleFormSubmit3()">
+                                                                    <input type="hidden" name="funId" value="<%= id %>">
+                                                                    <input type="hidden" name="originalImagePathicon"
+                                                                        value="<%= imagePathicon %>">
+                                                                    <input type="hidden" name="originalName" value="<%= name %>">
+                                                                    <input type="hidden" name="originalClassification"
+                                                                        value="<%= classification %>">
+                                                                    <input type="hidden" name="originalPlace" value="<%= place %>">
+                                                                    <input type="hidden" name="originalPhone" value="<%= phone %>">
+                                                                    <label for="newFunimagePathicon">New imagePathicon:</label>
+                                                                    <input type="text" id="newFunimagePathicon" name="newFunimagePathicon">
+                                                                    <label for="newFunName">New Name:</label>
+                                                                    <input type="text" id="newFunName" name="newFunName">
+                                                                    <label for="newFunClassification">New Classification:</label>
+                                                                    <input type="text" id="newFunClassification" name="newFunClassification">
+                                                                    <label for="newFunPlace">New Place:</label>
+                                                                    <input type="text" id="newFunPlace" name="newFunPlace">
+                                                                    <label for="newFunPhone">New Phone:</label>
+                                                                    <input type="text" id="newFunPhone" name="newFunPhone">
+                                                                    <button type="submit" class="btn btn-primary  js-tooltip-enabled edit">Save
+                                                                        Changes</button>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                        <script>
+                                                            function openEditDialog3(id, originalImagePathicon, originalName, originalClassification, originalPlace, originalPhone) {
+                                                                document.getElementById('newFunimagePathicon').value = originalImagePathicon;
+                                                                document.getElementById('newFunName').value = originalName;
+                                                                document.getElementById('newFunClassification').value = originalClassification;
+                                                                document.getElementById('newFunPlace').value = originalPlace;
+                                                                document.getElementById('newFunPhone').value = originalPhone;
+                                                                document.getElementById('editDialog3').style.display = 'block';
+                                                            }
+                                                            function closeEditDialog3() {
+                                                                document.getElementById('editDialog3').style.display = 'none';
+                                                            }
+                                                            function handleFormSubmit3() {
+                                                                closeEditDialog3();
+                                                                return true;
+                                                            }
+                                                        </script>
+                                                    </tr>
+                                                    <% } result.close(); statement.close(); conn.close(); } catch (Exception e) {
+                                                        e.printStackTrace(); } %>
+                                            </tbody>
+                                        </table>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -1065,9 +1107,27 @@ button {
                                         <thead>
                                             <tr>
                                                 <th>Image</th>
-                                                <th>Name</th>
-                                                <th>Price</th>
-                                                <th>List</th>
+                                                <th class="border-top-0" data-index="1">
+                                                    <div class="sortable-header">
+                                                        Name
+                                                        <span class="arrow-up"></span>
+                                                        <span class="arrow-down"></span>
+                                                    </div>
+                                                </th>
+                                                <th class="border-top-0" data-index="2">
+                                                    <div class="sortable-header">
+                                                        Price
+                                                        <span class="arrow-up"></span>
+                                                        <span class="arrow-down"></span>
+                                                    </div>
+                                                </th>
+                                                <th class="border-top-0" data-index="3">
+                                                    <div class="sortable-header">
+                                                        List
+                                                        <span class="arrow-up"></span>
+                                                        <span class="arrow-down"></span>
+                                                    </div>
+                                                </th>
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>
@@ -1119,7 +1179,7 @@ button {
                                                             <input type="text" id="newStorePrice" name="newStorePrice">
                                                             <label for="newStoreList">New List:</label>
                                                             <input type="text" id="newStoreList" name="newStoreList">
-                                                            <button type="submit" class="js-tooltip-enabled edit-icon">Save Changes</button>
+                                                            <button type="submit" class="btn btn-primary  js-tooltip-enabled edit">Save Changes</button>
                                                         </form>
                                                     </div>
                                                 </div>
@@ -1183,8 +1243,20 @@ button {
                                         <thead>
                                             <tr>
                                                 <th>Image</th>
-                                                <th>Name</th>
-                                                <th>Href</th>
+                                                <th class="border-top-0" data-index="1">
+                                                    <div class="sortable-header">
+                                                        Name
+                                                        <span class="arrow-up"></span>
+                                                        <span class="arrow-down"></span>
+                                                    </div>
+                                                </th>
+                                                <th class="border-top-0" data-index="2">
+                                                    <div class="sortable-header">
+                                                        Href
+                                                        <span class="arrow-up"></span>
+                                                        <span class="arrow-down"></span>
+                                                    </div>
+                                                </th>
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>
@@ -1232,7 +1304,7 @@ button {
                                                             <input type="text" id="newSugardaddyName" name="newSugardaddyName">
                                                             <label for="newSugardaddyHref">New Href:</label>
                                                             <input type="text" id="newSugardaddyHref" name="newSugardaddyHref">
-                                                            <button type="submit" class="js-tooltip-enabled edit-icon">Save Changes</button>
+                                                            <button type="submit" class="btn btn-primary js-tooltip-enabled edit">Save Changes</button>
                                                         </form>
                                                     </div>
                                                 </div>
@@ -1339,6 +1411,204 @@ button {
                                     clickedHeader.find('.arrow-down').css('color', '#d6c5a4');
                                 }
                             }
+
+                            // fun Table Sorting
+                            var funSortDirection = 1; 
+                            var funLastSortedColumn = 0;
+                            function sortfunTable(selectedValue) {
+                                var funRows = $('#funTable tbody tr').get();
+                    
+                                funRows.sort(function (a, b) {
+                                    var keyA = $(a).children('td').eq(selectedValue).text().toUpperCase();
+                                    var keyB = $(b).children('td').eq(selectedValue).text().toUpperCase();
+                    
+                                    if (selectedValue === 5) {
+                                        keyA = $(a).find('label').text().toUpperCase();
+                                        keyB = $(b).find('label').text().toUpperCase();
+                                    }
+                                    if (keyA < keyB) return -1 * funSortDirection;
+                                    if (keyA > keyB) return 1 * funSortDirection;
+                                    return 0;
+                                });
+                    
+                                $.each(funRows, function (index, row) {
+                                    $('#funTable tbody').append(row);
+                                });
+                            }
+                    
+                            $('#funTable th').hover(
+                                function () {
+                                    // Hover in
+                                    $(this).find('.arrow-up').show();
+                                    $(this).find('.arrow-down').show();
+                                },
+                                function () {
+                                    // Hover out
+                                    $(this).find('.arrow-up').hide();
+                                    $(this).find('.arrow-down').hide();
+                                }
+                            );
+                    
+                            $('#funTable th').click(function () {
+                                var columnIndex = $(this).data('index');
+                                if (funLastSortedColumn === columnIndex) {
+                                    funSortDirection = -funSortDirection;
+                                } else {
+                                    funSortDirection = 1;
+                                }
+                                sortfunTable(columnIndex);
+                                updateFunHeaderIcons($(this), funSortDirection);
+                                funLastSortedColumn = columnIndex;
+                            });
+                            sortfunTable(0);
+                            function updateFunHeaderIcons(clickedHeader, direction) {
+                                $('#funTable th').each(function () {
+                                    if (this !== clickedHeader[0]) {
+                                        $(this).find('.arrow-up').hide().css('color', ''); 
+                                        $(this).find('.arrow-down').hide().css('color', ''); 
+                                    }
+                                });
+                    
+                                if (direction === 1) {
+                                    clickedHeader.find('.arrow-up').css('color', '#d6c5a4'); 
+                                    clickedHeader.find('.arrow-down').css('color', ''); 
+                                } else {
+                                    clickedHeader.find('.arrow-up').css('color', ''); 
+                                    clickedHeader.find('.arrow-down').css('color', '#d6c5a4');
+                                }
+                            }
+
+                            // store Table Sorting
+                            var storeSortDirection = 1; 
+                            var storeLastSortedColumn = 0;
+                            function sortstoreTable(selectedValue) {
+                                var storeRows = $('#storeTable tbody tr').get();
+                    
+                                storeRows.sort(function (a, b) {
+                                    var keyA = $(a).children('td').eq(selectedValue).text().toUpperCase();
+                                    var keyB = $(b).children('td').eq(selectedValue).text().toUpperCase();
+                    
+                                    if (selectedValue === 5) {
+                                        keyA = $(a).find('label').text().toUpperCase();
+                                        keyB = $(b).find('label').text().toUpperCase();
+                                    }
+                                    if (keyA < keyB) return -1 * storeSortDirection;
+                                    if (keyA > keyB) return 1 * storeSortDirection;
+                                    return 0;
+                                });
+                    
+                                $.each(storeRows, function (index, row) {
+                                    $('#storeTable tbody').append(row);
+                                });
+                            }
+                    
+                            $('#storeTable th').hover(
+                                function () {
+                                    // Hover in
+                                    $(this).find('.arrow-up').show();
+                                    $(this).find('.arrow-down').show();
+                                },
+                                function () {
+                                    // Hover out
+                                    $(this).find('.arrow-up').hide();
+                                    $(this).find('.arrow-down').hide();
+                                }
+                            );
+                    
+                            $('#storeTable th').click(function () {
+                                var columnIndex = $(this).data('index');
+                                if (storeLastSortedColumn === columnIndex) {
+                                    storeSortDirection = -storeSortDirection;
+                                } else {
+                                    storeSortDirection = 1;
+                                }
+                                sortstoreTable(columnIndex);
+                                updateFunHeaderIcons($(this), storeSortDirection);
+                                storeLastSortedColumn = columnIndex;
+                            });
+                            sortstoreTable(0);
+                            function updateFunHeaderIcons(clickedHeader, direction) {
+                                $('#storeTable th').each(function () {
+                                    if (this !== clickedHeader[0]) {
+                                        $(this).find('.arrow-up').hide().css('color', ''); 
+                                        $(this).find('.arrow-down').hide().css('color', ''); 
+                                    }
+                                });
+                    
+                                if (direction === 1) {
+                                    clickedHeader.find('.arrow-up').css('color', '#d6c5a4'); 
+                                    clickedHeader.find('.arrow-down').css('color', ''); 
+                                } else {
+                                    clickedHeader.find('.arrow-up').css('color', ''); 
+                                    clickedHeader.find('.arrow-down').css('color', '#d6c5a4');
+                                }
+                            }
+
+                            // sugardaddy Table Sorting
+                            var sugardaddySortDirection = 1; 
+                            var sugardaddyLastSortedColumn = 0;
+                            function sortsugardaddyTable(selectedValue) {
+                                var sugardaddyRows = $('#sugardaddyTable tbody tr').get();
+                    
+                                sugardaddyRows.sort(function (a, b) {
+                                    var keyA = $(a).children('td').eq(selectedValue).text().toUpperCase();
+                                    var keyB = $(b).children('td').eq(selectedValue).text().toUpperCase();
+                    
+                                    if (selectedValue === 5) {
+                                        keyA = $(a).find('label').text().toUpperCase();
+                                        keyB = $(b).find('label').text().toUpperCase();
+                                    }
+                                    if (keyA < keyB) return -1 * sugardaddySortDirection;
+                                    if (keyA > keyB) return 1 * sugardaddySortDirection;
+                                    return 0;
+                                });
+                    
+                                $.each(sugardaddyRows, function (index, row) {
+                                    $('#sugardaddyTable tbody').append(row);
+                                });
+                            }
+                    
+                            $('#sugardaddyTable th').hover(
+                                function () {
+                                    // Hover in
+                                    $(this).find('.arrow-up').show();
+                                    $(this).find('.arrow-down').show();
+                                },
+                                function () {
+                                    // Hover out
+                                    $(this).find('.arrow-up').hide();
+                                    $(this).find('.arrow-down').hide();
+                                }
+                            );
+                    
+                            $('#sugardaddyTable th').click(function () {
+                                var columnIndex = $(this).data('index');
+                                if (sugardaddyLastSortedColumn === columnIndex) {
+                                    sugardaddySortDirection = -sugardaddySortDirection;
+                                } else {
+                                    sugardaddySortDirection = 1;
+                                }
+                                sortsugardaddyTable(columnIndex);
+                                updateFunHeaderIcons($(this), sugardaddySortDirection);
+                                sugardaddyLastSortedColumn = columnIndex;
+                            });
+                            sortsugardaddyTable(0);
+                            function updateFunHeaderIcons(clickedHeader, direction) {
+                                $('#sugardaddyTable th').each(function () {
+                                    if (this !== clickedHeader[0]) {
+                                        $(this).find('.arrow-up').hide().css('color', ''); 
+                                        $(this).find('.arrow-down').hide().css('color', ''); 
+                                    }
+                                });
+                    
+                                if (direction === 1) {
+                                    clickedHeader.find('.arrow-up').css('color', '#d6c5a4'); 
+                                    clickedHeader.find('.arrow-down').css('color', ''); 
+                                } else {
+                                    clickedHeader.find('.arrow-up').css('color', ''); 
+                                    clickedHeader.find('.arrow-down').css('color', '#d6c5a4');
+                                }
+                            }
                     
                             // Member Table Sorting
                             var memberSortDirection = 1; 
@@ -1351,7 +1621,7 @@ button {
                                     var keyA = $(a).children('td').eq(selectedValue).text().toUpperCase();
                                     var keyB = $(b).children('td').eq(selectedValue).text().toUpperCase();
                     
-                                    if (selectedValue === 3) {
+                                    if (selectedValue === 5) {
                                         keyA = $(a).find('label').text().toUpperCase();
                                         keyB = $(b).find('label').text().toUpperCase();
                                     }

@@ -13,6 +13,9 @@
             String storeName = request.getParameter("store_name");
 
             if (storeName != null && !storeName.isEmpty()) {
+                // Store the storeName in the session
+                session.setAttribute("storeName", storeName);
+
                 Connection con = null;
 
                 try {

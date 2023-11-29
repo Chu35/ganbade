@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <% 
 String memberName = (String) session.getAttribute("memberName");
+String storeName = (String) session.getAttribute("storeName");
 Integer itemCount = (Integer) session.getAttribute("itemCount"); 
 %>
 
@@ -267,9 +268,9 @@ Integer itemCount = (Integer) session.getAttribute("itemCount");
                                         <td><%= Math.round(price) %></td>
                                         <td>
                                             <div class="input-group">
-                                                <button class="minus-item input-group-addon btn btn-primary" data-name="<%= name %>">-</button>
-                                                <input type="number" class="item-count form-control" data-name="<%= name %>" value="1">
-                                                <button class="plus-item btn btn-primary input-group-addon" data-name="<%= name %>">+</button>
+                                                <button class="btn btn-primary">-</button>
+                                                <input type="number" class="form-control" value="1">
+                                                <button class="btn btn-primary">+</button>
                                             </div>
                                         </td>
                                         <td>
@@ -298,7 +299,7 @@ Integer itemCount = (Integer) session.getAttribute("itemCount");
                                 <div>Total price: $<span class="total-cart"></span></div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-primary">結帳</button>
+                                <a href="checkout.jsp"><button type="button" class="btn btn-primary">結帳</button></a>
                             </div>                 
                         </div>
                     </div>

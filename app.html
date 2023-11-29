@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/app.css">
+    <title>甘吧茶ㄉㄟˊ</title>
+</head>
+<body>
+    <main class="main">
+        <div class="container">
+            <div class="menu center">
+                <h1>歡迎光臨<br>甘吧茶ㄉㄟˊ</h1>
+                <img src="img/4in1.png" alt="">
+                <div class="buttons">
+                    <button>校外展導覽</button>
+                    <button>專題網站</button>
+                </div>
+            </div>
+            <div class="personal center">
+                <h1>甘吧茶<br>校外展導覽</h1>
+                <h3>茶葉探險隊</h3>
+                <img src="img/4in2.png" alt="">
+                <form id="membermodify" action="modify.jsp" method="post" autocomplete="off">
+                    <input class="m1" type="text" name="user" placeholder="姓名："/><br><br>
+                </form>
+                <button id="startButton" class="btn btn-primary">開始</button>
+            </div>
+            <div class="stepone center">
+                <h1>第一步</h1>
+                <h3>請取一張貼紙</h3>
+                <h1>留下茶跡</h1>
+                <img src="https://img.lovepik.com/free-png/20211214/lovepik-teapot-png-image_401582765_wh1200.png" alt="">
+                <button class="btn btn-primary">往下一步</button>
+            </div>    
+        <div class="nfc center">
+            <a href=""></a>
+            <h1>請靠近NFC貼紙<br>聽聽茶莊阿姨的話</h1>
+            <img src="img/kv7.png" alt="">
+        </div>
+        <div class="vr center">
+            <img src="img/b1.png" alt="">
+            <h1>拉開門簾進入體驗區</h1>
+            <button>GO</button>
+        </div>
+        <div class="D center">
+            <h1>知識調查局</h1>
+            <h3>拿IPAD看一下3D的製茶工序</h3>
+            <img src="img/採菁.gif" alt="">
+            <button>看完了</button>
+        </div>
+        <div class="test center">
+            <h1>小考驗</h1>
+            <div class="question" id="question1">
+                <h2>題目1/5</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore tempore maiores aliquam harum rerum nulla commodi eveniet ex amet eius cumque, officia, sapiente tenetur </p>
+                <button class="next-button">下一題</button>
+            </div>
+            <div class="question" id="question2">
+                <h2>題目2/5</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore tempore maiores aliquam harum rerum nulla commodi eveniet ex amet eius cumque, officia, sapiente </p>
+                <button class="prev-button">上一題</button>
+                <button class="next-button">下一題</button>
+            </div>
+            <div class="question" id="question3">
+                <h2>題目3/5</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing </p>
+                <button class="prev-button">上一題</button>
+                <button class="next-button">下一題</button>
+            </div>
+            <div class="question" id="question4">
+                <h2>題目4/5</h2>
+                <p>Lorem ipsum dolor sit amet consectetur </p>
+                <button class="prev-button">上一題</button>
+                <button class="next-button">下一題</button>
+            </div>
+            <div class="question" id="question5">
+                <h2>題目5/5</h2>
+                <p>Lorem ipsum dolor sit </p>
+                <button class="prev-button">上一題</button>
+                <button class="submit-button">提交</button>
+            </div>
+            <script>document.addEventListener('DOMContentLoaded', function () {
+                const questions = document.querySelectorAll('.test .question');
+                let currentQuestionIndex = 0;
+            
+                function showCurrentQuestion() {
+                    questions.forEach((question, index) => {
+                        if (index === currentQuestionIndex) {
+                            question.style.display = 'block';
+                        } else {
+                            question.style.display = 'none';
+                        }
+                    });
+                }
+            
+                function nextQuestion() {
+                    if (currentQuestionIndex < questions.length - 1) {
+                        currentQuestionIndex++;
+                        showCurrentQuestion();
+                    }
+                }
+            
+                function prevQuestion() {
+                    if (currentQuestionIndex > 0) {
+                        currentQuestionIndex--;
+                        showCurrentQuestion();
+                    }
+                }
+            
+                // Event listeners for next and previous buttons
+                const nextButtons = document.querySelectorAll('.test .next-button');
+                nextButtons.forEach(button => {
+                    button.addEventListener('click', nextQuestion);
+                });
+            
+                const prevButtons = document.querySelectorAll('.test .prev-button');
+                prevButtons.forEach(button => {
+                    button.addEventListener('click', prevQuestion);
+                });
+            
+                // Show the initial question
+                showCurrentQuestion();
+            });
+            </script>
+        </div>        
+        <div class="web center">
+            <h1>看專題網站</h1>
+            <h1>給我去看!!!</h1>
+            <img src="img/b1.png" alt="">
+            <button>下一步</button>
+        </div>
+        <div class="draw center">
+            <h1>到IPAD繪畫區</h1>
+            <h1>畫屬於你的滴/留言</h1>
+            <h2>範例：</h2>
+            <img src="img/s1.png" alt="">
+            <button>好了</button>
+        </div>
+        <div class="end center">
+            <h1>導覽結束</h1>
+            <img src="img/s1.png" alt="">
+            <h1>謝謝光臨甘吧茶ㄉㄟˊ</h1>
+            <button>專題網站</button>
+            <button>回饋表單</button>
+            <a href="app.html"><button>重新體驗</button></a>
+        </div>
+    </div>
+</main>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const sections = document.querySelectorAll('.container > div');
+    let currentSectionIndex = 0;
+    let isScrolling = false;
+
+    function showCurrentSection() {
+        sections.forEach((section, index) => {
+            if (index === currentSectionIndex) {
+                section.style.display = 'block';
+            } else {
+                section.style.display = 'none';
+            }
+        });
+    }
+
+    function scrollToSection(index) {
+        currentSectionIndex = index;
+        showCurrentSection();
+        isScrolling = true;
+        setTimeout(() => {
+            isScrolling = false;
+        }, 800); // Adjust the delay time based on your preference
+    }
+
+    function scrollToNextSection() {
+        if (currentSectionIndex < sections.length - 1) {
+            scrollToSection(currentSectionIndex + 1);
+        }
+    }
+
+    window.addEventListener('wheel', function (event) {
+        if (!isScrolling) {
+            if (event.deltaY > 0) {
+                // Scrolling down
+                if (currentSectionIndex < sections.length - 1) {
+                    scrollToSection(currentSectionIndex + 1);
+                }
+            } else {
+                // Scrolling up
+                if (currentSectionIndex > 0) {
+                    scrollToSection(currentSectionIndex - 1);
+                }
+            }
+        }
+        event.preventDefault();
+    });
+
+    // Smooth scroll to next section when any button (excluding specific classes) is clicked
+    const allButtons = document.querySelectorAll('.container button');
+    allButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            // Exclude buttons with specific classes from smooth scroll
+            if (!button.classList.contains('next-button') && !button.classList.contains('prev-button')) {
+                scrollToNextSection();
+            }
+        });
+    });
+
+    // Show the initial section
+    showCurrentSection();
+});
+
+    </script>
+</body>
+</html>

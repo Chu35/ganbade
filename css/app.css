@@ -1,0 +1,84 @@
+body, html {
+    overflow: hidden;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+}
+.container > div {
+    display: none;
+}
+.menu, .personal, .stepone, .nfc, .vr, .D, .test, .web, .draw, .end {
+    padding: 20px;
+    text-align: center;
+}
+.m1{
+border: none;
+  outline: none;
+  border-bottom: 2px solid #4d4d4d;
+  background: none;
+  }
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+h1{
+    font-weight: 600
+}
+h2{
+    font-weight: 500;
+} 
+
+h3 {
+    font-weight: 400;
+    color: #333;
+}
+
+p{
+    font-weight: 300
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.vr{
+    background-color: aquamarine;
+}
+.test .question {
+    display: none;
+}
+
+.test .question1 {
+    display: block;
+}
+

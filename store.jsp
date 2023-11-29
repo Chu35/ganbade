@@ -1,9 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
 <!DOCTYPE html>
-<% String memberName = (String) session.getAttribute("memberName"); %>
-<html>
+<% 
+String memberName = (String) session.getAttribute("memberName");
+Integer itemCount = (Integer) session.getAttribute("itemCount"); 
+%>
+
     <head>
+<html>
         <meta charset="utf-8">
         <title>甘吧茶ㄉㄟˊ</title>
         <meta name="viewport"
@@ -75,8 +79,9 @@
                 <a href="fun.jsp" class="nav-item nav-link">茶遊此地</a>
                 <a href="contact.jsp" class="nav-item nav-link">關於我們</a>
                 <a href="#" class="nav-item nav-link">
-                    <small class="fa fa-shopping-cart text-primary" data-toggle="modal" data-target="#cart"><span
-                        class="total-count"></small>                    
+                    <small class="fa fa-shopping-cart text-primary" data-toggle="modal" data-target="#cart">
+                        <span class="total-count"><%= itemCount != null ? itemCount : 0 %></span>
+                    </small>                                                           
                 </a>
                 <div class="nav-item dropdown">
                     <div id="user-icon" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
@@ -101,7 +106,7 @@
  <!-- store -->
 <div class="container-xxl py-4">
     <div class="container">
-        <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s">
+        <div class="text-center mx-auto">
             <h1 class="display-3 mb-5"> </h1>
             <h1 class="display-5 mb-4">E-commerce Shop</h1>
         </div>
@@ -110,7 +115,7 @@
                 <div class="ProductList-breadcrumb hidden-xs hidden-sm">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href=" ">Home</a></li>
+                            <li class="breadcrumb-item"><a href=" ">全部</a></li>
                             <li class="breadcrumb-item active" aria-current="page"></li>
                         </ol>
                     </nav>
@@ -134,15 +139,9 @@
             <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
             <script>
                 $(document).ready(function () {
-                    // Event handler for category clicks
                     $(".category").on("click", function () {
-                        // Get the text of the clicked category
                         var categoryText = $(this).data("list");
-            
-                        // Update the breadcrumb with the clicked category
                         $(".breadcrumb-item.active").text(categoryText);
-            
-                        // Show the breadcrumb
                         $(".ProductList-breadcrumb").show();
                     });
                 });
@@ -150,7 +149,7 @@
                 <div class="right-c-box">
                     <div class="container mb-5">
                         <div class="row" style="justify-content:flex-start;">
-                            <% 
+                        <% 
                         Connection conn = null;
                         Statement stmt = null;
                         ResultSet rs = null;
@@ -177,14 +176,14 @@
                             <div class="card-block">
                                 <h4 class="card-title"><%= name %></h4>
                                 <p class="card-text">NT$ <%= Math.round(price) %></p>
-                                <a href="#" data-name="<%= name %>" data-price="<%= price %>" class="add-to-cart btn btn-primary">Add to cart</a>
+                                <a href="cart.jsp?store_name=<%= rs.getString("name") %>" data-name="<%= name %>" data-price="<%= price %>" class="add-to-cart btn btn-primary">Add to cart</a>
                             </div>
                         </div>
-                        <style>.hidden {
+                        <style>
+                        .hidden {
                             display: none;
                         }
                         </style>
-                        
                         <% 
                     }
                 } catch (Exception e) {
@@ -207,12 +206,10 @@
                                 });
                             });
                         });
-                    
                         function toggleSubcategory(subcategoryId) {
                             var subcategory = document.getElementById(subcategoryId);
                             subcategory.style.display = subcategory.style.display === 'none' ? 'block' : 'none';
                         }
-                    
                         function filterProducts(category) {
                             var productItems = document.querySelectorAll('.right-c-box .shopping');
                     
@@ -230,7 +227,6 @@
                 </div>
             </div>
                 
-                
                 <div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog modal-lg" role="document">
@@ -242,14 +238,68 @@
                             </div>
                             <div class="modal-body">
                                 <table class="show-cart table">
+                                    <% 
+                                    try {
+                                        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                                        String url = "jdbc:sqlserver://127.0.0.1:1433;database=109_ganbade";
+                                        String user = "chu";
+                                        String password = "0725";
+                                        conn = DriverManager.getConnection(url, user, password);
+                                        stmt = conn.createStatement();
+                                        String query = "SELECT store.id, store.name, store.imgpath, store.price FROM member_collect " +
+                                                       "INNER JOIN store ON member_collect.store_name = store.name " +
+                                                       "WHERE member_name = ?";
+                                        PreparedStatement preparedStatement = conn.prepareStatement(query);
+                                        preparedStatement.setString(1, memberName);
+                                        rs = preparedStatement.executeQuery();
+                                        
+                                        while (rs.next()) {
+                                            int id = rs.getInt("id");
+                                            String name = rs.getString("name");
+                                            String imgpath = rs.getString("imgpath");
+                                            double price = rs.getDouble("price");
+                                    %>
+                                    <tr class="cart-items">    
+                                        <td>
+                                            <img src="<%= imgpath %>" style="width:50px" alt="<%= name %>">
+                                        </td>
+                                        <td><%= name %></td>
+                                        <td><%= Math.round(price) %></td>
+                                        <td>
+                                            <div class="input-group">
+                                                <button class="minus-item input-group-addon btn btn-primary" data-name="<%= name %>">-</button>
+                                                <input type="number" class="item-count form-control" data-name="<%= name %>" value="1">
+                                                <button class="plus-item btn btn-primary input-group-addon" data-name="<%= name %>">+</button>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <a id="deleteLink" class="delete-item" href="deletecart.jsp?store_name=<%= rs.getString("name") %>"  style="border: none; background: none;">🗑️</a>
+                                        </td>
+                                    </tr>
+                                    
+                                    <style>
+                                    .table td {
+                                        text-align: center;
+                                        vertical-align: middle!important;
+                                    }
+                                    </style>
+                                    <% 
+                                        }
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                    } finally {
+                                        // Close database resources
+                                        try { if (rs != null) rs.close(); } catch (Exception e) { /* Ignore */ }
+                                        try { if (stmt != null) stmt.close(); } catch (Exception e) { /* Ignore */ }
+                                        try { if (conn != null) conn.close(); } catch (Exception e) { /* Ignore */ }
+                                    }
+                                    %>
                                 </table>
                                 <div>Total price: $<span class="total-cart"></span></div>
                             </div>
                             <div class="modal-footer">
-                                <button class="clear-cart btn btn-danger">Clear Cart</button>
-                                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Order now</button>
-                            </div>
+                                <button type="button" class="btn btn-primary">結帳</button>
+                            </div>                 
                         </div>
                     </div>
                 </div>
@@ -277,6 +327,5 @@
 
 <!-- Template Javascript -->
 <script src="js/main.js"></script>
-<script src="js/store.js"></script>
 </body>
 </html>

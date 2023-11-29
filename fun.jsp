@@ -75,7 +75,7 @@
                 </div>
                 <a href="#" class="nav-item nav-link active">茶遊此地</a>
                 <a href="contact.jsp" class="nav-item nav-link">關於我們</a>
-                <a href="store.jsp" class="nav-item nav-link"><small class="fa fa-shopping-cart text-primary"></small></a>
+                <a href="store.jsp" class="nav-item nav-link">滴滴商城</a>
                 <div class="nav-item nav-link">
                     <div class="box">
                         <form action="showfun.jsp" autocomplete="off">
@@ -213,8 +213,7 @@
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.2s">
                 <a href="collect.jsp?fun_id=<%= rs.getString("id") %>" style="cursor: pointer;">
                     <i class="bi bi-bookmark" style="cursor: pointer;"></i>
-                </a>
-                
+                </a><br>
                 <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3 mb-1"><%= type %></p>
                 <div class="display-5 mb-1">
                     <img src="<%= imagePathicon %>" alt="<%= name %>" class="btn btn-l btn-lg-square rounded-circle" style="display:inline;">

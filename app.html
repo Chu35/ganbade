@@ -21,7 +21,7 @@
                 <h1>甘吧茶<br>校外展導覽</h1>
                 <h3>茶葉探險隊</h3>
                 <img src="img/4in2.png" alt="">
-                <input class="m1" type="text" id="userName" name="username" placeholder="姓名：" autocomplete="off"/><br><br>
+                <input class="m1" type="text" id="userName" name="username" placeholder="姓名：" autocomplete="off" /><br><br>
                 <button id="startButton" class="btn btn-primary">開始</button>
             </div>
             <div class="stepone center">
@@ -30,7 +30,7 @@
                 <h1 class="userNameDisplay"></h1>
                 <img src="https://img.lovepik.com/free-png/20211214/lovepik-teapot-png-image_401582765_wh1200.png" alt="">
                 <button class="btn btn-primary" onclick="scrollToNextSection()">往下一步</button>
-            </div> 
+            </div>
             <div class="nfc center">
                 <div class="nfcpart" id="nfc1">
                     <h1>請靠近NFC貼紙<br>聽聽茶莊阿姨的話</h1>
@@ -56,7 +56,7 @@
                     <img src="img/kv7.png" alt="">
                     <button class="prev-button">prev</button>
                     <button class="next-button">next</button>
-
+    
                 </div>
                 <div class="nfcpart" id="nfc4">
                     <h1>請靠近NFC貼紙<br>聽聽茶莊阿姨的話</h1>
@@ -110,125 +110,133 @@
                     });
                 </script>
             </div>
-        <div class="goin center">
-            <h1>拉開門簾進入體驗區</h1>
-            <img src="img/b1.png" alt="">
-            <button>GO</button>
-        </div>
-        <div class="vr center">
-            <p>聞一聞吧~</p>
-            <h1>戴上VR眼鏡<br>漫步茶園</h1>
-            <img src="img/b1.png" alt="">
-            <div class="vrbg">
-                <h1>VR360<h1>
-            
-                        <button>往下一步</button>
+            <div class="goin center">
+                <h1>拉開門簾進入體驗區</h1>
+                <h1 class="userNameDisplay"></h1>
+                <img src="img/b1.png" alt="">
+                <button>GO</button>
             </div>
-        </div>
-        <div class="D center">
-            <h1>知識調查局</h1>
-            <h3>拿IPAD看一下3D的製茶工序</h3>
-            <img src="img/採菁.gif" alt="">
-            <button>看完了</button>
-        </div>
-        <div class="test center">
-            <h1>小考驗</h1>
-            <div class="question" id="question1">
-                <h2>題目1/5</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore tempore maiores aliquam harum rerum nulla commodi eveniet ex amet eius cumque, officia, sapiente tenetur </p>
-                <button class="next-button">下一題</button>
+            <div class="vr center">
+                <p>聞一聞吧~</p>
+                <h1>戴上VR眼鏡<br>漫步茶園</h1>
+                <h1 class="userNameDisplay"></h1>
+                <img src="https://obs.line-scdn.net/0hEEmMQbqwGmpQNAz_JzFlPWhiFhtjUgBjclIAXCBmQ1l6GA0_aQJJCXU3RUZ1Vlg_cAEFCiA9FgkuAAk7ZA/w644" alt="">
+                <div class="vrbg">
+                    <h1>VR360<h1>
+                    <button>往下一步</button>
+                </div>
             </div>
-            <div class="question" id="question2">
-                <h2>題目2/5</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore tempore maiores aliquam harum rerum nulla commodi eveniet ex amet eius cumque, officia, sapiente </p>
-                <button class="prev-button">上一題</button>
-                <button class="next-button">下一題</button>
+            <div class="D center">
+                <h1>知識調查局</h1>
+                <h3>拿IPAD看一下3D的製茶工序</h3>
+                <h1 class="userNameDisplay"></h1>
+                <img src="img/採菁.gif" alt="">
+                <button>看完了</button>
             </div>
-            <div class="question" id="question3">
-                <h2>題目3/5</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing </p>
-                <button class="prev-button">上一題</button>
-                <button class="next-button">下一題</button>
-            </div>
-            <div class="question" id="question4">
-                <h2>題目4/5</h2>
-                <p>Lorem ipsum dolor sit amet consectetur </p>
-                <button class="prev-button">上一題</button>
-                <button class="next-button">下一題</button>
-            </div>
-            <div class="question" id="question5">
-                <h2>題目5/5</h2>
-                <p>Lorem ipsum dolor sit </p>
-                <button class="prev-button">上一題</button>
-                <button class="submit-button">提交</button>
-            </div>
-            <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                const questions = document.querySelectorAll('.test .question');
-                let currentQuestionIndex = 0;
-            
-                function showCurrentQuestion() {
-                    questions.forEach((question, index) => {
-                        if (index === currentQuestionIndex) {
-                            question.style.display = 'block';
-                        } else {
-                            question.style.display = 'none';
+            <div class="test center">
+                <h1>小考驗</h1>
+                <h1 class="userNameDisplay"></h1>
+                <div class="question" id="question1">
+                    <h2>題目1/5</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore tempore maiores aliquam harum rerum
+                        nulla commodi eveniet ex amet eius cumque, officia, sapiente tenetur </p>
+                    <button class="next-button">下一題</button>
+                </div>
+                <div class="question" id="question2">
+                    <h2>題目2/5</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore tempore maiores aliquam harum rerum
+                        nulla commodi eveniet ex amet eius cumque, officia, sapiente </p>
+                    <button class="prev-button">上一題</button>
+                    <button class="next-button">下一題</button>
+                </div>
+                <div class="question" id="question3">
+                    <h2>題目3/5</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing </p>
+                    <button class="prev-button">上一題</button>
+                    <button class="next-button">下一題</button>
+                </div>
+                <div class="question" id="question4">
+                    <h2>題目4/5</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur </p>
+                    <button class="prev-button">上一題</button>
+                    <button class="next-button">下一題</button>
+                </div>
+                <div class="question" id="question5">
+                    <h2>題目5/5</h2>
+                    <p>Lorem ipsum dolor sit </p>
+                    <button class="prev-button">上一題</button>
+                    <button class="submit-button">提交</button>
+                </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const questions = document.querySelectorAll('.test .question');
+                        let currentQuestionIndex = 0;
+
+                        function showCurrentQuestion() {
+                            questions.forEach((question, index) => {
+                                if (index === currentQuestionIndex) {
+                                    question.style.display = 'block';
+                                } else {
+                                    question.style.display = 'none';
+                                }
+                            });
                         }
+
+                        function nextQuestion() {
+                            if (currentQuestionIndex < questions.length - 1) {
+                                currentQuestionIndex++;
+                                showCurrentQuestion();
+                            }
+                        }
+
+                        function prevQuestion() {
+                            if (currentQuestionIndex > 0) {
+                                currentQuestionIndex--;
+                                showCurrentQuestion();
+                            }
+                        }
+
+                        // Event listeners for next and previous buttons
+                        const nextButtons = document.querySelectorAll('.test .next-button');
+                        nextButtons.forEach(button => {
+                            button.addEventListener('click', nextQuestion);
+                        });
+
+                        const prevButtons = document.querySelectorAll('.test .prev-button');
+                        prevButtons.forEach(button => {
+                            button.addEventListener('click', prevQuestion);
+                        });
+
+                        showCurrentQuestion();
                     });
-                }
-            
-                function nextQuestion() {
-                    if (currentQuestionIndex < questions.length - 1) {
-                        currentQuestionIndex++;
-                        showCurrentQuestion();
-                    }
-                }
-            
-                function prevQuestion() {
-                    if (currentQuestionIndex > 0) {
-                        currentQuestionIndex--;
-                        showCurrentQuestion();
-                    }
-                }
-            
-                // Event listeners for next and previous buttons
-                const nextButtons = document.querySelectorAll('.test .next-button');
-                nextButtons.forEach(button => {
-                    button.addEventListener('click', nextQuestion);
-                });
-            
-                const prevButtons = document.querySelectorAll('.test .prev-button');
-                prevButtons.forEach(button => {
-                    button.addEventListener('click', prevQuestion);
-                });
-            
-                showCurrentQuestion();
-            });
-            </script>
-        </div>        
-        <div class="web center">
-            <h1>看專題網站</h1>
-            <h1>給我去看!!!</h1>
-            <img src="img/keyvision.PNG" alt="">
-            <button>下一步</button>
+                </script>
+            </div>
+            <div class="web center">
+                <h1 class="userNameDisplay"></h1>
+                <h1>看專題網站</h1>
+                <h1>給我去看!!!</h1>
+                <img src="img/keyvision.PNG" alt="">
+                <button>下一步</button>
+            </div>
+            <div class="draw center">
+                <h1>到IPAD繪畫區</h1>
+                <h1 class="userNameDisplay"></h1>
+                <h1>畫屬於你的滴/留言</h1>
+                <h2>範例：</h2>
+                <img src="img/t1.png" alt="">
+                <button>好了</button>
+            </div>
+            <div class="end center">                
+                <h1 class="userNameDisplay"></h1>
+                <h1>導覽結束</h1>
+                <img src="img/t1-1.png" alt="">
+                <h1>謝謝光臨甘吧茶ㄉㄟˊ</h1>
+                <a href="index.html"><button>專題網站</button></a>
+                <button>回饋表單</button>
+                <a href="app.html"><button>重新體驗</button></a>
+            </div>
         </div>
-        <div class="draw center">
-            <h1>到IPAD繪畫區</h1>
-            <h1>畫屬於你的滴/留言</h1>
-            <h2>範例：</h2>
-            <img src="img/t1.png" alt="">
-            <button>好了</button>
-        </div>
-        <div class="end center">
-            <h1>導覽結束</h1>
-            <img src="img/t1-1.png" alt="">
-            <h1>謝謝光臨甘吧茶ㄉㄟˊ</h1>
-            <button>專題網站</button>
-            <button>回饋表單</button>
-            <a href="app.html"><button>重新體驗</button></a>
-        </div>
-    </div>
-</main>
+    </main>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const sections = document.querySelectorAll('.container > div');

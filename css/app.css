@@ -74,11 +74,5 @@ button:hover {
 .vrbg{
     background-image: url(../img/ad.jpg);
 }
-.test .question {
-    display: none;
-}
 
-.test .question1 {
-    display: block;
-}
 

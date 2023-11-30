@@ -24,7 +24,7 @@ body {
 .container > div {
     display: none;
 }
-.menu, .personal, .stepone, .nfc, .vr, .D, .test, .web, .draw, .end {
+.menu, .personal, .stepone, .nfc,.goin, .vr, .D, .test, .web, .draw, .end {
     padding: 20px;
     text-align: center;
 }
@@ -71,8 +71,8 @@ button:hover {
     background-color: #45a049;
 }
 
-.vr{
-    background-color: aquamarine;
+.vrbg{
+    background-image: url(../img/ad.jpg);
 }
 .test .question {
     display: none;

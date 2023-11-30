@@ -32,16 +32,98 @@
                 <button class="btn btn-primary" onclick="scrollToNextSection()">往下一步</button>
             </div> 
             <div class="nfc center">
-                <a href=""></a>
-                <h1>請靠近NFC貼紙<br>聽聽茶莊阿姨的話</h1>
-                <h1 class="userNameDisplay"></h1>
-                <img src="img/kv7.png" alt="">
-                <button>聽完了</button>
-            </div> 
-        <div class="vr center">
-            <img src="img/b1.png" alt="">
+                <div class="nfcpart" id="nfc1">
+                    <h1>請靠近NFC貼紙<br>聽聽茶莊阿姨的話</h1>
+                    <h3>part 1</h3>
+                    <h1 class="userNameDisplay"></h1>
+                    <img src="img/kv7.png" alt="">
+                    <button class="prev-button">prev</button>
+                    <button class="next-button">next</button>
+                </div>
+                <div class="nfcpart" id="nfc2">
+                    <h1>請靠近NFC貼紙<br>聽聽茶莊阿姨的話</h1>
+                    <h3>part 2</h3>
+                    <h1 class="userNameDisplay"></h1>
+                    <img src="img/kv7.png" alt="">
+                    <button class="prev-button">prev</button>
+                    <button class="next-button">next</button>
+                </div>
+                <div class="nfcpart" id="nfc3">
+                    <h1>請靠近NFC貼紙<br>聽聽茶莊阿姨的話</h1>
+                    <h3>part 3</h3>
+                    <h1 class="userNameDisplay">
+                    </h1>
+                    <img src="img/kv7.png" alt="">
+                    <button class="prev-button">prev</button>
+                    <button class="next-button">next</button>
+
+                </div>
+                <div class="nfcpart" id="nfc4">
+                    <h1>請靠近NFC貼紙<br>聽聽茶莊阿姨的話</h1>
+                    <h3>part 4</h3>
+                    <h1 class="userNameDisplay"></h1>
+                    <img src="img/kv7.png" alt="">
+                    <button class="prev-button">prev</button>
+                    <button>聽完了</button>
+                </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const questions = document.querySelectorAll('.nfc .nfcpart');
+                        let currentQuestionIndex = 0;
+
+                        function showCurrentQuestion() {
+                            questions.forEach((question, index) => {
+                                if (index === currentQuestionIndex) {
+                                    question.style.display = 'block';
+                                } else {
+                                    question.style.display = 'none';
+                                }
+                            });
+                        }
+
+                        function nextQuestion() {
+                            if (currentQuestionIndex < questions.length - 1) {
+                                currentQuestionIndex++;
+                                showCurrentQuestion();
+                            }
+                        }
+
+                        function prevQuestion() {
+                            if (currentQuestionIndex > 0) {
+                                currentQuestionIndex--;
+                                showCurrentQuestion();
+                            }
+                        }
+
+                        // Event listeners for next and previous buttons
+                        const nextButtons = document.querySelectorAll('.nfc .next-button');
+                        nextButtons.forEach(button => {
+                            button.addEventListener('click', nextQuestion);
+                        });
+
+                        const prevButtons = document.querySelectorAll('.nfc .prev-button');
+                        prevButtons.forEach(button => {
+                            button.addEventListener('click', prevQuestion);
+                        });
+
+                        showCurrentQuestion();
+                    });
+                </script>
+            </div>
+        <div class="goin center">
             <h1>拉開門簾進入體驗區</h1>
+            <img src="img/b1.png" alt="">
             <button>GO</button>
+        </div>
+        <div class="vr center">
+            <p>聞一聞吧~</p>
+            <h1>戴上VR眼鏡<br>漫步茶園</h1>
+            <img src="img/b1.png" alt="">
+            <div class="vrbg">
+                <h1>VR360<h1>
+            
+                        <button>往下一步</button>
+            </div>
         </div>
         <div class="D center">
             <h1>知識調查局</h1>

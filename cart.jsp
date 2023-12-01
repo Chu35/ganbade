@@ -3,118 +3,112 @@
 <!DOCTYPE html>
 <html lang="zh-Hant-TW">
 <head>
-    <title>購物車</title>
+    <title>收藏</title>
+    <!-- Include jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- Include SweetAlert library -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <%
         String memberName = (String) session.getAttribute("memberName");
 
         if (memberName != null && !memberName.isEmpty()) {
-            String storeName = request.getParameter("store_name");
+            String storeId = request.getParameter("store_id");
 
-            if (storeName != null && !storeName.isEmpty()) {
-                // Store the storeName in the session
-                session.setAttribute("storeName", storeName);
-
-                Connection con = null;
-
+            if (storeId != null && !storeId.isEmpty()) {
                 try {
                     Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
                     String url = "jdbc:sqlserver://127.0.0.1:1433;database=109_ganbade";
-                    con = DriverManager.getConnection(url, "chu", "0725");
+                    Connection con = DriverManager.getConnection(url, "chu", "0725");
 
-                    // Perform insertion without checking if the item is already in the cart
-                    String insertSql = "INSERT INTO member_collect (member_name, store_name) VALUES (?, ?)";
-                    try (PreparedStatement insertPs = con.prepareStatement(insertSql)) {
+                    // Check if already in the cart
+                    String checkSql = "SELECT * FROM cart WHERE member_name = ? AND store_id = ?";
+                    PreparedStatement checkPs = con.prepareStatement(checkSql);
+                    checkPs.setString(1, memberName);
+                    checkPs.setString(2, storeId);
+                    ResultSet checkRs = checkPs.executeQuery();
+
+                    if (checkRs.next()) {
+                        // If already in the cart, update the quantity
+                        int currentQuantity = checkRs.getInt("quantity");
+                        int newQuantity = currentQuantity + 1;
+
+                        String updateSql = "UPDATE cart SET quantity = ? WHERE member_name = ? AND store_id = ?";
+                        PreparedStatement updatePs = con.prepareStatement(updateSql);
+                        updatePs.setInt(1, newQuantity);
+                        updatePs.setString(2, memberName);
+                        updatePs.setString(3, storeId);
+                        updatePs.executeUpdate();
+
+                        updatePs.close();
+    %>
+                        <script>
+                            Swal.fire({
+                                icon: 'success',
+                                text: '成功!',
+                                timer: 1000,
+                                timerProgressBar: true,
+                                showConfirmButton: false
+                            }).then(function() {
+                                window.location.href = "store.jsp";
+                            });
+                        </script>
+    <%
+                    } else {
+                        // If not in the cart, insert a new record with the current timestamp
+                        String insertSql = "INSERT INTO cart (member_name, store_id, quantity, created_at) VALUES (?, ?, 1, CURRENT_TIMESTAMP)";
+                        PreparedStatement insertPs = con.prepareStatement(insertSql);
                         insertPs.setString(1, memberName);
-                        insertPs.setString(2, storeName);
+                        insertPs.setString(2, storeId);
+
                         int rowsInserted = insertPs.executeUpdate();
+
+                        insertPs.close();
 
                         if (rowsInserted > 0) {
     %>
                             <script>
-                                window.location.href = "store.jsp";
+                                Swal.fire({
+                                    icon: 'success',
+                                    text: '成功!',
+                                    timer: 1000,
+                                    timerProgressBar: true,
+                                    showConfirmButton: false
+                                }).then(function() {
+                                    window.location.href = "store.jsp";
+                                });
                             </script>
     <%
                         } else {
     %>
                             <script>
-                                alert("加入失敗，請稍後重試😭");
-                                window.location.href = "store.jsp";
+                                Swal.fire({
+                                    icon: 'error',
+                                    text: '失败，请稍后重试!'
+                                });
                             </script>
     <%
                         }
                     }
+
+                    checkRs.close();
+                    checkPs.close();
+                    con.close();
+
                 } catch (SQLException | ClassNotFoundException e) {
                     e.printStackTrace();
     %>
                     <script>
-                        alert("加入失敗，請稍後重試😭");
-                        window.location.href = "store.jsp";
+                        Swal.fire({
+                            icon: 'error',
+                            text: '数据库错误，请稍后重试!'
+                        });
                     </script>
     <%
-                } finally {
-                    try {
-                        if (con != null) {
-                            con.close();
-                        }
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                    }
                 }
             }
-        } else {
+        } 
     %>
-            <script>
-                var confirmed = confirm("請先登錄會員帳號以使用收藏功能");
-                if (confirmed) {
-                    window.location.href = "login.html"; // Redirect to the login page
-                } else {
-                    window.location.href = "store.jsp";
-                }
-            </script>
-    <%
-        }
-
-        // Count items by member_name
-        int itemCount = 0;
-
-        if (memberName != null) {
-            Connection conn = null;
-            PreparedStatement countStmt = null;
-            ResultSet countResult = null;
-
-            try {
-                String dbUrl = "jdbc:sqlserver://127.0.0.1:1433;databaseName=109_ganbade";
-                String dbUser = "chu";
-                String dbPassword = "0725";
-                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-                conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-
-                String countSql = "SELECT COUNT(store_name) AS item_count FROM member_collect WHERE member_name = ?";
-                countStmt = conn.prepareStatement(countSql);
-                countStmt.setString(1, memberName);
-                countResult = countStmt.executeQuery();
-
-                if (countResult.next()) {
-                    itemCount = countResult.getInt("item_count");
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            } finally {
-                try {
-                    if (countResult != null) countResult.close();
-                    if (countStmt != null) countStmt.close();
-                    if (conn != null) conn.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        // Store the itemCount in the session
-        session.setAttribute("itemCount", itemCount);
-    %>
-
 </body>
 </html>

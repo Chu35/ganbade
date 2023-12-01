@@ -67,46 +67,45 @@ String storeName = (String) session.getAttribute("storeName");
                     <tbody>
                         <%
                         Connection conn = null;
-                        Statement stmt = null;
+                        PreparedStatement preparedStatement = null;
                         ResultSet rs = null;
-
+                
                         try {
                             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
                             String url = "jdbc:sqlserver://127.0.0.1:1433;database=109_ganbade";
                             String user = "chu";
                             String password = "0725";
                             conn = DriverManager.getConnection(url, user, password);
-                            stmt = conn.createStatement();
-                            String query = "SELECT store.id, store.name, store.imgpath, store.price FROM member_collect " +
-                                           "INNER JOIN store ON member_collect.store_name = store.name " +
-                                           "WHERE member_name = ?";
-                            PreparedStatement preparedStatement = conn.prepareStatement(query);
+                
+                            String query = "SELECT store.id, store.name, store.imgpath, store.price, quantity "
+                                    + "FROM cart "
+                                    + "INNER JOIN store ON cart.store_id = store.id "
+                                    + "WHERE member_name = ?";
+                
+                            preparedStatement = conn.prepareStatement(query);
                             preparedStatement.setString(1, memberName);
                             rs = preparedStatement.executeQuery();
-                            
+                
                             while (rs.next()) {
-                                int id = rs.getInt("id");
-                                String name = rs.getString("name");
-                                String imgpath = rs.getString("imgpath");
-                                double price = rs.getDouble("price");
-                        %>
-                        <tr class="cart-items">    
-                            <td>
-                                <img src="<%= rs.getString("imgpath") %>" class="product-image" alt="<%= rs.getString("name") %>">
-                            </td>
-                            <td><%= rs.getString("name") %></td>
-                            <td><%= Math.round(rs.getDouble("price")) %></td>
-                            <td>
-                                <div class="input-group">
-                                    <button class="btn btn-primary">-</button>
-                                    <input type="number" class="form-control" value="1">
-                                    <button class="btn btn-primary">+</button>
-                                </div>
-                            </td>
-                            <td>
-                                <a class="delete-item" href="deletecart.jsp?store_name=<%= rs.getString("name") %>">🗑️</a>
-                            </td>
-                        </tr>
+                    %>
+                    <tr class="cart-items text-center">    
+                        <td>
+                            <img src="<%= rs.getString("imgpath") %>" style="width:50px" alt="<%= rs.getString("name") %>">
+                        </td>
+                        <td><%= rs.getString("name") %></td>
+                        <td><%= Math.round(rs.getDouble("price")) %></td>
+                        <td>
+                            <div class="input-group">
+                                <button class="btn btn-primary">-</button>
+                                <input type="number" class="form-control" value="<%= rs.getString("quantity") %>">
+                                <button class="btn btn-primary">+</button>
+                            </div>
+                        </td>
+                        <td>
+                            <a id="deleteLink" class="delete-item" href="cart.jsp?store_name=<%= rs.getString("name") %>" style="border: none; background: none;">🗑️</a>
+                        </td>
+                    </tr>
+                        
                         <%
                             }
                         } catch (Exception e) {
@@ -114,7 +113,7 @@ String storeName = (String) session.getAttribute("storeName");
                         } finally {
                             // Close database resources
                             try { if (rs != null) rs.close(); } catch (Exception e) { /* Ignore */ }
-                            try { if (stmt != null) stmt.close(); } catch (Exception e) { /* Ignore */ }
+                            try { if (preparedStatement != null) preparedStatement.close(); } catch (Exception e) { /* Ignore */ }
                             try { if (conn != null) conn.close(); } catch (Exception e) { /* Ignore */ }
                         }
                         %>

@@ -45,51 +45,52 @@
 
     <!-- Navbar Start -->
 <div class="container-fluid fixed-top px-0 wow fadeIn top-0" data-wow-delay="0.1s">
-        <div class="row gx-0 align-items-center d-none d-lg-flex"> </div>
+    <div class="row gx-0 align-items-center d-none d-lg-flex"> </div>
     <nav class="navbar navbar-expand-lg navbar-light py-lg-0 px-lg-4 wow fadeIn" data-wow-delay="0.1s">
-	<a class="navbar-brand logo" href="index.jsp">
-        <img src="img/logo.png" alt="Website Logo" width="70px"/>
-      </a>
+        <a class="navbar-brand logo" href="index.jsp">
+            <img src="img/logo.png" alt="Website Logo" width="70px" />
+        </a>
         <a href="index.jsp" class="navbar-brand ms-4 ms-lg-0">
-        <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
-            </a>
-            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
-                data-bs-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-				<div class="navbar-nav ms-auto p-4 p-lg-0">
-					<a href="index.jsp#home" class="nav-item nav-link">首頁</a>
-					<div class="nav-item dropdown">
-						<a href="knowl.jsp" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
-							aria-expanded="true">知識調茶局</a>
-						<div class="dropdown-menu border-light m-0" data-bs-popper="none">
-							<a href="knowl.jsp" class="dropdown-item">茶種介紹</a>
-							<a href="crafts.jsp" class="dropdown-item">烘培發酵介紹</a>
-						</div>
-					</div>
-					<a href="fun.jsp" class="nav-item nav-link">茶遊此地</a>
-					<a href="contact.jsp" class="nav-item nav-link active">關於我們</a>
-					<a href="store.jsp" class="nav-item nav-link">滴滴商城</a>
-                        <div class="nav-item dropdown">
-						<div id="user-icon" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><small
-							class="fa fa-user text-primary"></small></div>
-                            <div class="dropdown-menu border-light m-0">
-                                <% if (memberName != null) { %>
-									<span class="dropdown-item disabled-text"><%= memberName %>, 你好</span>								<% } else { %>
-									<a class="dropdown-item" href="login.html">登入/註冊</a>
-								<% } %>
-								<a href="member.jsp" class="dropdown-item">會員中心</a>
-								<% if (memberName != null) { %>
-									<a class="dropdown-item" href="logout.jsp">登出</a>
-								<% }%>
-                            </div>
-                        </div>
-					</div>
-				</div>
-			</div>
-		</nav>
-	</div>
+            <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="index.jsp#home" class="nav-item nav-link">首頁</a>
+                <div class="nav-item dropdown">
+                    <a href="knowl.jsp" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+                        aria-expanded="true">知識調茶局</a>
+                    <div class="dropdown-menu border-light m-0" data-bs-popper="none">
+                        <a href="knowl.jsp" class="dropdown-item">茶種介紹</a>
+                        <a href="crafts.jsp" class="dropdown-item">烘培發酵介紹</a>
+                    </div>
+                </div>
+                <a href="fun.jsp" class="nav-item nav-link">茶遊此地</a>
+                <a href="contact.jsp" class="nav-item nav-link active">關於我們</a>
+                <a href="store.jsp" class="nav-item nav-link">滴滴商城</a>
+                <div class="nav-item dropdown">
+                    <div id="user-icon" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><small
+                            class="fa fa-user text-primary"></small></div>
+                    <div class="dropdown-menu border-light m-0">
+                        <% if (memberName !=null) { %>
+                            <span class="dropdown-item disabled-text">
+                                <%= memberName %>, 你好
+                            </span>
+                            <% } else { %>
+                                <a class="dropdown-item" href="login.html">登入/註冊</a>
+                                <% } %>
+                                    <a href="member.jsp" class="dropdown-item">會員中心</a>
+                                    <% if (memberName !=null) { %>
+                                        <a class="dropdown-item" href="logout.jsp">登出</a>
+                                        <% }%>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
     <!-- Navbar End -->
 
 
@@ -111,13 +112,10 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="team-item">
-                        <img class="img-fluid rounded" src="img/Pm.png" alt="">
-                        <div class="team-text" >
-                            <h4 class="mb-1">專案經理</h4>
-                            <h4 class="mb-0">蘇妍童</h4>
-                        </div>
-                    </div>
+                    <div class="card-1 card-div">
+                        <div class="gow-img-div img-div">
+                            <img src="img/Pm2.png"
+                    alt="god-of-war-figurine"></div></div>
                 </div>
 				<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
                     <div class="team-item">
@@ -149,6 +147,51 @@
             </div>
         </div>
     </div>
+    <div class="card-1 card-div">
+    <div class="gow-img-div img-div">
+        <img src="img/Pm2.png"
+alt="god-of-war-figurine"></div></div>
+    <style>
+     .card-div {
+            width: 20em;
+            min-height: 20em;
+            display: flex;
+            flex-direction: column;
+            background-image: url(..img/Pm.png);
+            margin: 0.6em;
+            box-sizing: border-box;
+            border-radius: 10px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            transition: transform 0.2s ease-in-out;
+        }.img-div {
+        width: 100%;
+        height: 8em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 1rem;
+        z-index: 1;
+        border-radius: 0 0 10px 10px;
+        
+    }
+
+    .img-div img {
+        transform-origin: bottom;
+        transform: translateY(7.5%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .gow-img-div {
+        background-color: var(--card-1-secondary-color);
+    }
+
+    .gow-img-div img {
+        width: 65%;
+        transform: translateY(7.5%);
+    }
+    .card-div:hover .img-div img {
+transform: translateY(7.5%) scale(1.2);
+}</style>
     <!-- Team End -->
     <div id="color">
     <div class="container"> 

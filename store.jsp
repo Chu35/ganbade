@@ -177,8 +177,31 @@ Integer itemCount = (Integer) session.getAttribute("itemCount");
                             <div class="card-block">
                                 <h4 class="card-title"><%= name %></h4>
                                 <p class="card-text">NT$ <%= Math.round(price) %></p>
-                                <a href="cart.jsp?store_name=<%= rs.getString("name") %>" data-name="<%= name %>" data-price="<%= price %>" class="add-to-cart btn btn-primary">Add to cart</a>
-                            </div>
+                                <% if (memberName !=null) { %>
+                                    <a href="cart.jsp?store_id=<%= rs.getString("id") %>" data-name="<%= name %>" data-price="<%= price %>" class="add-to-cart btn btn-primary">Add to cart</a>
+                                    <% } else { %>
+                                        <a href="javascript:void();" onclick="showLoginAlert()" class="btn btn-primary">Login to Add to Cart</a>
+                                        <script>
+                                            function showLoginAlert() {
+                                                alert("Please log in to add items to your cart.");
+                                                window.location.href = "login.html";
+                                            }
+                                        </script>
+                                    <% } %>
+                                    <script>
+                                        $('.add-to-cart').click(function(event) {
+                                            var name = $(this).data('name');
+                                            var price = Number($(this).data('price'));
+                                            shoppingcart.clearcart(); 
+                                            shoppingcart.addItemTocart(name, price, 1);
+                                            displayCart();
+                                            var storeId = $(this).closest('.shopping').data('list');
+                                            window.location.href = 'cart.jsp?store_id=' + storeId + '&action=add';
+                                        });
+                                    </script>
+                                    
+
+                                </div>
                         </div>
                         <style>
                         .hidden {
@@ -239,63 +262,58 @@ Integer itemCount = (Integer) session.getAttribute("itemCount");
                             </div>
                             <div class="modal-body">
                                 <table class="show-cart table">
-                                    <% 
-                                    try {
-                                        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-                                        String url = "jdbc:sqlserver://127.0.0.1:1433;database=109_ganbade";
-                                        String user = "chu";
-                                        String password = "0725";
-                                        conn = DriverManager.getConnection(url, user, password);
-                                        stmt = conn.createStatement();
-                                        String query = "SELECT store.id, store.name, store.imgpath, store.price FROM member_collect " +
-                                                       "INNER JOIN store ON member_collect.store_name = store.name " +
-                                                       "WHERE member_name = ?";
-                                        PreparedStatement preparedStatement = conn.prepareStatement(query);
-                                        preparedStatement.setString(1, memberName);
-                                        rs = preparedStatement.executeQuery();
-                                        
-                                        while (rs.next()) {
-                                            int id = rs.getInt("id");
-                                            String name = rs.getString("name");
-                                            String imgpath = rs.getString("imgpath");
-                                            double price = rs.getDouble("price");
+                                    <%
+                                        PreparedStatement preparedStatement = null;
+                                
+                                        try {
+                                            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                                            String url = "jdbc:sqlserver://127.0.0.1:1433;database=109_ganbade";
+                                            String user = "chu";
+                                            String password = "0725";
+                                            conn = DriverManager.getConnection(url, user, password);
+                                
+                                            String query = "SELECT store.id, store.name, store.imgpath, store.price, quantity "
+                                                    + "FROM cart "
+                                                    + "INNER JOIN store ON cart.store_id = store.id "
+                                                    + "WHERE member_name = ?";
+                                
+                                            preparedStatement = conn.prepareStatement(query);
+                                            preparedStatement.setString(1, memberName);
+                                            rs = preparedStatement.executeQuery();
+                                
+                                            while (rs.next()) {
                                     %>
-                                    <tr class="cart-items">    
-                                        <td>
-                                            <img src="<%= imgpath %>" style="width:50px" alt="<%= name %>">
-                                        </td>
-                                        <td><%= name %></td>
-                                        <td><%= Math.round(price) %></td>
-                                        <td>
-                                            <div class="input-group">
-                                                <button class="btn btn-primary">-</button>
-                                                <input type="number" class="form-control" value="1">
-                                                <button class="btn btn-primary">+</button>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <a id="deleteLink" class="delete-item" href="deletecart.jsp?store_name=<%= rs.getString("name") %>"  style="border: none; background: none;">🗑️</a>
-                                        </td>
-                                    </tr>
-                                    
-                                    <style>
-                                    .table td {
-                                        text-align: center;
-                                        vertical-align: middle!important;
-                                    }
-                                    </style>
-                                    <% 
+                                            <tr class="cart-items text-center">    
+                                                <td>
+                                                    <img src="<%= rs.getString("imgpath") %>" style="width:50px" alt="<%= rs.getString("name") %>">
+                                                </td>
+                                                <td><%= rs.getString("name") %></td>
+                                                <td><%= Math.round(rs.getDouble("price")) %></td>
+                                                <td>
+                                                    <div class="input-group">
+                                                        <button class="btn btn-primary">-</button>
+                                                        <input type="number" class="form-control" value="<%= rs.getString("quantity") %>">
+                                                        <button class="btn btn-primary">+</button>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a id="deleteLink" class="delete-item" href="cart.jsp?store_name=<%= rs.getString("name") %>" style="border: none; background: none;">🗑️</a>
+                                                </td>
+                                            </tr>
+                                    <%
+                                            }
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
+                                        } finally {
+                                            // Close database resources
+                                            try { if (rs != null) rs.close(); } catch (Exception e) { /* Ignore */ }
+                                            try { if (preparedStatement != null) preparedStatement.close(); } catch (Exception e) { /* Ignore */ }
+                                            try { if (conn != null) conn.close(); } catch (Exception e) { /* Ignore */ }
                                         }
-                                    } catch (Exception e) {
-                                        e.printStackTrace();
-                                    } finally {
-                                        // Close database resources
-                                        try { if (rs != null) rs.close(); } catch (Exception e) { /* Ignore */ }
-                                        try { if (stmt != null) stmt.close(); } catch (Exception e) { /* Ignore */ }
-                                        try { if (conn != null) conn.close(); } catch (Exception e) { /* Ignore */ }
-                                    }
                                     %>
                                 </table>
+                                
+                                
                                 <div>Total price: $<span class="total-cart"></span></div>
                             </div>
                             <div class="modal-footer">

@@ -141,14 +141,54 @@
 					<div class="display-5 mb-3"> </div>
 					<div class="mb-5" align="center">
 						<% if (memberName != null) { %>
-						<form id="membermodify" action="modify.jsp" method="post" autocomplete="off">
-							帳號：<input class="m1" type="text" name="user" placeholder="<%= memberName %>" /><br><br>
-							密碼：<input class="m1" type="password" name="pwd"/><br><br>
-							<div class="form-table">
-								<input class="btn btn-primary" type="submit" value="修改" />&emsp;
-								<input class="btn btn-primary" type="reset" value="清除"/>
+							<div id="membermodify" action="modify.jsp" method="post" autocomplete="off">
+								暱稱：<input class="m1" type="text" name="user" placeholder="<%= memberName %>" readonly /><br><br>
+								<button id="editButton" class="btn btn-primary" style="width: auto;" onclick="togglePassword()">編輯個人資料</button><br>
+								
+								<div id="passwordSection" style="display: none;">
+									密碼：<input class="m1" type="password" name="pwd" /><br><br>
+								</div>
+								
+								<div id="submitResetButtons" class="form-table" style="display: none;">
+									<input class="btn btn-primary" type="submit" value="修改" />&emsp;
+									<input class="btn btn-primary" type="reset" value="清除"/><br>
+									<button class="btn btn-primary" onclick="goBack()">取消</button>
+								</div>
 							</div>
-						</form>
+							<script>
+								var isEditing = false;
+								function togglePassword() {
+									var passwordSection = document.getElementById('passwordSection');
+									var editButton = document.getElementById('editButton');
+									var submitResetButtons = document.getElementById('submitResetButtons');
+							
+									passwordSection.style.display = (passwordSection.style.display === 'none' || passwordSection.style.display === '') ? 'block' : 'none';
+							
+									if (passwordSection.style.display === 'block') {
+										isEditing = true;
+										editButton.style.display = 'none';
+										submitResetButtons.style.display = 'block';
+									} else {
+										isEditing = false;
+										editButton.style.display = 'block';
+										submitResetButtons.style.display = 'none';
+									}
+								}
+								function goBack() {
+									if (isEditing) {
+										var passwordSection = document.getElementById('passwordSection');
+										var editButton = document.getElementById('editButton');
+										var submitResetButtons = document.getElementById('submitResetButtons');
+							
+										passwordSection.style.display = 'none';
+										editButton.style.display = 'block';
+										submitResetButtons.style.display = 'none';
+										isEditing = false;
+									} else {
+										window.history.back();
+									}
+								}
+							</script>
 					</div>
 						<% }else { %>
                         <% } %>
@@ -267,13 +307,10 @@
 						<%
 						}
 						%>
-						
-						
-						
-							</div>
-						</div>
 					</div>
-	</div>
+				</div>
+			</div>
+		</div>
 	
     <!-- About End -->
 

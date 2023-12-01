@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
 <!DOCTYPE html>
-<% 
-String memberName = (String) session.getAttribute("memberName");
-String storeName = (String) session.getAttribute("storeName");
-Integer itemCount = (Integer) session.getAttribute("itemCount"); 
+<%
+    String memberName = (String) session.getAttribute("memberName");
+    Integer totalQuantity = (Integer) session.getAttribute("totalQuantity_" + memberName);
 %>
+
+
+
 
     <head>
 <html>
@@ -81,8 +83,8 @@ Integer itemCount = (Integer) session.getAttribute("itemCount");
                 <a href="contact.jsp" class="nav-item nav-link">關於我們</a>
                 <a href="#" class="nav-item nav-link">
                     <small class="fa fa-shopping-cart text-primary" data-toggle="modal" data-target="#cart">
-                        <span class="total-count"><%= itemCount != null ? itemCount : 0 %></span>
-                    </small>                                                           
+                        <span class="total-count"><%= totalQuantity != null ? totalQuantity : 0 %></span>
+                    </small>                
                 </a>
                 <div class="nav-item dropdown">
                     <div id="user-icon" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
@@ -90,7 +92,8 @@ Integer itemCount = (Integer) session.getAttribute("itemCount");
                     </div>
                     <div class="dropdown-menu border-light m-0">
                         <% if (memberName != null) { %>
-                            <span class="dropdown-item disabled-text"><%= memberName %>, 你好</span>								<% } else { %>
+                            <span class="dropdown-item disabled-text"><%= memberName %>, 你好</span>								
+                        <% } else { %>
                             <a class="dropdown-item" href="login.html">登入/註冊</a>
                         <% } %>
                         <a href="member.jsp" class="dropdown-item">會員中心</a>
@@ -178,7 +181,7 @@ Integer itemCount = (Integer) session.getAttribute("itemCount");
                                 <h4 class="card-title"><%= name %></h4>
                                 <p class="card-text">NT$ <%= Math.round(price) %></p>
                                 <% if (memberName !=null) { %>
-                                    <a href="cart.jsp?store_id=<%= rs.getString("id") %>" data-name="<%= name %>" data-price="<%= price %>" class="add-to-cart btn btn-primary">Add to cart</a>
+                                    <a href="cart.jsp?store_id=<%= rs.getString("id") %>&action=increase" data-name="<%= name %>" data-price="<%= price %>" class="add-to-cart btn btn-primary">Add to cart</a>
                                     <% } else { %>
                                         <a href="javascript:void();" onclick="showLoginAlert()" class="btn btn-primary">Login to Add to Cart</a>
                                         <script>
@@ -199,8 +202,6 @@ Integer itemCount = (Integer) session.getAttribute("itemCount");
                                             window.location.href = 'cart.jsp?store_id=' + storeId + '&action=add';
                                         });
                                     </script>
-                                    
-
                                 </div>
                         </div>
                         <style>
@@ -291,14 +292,17 @@ Integer itemCount = (Integer) session.getAttribute("itemCount");
                                                 <td><%= Math.round(rs.getDouble("price")) %></td>
                                                 <td>
                                                     <div class="input-group">
-                                                        <button class="btn btn-primary">-</button>
-                                                        <input type="number" class="form-control" value="<%= rs.getString("quantity") %>">
-                                                        <button class="btn btn-primary">+</button>
+                                                        <a href="cart.jsp?store_id=<%= rs.getString("id") %>&action=decrease" class="btn btn-primary">
+                                                            <button class="btn btn-primary">-</button>
+                                                        </a>
+                                                        <input type="number" class="form-control" value="<%= rs.getString("quantity") %>" readonly>
+                                                        <a href="cart.jsp?store_id=<%= rs.getString("id") %>&action=increase" class="btn btn-primary">
+                                                            <button class="btn btn-primary">+</button>
+                                                        </a>
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <a id="deleteLink" class="delete-item" href="cart.jsp?store_name=<%= rs.getString("name") %>" style="border: none; background: none;">🗑️</a>
-                                                </td>
+                                                    <a href="cart.jsp?store_id=<%= rs.getString("id") %>&action=delect" style="border: none; background: none;">🗑️</a>                                                </td>
                                             </tr>
                                     <%
                                             }

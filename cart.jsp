@@ -48,13 +48,13 @@
                                 deletePs.setString(1, memberName);
                                 deletePs.setString(2, storeId);
                                 int rowsDeleted = deletePs.executeUpdate();
-
+                        
                                 if (rowsDeleted > 0) {
                                     // After deleting, update quantity and total quantity in the session
                                     session.setAttribute("quantity_" + memberName, 0);
                                     int totalQuantity = getTotalQuantityFromDatabase(con, memberName);
                                     session.setAttribute("totalQuantity_" + memberName, totalQuantity);
-    %>
+                        %>
                                     <script>
                                         Swal.fire({
                                             icon: 'success',
@@ -62,10 +62,14 @@
                                             timer: 1000,
                                             timerProgressBar: true,
                                             showConfirmButton: false
-                                        }).then(function() {
-                                            window.location.href = "store.jsp";
+                                        }).then(function () {
+                                            <% if ("delete".equals(action)) { %>
+                                                window.location.href = "checkout.jsp";
+                                            <% } else if (newQuantity == 0) { %>
+                                                window.location.href = "store.jsp";
+                                            <% } %>
                                         });
-                                    </script>
+                                    </script>>
     <%
                                 } else {
     %>
@@ -103,9 +107,10 @@
                                 timerProgressBar: true,
                                 showConfirmButton: false
                             }).then(function() {
-                                window.location.href = "store.jsp";
+                                window.history.back();
                             });
                         </script>
+                        
     <%
                     } else {
                         // 如果不在購物車，插入一條新的記錄

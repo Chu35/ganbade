@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <% 
 String memberName = (String) session.getAttribute("memberName");
-String storeName = (String) session.getAttribute("storeName");
+Integer totalQuantity = (Integer) session.getAttribute("totalQuantity_" + memberName);
 %>
 <head>
     <meta charset="UTF-8">
@@ -30,6 +30,7 @@ String storeName = (String) session.getAttribute("storeName");
 <body>
 
 <div class="container mt-5">
+    <i class="fa fa-arrow-circle-left" onclick="history.back()" style="cursor: pointer;">← Go Back</i>
     <h2>Checkout</h2>
     
     <div class="row mt-4">
@@ -69,7 +70,6 @@ String storeName = (String) session.getAttribute("storeName");
                         Connection conn = null;
                         PreparedStatement preparedStatement = null;
                         ResultSet rs = null;
-                
                         try {
                             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
                             String url = "jdbc:sqlserver://127.0.0.1:1433;database=109_ganbade";
@@ -88,7 +88,7 @@ String storeName = (String) session.getAttribute("storeName");
                 
                             while (rs.next()) {
                     %>
-                    <tr class="cart-items text-center">    
+                    <tr class="cart-items text-center" style="text-align: center;vertical-align: middle">    
                         <td>
                             <img src="<%= rs.getString("imgpath") %>" style="width:50px" alt="<%= rs.getString("name") %>">
                         </td>
@@ -96,13 +96,17 @@ String storeName = (String) session.getAttribute("storeName");
                         <td><%= Math.round(rs.getDouble("price")) %></td>
                         <td>
                             <div class="input-group">
-                                <button class="btn btn-primary">-</button>
-                                <input type="number" class="form-control" value="<%= rs.getString("quantity") %>">
-                                <button class="btn btn-primary">+</button>
+                                <a href="cart.jsp?store_id=<%= rs.getString("id") %>&action=decrease">
+                                    <button class="btn btn-primary">-</button>
+                                </a>
+                                <input type="number" class="form-control text-center" value="<%= rs.getString("quantity") %>" readonly>
+                                <a href="cart.jsp?store_id=<%= rs.getString("id") %>&action=increase">
+                                    <button class="btn btn-primary">+</button>
+                                </a>
                             </div>
                         </td>
                         <td>
-                            <a id="deleteLink" class="delete-item" href="cart.jsp?store_name=<%= rs.getString("name") %>" style="border: none; background: none;">🗑️</a>
+                            <a href="cart.jsp?store_id=<%= rs.getString("id") %>&action=delect" style="border: none; background: none;">🗑️</a>                                                
                         </td>
                     </tr>
                         

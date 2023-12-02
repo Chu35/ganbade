@@ -5,10 +5,6 @@
     String memberName = (String) session.getAttribute("memberName");
     Integer totalQuantity = (Integer) session.getAttribute("totalQuantity_" + memberName);
 %>
-
-
-
-
     <head>
 <html>
         <meta charset="utf-8">
@@ -284,7 +280,7 @@
                                 
                                             while (rs.next()) {
                                     %>
-                                            <tr class="cart-items text-center">    
+                                            <tr class="cart-items text-center" style="text-align: center;vertical-align: middle">    
                                                 <td>
                                                     <img src="<%= rs.getString("imgpath") %>" style="width:50px" alt="<%= rs.getString("name") %>">
                                                 </td>
@@ -292,17 +288,18 @@
                                                 <td><%= Math.round(rs.getDouble("price")) %></td>
                                                 <td>
                                                     <div class="input-group">
-                                                        <a href="cart.jsp?store_id=<%= rs.getString("id") %>&action=decrease" class="btn btn-primary">
+                                                        <a href="cart.jsp?store_id=<%= rs.getString("id") %>&action=decrease">
                                                             <button class="btn btn-primary">-</button>
                                                         </a>
                                                         <input type="number" class="form-control" value="<%= rs.getString("quantity") %>" readonly>
-                                                        <a href="cart.jsp?store_id=<%= rs.getString("id") %>&action=increase" class="btn btn-primary">
+                                                        <a href="cart.jsp?store_id=<%= rs.getString("id") %>&action=increase">
                                                             <button class="btn btn-primary">+</button>
                                                         </a>
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <a href="cart.jsp?store_id=<%= rs.getString("id") %>&action=delect" style="border: none; background: none;">🗑️</a>                                                </td>
+                                                    <a href="cart.jsp?store_id=<%= rs.getString("id") %>&action=delect" style="border: none; background: none;">🗑️</a>                                                
+                                                </td>
                                             </tr>
                                     <%
                                             }

@@ -112,10 +112,13 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="card-1 card-div">
-                        <div class="gow-img-div img-div">
-                            <img src="img/Pm2.png"
-                    alt="god-of-war-figurine"></div></div>
+                    <div class="team-item">   
+                    <img class="img-fluid rounded" src="img/Pm.png" alt="" style="line-height: 3;">
+                        <div class="team-text">
+                            <h4 class="mb-1">專案經理</h4>
+                            <h4 class="mb-0">蘇妍童</h4>
+                        </div>
+                    </div>
                 </div>
 				<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
                     <div class="team-item">
@@ -147,10 +150,6 @@
             </div>
         </div>
     </div>
-    <div class="card-1 card-div">
-    <div class="gow-img-div img-div">
-        <img src="img/Pm2.png"
-alt="god-of-war-figurine"></div></div>
     <style>
      .card-div {
             width: 20em;

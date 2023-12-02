@@ -30,30 +30,12 @@ Integer totalQuantity = (Integer) session.getAttribute("totalQuantity_" + member
 <body>
 
 <div class="container mt-5">
-    <i class="fa fa-arrow-circle-left" onclick="history.back()" style="cursor: pointer;">← Go Back</i>
-    <h2>Checkout</h2>
+    <i onclick="history.back()" style="cursor: pointer;">← Go Back</i>
+    <h2 class="text-center">Checkout</h2>
     
     <div class="row mt-4">
         <div class="col-md-6">
-            <h4>Shipping Information</h4>
-            <form>
-                <div class="form-group">
-                    <label for="fullName">Full Name</label>
-                    <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" required>
-                </div>
-                <div class="form-group">
-                    <label for="address">Address</label>
-                    <input type="text" class="form-control" id="address" placeholder="Enter your address" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
-                </div>
-            </form>
-        </div>
-
-        <div class="col-md-6">
-            <h4>Order Summary</h4>
+            <h4>Order</h4>
             <div class="mt-4">
                 <table class="table">
                     <thead>
@@ -62,7 +44,6 @@ Integer totalQuantity = (Integer) session.getAttribute("totalQuantity_" + member
                             <th scope="col">Name</th>
                             <th scope="col">Price</th>
                             <th scope="col">Quantity</th>
-                            <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -88,26 +69,13 @@ Integer totalQuantity = (Integer) session.getAttribute("totalQuantity_" + member
                 
                             while (rs.next()) {
                     %>
-                    <tr class="cart-items text-center" style="text-align: center;vertical-align: middle">    
+                    <tr class="cart-items text-center">    
                         <td>
                             <img src="<%= rs.getString("imgpath") %>" style="width:50px" alt="<%= rs.getString("name") %>">
                         </td>
-                        <td><%= rs.getString("name") %></td>
-                        <td><%= Math.round(rs.getDouble("price")) %></td>
-                        <td>
-                            <div class="input-group">
-                                <a href="cart.jsp?store_id=<%= rs.getString("id") %>&action=decrease">
-                                    <button class="btn btn-primary">-</button>
-                                </a>
-                                <input type="number" class="form-control text-center" value="<%= rs.getString("quantity") %>" readonly>
-                                <a href="cart.jsp?store_id=<%= rs.getString("id") %>&action=increase">
-                                    <button class="btn btn-primary">+</button>
-                                </a>
-                            </div>
-                        </td>
-                        <td>
-                            <a href="cart.jsp?store_id=<%= rs.getString("id") %>&action=delect" style="border: none; background: none;">🗑️</a>                                                
-                        </td>
+                        <td style="text-align: center;vertical-align: middle"><%= rs.getString("name") %></td>
+                        <td style="text-align: center;vertical-align: middle"><%= Math.round(rs.getDouble("price")) %></td>
+                        <td style="text-align: center;vertical-align: middle"><%= rs.getString("quantity") %></td>
                     </tr>
                         
                         <%
@@ -124,6 +92,23 @@ Integer totalQuantity = (Integer) session.getAttribute("totalQuantity_" + member
                     </tbody>
                 </table>
             </div>
+        </div>
+        <div class="col-md-6">
+            <h4>Shipping Information</h4>
+            <form>
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="text" class="form-control" id="address" placeholder="Enter your address" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                </div>
+            </form>
         </div>
     </div>
 </div>

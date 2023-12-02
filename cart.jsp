@@ -63,13 +63,13 @@
                                             timerProgressBar: true,
                                             showConfirmButton: false
                                         }).then(function () {
-                                            <% if ("delete".equals(action)) { %>
+                                                <% if ("delete".equals(action)) { %>
                                                 window.location.href = "checkout.jsp";
-                                            <% } else if (newQuantity == 0) { %>
+                                                <% } else if (newQuantity == 0) { %>
                                                 window.location.href = "store.jsp";
-                                            <% } %>
-                                        });
-                                    </script>>
+                                                <% } %>
+                                            });
+                                    </script>
     <%
                                 } else {
     %>
@@ -99,18 +99,29 @@
                         int totalQuantity = getTotalQuantityFromDatabase(con, memberName);
                         session.setAttribute("totalQuantity_" + memberName, totalQuantity);
     %>
-                        <script>
-                            Swal.fire({
-                                icon: 'success',
-                                text: '成功!',
-                                timer: 1000,
-                                timerProgressBar: true,
-                                showConfirmButton: false
-                            }).then(function() {
-                                        window.location.href = "store.jsp";
-                                    });
-                                </script>
-                        
+    <script>
+        Swal.fire({
+            icon: 'success',
+            text: '成功!',
+            timer: 1000,
+            timerProgressBar: true,
+            showConfirmButton: false
+        }).then(function() {
+            // Check the current page and redirect accordingly
+            var currentPage = window.location.href;
+    
+            if (currentPage.includes("store.jsp")) {
+                // If on store.jsp, redirect to store.jsp
+                window.location.href = "store.jsp";
+            } else if (currentPage.includes("checkout.jsp")) {
+                // If on checkout.jsp, redirect to checkout.jsp
+                window.location.href = "checkout.jsp";
+            } else {
+                // Default redirection, you may want to adjust this based on your use case
+                window.location.href = "store.jsp";
+            }
+        });
+    </script>
     <%
                     } else {
                         // 如果不在購物車，插入一條新的記錄

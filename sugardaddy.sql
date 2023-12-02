@@ -12,4 +12,5 @@ select * from sugardaddy ORDER BY id
 ALTER TABLE sugardaddy ALTER COLUMN href NVARCHAR(200);
 DELETE FROM sugardaddy where id='s16'
 
-UPDATE sugardaddy SET imagepath='img/s13.png' WHERE id='s13';
+select * from sugardaddy ORDER BY id 
+UPDATE sugardaddy SET href='https://everprinter.com/' WHERE id='s14';

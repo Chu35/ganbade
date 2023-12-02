@@ -12,8 +12,8 @@ shape varchar(40),
 classification varchar(20),
 season varchar(20),
 )
-drop table Knowledge
-delete from Knowledge where id='r3'
+
+delete from Knowledge where id='o9'
 
 select * from knowledge
 
@@ -30,15 +30,21 @@ insert into Knowledge values
 ALTER TABLE Knowledge
 ADD image_path NVARCHAR(255);
 UPDATE Knowledge SET altitude='®ü©Þ1600¤½¤Ø' WHERE id='o7';
-select * from knowledge
+
 
 ALTER TABLE Knowledge ADD introduce NVARCHAR(255);
 ALTER TABLE Knowledge ALTER COLUMN introduce NVARCHAR(500);
 
 ALTER TABLE Knowledge ADD FOREIGN KEY (id) references member (collect);
 
-UPDATE Knowledge SET image_path='img/o4.png' WHERE id='o4';
+UPDATE Knowledge SET image_path='img/b2.png' WHERE id='b2';
 UPDATE Knowledge SET id='B1' WHERE id=' B1'
 
-insert into Knowledge values
-(' O10','»e­»¶Q¦m','«C¤ß¯QÀs','«n§ë¿¤³À¨¦¶m', ' ','­«µo»Ã','»´µH¤õ','¥b²y§Î¯ù¸­', '¯QÀs¯ù',' ','img/o10.png','')
+select * from knowledge
+
+UPDATE Knowledge SET bake='µLµH¤õ' , ferment='­«µo»Ã'
+WHERE id='o8';
+
+UPDATE Knowledge SET season='®L©u'
+WHERE id='o3';
+

@@ -107,9 +107,9 @@
                                 timerProgressBar: true,
                                 showConfirmButton: false
                             }).then(function() {
-                                window.history.back();
-                            });
-                        </script>
+                                        window.location.href = "store.jsp";
+                                    });
+                                </script>
                         
     <%
                     } else {

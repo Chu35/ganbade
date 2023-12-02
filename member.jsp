@@ -144,11 +144,9 @@
 							<div id="membermodify" action="modify.jsp" method="post" autocomplete="off">
 								暱稱：<input class="m1" type="text" name="user" placeholder="<%= memberName %>" readonly /><br><br>
 								<button id="editButton" class="btn btn-primary" style="width: auto;" onclick="togglePassword()">編輯個人資料</button><br>
-								
 								<div id="passwordSection" style="display: none;">
-									密碼：<input class="m1" type="password" name="pwd" /><br><br>
+								密碼：<input class="m1" type="password" name="pwd" /><br><br>
 								</div>
-								
 								<div id="submitResetButtons" class="form-table" style="display: none;">
 									<input class="btn btn-primary" type="submit" value="修改" />&emsp;
 									<input class="btn btn-primary" type="reset" value="清除"/><br>

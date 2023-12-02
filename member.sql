@@ -3,11 +3,23 @@
 create table member
 (id varchar(10),
 gender varchar(20),
-name varchar(10),
+name varchar(10) not null,
 pwd varchar(20) not null,
-collect varchar(10),
 primary key(name),
 )
+
+ALTER TABLE member_collect
+ADD CONSTRAINT fk_member_name
+FOREIGN KEY (member_name) REFERENCES member(name)
+ON DELETE CASCADE;
+
+ALTER TABLE cart
+ADD CONSTRAINT FK_cart_member_name
+FOREIGN KEY (member_name) REFERENCES member(name)
+ON DELETE CASCADE;
+
+
+
 
 delete from  member where id=''
 

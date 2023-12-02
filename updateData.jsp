@@ -67,6 +67,7 @@
                         alert("Member update successful!");
                         window.location.href = "cms.jsp";
                     </script>
+            
 <%
                     return;  // End the script execution here
                 }

@@ -399,7 +399,6 @@ input {
                             font-size: 10px;
                         }
                     </style>
-                    
                     <!-- count -->
                     <div class="row">
                     <%
@@ -716,11 +715,11 @@ input {
                                                                 <div class="modalcontent">
                                                                     <span class="close" onclick="closeEditDialog()">&times;</span>
                                                                     <form class="editForm" method="post" action="updateData.jsp" onsubmit="return handleFormSubmit()">
-                                                                        <input type="hidden" name="memberId" value="<%= id %>">
-                                                                        <input type="hidden" name="originalId" value="<%= id %>">
-                                                                        <input type="hidden" name="originalName" value="<%= name %>">
-                                                                        <input type="hidden" name="originalPwd" value="<%= pwd %>">
-                                                                        <input type="hidden" name="originalGender" value="<%= gender %>">
+                                                                        <input type="hidden" name="memberId" id="memberId" value="">
+                                                                        <input type="hidden" name="originalId" id="originalId" value="">
+                                                                        <input type="hidden" name="originalName" id="originalName" value="">
+                                                                        <input type="hidden" name="originalPwd" id="originalPwd" value="">
+                                                                        <input type="hidden" name="originalGender" id="originalGender" value="">
                                                                         <label for="newMemberId">New Id:</label>
                                                                         <input type="text" id="newMemberId" name="newMemberId">
                                                                         <label for="newMemberName">New Name:</label>
@@ -733,13 +732,19 @@ input {
                                                                             <option value="F">Female</option>
                                                                             <option value="N/A">N/A</option>
                                                                         </select>
-                                                                        <button type="submit" class="btn btn-primary  js-tooltip-enabled edit">Save Changes</button>
+                                                                        <button type="submit" class="btn btn-primary js-tooltip-enabled edit">Save Changes</button>
+                                                                        <button type="button" class="btn btn-primary js-tooltip-enabled " onclick="deleteMember()">Delete</button>
                                                                     </form>
                                                                 </div>
                                                             </div>
                                                             
                                                             <script>
                                                                 function openEditDialog(id, originalId, originalName, originalPwd, originalGender) {
+                                                                    document.getElementById('memberId').value = id;
+                                                                    document.getElementById('originalId').value = originalId;
+                                                                    document.getElementById('originalName').value = originalName;
+                                                                    document.getElementById('originalPwd').value = originalPwd;
+                                                                    document.getElementById('originalGender').value = originalGender;
                                                                     document.getElementById('newMemberId').value = originalId;
                                                                     document.getElementById('newMemberName').value = originalName;
                                                                     document.getElementById('newMemberPwd').value = originalPwd;
@@ -755,7 +760,16 @@ input {
                                                                     closeEditDialog();
                                                                     return true;
                                                                 }
+                                                            
+                                                                function deleteMember() {
+                                                                    var confirmDelete = confirm("Are you sure you want to delete this member?");
+                                                                    if (confirmDelete) {
+                                                                        var memberId = document.getElementById("memberId").value;
+                                                                        window.location.href = "deleteData.jsp?memberId=" + memberId;
+                                                                    }
+                                                                }
                                                             </script>
+                                                            
                                                         </tr>
                                                 <%
                                                     } 

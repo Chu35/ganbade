@@ -766,8 +766,7 @@ input {
                                                                     if (confirmDelete) {
                                                                         var memberId = document.getElementById("memberId").value;
                                                                         window.location.href = "deleteData.jsp?memberId=" + memberId;
-                                                                    }
-                                                                }
+                                                                    }}
                                                             </script>
                                                             
                                                         </tr>

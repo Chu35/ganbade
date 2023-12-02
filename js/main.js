@@ -75,53 +75,6 @@
         time: 2000
     });
 	
-	
-  //teas select
-const filterOptions = document.querySelectorAll('.search_option .item');
-const teaItems = document.querySelectorAll('.tea_list .item');
-
-let selectedTaste = null;
-let selectedCategory = null;
-
-filterOptions.forEach(option => {
-  option.addEventListener('click', () => {
-    const category = option.getAttribute('data-category');
-    const taste = option.getAttribute('data-taste');
-
-    const isSelected = option.classList.contains('active');
-
-    if (isSelected) {
-      option.classList.remove('active');
-      if (category === selectedCategory) {
-        selectedCategory = null;
-      }
-      if (taste === selectedTaste) {
-        selectedTaste = null;
-      }
-    } else {
-      filterOptions.forEach(item => {
-        item.classList.remove('active');
-      });
-      option.classList.add('active');
-      selectedCategory = category === '全部' ? null : category;
-      selectedTaste = taste === '全部' ? null : taste;
-    }
-
-    teaItems.forEach(item => {
-      const itemCategory = item.getAttribute('data-category');
-      const itemTaste = item.getAttribute('data-taste');
-
-      const showItem =
-        (!selectedCategory || itemCategory === selectedCategory || selectedCategory === '全部') &&
-        (!selectedTaste || itemTaste === selectedTaste || selectedTaste === '全部');
-
-      item.style.display = showItem ? 'block' : 'none';
-
-      const itemIsActive = showItem && (itemCategory === selectedCategory || itemTaste === selectedTaste);
-      item.style.opacity = itemIsActive ? '1' : '1';
-    });
-  });
-});//teas end
 
 // keyvision
 window.addEventListener("load", function() {
@@ -242,52 +195,6 @@ window.addEventListener("load", function() {
     });
 })(jQuery);
 
-  //teas select
-  const filterOptions = document.querySelectorAll('.search_option .item');
-const teaItems = document.querySelectorAll('.tea_list .item');
-
-let selectedTaste = null;
-let selectedCategory = null;
-
-filterOptions.forEach(option => {
-  option.addEventListener('click', () => {
-    const category = option.getAttribute('data-category');
-    const taste = option.getAttribute('data-taste');
-
-    const isSelected = option.classList.contains('active');
-
-    if (isSelected) {
-      option.classList.remove('active');
-      if (category === selectedCategory) {
-        selectedCategory = null;
-      }
-      if (taste === selectedTaste) {
-        selectedTaste = null;
-      }
-    } else {
-      filterOptions.forEach(item => {
-        item.classList.remove('active');
-      });
-      option.classList.add('active');
-      selectedCategory = category === '全部' ? null : category;
-      selectedTaste = taste === '全部' ? null : taste;
-    }
-
-    teaItems.forEach(item => {
-      const itemCategory = item.getAttribute('data-category');
-      const itemTaste = item.getAttribute('data-taste');
-
-      const showItem =
-        (!selectedCategory || itemCategory === selectedCategory || selectedCategory === '全部') &&
-        (!selectedTaste || itemTaste === selectedTaste || selectedTaste === '全部');
-
-      item.style.display = showItem ? 'block' : 'none';
-
-      const itemIsActive = showItem && (itemCategory === selectedCategory || itemTaste === selectedTaste);
-      item.style.opacity = itemIsActive ? '1' : '1';
-    });
-  });
-});//teas end
  
 //fun pin
 function jumpIcon(pin) {
@@ -333,3 +240,5 @@ if (typeof (Storage) !== "undefined") {
             subcategory.style.display = 'none';
         }
     }
+
+

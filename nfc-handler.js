@@ -1,6 +1,6 @@
 $(document).ready(function () {
     function handleNFCTagScanned() {
-        // 在這裡添加播放音樂的代碼
+        // 在這裡添加播放音樂的代碼s
         // 這裡使用了 YouTube 嵌入式播放器
         var youtubeVideoId = 'Dnj5Tcpev0Q';
         var iframeSrc = 'https://www.youtube.com/embed/' + youtubeVideoId + '?autoplay=1';

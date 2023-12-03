@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NFC Music Player</title>
+    <title>App</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="nfc-handler.js"></script>
     <style>
         /* 添加一些基本的樣式 */
         .nfcpart {
@@ -23,43 +25,11 @@
 </head>
 <body>
     <div class="nfcpart" id="nfc1">
+        <!-- 注意：這裡去掉了 a 標籤 -->
         <h3>part 1</h3>
         <img src="img/kv7.png" alt="">
-        <button class="play-button">Play</button>
+        <button class="prev-button">prev</button>
+        <button class="next-button">next</button>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            // 檢查瀏覽器是否支援 Web NFC API
-            if ('NDEFReader' in window) {
-                // 初始化 NDEFReader
-                const nfc = new NDEFReader();
-
-                // 監聽 NFC 標籤掃描事件
-                nfc.addEventListener('reading', (event) => {
-                    // 停止尋找其他標籤
-                    nfc.scanStop();
-                    
-                    // 在這裡添加播放音樂的代碼
-                    // 這裡使用了 HTML5 音頻元素
-                    var audio = new Audio('path/to/your/audiofile.mp3');
-                    audio.play();
-                    console.log("NFC標籤已掃描，播放音樂...");
-                });
-
-                // 監聽播放按鈕的點擊事件
-                document.querySelector('.play-button').addEventListener('click', async () => {
-                    try {
-                        // 開始掃描 NFC 標籤
-                        await nfc.scan();
-                    } catch (error) {
-                        console.error('Error reading NFC:', error);
-                    }
-                });
-            } else {
-                console.error('Web NFC not supported in this browser.');
-            }
-        });
-    </script>
 </body>
 </html>

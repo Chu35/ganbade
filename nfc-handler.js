@@ -1,15 +1,19 @@
 $(document).ready(function () {
-    // 在這裡處理NFC事件
-    // 這只是一個簡單的示例，實際上您需要根據您的需求進行定製
-    
-    // 當NFC掃描時觸發的事件
     function handleNFCTagScanned() {
         // 在這裡添加播放音樂的代碼
-        // 您可以使用HTML5音頻元素或其他JavaScript音頻庫來實現
-        console.log("NFC標籤已掃描，播放音樂...");
+        // 這裡使用了 YouTube 嵌入式播放器
+        var youtubeVideoId = 'Dnj5Tcpev0Q';
+        var iframeSrc = 'https://www.youtube.com/embed/' + youtubeVideoId + '?autoplay=1';
+
+        // 创建一个iframe并嵌入YouTube视频
+        var iframe = $('<iframe width="560" height="315" src="' + iframeSrc + '" frameborder="0" allowfullscreen></iframe>');
+
+        // 将iframe追加到页面中
+        $('.nfcpart').append(iframe);
+
+        console.log("NFC標籤已掃描，播放 YouTube 視頻...");
     }
 
-    // 監聽NFC事件
     $(document).on('click', '.nfcpart a', function (event) {
         event.preventDefault();
         handleNFCTagScanned();

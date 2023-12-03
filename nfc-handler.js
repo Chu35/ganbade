@@ -14,7 +14,8 @@ $(document).ready(function () {
         console.log("NFC標籤已掃描，播放 YouTube 視頻...");
     }
 
-    $(document).on('click', '.nfcpart a', function (event) {
+    // 監聽NFC事件
+    $('.nfcpart').on('click', function (event) {
         event.preventDefault();
         handleNFCTagScanned();
     });

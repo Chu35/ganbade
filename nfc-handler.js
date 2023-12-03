@@ -1,12 +1,13 @@
 $(document).ready(function () {
     function handleNFCTagScanned(element) {
-        // 获取当前元素的 YouTube 视频链接
-        var youtubeLink = $(element).data('youtube-link');
+        // 获取当前元素的 YouTube 视频 ID
+        var youtubeVideoId = $(element).data('youtube-id');
 
-        // 检查是否存在有效的 YouTube 视频链接
-        if (youtubeLink) {
+        // 检查是否存在有效的 YouTube 视频 ID
+        if (youtubeVideoId) {
+            var iframeSrc = 'https://www.youtube.com/embed/' + youtubeVideoId + '?autoplay=1';
+
             // 创建一个iframe并嵌入YouTube视频
-            var iframeSrc = youtubeLink.replace('watch?v=', 'embed/') + '?autoplay=1';
             var iframe = $('<iframe width="560" height="315" src="' + iframeSrc + '" frameborder="0" allowfullscreen></iframe>');
 
             // 将iframe追加到当前元素中

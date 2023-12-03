@@ -49,6 +49,7 @@ $(document).ready(function () {
 
         // 检查是否存在有效的 YouTube 视频 ID
         if (youtubeVideoId) {
+            // 创建一个iframe并嵌入YouTube视频
             var iframeSrc = 'https://www.youtube.com/embed/' + youtubeVideoId + '?autoplay=1';
 
             // 创建一个iframe并嵌入YouTube视频
@@ -57,14 +58,22 @@ $(document).ready(function () {
             // 将iframe追加到当前元素中
             $(element).append(iframe);
 
+            // 移除点击事件监听，以确保只播放一次
+            $(element).off('click');
+
             console.log("NFC標籤已掃描，播放 YouTube 視頻...");
         }
     }
 
     // 監聽NFC事件
     $('.nfcpart').on('click', function (event) {
-        event.preventDefault();
-        handleNFCTagScanned(this);
+        var target = $(event.target);
+
+        // 检查是否点击的是按钮
+        if (!target.is('button')) {
+            event.preventDefault();
+            handleNFCTagScanned(this);
+        }
     });
 
     // 如果有“聽完了”按钮，也可以添加相应的点击事件
@@ -73,3 +82,4 @@ $(document).ready(function () {
         console.log("聽完了按钮被点击...");
     });
 });
+

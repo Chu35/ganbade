@@ -151,7 +151,7 @@
         </div>
     </div>
     <style>
-     .card-div {
+        .card-div {
             width: 20em;
             min-height: 20em;
             display: flex;
@@ -162,35 +162,39 @@
             border-radius: 10px;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
             transition: transform 0.2s ease-in-out;
-        }.img-div {
-        width: 100%;
-        height: 8em;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding-top: 1rem;
-        z-index: 1;
-        border-radius: 0 0 10px 10px;
-        
-    }
-
-    .img-div img {
-        transform-origin: bottom;
-        transform: translateY(7.5%);
-        transition: transform 0.3s ease-in-out;
-    }
-
-    .gow-img-div {
-        background-color: var(--card-1-secondary-color);
-    }
-
-    .gow-img-div img {
-        width: 65%;
-        transform: translateY(7.5%);
-    }
-    .card-div:hover .img-div img {
-transform: translateY(7.5%) scale(1.2);
-}</style>
+        }
+    
+        .img-div {
+            width: 100%;
+            height: 8em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 1rem;
+            z-index: 1;
+            border-radius: 0 0 10px 10px;
+    
+        }
+    
+        .img-div img {
+            transform-origin: bottom;
+            transform: translateY(7.5%);
+            transition: transform 0.3s ease-in-out;
+        }
+    
+        .gow-img-div {
+            background-color: var(--card-1-secondary-color);
+        }
+    
+        .gow-img-div img {
+            width: 65%;
+            transform: translateY(7.5%);
+        }
+    
+        .card-div:hover .img-div img {
+            transform: translateY(7.5%) scale(1.2);
+        }
+    </style>
     <!-- Team End -->
     <div id="color">
     <div class="container"> 

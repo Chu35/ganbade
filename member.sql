@@ -121,3 +121,5 @@ WHERE member_name = '00'
 SELECT quantity FROM cart WHERE member_name= '00'
 SELECT SUM(quantity) as tatolquantity FROM cart WHERE member_name = '00'
 
+ALTER TABLE member
+ALTER COLUMN phone NVARCHAR(15);

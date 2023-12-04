@@ -4,6 +4,8 @@
 <html lang="zh-Hant-TW">
 <head>
     <title>收藏</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 <body>
     <%
@@ -35,14 +37,26 @@
 
                     if (checkRs1.next() || checkRs2.next()) {
     %>
-                        <script>
-                            alert("已收藏了!");
-                            <% if (knowledgeId != null && !knowledgeId.isEmpty()) { %>
-                                    window.location.href = "knowl.jsp";
-                                <% } else { %>
-                                    window.location.href = "fun.jsp";
-                                <% } %>
-                        </script>
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: '失敗',
+            text: '已收藏',
+            timer: 1000,
+            timerProgressBar: true,
+            showConfirmButton: false
+        }).then((result) => {
+            if (!result.isConfirmed) {
+                var currentLocation = window.location.href;
+                if (currentLocation.includes("fun")) {
+                    window.location.href = "fun.jsp";
+                } else if (currentLocation.includes("knowl")) {
+                    window.location.href = "knowl.jsp";
+                }
+            } 
+        });
+    </script>
+    
     <%
                     } else {
                         String insertSql;
@@ -69,25 +83,45 @@
 
                         if (rowsInserted > 0) {
     %>
-                            <script>
-                                alert("收藏成功😍!!");
-                                <% if (knowledgeId != null && !knowledgeId.isEmpty()) { %>
-                                    window.location.href = "knowl.jsp";
-                                <% } else { %>
-                                    window.location.href = "fun.jsp";
-                                <% } %>
-                            </script>
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: '成功',
+            text: '收藏成功!!',
+            timer: 1000,
+            timerProgressBar: true,
+            showConfirmButton: false
+        }).then(() => {
+            if ("<%= knowledgeId %>" !== null && "<%= knowledgeId %>" !== "") {
+                window.location.href = "knowl.jsp";
+            } else {
+                window.location.href = "fun.jsp";
+            }
+        });
+    </script>
+    
+    
     <%
                         } else {
     %>
-                            <script>
-                                alert("收藏失敗，請稍後重試😭");
-                                <% if (knowledgeId != null && !knowledgeId.isEmpty()) { %>
-                                    window.location.href = "knowl.jsp";
-                                <% } else { %>
-                                    window.location.href = "fun.jsp";
-                                <% } %>
-                            </script>
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: '失敗',
+            text: '收藏失敗，請稍後重試',
+            timer: 1000,
+            timerProgressBar: true,
+            showConfirmButton: false
+        }).then(() => {
+            if ("<%= knowledgeId %>" !== null && "<%= knowledgeId %>" !== "") {
+                window.location.href = "knowl.jsp";
+            } else {
+                window.location.href = "fun.jsp";
+            }
+        });
+    </script>
+    
+    
     <%
                         }
                     }
@@ -101,33 +135,53 @@
                 } catch (SQLException | ClassNotFoundException e) {
                     e.printStackTrace();
     %>
-                <script>
-                    alert("收藏失敗，請稍後重試😭");
-                    <% if (knowledgeId != null && !knowledgeId.isEmpty()) { %>
-                        window.location.href = "knowl.jsp";
-                    <% } else { %>
-                        window.location.href = "fun.jsp";
-                    <% } %>
-                </script>
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: '失敗',
+            text: '收藏失敗，請稍後重試',
+            timer: 1000,
+            timerProgressBar: true,
+            showConfirmButton: false
+        }).then((result) => {
+            if (!result.isConfirmed) {
+                var currentLocation = window.location.href;
+                if (currentLocation.includes("fun")) {
+                    window.location.href = "fun.jsp";
+                } else if (currentLocation.includes("knowl")) {
+                    window.location.href = "knowl.jsp";
+                }
+            } 
+        });
+    </script>
+    
+    
     <%
                 }
             }
         } else {
     %>
     <script>
-        var confirmed = confirm("請先登錄會員帳號以使用收藏功能");
+        Swal.fire({
+            icon: 'error',
+            title: '失敗',
+            text: '請先登錄會員帳號以使用收藏功能',
+            showCancelButton: true,
+            confirmButtonText: '前往登錄',
+            cancelButtonText: '返回',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "login.html";
+            } else {
+                var currentLocation = window.location.href;
     
-        if (!confirmed) {
-            var currentLocation = window.location.href;
-            
-            if (currentLocation.includes("fun")) {
-                window.location.href = "fun.jsp";
-            } else if (currentLocation.includes("knowl")) {
-                window.location.href = "knowl.jsp";
+                if (currentLocation.includes("fun")) {
+                    window.location.href = "fun.jsp";
+                } else if (currentLocation.includes("knowl")) {
+                    window.location.href = "knowl.jsp";
+                }
             }
-        } else {
-            window.location.href = "login.html";
-        }
+        });
     </script>
     
     

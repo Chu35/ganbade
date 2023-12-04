@@ -35,7 +35,7 @@
         session.invalidate();
     %>
     <script>
-        window.location.href = "login.html"; // 跳轉到登入頁面
-    </script>
+        window.location.replace(document.referrer); // Go back to the previous page and refresh
+    </script>    
 </body>
 </html>

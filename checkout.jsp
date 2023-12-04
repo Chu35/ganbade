@@ -120,7 +120,7 @@ Integer totalQuantity = (Integer) session.getAttribute("totalQuantity_" + member
         </div>
         <div class="col-md-6">
             <h4>Shipping Information</h4>
-            <form> 
+            <form id="checkoutForm" action="established.jsp" method="post">
                 <div class="form-group">
                     <label for="fullName">Full Name</label>
                     <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" required>
@@ -140,9 +140,15 @@ Integer totalQuantity = (Integer) session.getAttribute("totalQuantity_" + member
             </form>
         </div>
         <div class="col-12 text-center">
-            <button class="btn btn-primary">結帳</button>
+            <button class="btn btn-primary" onclick="submitForm()">結帳</button>
         </div>
         
+        <script>
+            function submitForm() {
+                // You can add any additional form validation logic here before submitting the form
+                document.getElementById("checkoutForm").submit();
+            }
+        </script>
     </div>
 </div>
 

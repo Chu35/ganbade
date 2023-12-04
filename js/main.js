@@ -54,7 +54,7 @@
 
   
     
-    
+
     // Back to top button
     $(window).scroll(function () {
         if ($(this).scrollTop() > 300) {
@@ -168,6 +168,7 @@ window.addEventListener("load", function() {
         }
     });
 
+    
 
     // Testimonials carousel
     $(".testimonial-carousel").owlCarousel({

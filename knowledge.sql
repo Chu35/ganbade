@@ -48,3 +48,7 @@ WHERE id='o8';
 UPDATE Knowledge SET season='®L©u'
 WHERE id='o3';
 
+ALTER TABLE member_collect
+ADD CONSTRAINT fk_knowledge_id
+FOREIGN KEY (knowledge_id) REFERENCES knowledge(id)
+ON DELETE CASCADE;

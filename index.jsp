@@ -23,6 +23,7 @@
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 	<!-- Libraries Stylesheet -->
 	<link href="lib/animate/animate.min.css" rel="stylesheet">
@@ -298,41 +299,43 @@
 		<div class="footer-left">	
 			<img src="img/logo.png" alt="logo" width="150px">
 			<p class="footer-links">
-				<a href="#" class="link-1">Home</a>
-				<a href="#">Blog</a>
-				<a href="#">Pricing</a>
-				<a href="#">About</a>
-				<a href="#">Faq</a>
-				<a href="#">Contact</a>
+				<a href="index.jsp" class="link-1">首頁</a>
+				<a href="knowl.jsp">知識調查局</a>
+				<a href="fun.jsp">茶遊此地</a>
+				<a href="contact.jsp">關於我們</a>
+				<a href="store.jsp">滴滴商城</a>
+				<a href="member.jsp">會員中心</a>
 			</p>
 			<p class="footer-company-name">Ganbade © 2023</p>
 		</div>
 		<div class="footer-center">
 			<div>
-				<i class="fa fa-map-marker"></i>
-				<p><span>444 S. Cedros Ave</span> Solana Beach, California</p>
+				<a href="https://www.instagram.com/ganbade.tea/">
+				<i class="fab fa-instagram"></i>
+				<p>@ganbade.tea</p></a>
 			</div>
 			<div>
-				<i class="fa fa-phone"></i>
-				<p>+1.555.555.5555</p>
+				<a href="https://www.facebook.com/profile.php?id=100091759804013">
+				<i class="fab fa-facebook"></i>
+				<p>甘吧茶ㄉㄟˊ </p></a>
 			</div>
 			<div>
+				<a href="https://www.tiktok.com/@ganbade.tea?lang=zh-Hant-TW">
+					<i class="fab fa-tiktok"></i>
+					<p>甘吧茶ㄉㄟˊ </p></a>
+			</div>
+			<div>
+				<a href="mailto:icscheerstea@gmail.com">
 				<i class="fa fa-envelope"></i>
-				<p><a href="mailto:icscheerstea@gmail.com">icscheerstea@gmail.com</a></p>
+				<p>icscheerstea@gmail.com</p></a>
 			</div>
 		</div>
 		<div class="footer-right">
 			<p class="footer-company-about">
-				<span>About the company</span>
+				<span>關於甘吧茶ㄉㄟˊ</span>
 				Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus
 				vehicula sit amet.
 			</p>
-			<div class="footer-icons">
-				<a href="#"><i class="fa fa-facebook"></i></a>
-				<a href="#"><i class="fa fa-twitter"></i></a>
-				<a href="#"><i class="fa fa-linkedin"></i></a>
-				<a href="#"><i class="fa fa-github"></i></a>
-			</div>
 		</div>
 	</footer>
 	<!-- footer -->

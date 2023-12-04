@@ -1245,16 +1245,11 @@ ul li {
   margin: auto;
   overflow: hidden;
 }
-@-webkit-keyframes scroll {
-	0% {
-		transform: translateX(0);
-	}
-	100% {
-		transform: translateX(calc(-250px * 7));
-	}
+@-webkit-keyframes picmove {
+  from { transform: translate(0); } to { transform: translate(-750px); }
 }
 
-@keyframes scroll {
+@keyframes picmove {
 	0% {
 		transform: translateX(0);
 	}
@@ -1282,16 +1277,19 @@ ul li {
 }
 
 .slider .slide-track {
-  -webkit-animation: scroll 10s linear infinite ;
-  animation: scroll 10s linear infinite ;
+  -webkit-animation: picmove 5s linear infinite forwards;
+  animation: picmove 5s linear infinite forwards;
   display: flex;
-  width: calc(250px * 14);
+  width: calc(250px * 21);
 }
 
 .slider .slide {
   height: 300px;
   width: 250px;
 }
+
+
+@keyframes picmove { from { transform: translate(0); } to { transform: translate(-750px); } }
 
 
 /* index footer */
@@ -1396,12 +1394,12 @@ ul li {
 	color:  #92999f;
 	font-size: 13px;
 	font-weight: normal;
-	margin: 0;
+	margin: 20px;
 }
 .footer-distributed .footer-company-about span{
 	display: block;
 	color:  #ffffff;
-	font-size: 14px;
+	font-size: 17px;
 	font-weight: bold;
 	margin-bottom: 20px;
 }

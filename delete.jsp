@@ -7,6 +7,8 @@
 <html lang="zh-Hant-TW">
 <head>
     <title>刪除資料</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 <body>
     <%
@@ -41,23 +43,38 @@
 
     %>
     <script>
-        alert("資料已刪除!");
-        
-        if ("<%= idToDelete %>" !== "") {
+        Swal.fire({
+            icon: 'success',
+            title: '成功',
+            text: '資料已刪除',
+            timer: 1000,
+            timerProgressBar: true,
+            showConfirmButton: false
+        }).then(() => {
+            if ("<%= idToDelete %>" !== "") {
             window.location.href = "member.jsp#nav-mission";
         } else if ("<%= knowledgeIdToDelete %>" !== "") {
             window.location.href = "member.jsp#nav-story";
         }
+        });
     </script>
 
     <%
             } catch (Exception e) {
                 e.printStackTrace();
     %>
-                <script>
-                    // Handle the error if needed
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: '失敗',
+            text: '請在試一次',
+            timer: 1000,
+            timerProgressBar: true,
+            showConfirmButton: false
+        }).then(() => {
                     window.location.href = "member.jsp";
-                </script>
+                });
+    </script>
     <%
             } finally {
                 // Close resources in a finally block

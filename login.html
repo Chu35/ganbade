@@ -106,20 +106,20 @@
             
                         <!-- 註冊表單 -->
                         <form id="register-form" action="register.jsp" method="post" autocomplete="off" class="hide">
+                            <a href="#" id="back-link" style="position: relative;right: 40%;">← 返回</a><br>
                             暱稱：<input class="m1" type="text" name="user" autocomplete="off" required /><br><br>
-                    性別：&ensp;<label><input type="radio" name="gender" value="M" />男</label>&emsp;
-                    <label><input type="radio" name="gender" value="F">女</label>&emsp;
-                    <label><input type="radio" name="gender" value="N/A">不透漏</label><br><br>
-                    帳號：<input class="m1" type="text" name="name" autocomplete="off" required /><br><br>
-                    密碼：<input class="m1" type="password" name="pwd" />
-                    <div class="password-requirements" required pattern="^(?=.*[0-9])(?=.*[a-zA-Z]).+$">
-                        <font size="1" color="red">*密碼需包含英文以及數字*</font>
+                            性別：&ensp;<label><input type="radio" name="gender" value="M" />男</label>&emsp;
+                            <label><input type="radio" name="gender" value="F">女</label>&emsp;
+                            <label><input type="radio" name="gender" value="N/A">不透漏</label><br><br>
+                            帳號：<input class="m1" type="text" name="name" autocomplete="off" required /><br><br>
+                            密碼：<input class="m1" type="password" name="pwd" />
+                            <div class="password-requirements" required pattern="^(?=.*[0-9])(?=.*[a-zA-Z]).+$">
+                                <font size="1" color="red">*密碼需包含英文以及數字*</font>
                             </div><br>
                             <div class="form-table">
-                                <input class="btn btn-primary" type="reset" value="清除" />
-                                <input class="btn btn-primary" type="submit" value="存檔" />&emsp;
+                                <input class="btn btn-primary" type="reset" value="清除" />&emsp;
+                                <input class="btn btn-primary" type="submit" value="存檔" />
                             </div>
-                            <a href="#" id="back-link">返回</a>
                         </form>
                     </div>
                 </div>
@@ -139,7 +139,7 @@
                 document.getElementById("register-form").classList.add("show");
 
                 formContainer.style.transform = "translateX(-50%)";
-                document.querySelector('.display-5').textContent = "Register";
+                document.querySelector('.display-5').textContent = "成為滴滴一員";
             });
 
             // 點擊返回連結時，切換回登入表單

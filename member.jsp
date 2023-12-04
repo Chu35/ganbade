@@ -148,8 +148,8 @@
 								密碼：<input class="m1" type="password" name="pwd" /><br><br>
 								</div>
 								<div id="submitResetButtons" class="form-table" style="display: none;">
-									<input class="btn btn-primary" type="submit" value="修改" />&emsp;
-									<input class="btn btn-primary" type="reset" value="清除"/><br>
+									<input class="btn btn-primary" type="reset" value="清除"/>&ensp;
+									<input class="btn btn-primary" type="submit" value="修改" /><br>
 									<button class="btn btn-primary" onclick="goBack()">取消</button>
 								</div>
 							</div>
@@ -219,9 +219,9 @@
 											<button class="nav-link fw-semi-bold active" id="nav-story-tab" data-bs-toggle="tab" data-bs-target="#nav-story"
 												type="button" role="tab" aria-controls="nav-story" aria-selected="true">知識調茶局</button>
 											<button class="nav-link fw-semi-bold" id="nav-mission-tab" data-bs-toggle="tab" data-bs-target="#nav-mission"
-												type="button" role="tab" aria-controls="nav-mission" aria-selected="false">好玩der</button>
-												<i id="editIcon" class="fa fa-fw fa-pencil-alt" style="right: 15px; position: absolute; cursor: pointer;"></i>
-											</div>
+												type="button" role="tab" aria-controls="nav-mission" aria-selected="false">茶遊此地</button>
+											<!--<i id="editIcon" class="fa fa-fw fa-pencil-alt" style="right: 15px; position: absolute; cursor: pointer;"></i>-->
+										</div>
 										<div class="tab-content" id="nav-tabContent">
 											<!-- knowledge -->
 											<div class="tab-pane fade show active" id="nav-story" role="tabpanel" aria-labelledby="nav-story-tab">
@@ -231,23 +231,10 @@
 													%>
 													<div id="memhov" class="col-lg-4 col-md-6 col-sm-12">
 														<a href="knowl.jsp?id=<%= result.getString("id") %>">
-															<img class="img-fluid" src="<%= result.getString("image_path") %>" alt="<%= result.getString("name") %>" >
+															<img id="img-member" class="img-fluid" src="<%= result.getString("image_path") %>" alt="<%= result.getString("name") %>">
 														</a>
 														<h5 class="card-text"><%= result.getString("name") %></h5>
-														<a id="deleteLink" href="delete.jsp?knowledge_id=<%= result.getString("id") %>" style="right: 15px;cursor: pointer; display: none;">a</a>
-														<script>
-															var editIcon = document.getElementById('editIcon');
-															var deleteLink = document.getElementById('deleteLink');
-														
-															editIcon.addEventListener('click', function() {
-																if (deleteLink.style.display === 'none') {
-																	deleteLink.style.display = 'inline'; 
-																} else {
-																	deleteLink.style.display = 'none';
-																}
-															});
-														</script>
-
+														<a href="delete.jsp?knowledge_id=<%= result.getString("id") %>" style="right: 15px; cursor: pointer;">Delete</a>
 													</div>
 													<%
 													}
@@ -270,7 +257,7 @@
 															<img id="img-member" class="img-fluid" src="<%= result.getString("imagePath") %>" alt="<%= result.getString("name") %>" >
 														</a>
 														<h5 class="card-text"><%= result.getString("name") %></h5>
-														<a href="delete.jsp?fun_id=<%= result.getString("id") %>" style="right: 15px;cursor: pointer;">&times;</a>
+														<a href="delete.jsp?fun_id=<%= result.getString("id") %>" style="right: 15px;cursor: pointer;">Delete</a>
 													</div>
 													<%
 													}

@@ -108,7 +108,7 @@
     <div class="container">
         <div class="text-center mx-auto">
             <h1 class="display-3 mb-5"> </h1>
-            <h1 class="display-5 mb-4">E-commerce Shop</h1>
+            <h1 class="display-5 mb-4">滴滴商城</h1>
         </div>
         <div class="product">
             <div class="leftlist">
@@ -180,12 +180,24 @@
                                     <a href="cart.jsp?store_id=<%= rs.getString("id") %>&action=increase" data-name="<%= name %>" data-price="<%= price %>" class="add-to-cart btn btn-primary">Add to cart</a>
                                     <% } else { %>
                                         <a href="javascript:void();" onclick="showLoginAlert()" class="btn btn-primary">Login to Add to Cart</a>
+                                        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
                                         <script>
                                             function showLoginAlert() {
-                                                alert("Please log in to add items to your cart.");
-                                                window.location.href = "login.html";
+                                                Swal.fire({
+                                                    icon: 'info',
+                                                    title: 'Reminder',
+                                                    text: 'Please log in to add items to your cart.',
+                                                    showCancelButton: true,
+                                                    confirmButtonText: 'Go to Login',
+                                                    cancelButtonText: 'Cancel',
+                                                }).then((result) => {
+                                                    if (result.isConfirmed) {
+                                                        window.location.href = "login.html";
+                                                    }
+                                                });
                                             }
                                         </script>
+                                        
                                     <% } %>
                                     <script>
                                         $('.add-to-cart').click(function(event) {

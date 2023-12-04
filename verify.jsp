@@ -15,12 +15,13 @@
                 icon: 'success',
                 title: '成功',
                 text: memberName + ' 歡迎光臨!!',
-                willClose: () => {
-                    // 确认按钮（OK 按钮）被点击后执行页面跳转
+                timer: 1000,
+                timerProgressBar: true,
+                showConfirmButton: false
+                }).then(() => {
                     window.location.href = "index.jsp";
-                }
-            });
-        }
+                });
+            }
     </script>
 </head>
 <body>
@@ -98,6 +99,9 @@
                     icon: 'error',
                     title: '錯誤',
                     text: '帳號或密碼錯誤',
+                    timer: 1000,
+                    timerProgressBar: true,
+                    showConfirmButton: false
                 }).then(() => {
                     window.location.href = "login.html";
                 });
@@ -110,6 +114,9 @@
                     icon: 'error',
                     title: '錯誤',
                     text: '尚未註冊',
+                    timer: 1000,
+                    timerProgressBar: true,
+                    showConfirmButton: false
                 }).then(() => {
                     window.location.href = "signin.html";
                 });

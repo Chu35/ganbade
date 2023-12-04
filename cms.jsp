@@ -731,7 +731,7 @@ input {
                                                                             <option value="M">Male</option>
                                                                             <option value="F">Female</option>
                                                                             <option value="N/A">N/A</option>
-                                                                        </select>
+                                                                        </select><br>
                                                                         <button type="submit" class="btn btn-primary js-tooltip-enabled edit">Save Changes</button>
                                                                         <button type="button" class="btn btn-primary js-tooltip-enabled " onclick="deleteMember()">Delete</button>
                                                                     </form>
@@ -768,7 +768,6 @@ input {
                                                                         window.location.href = "deleteData.jsp?memberId=" + memberId;
                                                                     }}
                                                             </script>
-                                                            
                                                         </tr>
                                                 <%
                                                     } 
@@ -812,6 +811,7 @@ input {
                                             });
                                         </script>  
                                     </div>
+                                    <div class="table-responsive">
                                     <table id="KnowledgeTable" class="table table-striped table-hover table-borderless table-vcenter font-size-sm">
                                         <thead>
                                             <tr class="text-uppercase text-center">
@@ -870,15 +870,15 @@ input {
                                                     <img class="knowledge-image" src="<%= imagePath %>" style="width:50px" alt="">
                                                 </td>
                                                 <td>
-                                                    <span class="font-w600 knowledge-name" data-id="<%= id %>"><%= name %></span>
+                                                    <%= name %>
                                                 </td>
-                                                <td class="d-none d-sm-table-cell">
-                                                    <span class="font-size-sm text-muted knowledge-type" data-id="<%= id %>"><%= type %></span>
+                                                <td >
+                                                   <%= type %>
                                                 </td>
                                                 <td>
-                                                    <span class="font-w600 text-success knowledge-classification" data-id="<%= id %>"><%= classification %></span>
+                                                   <%= classification %>
                                                 </td>
-                                                <td class="d-none d-sm-table-cell knowledge-bakeferment" data-id="<%= id %>"><%= bake %>、<%= ferment %></td>
+                                                <td><%= bake %>、<%= ferment %></td>
                                                 <td class="text-center">
                                                     <button type="button" class="js-tooltip-enabled edit-icon" data-id="<%= id %>" onclick="openEditDialog2('<%= id %>', '<%= imagePath %>', '<%= name %>', '<%= type %>', '<%= classification %>', '<%= bake %>', '<%= ferment %>')">
                                                         <i class="fa fa-fw fa-pencil-alt"></i>
@@ -906,7 +906,8 @@ input {
                                                             <label for="newKnowledgeBake">New Bake:</label>
                                                             <input type="text" id="newKnowledgeBake" name="newKnowledgeBake">
                                                             <label for="newKnowledgeFerment">New Ferment:</label> <!-- Corrected label -->
-                                                            <input type="text" id="newKnowledgeFerment" name="newKnowledgeFerment">
+                                                            <input type="text" id="newKnowledgeFerment" name="newKnowledgeFerment"><br>
+                                                            <button type="button" class="btn btn-primary js-tooltip-enabled " onclick="deleteKnowledge()">Delete</button>
                                                             <button type="submit" class="btn btn-primary js-tooltip-enabled edit">Save Changes</button>
                                                         </form>
                                                     </div>
@@ -914,6 +915,7 @@ input {
                                                 
                                                 <script>
                                                     function openEditDialog2(id, originalImagePath, originalName, originalType, originalClassification, originalBake, originalFerment) {
+
                                                         document.getElementById('newKnowledgeImgpath').value = originalImagePath;
                                                         document.getElementById('newKnowledgeName').value = originalName;
                                                         document.getElementById('newKnowledgeType').value = originalType;
@@ -931,8 +933,14 @@ input {
                                                         closeEditDialog2();
                                                         return true;
                                                     }
+                                                    
+                                                    function deleteKnowledge() {
+                                                        var confirmDelete = confirm("Are you sure you want to delete this knowledgeId?");
+                                                        if (confirmDelete) {
+                                                            var knowledgeId = document.getElementById("knowledgeId").value;
+                                                            window.location.href = "deleteData.jsp?knowledgeId";
+                                                        }}
                                                 </script>
-                                                
                                             </tr>    
                                             <%
                                                 }
@@ -945,6 +953,7 @@ input {
                                             %>
                                         </tbody>
                                     </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -971,7 +980,7 @@ input {
                                             });
                                         </script>
                                     </div>
-                                    
+                                    <div class="table-responsive">
                                         <table id="funTable" class=" table-borderless table">
                                             <thead>
                                                 <tr class="text-center">
@@ -1061,7 +1070,7 @@ input {
                                                                     <label for="newFunPlace">New Place:</label>
                                                                     <input type="text" id="newFunPlace" name="newFunPlace">
                                                                     <label for="newFunPhone">New Phone:</label>
-                                                                    <input type="text" id="newFunPhone" name="newFunPhone">
+                                                                    <input type="text" id="newFunPhone" name="newFunPhone"><br>
                                                                     <button type="submit" class="btn btn-primary  js-tooltip-enabled edit">Save
                                                                         Changes</button>
                                                                 </form>
@@ -1089,7 +1098,7 @@ input {
                                                         e.printStackTrace(); } %>
                                             </tbody>
                                         </table>
-                                    
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1116,6 +1125,7 @@ input {
                                             });
                                         </script>
                                     </div>
+                                    <div class="table-responsive">
                                     <table id="storeTable" class="table table-borderless text-center">
                                         <thead>
                                             <tr>
@@ -1191,7 +1201,7 @@ input {
                                                             <label for="newStorePrice">New Price:</label>
                                                             <input type="text" id="newStorePrice" name="newStorePrice">
                                                             <label for="newStoreList">New List:</label>
-                                                            <input type="text" id="newStoreList" name="newStoreList">
+                                                            <input type="text" id="newStoreList" name="newStoreList"><br>
                                                             <button type="submit" class="btn btn-primary  js-tooltip-enabled edit">Save Changes</button>
                                                         </form>
                                                     </div>
@@ -1226,6 +1236,7 @@ input {
                                             %>
                                         </tbody>
                                     </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1252,6 +1263,7 @@ input {
                                             });
                                         </script>
                                     </div>
+                                    <div class="table-responsive">
                                     <table id="sugardaddyTable" class="table table-borderless text-center">
                                         <thead>
                                             <tr>
@@ -1316,7 +1328,7 @@ input {
                                                             <label for="newSugardaddyName">New Name:</label>
                                                             <input type="text" id="newSugardaddyName" name="newSugardaddyName">
                                                             <label for="newSugardaddyHref">New Href:</label>
-                                                            <input type="text" id="newSugardaddyHref" name="newSugardaddyHref">
+                                                            <input type="text" id="newSugardaddyHref" name="newSugardaddyHref"><br>
                                                             <button type="submit" class="btn btn-primary js-tooltip-enabled edit">Save Changes</button>
                                                         </form>
                                                     </div>
@@ -1353,6 +1365,7 @@ input {
                                             %>
                                         </tbody>
                                     </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>

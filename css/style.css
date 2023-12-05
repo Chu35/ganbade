@@ -892,132 +892,133 @@ ul li {
 
   .pin[data-target="f1"] {
   position: absolute;
-  top: 179px;
-  right: 295px;
+  top: 39%;
+  right: 40%;
   font-size: 24px;
   transition: transform 0.3s ease; 
 }
+
 .pin[data-target="f2"] {
   position: absolute;
-  top: 171px;
-  right: 8px;
+  top: 38%;
+  right: 0%;
   font-size: 24px;
   transition: transform 0.3s ease; 
 }
 .pin[data-target="f3"] {
   position: absolute;
-  top: 104px;
-  right: 95px;
+  top: 25%;
+  right: 13%;
   font-size: 24px;
   transition: transform 0.3s ease; 
 }
 .pin[data-target="f4"] {
   position: absolute;
-  top: 201px;
-  right: 49px;
+  top: 45%;
+  right: 5%;
   font-size: 24px;
   transition: transform 0.3s ease; 
 }
 
 .pin[data-target="f5"] {
   position: absolute;
-  top: 201px;
-  right: 224px;
+  top: 46%;
+  right: 31%;
   font-size: 24px;
   transition: transform 0.3s ease; 
 }
 
 .pin[data-target="f6"] {
   position: absolute;
-  top: 222px;
-  right: 328px;
+  top: 79%;
+  right: 46%;
   font-size: 24px;
   transition: transform 0.3s ease; 
 }
 .pin[data-target="f7"] {
   position: absolute;
-  top: 69px;
-  right: 312px;
+  top: 18%;
+  right: 44%;
   font-size: 24px;
   transition: transform 0.3s ease; 
 }
 
 .pin[data-target="f8"] {
   position: absolute;
-  top: 249px;
-  right: 256px;
+  top: 56%;
+  right: 36%;
   font-size: 24px;
   transition: transform 0.3s ease; 
 }
 .pin[data-target="f9"] {
   position: absolute;
-  top: 96px;
-  right: 148px;
+  top: 23%;
+  right: 20%;
   font-size: 24px;
   transition: transform 0.3s ease; 
 }
 
 .pin[data-target="f10"] {
   position: absolute;
-  top: 198px;
-  right: 312px;
+  top: 45%;
+  right: 44%;
   font-size: 24px;
   transition: transform 0.3s ease; 
 }
 .pin[data-target="f11"] {
   position: absolute;
-  top: 265px;
-  right: 661px;
+  top: 59%;
+  right: 94%;
   font-size: 24px;
   transition: transform 0.3s ease; 
 }
 
 .pin[data-target="f12"] {
   position: absolute;
-  top: 210px;
-  right: 416px;
+  top: 47%;
+  right: 59%;
   font-size: 24px;
   transition: transform 0.3s ease; 
 }
 .pin[data-target="f13"] {
   position: absolute;
-  top: 252px;
-  right: 514px;
+  top: 57%;
+  right: 73%;
   font-size: 24px;
   transition: transform 0.3s ease; 
 }
 .pin[data-target="f14"] {
   position: absolute;
-  top: 243px;
-  right: 482px;
+  top: 55%;
+  right: 68%;
   font-size: 24px;
   transition: transform 0.3s ease; 
 }
 .pin[data-target="f15"] {
   position: absolute;
-  top: 351px;
-  right: 331px;
+  top: 51%;
+  right: 46%;
   font-size: 24px;
   transition: transform 0.3s ease; 
 }
 .pin[data-target="f16"] {
   position: absolute;
-  top: 355px;
-  right: 220px;
+  top: 80%;
+  right: 31%;
   font-size: 24px;
   transition: transform 0.3s ease; 
 }
 .pin[data-target="f17"] {
   position: absolute;
-  top: 288px;
-  right: 509px;
+  top: 65%;
+  right: 72%;
   font-size: 24px;
   transition: transform 0.3s ease; 
 }
 .pin[data-target="f18"] {
   position: absolute;
-  top: 94px;
-  right: 225px;
+  top: 23%;
+  right: 32%;
   font-size: 24px;
   transition: transform 0.3s ease; 
 }

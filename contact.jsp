@@ -196,7 +196,6 @@
         }
     </style>
     <!-- Team End -->
-    <div id="color">
     <div class="container"> 
         <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
             <h2 class="display-5 mb-4">合作夥伴</h2>
@@ -244,7 +243,6 @@
                 <div class="carousel-nav-next"><i class="fas fa-chevron-right"></i></div>
             </div>
         </div>
-    </div>
     
     <div class="container">
         <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
@@ -252,7 +250,7 @@
         </div>
     </div>
         
-    <!-- Copyright Start -->
+    <!-- Copyright
     <div class="container-fluid copyright py-4">
         <div class="container">
             <div class="row">
@@ -261,8 +259,7 @@
               </div>
             </div>
         </div>
-    </div>
-    <!-- Copyright End -->
+    </div>  -->
 
 
     <!-- Back to Top -->

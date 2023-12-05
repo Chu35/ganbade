@@ -760,13 +760,23 @@ input {
                                                                     closeEditDialog();
                                                                     return true;
                                                                 }
-                                                            
+                                                                
                                                                 function deleteMember() {
-                                                                    var confirmDelete = confirm("Are you sure you want to delete this member?");
-                                                                    if (confirmDelete) {
-                                                                        var memberId = document.getElementById("memberId").value;
-                                                                        window.location.href = "deleteData.jsp?memberId=" + memberId;
-                                                                    }}
+                                                                    Swal.fire({
+                                                                        title: '確定要刪除此會員嗎？',
+                                                                        text: '刪除後將無法恢復。',
+                                                                        icon: 'warning',
+                                                                        showCancelButton: true,
+                                                                        confirmButtonColor: '#d33',
+                                                                        cancelButtonColor: '#3085d6',
+                                                                        confirmButtonText: '確定刪除'
+                                                                    }).then((result) => {
+                                                                        if (result.isConfirmed) {
+                                                                            var memberId = document.getElementById("memberId").value;
+                                                                            window.location.href = "deleteData.jsp?memberId=" + memberId;
+                                                                        }
+                                                                    });
+                                                                }
                                                             </script>
                                                         </tr>
                                                 <%
@@ -935,11 +945,21 @@ input {
                                                     }
                                                     
                                                     function deleteKnowledge() {
-                                                        var confirmDelete = confirm("Are you sure you want to delete this knowledgeId?");
-                                                        if (confirmDelete) {
-                                                            var knowledgeId = document.getElementById("knowledgeId").value;
-                                                            window.location.href = "deleteData.jsp?knowledgeId";
-                                                        }}
+                                                        Swal.fire({
+                                                            title: '確定要刪除此資料嗎？',
+                                                            text: '刪除後將無法恢復。',
+                                                            icon: 'warning',
+                                                            showCancelButton: true,
+                                                            confirmButtonColor: '#d33',
+                                                            cancelButtonColor: '#3085d6',
+                                                            confirmButtonText: '確定刪除'
+                                                        }).then((result) => {
+                                                            if (result.isConfirmed) {
+                                                                var knowledgeId = document.getElementById("knowledgeId").value;
+                                                                window.location.href = "deleteData.jsp?knowledgeId=" + knowledgeId;
+                                                            }
+                                                        });
+                                                    }
                                                 </script>
                                             </tr>    
                                             <%
@@ -1761,6 +1781,8 @@ input {
     <script src="https://bootadmin.org/scripts/vendor/bootstrap.min.js"></script>
     <script src="https://bootadmin.org/scripts/vendor/library.min.js"></script>
     <script src="https://bootadmin.org/scripts/core/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
     <script>
         (function (i, s, o, g, r, a, m) {

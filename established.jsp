@@ -1,88 +1,100 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*, java.io.*" %>
 <!DOCTYPE html>
-<html lang="zh-Hant-TW">
+<html>
 <head>
-    <title>checkout</title>
+    <!-- Include SweetAlert library from CDN -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-
 <%
-String memberName = (String) session.getAttribute("memberName");
+    String memberName = (String) session.getAttribute("memberName");
+    int rowsAffected = 0; // Initialize rowsAffected outside the try-catch block
 
-// Get form data
-String id = request.getParameter("id"); // Add this line to get the member ID
-String fullname = request.getParameter("fullName"); // Correct the parameter name to match the form
-String phone = request.getParameter("phone");
-String address = request.getParameter("address");
-String email = request.getParameter("email");
+    // Retrieve form data
+    String fullName = request.getParameter("fullName");
+    String phone = request.getParameter("phone");
+    String address = request.getParameter("address");
+    String email = request.getParameter("email");
 
-// JDBC connection
-String jdbcUrl = "jdbc:sqlserver://127.0.0.1:1433;database=109_ganbade";
-String dbUser = "chu";
-String dbPassword = "0725";
+    Connection conn = null;
+    PreparedStatement preparedStatement = null;
 
-// Initialize variable for success or failure
-boolean isSuccess = false;
+    try {
+        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        String url = "jdbc:sqlserver://127.0.0.1:1433;database=109_ganbade";
+        String user = "chu";
+        String password = "0725";
+        conn = DriverManager.getConnection(url, user, password);
 
-try {
-    Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-    Connection connection = DriverManager.getConnection(jdbcUrl, dbUser, dbPassword);
+        // Update the member information
+        String updateMemberSql = "UPDATE member " +
+                                 "SET fullname=?, phone=?, address=?, email=? " +
+                                 "WHERE name IN (SELECT member.name " +
+                                                "FROM member " +
+                                                "INNER JOIN cart ON member.name = cart.member_name " +
+                                                "WHERE cart.member_name = ?)";
 
-    // Update data in the member table
-    String updateQuery = "UPDATE member SET fullname = ?, phone = ?, address = ?, email = ? WHERE memberName = ?";
-    try (PreparedStatement preparedStatement = connection.prepareStatement(updateQuery)) {
-        preparedStatement.setString(1, fullname);
+        try (PreparedStatement updateMemberPs = conn.prepareStatement(updateMemberSql)) {
+            updateMemberPs.setString(1, fullName);
+            updateMemberPs.setString(2, phone);
+            updateMemberPs.setString(3, address);
+            updateMemberPs.setString(4, email);
+            updateMemberPs.setString(5, memberName);
+            rowsAffected = updateMemberPs.executeUpdate(); // Update rowsAffected here
+        }
+
+        // Your existing code to update member information
+        String updateQuery = "UPDATE member SET fullname=?, phone=?, address=?, email=? WHERE member_name=?";
+        preparedStatement = conn.prepareStatement(updateQuery);
+        preparedStatement.setString(1, fullName);
         preparedStatement.setString(2, phone);
         preparedStatement.setString(3, address);
         preparedStatement.setString(4, email);
-        preparedStatement.setString(5, memberName); // Use memberName for WHERE clause
+        preparedStatement.setString(5, memberName);
+        rowsAffected = preparedStatement.executeUpdate(); // Update rowsAffected here
 
-        // Check if the update was successful
-        isSuccess = preparedStatement.executeUpdate() > 0;
+    } catch (Exception e) {
+        e.printStackTrace();
+    } finally {
+        // Close database resources
+        try { if (preparedStatement != null) preparedStatement.close(); } catch (Exception e) { /* Ignore */ }
+        try { if (conn != null) conn.close(); } catch (Exception e) { /* Ignore */ }
     }
-
-    connection.close();
-} catch (Exception e) {
-    e.printStackTrace();
-}
 %>
-
-<%
-// Show SweetAlert message based on success or failure
-if (isSuccess) {
-%>
-    <script>
-        Swal.fire({
-            icon: 'success',
-            title: 'Success!',
-            text: 'Data has been updated successfully.',
-            showConfirmButton: false,
-            timer: 2000 // Close after 2 seconds
-        }).then(() => {
-            // Redirect to a success page if needed
-            window.location.href = 'success.jsp';
-        });
-    </script>
-<%
-} else {
-%>
-    <script>
-        Swal.fire({
-            icon: 'error',
-            title: 'Error!',
-            text: 'Failed to update data. Please try again.',
-            showConfirmButton: false,
-            timer: 2000 // Close after 2 seconds
-        }).then(() => {
-            // Redirect to an error page or back to the form if needed
-            window.location.href = 'checkout.jsp';
-        });
-    </script>
-<%
-}
-%>
-
+    <!-- Inside your JSP script tag, after the update operation -->
+    <%
+        if (rowsAffected > 0) {
+    %>
+            <!-- Success alert -->
+            <script>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Update Successful',
+                    text: 'Member information has been updated successfully!',
+                    showConfirmButton: false,
+                    timer: 2000
+                }).then(function () {
+                    window.location.href = "store.jsp";
+                });
+            </script>
+    <%
+        } else {
+    %>
+            <!-- Error alert -->
+            <script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Update Failed',
+                    text: 'Failed to update member information. Please try again.',
+                    showConfirmButton: false,
+                    timer: 2000
+                }).then(function () {
+                    window.location.href = "checkout.jsp";
+                });
+            </script>
+    <%
+        }
+    %>
 </body>
 </html>

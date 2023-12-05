@@ -97,9 +97,6 @@ ALTER TABLE cart
 ADD CONSTRAINT FK_cart_store
 FOREIGN KEY (id) REFERENCES store(id);
 
-SELECT store.id, store.name, store.imgpath FROM member_collect INNER JOIN store ON member_collect.store_name = store.name WHERE member_name ='00';
-SELECT COUNT(store_name) AS item_count FROM member_collect WHERE member_name ='00'
-
 
 CREATE TABLE cart (
     store_id int,
@@ -123,3 +120,17 @@ SELECT SUM(quantity) as tatolquantity FROM cart WHERE member_name = '00'
 
 ALTER TABLE member
 ALTER COLUMN phone NVARCHAR(15);
+
+UPDATE member SET fullname = '00' WHERE id = '00';
+select * from member
+SELECT  fullname,phone, cart.member_name
+FROM member
+INNER JOIN cart ON member.name = cart.member_name
+WHERE cart.member_name = '00';
+UPDATE member
+SET fullname = '000', phone='69079'
+WHERE name IN (SELECT member.name
+               FROM member
+               INNER JOIN cart ON member.name = cart.member_name
+               WHERE cart.member_name = '00');
+select * from cart

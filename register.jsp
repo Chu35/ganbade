@@ -4,7 +4,7 @@
     <title>甘吧茶ㄉㄟˊ</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        function showAlert(message, redirectTo, alertType) {
+        function showAlert(message, alertType) {
             Swal.fire({
                 icon: alertType === 'success' ? 'success' : 'error',
                 title: alertType === 'success' ? '成功' : '錯誤',
@@ -13,10 +13,14 @@
                 timerProgressBar: true,
                 showConfirmButton: false
             }).then(() => {
-                window.location.href = redirectTo;
+                if (alertType === 'success') {
+                    window.location.href = 'login.html';
+                } else {
+                    window.history.back();
+                }
             });
         }
-    </script>
+    </script>    
 </head>
 <body>
     <%
@@ -24,38 +28,51 @@
         String gender = request.getParameter("gender");
         String name = request.getParameter("name");
         String pwd = request.getParameter("pwd");
-        String memberName = null; // 初始化會員名稱
 
         if (user == null || gender == null || name == null || pwd == null) {
-            out.println("<script>showAlert('請填寫所有欄位', 'login.html#register-form', 'error');</script>");
+            out.println("<script>showAlert('請填寫所有欄位', 'error');</script>");
         } else if (!Pattern.compile("^(?=.*[0-9])(?=.*[a-zA-Z]).+$").matcher(pwd).matches()) {
-            out.println("<script>showAlert('密碼必須包含英文和數字', 'login.html#register-form', 'error');</script>");
+            out.println("<script>showAlert('密碼必須包含英文和數字', 'error');</script>");
         } else {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            String url = "jdbc:sqlserver://127.0.0.1:1433;database=109_ganbade";
-            
-            try (Connection con = DriverManager.getConnection(url, "chu", "0725");
-                Statement st = con.createStatement()) {
+            Connection con = null;
+            PreparedStatement checkStmt = null;
+
+            try {
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                String url = "jdbc:sqlserver://127.0.0.1:1433;database=109_ganbade";
+                con = DriverManager.getConnection(url, "chu", "0725");
+
                 String checkSql = "SELECT * FROM member WHERE id = ?";
-                PreparedStatement checkStmt = con.prepareStatement(checkSql);
+                checkStmt = con.prepareStatement(checkSql);
                 checkStmt.setString(1, user);
                 ResultSet rs = checkStmt.executeQuery();
 
                 if (rs.next()) {
-                    out.println("<script>showAlert('" + user + " 名稱已被使用已經存在', 'login.html#register-form', 'error');</script>");
+                    out.println("<script>showAlert('" + user + " 名稱已被使用已經存在', 'error');</script>");
                 } else {
-                    String insertSql = "update member set (id, gender, name, pwd) VALUES (?, ?, ?, ?)";
+                    String insertSql = "INSERT INTO member (id, gender, name, pwd) VALUES (?, ?, ?, ?)";
                     PreparedStatement insertStmt = con.prepareStatement(insertSql);
                     insertStmt.setString(1, user);
                     insertStmt.setString(2, gender);
                     insertStmt.setString(3, name);
                     insertStmt.setString(4, pwd);
                     insertStmt.execute();
-                    out.println("<script>showAlert('新增完成，請再次登入', 'login.html', 'success');</script>");
+                    out.println("<script>showAlert('新增完成，請再次登入',  'success');</script>");
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                out.println("<script>showAlert('發生錯誤：" + e.getMessage() + "', 'login.html#register-form', 'error');</script>");
+                out.println("<script>showAlert('發生錯誤：" + e.getMessage() + "', 'error');</script>");
+            } finally {
+                try {
+                    if (checkStmt != null) {
+                        checkStmt.close();
+                    }
+                    if (con != null) {
+                        con.close();
+                    }
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
             }
         } 
     %>

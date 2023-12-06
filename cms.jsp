@@ -1039,14 +1039,21 @@ input {
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <% try { Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver"); Connection
-                                                    conn=DriverManager.getConnection(dbURL, user, password); String sqlQuery="SELECT * FROM fun"
-                                                    ; Statement statement=conn.createStatement(); ResultSet
-                                                    result=statement.executeQuery(sqlQuery); while (result.next()) { String
-                                                    id=result.getString("id"); String name=result.getString("name"); String
-                                                    classification=result.getString("classification"); String place=result.getString("place");
-                                                    String phone=result.getString("phone"); String
-                                                    imagePathicon=result.getString("imagePathicon"); %>
+                                                <% 
+                                                try { 
+                                                    Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver"); 
+                                                    Connection conn=DriverManager.getConnection(dbURL, user, password); 
+                                                    String sqlQuery="SELECT * FROM fun"; 
+                                                    Statement statement=conn.createStatement(); 
+                                                    ResultSet result=statement.executeQuery(sqlQuery); 
+                                                    while (result.next()) { 
+                                                        String id=result.getString("id"); 
+                                                        String name=result.getString("name"); 
+                                                        String classification=result.getString("classification"); 
+                                                        String place=result.getString("place");
+                                                        String phone=result.getString("phone"); 
+                                                        String imagePathicon=result.getString("imagePathicon"); 
+                                                        %>
                                                     <tr class="text-center">
                                                         <td>
                                                             <img src="<%= imagePathicon %>" style="width:50px" alt="">
@@ -1130,10 +1137,74 @@ input {
                                 <div class="card-body">
                                     <div class="d-md-flex align-items-center">
                                         <h4 class="card-title">eCommerce</h4>
+                                        <h4 id="addData4" class="card-title"><i class="fa fa-plus" style="margin: 5px; cursor: pointer;"></i></h4>
+<script>
+    $(document).ready(function () {
+        $('#addData4').click(function () {
+            // Use unique identifiers for the elements in this block
+            Swal.fire({
+                title: 'Add Data',
+                html:
+                    '<input id="idInputStore" class="swal2-input" placeholder="Enter id">' +
+                    '<input id="imgpathInputStore" class="swal2-input" placeholder="Enter imgpath">' +
+                    '<input id="nameInputStore" class="swal2-input" placeholder="Enter name">' +
+                    '<input id="priceInputStore" class="swal2-input" placeholder="Enter price">' +
+                    '<input id="listInputStore" class="swal2-input" placeholder="Enter list">',
+                showCancelButton: true,
+                confirmButtonText: 'Insert',
+                focusConfirm: false,
+                preConfirm: () => {
+                    let id = $('#idInputStore').val();
+                    let imgpath = $('#imgpathInputStore').val();
+                    let name = $('#nameInputStore').val();
+                    let price = $('#priceInputStore').val();
+                    let list = $('#listInputStore').val();
+                    insertDataIntoTableStore('store', id, imgpath, name, price, list);
+                }
+            });
+        });
+
+        function insertDataIntoTableStore(dataType, id, imgpath, name, price, list) {
+            $.ajax({
+                url: 'insertData.jsp',
+                type: 'POST',
+                data: {
+                    dataType: dataType,
+                    newId: id,
+                    newImgpath: imgpath,
+                    newName: name,
+                    newPrice: price,
+                    newList: list
+                },
+                success: function (response) {
+                    Swal.fire({
+                        title: 'Data Inserted Successfully!',
+                        icon: 'success',
+                        timer: 1000,
+                        timerProgressBar: true,
+                        showConfirmButton: false
+                    });
+                },
+                error: function (error) {
+                    // Handle the error, e.g., show an error message
+                    Swal.fire({
+                        title: 'Error Inserting Data',
+                        icon: 'error',
+                        text: error.responseText,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        showConfirmButton: false
+                    });
+                }
+            });
+        }
+    });
+</script>
+
                                         <div class="ml-auto">
                                             <div class="dl">
-                                                <input type="text" id="searchInput4" placeholder="Search..." style="border:none;outline: none;">
-                                            </div>
+                                                <input type="text" id="searchInput4" placeholder="Search..." style="border:none;outline: none;">   
+                                            </div>                                           
                                         </div>
                                         <script>
                                             $(document).ready(function () {
@@ -1269,6 +1340,64 @@ input {
                                 <div class="card-body">
                                     <div class="d-md-flex align-items-center">
                                         <h4 class="card-title">Sugardaddy</h4>
+                                        <h4 id="addData5" class="card-title"><i class="fa fa-plus" style="margin: 5px; cursor: pointer;"></i></h4>
+                                        <script>
+                                            $(document).ready(function () {
+                                                $('#addData5').click(function () {
+                                                    Swal.fire({
+                                                        title: 'Add Data',
+                                                        html:
+                                                            '<input id="idInputSugardaddy" class="swal2-input" placeholder="Enter id">' +
+                                                            '<input id="imagepathInputSugardaddy" class="swal2-input" placeholder="Enter imagepath">' +
+                                                            '<input id="nameInputSugardaddy" class="swal2-input" placeholder="Enter name">' +
+                                                            '<input id="hrefInputSugardaddy" class="swal2-input" placeholder="Enter href">',
+                                                            showCancelButton: true,
+                                                            confirmButtonText: 'Insert',
+                                                            focusConfirm: false,
+                                                        preConfirm: () => {
+                                                            let id = $('#idInputSugardaddy').val();
+                                                            let imagepath = $('#imagepathInputSugardaddy').val();
+                                                            let name = $('#nameInputSugardaddy').val();
+                                                            let href = $('#hrefInputSugardaddy').val();
+                                                            insertDataIntoTable('sugardaddy',id,imagepath,name, href);
+                                                        }
+                                                    });
+                                                });
+                                        
+                                                function insertDataIntoTable(dataType,id,imagepath,name, href) {
+                                                    $.ajax({
+                                                        url: 'insertData.jsp', 
+                                                        type: 'POST',
+                                                        data: {
+                                                            dataType: dataType,
+                                                            newId: id,
+                                                            newImagepath: imagepath,
+                                                            newName: name,
+                                                            newhref: href,
+                                                        }, 
+                                                        success: function (response) {
+                                                            Swal.fire({
+                                                                title: 'Data Inserted Successfully!',
+                                                                icon: 'success',
+                                                                timer: 1000,
+                                                                timerProgressBar: true,
+                                                                showConfirmButton: false
+                                                            });
+                                                        },
+                                                        error: function (error) {
+                                                            Swal.fire({
+                                                                title: 'Error Inserting Data',
+                                                                icon: 'error',
+                                                                text: error.responseText,
+                                                                timer: 3000,
+                                                                timerProgressBar: true,
+                                                                showConfirmButton: false
+                                                            });
+                                                        }
+                                                    });
+                                                }
+                                            });
+                                        </script>
                                         <div class="ml-auto">
                                             <div class="dl">
                                                 <input type="text" id="searchInput5" placeholder="Search..." style="border:none;outline: none;">

@@ -3,9 +3,10 @@
 <!DOCTYPE html>
 <% String memberName = (String) session.getAttribute("memberName"); %>
 <head>
-<!-- Include SweetAlert -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-</head><body>
+    <!-- Include SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
 <%
     String dbURL = "jdbc:sqlserver://127.0.0.1:1433;database=109_ganbade";
     String user = "chu";
@@ -48,11 +49,9 @@
     String newFunPlace = request.getParameter("newFunPlace");
     String newFunPhone = request.getParameter("newFunPhone");
 
-
     try {
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         try (Connection conn = DriverManager.getConnection(dbURL, user, password)) {
-
 
             // Update for "member" Table
             String updateMemberQuery = "UPDATE member SET id=?, name=?, pwd=?, gender=? WHERE id=?";
@@ -76,10 +75,9 @@
         timerProgressBar: true,
         showConfirmButton: false
     }).then(() => {
-        window.location.href = "cms.jsp";
+        window.history.back();
     });
 </script>
-            
 <%
                     return;  // End the script execution here
                 }
@@ -109,7 +107,7 @@
         timerProgressBar: true,
         showConfirmButton: false
     }).then(() => {
-        window.location.href = "cms.jsp";
+        window.history.back();
     });
 </script>
 <%
@@ -143,8 +141,6 @@
         window.history.back();
     });
 </script>
-
-
 <%
                     return;  // End the script execution here
                 }
@@ -171,7 +167,7 @@
         timerProgressBar: true,
         showConfirmButton: false
     }).then(() => {
-        window.location.href = "cms.jsp";
+        window.history.back();
     });
 </script>
 <%
@@ -202,25 +198,25 @@
         timerProgressBar: true,
         showConfirmButton: false
     }).then(() => {
-        window.location.href = "cms.jsp";
+        window.history.back();
     });
 </script>
-                    <%
+<%
                     return;  
                 }
             }
-            %>
-            <script>
-                Swal.fire({
-                    title: 'No rows updated. Check your parameters.',
-                    icon: 'warning',
-                    timer: 1000,
-                    timerProgressBar: true,
-                    showConfirmButton: false
-                }).then(() => {
-                    window.location.href = "cms.jsp";
-                });
-            </script>
+%>
+<script>
+    Swal.fire({
+        title: 'No rows updated. Check your parameters.',
+        icon: 'warning',
+        timer: 1000,
+        timerProgressBar: true,
+        showConfirmButton: false
+    }).then(() => {
+        window.location.href = "cms.jsp";
+    });
+</script>
 <%
         }
     } catch (SQLException se) {
@@ -255,5 +251,6 @@
 <%
     }
 %>
+
 </body>
 </html>

@@ -70,8 +70,8 @@
             <script>
                 Swal.fire({
                     icon: 'success',
-                    title: 'Update Successful',
-                    text: 'Member information has been updated successfully!',
+                    title: '成功',
+                    text: '訂單已送出!',
                     showConfirmButton: false,
                     timer: 2000
                 }).then(function () {
@@ -85,8 +85,8 @@
             <script>
                 Swal.fire({
                     icon: 'error',
-                    title: 'Update Failed',
-                    text: 'Failed to update member information. Please try again.',
+                    title: '失敗',
+                    text: '請稍後再試一次!',
                     showConfirmButton: false,
                     timer: 2000
                 }).then(function () {

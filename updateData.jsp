@@ -1,6 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<!DOCTYPE html>
+<% String memberName = (String) session.getAttribute("memberName"); %>
+<head>
+<!-- Include SweetAlert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head><body>
 <%
     String dbURL = "jdbc:sqlserver://127.0.0.1:1433;database=109_ganbade";
     String user = "chu";
@@ -63,10 +68,17 @@
                 // Check if rows were updated for "Member" Table
                 if (memberRowsUpdated > 0) {
 %>
-                    <script>
-                        alert("Member update successful!");
-                        window.location.href = "cms.jsp";
-                    </script>
+<script>
+    Swal.fire({
+        title: 'Member update successful!',
+        icon: 'success',
+        timer: 1000,
+        timerProgressBar: true,
+        showConfirmButton: false
+    }).then(() => {
+        window.location.href = "cms.jsp";
+    });
+</script>
             
 <%
                     return;  // End the script execution here
@@ -89,10 +101,17 @@
                 // Check if rows were updated for "knowledge" Table
                 if (knowledgeRowsUpdated > 0) {
 %>
-                    <script>
-                        alert("Knowledge update successful!");
-                        window.location.href = "cms.jsp";
-                    </script>
+<script>
+    Swal.fire({
+        title: 'Knowledge update successful!',
+        icon: 'success',
+        timer: 1000,
+        timerProgressBar: true,
+        showConfirmButton: false
+    }).then(() => {
+        window.location.href = "cms.jsp";
+    });
+</script>
 <%
                     return;  // End the script execution here
                 }
@@ -112,10 +131,20 @@
                 // Check if rows were updated for "store" Table
                 if (storeRowsUpdated > 0) {
 %>
-                    <script>
-                        alert("Store update successful!");
-                        window.location.href = "cms.jsp";
-                    </script>
+<script>
+    Swal.fire({
+        title: 'Store update successful!',
+        icon: 'success',
+        timer: 1000,
+        timerProgressBar: true,
+        showConfirmButton: false
+    }).then(() => {
+        // Go back to the previous page
+        window.history.back();
+    });
+</script>
+
+
 <%
                     return;  // End the script execution here
                 }
@@ -134,10 +163,17 @@
                 // Check if rows were updated for "Sugardaddy" Table
                 if (SugardaddyRowsUpdated > 0) {
 %>
-                    <script>
-                        alert("Sugardaddy update successful!");
-                        window.location.href = "cms.jsp";
-                    </script>
+<script>
+    Swal.fire({
+        title: 'Sugardaddy update successful!',
+        icon: 'success',
+        timer: 1000,
+        timerProgressBar: true,
+        showConfirmButton: false
+    }).then(() => {
+        window.location.href = "cms.jsp";
+    });
+</script>
 <%
                     return;  // End the script execution here
                 }
@@ -158,36 +194,66 @@
                 // Check if rows were updated for "Fun" Table
                 if (FunRowsUpdated > 0) {
 %>
-                    <script>
-                        alert("Fun update successful!");
-                        window.location.href = "cms.jsp";
-                    </script>
+<script>
+    Swal.fire({
+        title: 'Fun update successful!',
+        icon: 'success',
+        timer: 1000,
+        timerProgressBar: true,
+        showConfirmButton: false
+    }).then(() => {
+        window.location.href = "cms.jsp";
+    });
+</script>
                     <%
                     return;  
                 }
             }
             %>
             <script>
-                alert("No rows updated. Check your parameters.");
-                window.location.href = "cms.jsp";
+                Swal.fire({
+                    title: 'No rows updated. Check your parameters.',
+                    icon: 'warning',
+                    timer: 1000,
+                    timerProgressBar: true,
+                    showConfirmButton: false
+                }).then(() => {
+                    window.location.href = "cms.jsp";
+                });
             </script>
 <%
         }
     } catch (SQLException se) {
         se.printStackTrace();
 %>
-    <script>
-        alert("SQL Exception: <%= se.getMessage() %>");
+<script>
+    Swal.fire({
+        title: 'SQL Exception: <%= se.getMessage() %>',
+        icon: 'error',
+        timer: 1000,
+        timerProgressBar: true,
+        showConfirmButton: false
+    }).then(() => {
         window.location.href = "cms.jsp";
-    </script>
+    });
+</script>
 <%
-    } catch (Exception e) {
-        e.printStackTrace();
+} catch (Exception e) {
+    e.printStackTrace();
 %>
-    <script>
-        alert("Error updating rows: <%= e.getMessage() %>");
+<script>
+    Swal.fire({
+        title: 'Error updating rows: <%= e.getMessage() %>',
+        icon: 'error',
+        timer: 1000,
+        timerProgressBar: true,
+        showConfirmButton: false
+    }).then(() => {
         window.location.href = "cms.jsp";
-    </script>
+    });
+</script>
 <%
     }
 %>
+</body>
+</html>

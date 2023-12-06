@@ -39,7 +39,7 @@
     %>
     <script>
         Swal.fire({
-            icon: 'error',
+            icon: 'warning',
             title: '失敗',
             text: '已收藏',
             timer: 1000,

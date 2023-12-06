@@ -890,7 +890,8 @@ input {
                                                 </td>
                                                 <td><%= bake %>、<%= ferment %></td>
                                                 <td class="text-center">
-                                                    <button type="button" class="js-tooltip-enabled edit-icon" data-id="<%= id %>" onclick="openEditDialog2('<%= id %>', '<%= imagePath %>', '<%= name %>', '<%= type %>', '<%= classification %>', '<%= bake %>', '<%= ferment %>')">
+                                                    <button type="button" class="js-tooltip-enabled edit-icon" data-id="<%= id %>"
+                                                        onclick="openEditDialog2('<%= id %>', '<%= imagePath %>', '<%= name %>', '<%= type %>', '<%= classification %>', '<%= bake %>', '<%= ferment %>')">
                                                         <i class="fa fa-fw fa-pencil-alt"></i>
                                                     </button>
                                                 </td>
@@ -898,7 +899,7 @@ input {
                                                     <div class="modalcontent">
                                                         <span class="close" onclick="closeEditDialog2()">&times;</span>
                                                         <form class="editForm" method="post" action="updateData.jsp" onsubmit="return handleFormSubmit2()">
-                                                            <input type="hidden" name="knowledgeId" value="<%= id %>">
+                                                            <input type="hidden" name="knowledgeId" id="knowledgeId" value="">
                                                             <input type="hidden" name="originalImagePath" value="<%= imagePath %>">
                                                             <input type="hidden" name="originalName" value="<%= name %>">
                                                             <input type="hidden" name="originalType" value="<%= type %>">
@@ -925,7 +926,7 @@ input {
                                                 
                                                 <script>
                                                     function openEditDialog2(id, originalImagePath, originalName, originalType, originalClassification, originalBake, originalFerment) {
-
+                                                        document.getElementById('knowledgeId').value = id;
                                                         document.getElementById('newKnowledgeImgpath').value = originalImagePath;
                                                         document.getElementById('newKnowledgeName').value = originalName;
                                                         document.getElementById('newKnowledgeType').value = originalType;
@@ -1073,7 +1074,7 @@ input {
                                                                 <span class="close" onclick="closeEditDialog3()">&times;</span>
                                                                 <form class="editForm" method="post" action="updateData.jsp"
                                                                     onsubmit="return handleFormSubmit3()">
-                                                                    <input type="hidden" name="funId" value="<%= id %>">
+                                                                    <input type="hidden" name="funId" id="funId" value="">
                                                                     <input type="hidden" name="originalImagePathicon"
                                                                         value="<%= imagePathicon %>">
                                                                     <input type="hidden" name="originalName" value="<%= name %>">
@@ -1098,6 +1099,7 @@ input {
                                                         </div>
                                                         <script>
                                                             function openEditDialog3(id, originalImagePathicon, originalName, originalClassification, originalPlace, originalPhone) {
+                                                                document.getElementById('funId').value = id;
                                                                 document.getElementById('newFunimagePathicon').value = originalImagePathicon;
                                                                 document.getElementById('newFunName').value = originalName;
                                                                 document.getElementById('newFunClassification').value = originalClassification;
@@ -1209,7 +1211,7 @@ input {
                                                     <div class="modalcontent">
                                                         <span class="close" onclick="closeEditDialog4()">&times;</span>
                                                         <form class="editForm" method="post" action="updateData.jsp" onsubmit="return handleFormSubmit4()">
-                                                            <input type="hidden" name="storeId" value="<%= id %>">
+                                                            <input type="hidden" name="storeId" id="storeId" value="">
                                                             <input type="hidden" name="originalImgpath" value="<%= imgpath %>">
                                                             <input type="hidden" name="originalName" value="<%= name %>">
                                                             <input type="hidden" name="originalPrice" value="<%= price %>">
@@ -1228,6 +1230,7 @@ input {
                                                 </div>
                                                 <script>
                                                     function openEditDialog4(id, originalImgpath, originalName, originalPrice, originalList) {
+                                                        document.getElementById('storeId').value = id;
                                                         document.getElementById('newStoreImgpath').value = originalImgpath;
                                                         document.getElementById('newStoreName').value = originalName;
                                                         document.getElementById('newStorePrice').value = originalPrice;
@@ -1339,7 +1342,7 @@ input {
                                                     <div class="modalcontent">
                                                         <span class="close" onclick="closeEditDialog5()">&times;</span>
                                                         <form class="editForm" method="post" action="updateData.jsp" onsubmit="return handleFormSubmit5()">
-                                                            <input type="hidden" name="sugardaddyId" value="<%= id %>">
+                                                            <input type="hidden" name="sugardaddyId" id="sugardaddyId" value="">
                                                             <input type="hidden" name="originalImagepath" value="<%= imagepath %>">
                                                             <input type="hidden" name="originalName" value="<%= name %>">
                                                             <input type="hidden" name="originalHref" value="<%= href %>">
@@ -1356,6 +1359,7 @@ input {
                                                 
                                                 <script>
                                                     function openEditDialog5(id, originalImagepath, originalName, originalHref) {
+                                                        document.getElementById('sugardaddyId').value = id;
                                                         document.getElementById('newSugardaddyImagepath').value = originalImagepath;
                                                         document.getElementById('newSugardaddyName').value = originalName;
                                                         document.getElementById('newSugardaddyHref').value = originalHref;

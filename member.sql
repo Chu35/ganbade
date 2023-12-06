@@ -133,4 +133,6 @@ WHERE name IN (SELECT member.name
                FROM member
                INNER JOIN cart ON member.name = cart.member_name
                WHERE cart.member_name = '00');
-select * from cart
+select * from store
+select * from sugardaddy
+select * from Knowledge

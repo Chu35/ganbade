@@ -17,7 +17,7 @@
             <h1>歡迎光臨<br>甘吧茶ㄉㄟˊ</h1>
             <img src="img/4in1.png" alt="">
             <div class="buttons">
-                <button>校外展導覽</button>
+                <button id="tour">校外展導覽</button>
                 <a href="index.html"><button>專題網站</button></a>
             </div>
         </div>
@@ -27,7 +27,7 @@
             <div class="logo">
                 <img src="img/logo.png" alt="">
                 <h1>甘吧茶ㄉㄟˊ</h1>
-                <p>展間互動展覽</p>
+                <p>展間互動導覽</p>
             </div>
             <div class="personal2">
                 <h1>探險啟程&ensp;Let's go~</h1>
@@ -42,8 +42,32 @@
                     <img src="img/kv9.png" alt="Right Image" class="image right-image w-100">
                 </div>
                 <script>
-                    window.addEventListener("load", function () {
+                    document.addEventListener("DOMContentLoaded", function () {
                         var images = document.querySelectorAll(".image");
+                        var delays = {
+                            "img/kv3.png": 1500,
+                            "img/kv5.png": 1500,
+                            "img/kv7.png": 2500,
+                            "img/kv9.png": 2500
+                        };
+                
+                        document.getElementById("tour").addEventListener("click", function () {
+                            images.forEach(function (image) {
+                                var src = image.getAttribute("src");
+                                var delay = delays[src] || 1000;
+                                setTimeout(function () {
+                                    image.style.opacity = "1";
+                                    image.style.transform = "translateX(0)";
+                                }, delay);
+                            });
+                        });
+                    });
+                </script>
+                <!--
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        var personalCenter = document.querySelector(".personal.center");
+                        var images = personalCenter.querySelectorAll(".image");
                         var delays = {
                             "img/kv3.png": 1500,
                             "img/kv5.png": 1500,
@@ -59,7 +83,7 @@
                             }, delay);
                         });
                     });
-                </script>
+                </script>-->
             </div>
         </div>
     </div>

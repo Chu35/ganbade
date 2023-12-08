@@ -25,7 +25,7 @@ body {
 .container > div {
     display: none;
 }
-.menu, .personal,.personal2, .stepone, .nfc,.goin, .vr, .D, .test, .web, .draw, .end {
+.menu, .personal, .stepone, .nfc,.goin, .vr, .D, .test, .web, .draw, .end {
     width: 100%;
     text-align: center;
 }
@@ -86,6 +86,10 @@ button:hover {
     background-position: center;
     height: 100%; /* 设置视口高度为背景高度，确保背景充满整个屏幕 */
 }
+
+#didi{
+    max-width: 50%;
+}
 .personaltop {
     height: 100%; 
     display: flex;
@@ -107,7 +111,7 @@ button:hover {
 
 .personaltop img {
     margin-right: 20px;
-    width: 100px;
+    width: 150px;
 }
 /* keyvision */
 #image-container {

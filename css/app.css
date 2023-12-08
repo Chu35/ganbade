@@ -79,6 +79,7 @@ button:hover {
     background-image: url(../img/ad.jpg);
 }
 
+/* personal */
 .personal.center {
     display: flex;
     flex-direction: column;
@@ -148,7 +149,7 @@ button:hover {
 #userName{
     font-weight: 400;
 }
-/* keyvision */
+
 #image-container {
     position: relative;
     overflow: hidden;
@@ -156,7 +157,6 @@ button:hover {
     height: auto;
     padding-bottom: 50%; /* 添加一个比例性的 padding-bottom */
   }
-  
   .image {
     position: absolute;
     top: 0;
@@ -166,13 +166,14 @@ button:hover {
     object-fit: cover;
     opacity: 0;
     transition: opacity 1s, transform 1s;
-  }
-  .left-image {
+}
+
+.left-image {
     transform: translateX(-100%);
-  }
-  
-  .right-image {
+}
+
+.right-image {
     transform: translateX(100%);
-  }
+}
 
   

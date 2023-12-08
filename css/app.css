@@ -17,11 +17,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.container {
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 10px;
-}
+
 .container > div {
     display: none;
 }

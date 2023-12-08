@@ -20,11 +20,44 @@
                 </div>
             </div>
             <div class="personal center">
-                <h1>甘吧茶<br>校外展導覽</h1>
-                <h3>茶葉探險隊</h3>
-                <img src="img/4in2.png" alt="">
-                <input class="m1" type="text" id="userName" name="username" placeholder="姓名：" autocomplete="off" /><br><br>
-                <button id="startButton" class="btn btn-primary">開始</button>
+                <div class="personaltop">
+                    <h1><img src="img/logo.png" alt="">甘吧茶ㄉㄟˊ</h1>
+                    <p>展間互動展覽</p>
+                </div>
+                <div class="personal2">
+                    <h1>探險啟程&ensp;Let's go~</h1>
+                    <img src="img/didi.png" alt="">
+                    <input class="m1" type="text" id="userName" name="username" placeholder="暱稱：" autocomplete="off" /><br><br>
+                    <button id="startButton" class="btn btn-primary">任務開始</button>
+                <div id="image-container">
+                    <img src="img/kv3.png" alt="Left Image" class="image left-image w-100">
+                    <img src="img/kv5.png" alt="Right Image" class="image right-image w-100">
+                    <img src="img/kv7.png" alt="Left Image" class="image left-image w-100">
+                    <img src="img/kv9.png" alt="Right Image" class="image right-image w-100">
+                </div>
+                <script>
+                    // keyvision
+                        window.addEventListener("load", function() {
+                          var images = document.querySelectorAll(".image");
+                          var delays = {
+                            "img/kv3.png": 1500,
+                            "img/kv5.png": 1500,
+                            "img/kv7.png": 2500,	
+                            "img/kv9.png": 2500
+                          }; // 不同圖片的延遲時間（毫秒）
+                          
+                          images.forEach(function(image) { 
+                            var src = image.getAttribute("src");
+                            var delay = delays[src] || 1000; 
+                            
+                            setTimeout(function() {
+                              image.style.opacity = "1";
+                              image.style.transform = "translateX(0)";
+                            }, delay);
+                          });
+                        });
+                        </script>
+                </div>
             </div>
             <div class="stepone center">
                 <h1>第一步</h1>

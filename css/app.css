@@ -7,6 +7,7 @@ body, html {
 
 body {
     font-family: 'Arial', sans-serif;
+    background-color: #FDFAEC;
     margin: 0;
     padding: 0;
 }
@@ -24,9 +25,8 @@ body {
 .container > div {
     display: none;
 }
-.menu, .personal, .stepone, .nfc,.goin, .vr, .D, .test, .web, .draw, .end {
+.menu, .personal,.personal2, .stepone, .nfc,.goin, .vr, .D, .test, .web, .draw, .end {
     width: 100%;
-    padding: 20px;
     text-align: center;
 }
 .m1{
@@ -44,6 +44,7 @@ img {
 h1{
     font-weight: 600
 }
+
 h2{
     font-weight: 500;
 } 
@@ -76,4 +77,63 @@ button:hover {
     background-image: url(../img/ad.jpg);
 }
 
+.personal2{
+    background-color: #FFF3E8;
+    margin: 0;
+    padding: 0;
+    background-image: url(../img/材質2.png);
+    background-size: cover;
+    background-position: center;
+    height: 100%; /* 设置视口高度为背景高度，确保背景充满整个屏幕 */
+}
+.personaltop {
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
 
+.personaltop h1 {
+    display: flex;
+    align-items: center;
+}
+
+.personaltop p {
+    margin: 0;
+    position: absolute;
+    left: 90%;
+}
+
+.personaltop img {
+    margin-right: 20px;
+    width: 150px;
+}
+/* keyvision */
+#image-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    padding-bottom: 50%; /* 添加一个比例性的 padding-bottom */
+  }
+  
+  .image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s, transform 1s;
+  }
+  .left-image {
+    transform: translateX(-100%);
+  }
+  
+  .right-image {
+    transform: translateX(100%);
+  }
+
+  

@@ -84,34 +84,43 @@ button:hover {
     background-image: url(../img/材質2.png);
     background-size: cover;
     background-position: center;
-    height: 100%; /* 设置视口高度为背景高度，确保背景充满整个屏幕 */
+    height: 100%; 
 }
 
 #didi{
-    max-width: 50%;
+    max-width: 30%;
 }
-.personaltop {
-    height: 100%; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-}
-
-.personaltop h1 {
+.logo {
+    height: auto;
     display: flex;
     align-items: center;
+    justify-content: center; /* 水平居中对齐 */
+    position: relative; /* 设置相对定位 */
 }
 
-.personaltop p {
+.logo img {
     margin: 0;
-    position: absolute;
-    left: 75%;
+    width: 10%;
+    margin-right: 10px; /* 调整 img 和 h1 之间的间距 */
 }
 
-.personaltop img {
-    margin-right: 20px;
-    width: 150px;
+.logo h1, .logo p {
+    margin: 0;
+    text-align: center; /* 水平居中对齐 */
+}
+
+.logo p {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 0; /* 去除默认 margin */
+}
+#startButton{
+    background-color: #C8AC90;
+    box-shadow: 2px 2px 4px #402A05;
+    border-radius: 50px;
+    width: 200px;
+    height: auto;
 }
 /* keyvision */
 #image-container {

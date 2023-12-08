@@ -143,6 +143,10 @@ button:hover {
 }
 #userName::placeholder{
     color: #B69779;
+    font-weight: 400;
+}
+#userName{
+    font-weight: 400;
 }
 /* keyvision */
 #image-container {

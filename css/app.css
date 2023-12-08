@@ -19,7 +19,12 @@ body {
 }
 
 .container {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    overflow: auto;
 }
 .container > div {
     display: none;
@@ -28,16 +33,7 @@ body {
     width: 100%;
     text-align: center;
 }
-.m1 {
-    width: 200px;
-    border: none;
-    outline: none;
-    border-bottom: 2px solid #6C95C6;
-    background: none;
-    border-radius:0%;
-    padding: 5px;
-    font-size: 16px;
-}
+
 img {
     max-width: 100%;
     height: auto;
@@ -81,14 +77,15 @@ button {
     flex-direction: column;
     align-items: stretch;
     justify-content: stretch;
+    height: 100%;
 }
+
 .personal.center .personal2 {
+    flex: 1;
     background-color: #FFF3E8;
     background-image: url(../img/材質2.png);
     background-size: cover;
     background-position: center;
-}
-.personal.center #image-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -99,14 +96,27 @@ button {
     margin: 0;
     padding: 15px;
 }
-#didi{
+
+.m1 {
+    width: 200px;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #6C95C6;
+    background: none;
+    border-radius: 0%;
+    padding: 5px;
+    font-size: 16px;
+}
+
+#didi {
     max-width: 50%;
 }
+
 .logo {
     display: flex;
     align-items: center;
-    justify-content: center; /* 水平居中对齐 */
-    position: relative; /* 设置相对定位 */
+    justify-content: center;
+    position: relative;
     vertical-align: middle;
     background-color: #FDFAEC;
     padding: 5px;
@@ -114,22 +124,23 @@ button {
 
 .logo img {
     margin: 0;
-    width:70px;
-    margin-right: 10px; /* 调整 img 和 h1 之间的间距 */
+    width: 70px;
+    margin-right: 10px;
 }
 
 .logo h1, .logo p {
     margin: 0;
-    text-align: center; /* 水平居中对齐 */
+    text-align: center;
 }
 
 .logo p {
     position: absolute;
     bottom: 0;
     right: 0;
-    margin: 0; 
+    margin: 0;
 }
-#startButton{
+
+#startButton {
     background-color: #C8AC90;
     box-shadow: 2px 2px 4px #402A05;
     border-radius: 50px;
@@ -137,19 +148,20 @@ button {
     height: auto;
     margin: 30px;
 }
-#userName::placeholder{
+
+#userName::placeholder {
     color: #B69779;
 }
-
 
 #image-container {
     position: relative;
     overflow: hidden;
     width: 100%;
     height: auto;
-    padding-bottom: 50%; /* 添加一个比例性的 padding-bottom */
-  }
-  .image {
+    padding-bottom: 50%;
+}
+
+.image {
     position: absolute;
     top: 0;
     left: 0;
@@ -167,5 +179,3 @@ button {
 .right-image {
     transform: translateX(100%);
 }
-
-  

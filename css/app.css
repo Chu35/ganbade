@@ -79,18 +79,35 @@ button:hover {
     background-image: url(../img/ad.jpg);
 }
 
-.personal2{
+.personal.center {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: stretch;
+    height: 100vh;
+}
+
+.personal.center .logo {
+    flex: 1; /* 让 .logo 撑满剩余的空间 */
+}
+
+.personal.center .personal2 {
+    flex: 1; /* 让 .personal2 撑满剩余的空间 */
     background-color: #FFF3E8;
-    margin: 0;
-    padding: 0;
     background-image: url(../img/材質2.png);
     background-size: cover;
     background-position: center;
-    height: 100%; 
+}
+.personal.center #image-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 #didi{
-    max-width: 30%;
+    max-width: 50%;
 }
 .logo {
     height: auto;
@@ -115,7 +132,7 @@ button:hover {
     position: absolute;
     bottom: 0;
     right: 0;
-    margin: 0; /* 去除默认 margin */
+    margin: 0; 
 }
 #startButton{
     background-color: #C8AC90;

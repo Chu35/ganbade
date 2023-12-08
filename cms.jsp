@@ -601,6 +601,64 @@ input {
                                 <div class="card-body">
                                     <div class="d-md-flex align-items-center">
                                         <h4 class="card-title">Member</h4>
+                                        <h4 id="addData" class="card-title"><i class="fa fa-plus" style="margin: 7px; cursor: pointer;"></i></h4>
+                                        <script>
+                                            $(document).ready(function () {
+                                                $('#addData').click(function () {
+                                                    Swal.fire({
+                                                        title: 'Add Data',
+                                                        html:
+                                                            '<input id="idInputMember" class="swal2-input" placeholder="Enter id">' +
+                                                            '<input id="nameInputMember" class="swal2-input" placeholder="Enter name">' +
+                                                            '<input id="pwdInputMember" class="swal2-input" placeholder="Enter pwd">' +
+                                                            '<input id="genderInputMember" class="swal2-input" placeholder="Enter gender">',                                                        showCancelButton: true,
+                                                        confirmButtonText: 'Insert',
+                                                        focusConfirm: false,
+                                                        preConfirm: () => {
+                                                            let id = $('#idInputMember').val();
+                                                            let name = $('#nameInputMember').val();
+                                                            let pwd = $('#pwdInputMember').val();
+                                                            let gender = $('#genderInputMember').val();
+                                                            insertDataIntoTableMember('member', id, name, pwd, gender);
+                                                        }
+                                                    });
+                                                });
+                                        
+                                                function insertDataIntoTableMember(dataType, id, name, pwd, gender) {
+                                                    $.ajax({
+                                                        url: 'insertData.jsp',
+                                                        type: 'POST',
+                                                        data: {
+                                                            dataType: dataType,
+                                                            newId: id,
+                                                            newName: name,
+                                                            newPwd: pwd,
+                                                            newGender: gender
+                                                        },
+                                                        success: function (response) {
+                                                            Swal.fire({
+                                                                title: 'Data Inserted Successfully!',
+                                                                icon: 'success',
+                                                                timer: 1000,
+                                                                timerProgressBar: true,
+                                                                showConfirmButton: false
+                                                            });
+                                                        },
+                                                        error: function (error) {
+                                                            // Handle the error, e.g., show an error message
+                                                            Swal.fire({
+                                                                title: 'Error Inserting Data',
+                                                                icon: 'error',
+                                                                text: error.responseText,
+                                                                timer: 3000,
+                                                                timerProgressBar: true,
+                                                                showConfirmButton: false
+                                                            });
+                                                        }
+                                                    });
+                                                }
+                                            });
+                                        </script>
                                         <div class="ml-auto">
                                             <div class="dl">
                                                 <input type="text" id="searchInput" placeholder="Search..." style="border:none;outline: none;">
@@ -804,6 +862,75 @@ input {
                                 <div class="card-body">
                                     <div class="d-md-flex align-items-center">
                                         <h4 class="card-title">Knowledge</h4>
+                                        <h4 id="addData2" class="card-title"><i class="fa fa-plus" style="margin: 7px; cursor: pointer;"></i></h4>
+                                        <script>
+                                            $(document).ready(function () {
+                                                $('#addData2').click(function () {
+                                                    // Use unique identifiers for the elements in this block
+                                                    Swal.fire({
+                                                        title: 'Add Data',
+                                                        html:
+                                                            '<input id="idInputKnowledge" class="swal2-input" placeholder="Enter id">' +
+                                                            '<input id="image_pathInputKnowledge" class="swal2-input" placeholder="Enter image_path">' +
+                                                            '<input id="nameInputKnowledge" class="swal2-input" placeholder="Enter name">' +
+                                                            '<input id="typeInputKnowledge" class="swal2-input" placeholder="Enter type">' +
+                                                            '<input id="classificationInputKnowledge" class="swal2-input" placeholder="Enter classification">' +
+                                                            '<input id="bakeInputKnowledge" class="swal2-input" placeholder="Enter bake">' +
+                                                            '<input id="fermentInputKnowledge" class="swal2-input" placeholder="Enter ferment">',
+                                                        showCancelButton: true,
+                                                        confirmButtonText: 'Insert',
+                                                        focusConfirm: false,
+                                                        preConfirm: () => {
+                                                            let id = $('#idInputKnowledge').val();
+                                                            let image_path = $('#image_pathInputKnowledge').val();
+                                                            let name = $('#nameInputKnowledge').val();
+                                                            let type = $('#typeInputKnowledge').val();
+                                                            let classification = $('#classificationInputKnowledge').val();
+                                                            let bake = $('#bakeInputKnowledge').val();
+                                                            let ferment = $('#fermentInputKnowledge').val();
+                                                            insertDataIntoTableKnowledge('knowledge', id, image_path, name, type, classification, bake, ferment);
+                                                        }
+                                                    });
+                                                });
+                                        
+                                                function insertDataIntoTableKnowledge(dataType, id, image_path, name, type, classification, bake, ferment) {
+                                                    $.ajax({
+                                                        url: 'insertData.jsp',
+                                                        type: 'POST',
+                                                        data: {
+                                                            dataType: dataType,
+                                                            newId: id,
+                                                            newImage_path: image_path,
+                                                            newName: name,
+                                                            newType: type,
+                                                            newClassification: classification,
+                                                            newBake: bake,
+                                                            newFerment: ferment
+                                                        },
+                                                        success: function (response) {
+                                                            Swal.fire({
+                                                                title: 'Data Inserted Successfully!',
+                                                                icon: 'success',
+                                                                timer: 1000,
+                                                                timerProgressBar: true,
+                                                                showConfirmButton: false
+                                                            });
+                                                        },
+                                                        error: function (error) {
+                                                            // Handle the error, e.g., show an error message
+                                                            Swal.fire({
+                                                                title: 'Error Inserting Data',
+                                                                icon: 'error',
+                                                                text: error.responseText,
+                                                                timer: 3000,
+                                                                timerProgressBar: true,
+                                                                showConfirmButton: false
+                                                            });
+                                                        }
+                                                    });
+                                                }
+                                            });
+                                        </script>
                                         <div class="ml-auto">
                                             <div class="dl">
                                                 <input type="text" id="searchInput2" placeholder="Search..." style="border:none;outline: none;">
@@ -825,6 +952,7 @@ input {
                                     <table id="KnowledgeTable" class="table table-striped table-hover table-borderless table-vcenter font-size-sm">
                                         <thead>
                                             <tr class="text-uppercase text-center">
+                                                <th class="text-center">Id</th>
                                                 <th class="text-center">Image</th>
                                                 <th class="border-top-0" data-index="1">
                                                     <div class="sortable-header">
@@ -876,6 +1004,7 @@ input {
                                                     String imagePath = result.getString("image_path");
                                             %>
                                             <tr class="text-center">
+                                                <td><%= id %></td>
                                                 <td>
                                                     <img class="knowledge-image" src="<%= imagePath %>" style="width:50px" alt="">
                                                 </td>
@@ -918,7 +1047,7 @@ input {
                                                             <input type="text" id="newKnowledgeBake" name="newKnowledgeBake">
                                                             <label for="newKnowledgeFerment">New Ferment:</label> <!-- Corrected label -->
                                                             <input type="text" id="newKnowledgeFerment" name="newKnowledgeFerment"><br>
-                                                            <button type="button" class="btn btn-primary js-tooltip-enabled " onclick="deleteKnowledge()">Delete</button>
+                                                            <button type="button" class="btn btn-primary js-tooltip-enabled " onclick="deleteknowledge()">Delete</button>
                                                             <button type="submit" class="btn btn-primary js-tooltip-enabled edit">Save Changes</button>
                                                         </form>
                                                     </div>
@@ -945,7 +1074,7 @@ input {
                                                         return true;
                                                     }
                                                     
-                                                    function deleteKnowledge() {
+                                                    function deleteknowledge() {
                                                         Swal.fire({
                                                             title: '確定要刪除此資料嗎？',
                                                             text: '刪除後將無法恢復。',
@@ -984,6 +1113,69 @@ input {
                                 <div class="card-body border-top">
                                     <div class="d-md-flex align-items-center">
                                         <h4 class="card-title">Fun</h4>
+                                        <h4 id="addData3" class="card-title"><i class="fa fa-plus" style="margin: 7px; cursor: pointer;"></i></h4>
+                                        <script>
+                                            $(document).ready(function () {
+                                                $('#addData3').click(function () {
+                                                    // Use unique identifiers for the elements in this block
+                                                    Swal.fire({
+                                                        title: 'Add Data',
+                                                        html:
+                                                            '<input id="idInputFun" class="swal2-input" placeholder="Enter id">' +
+                                                            '<input id="imagePathiconInputFun" class="swal2-input" placeholder="Enter imagePathicon">' +
+                                                            '<input id="nameInputFun" class="swal2-input" placeholder="Enter name">' +
+                                                            '<input id="classificationInputFun" class="swal2-input" placeholder="Enter classification">' +
+                                                            '<input id="phoneInputFun" class="swal2-input" placeholder="Enter phone">',
+                                                        showCancelButton: true,
+                                                        confirmButtonText: 'Insert',
+                                                        focusConfirm: false,
+                                                        preConfirm: () => {
+                                                            let id = $('#idInputFun').val();
+                                                            let imagePathicon = $('#imagePathiconInputFun').val();
+                                                            let name = $('#nameInputFun').val();
+                                                            let classification = $('#classificationInputFun').val();
+                                                            let phone = $('#phoneInputFun').val();
+                                                            insertDataIntoTableFun('fun', id, imagePathicon, name, classification, phone);
+                                                        }
+                                                    });
+                                                });
+                                        
+                                                function insertDataIntoTableFun(dataType, id, imagePathicon, name, classification, phone) {
+                                                    $.ajax({
+                                                        url: 'insertData.jsp',
+                                                        type: 'POST',
+                                                        data: {
+                                                            dataType: dataType,
+                                                            newId: id,
+                                                            newImagePathicon: imagePathicon,
+                                                            newName: name,
+                                                            newClassification: classification,
+                                                            newPhone: phone
+                                                        },
+                                                        success: function (response) {
+                                                            Swal.fire({
+                                                                title: 'Data Inserted Successfully!',
+                                                                icon: 'success',
+                                                                timer: 1000,
+                                                                timerProgressBar: true,
+                                                                showConfirmButton: false
+                                                            });
+                                                        },
+                                                        error: function (error) {
+                                                            // Handle the error, e.g., show an error message
+                                                            Swal.fire({
+                                                                title: 'Error Inserting Data',
+                                                                icon: 'error',
+                                                                text: error.responseText,
+                                                                timer: 3000,
+                                                                timerProgressBar: true,
+                                                                showConfirmButton: false
+                                                            });
+                                                        }
+                                                    });
+                                                }
+                                            });
+                                        </script>
                                         <div class="ml-auto">
                                             <div class="dl">
                                                 <input type="text" id="searchInput3" placeholder="Search..." style="border:none;outline: none;">
@@ -1006,6 +1198,7 @@ input {
                                             <thead>
                                                 <tr class="text-center">
                                                 <tr class="text-uppercase text-center">
+                                                    <th class="border-top-0">Id</th>
                                                     <th class="border-top-0">Image</th>
                                                     <th class="border-top-0" data-index="1">
                                                         <div class="sortable-header">
@@ -1055,6 +1248,7 @@ input {
                                                         String imagePathicon=result.getString("imagePathicon"); 
                                                         %>
                                                     <tr class="text-center">
+                                                        <td><%= id %></td>
                                                         <td>
                                                             <img src="<%= imagePathicon %>" style="width:50px" alt="">
                                                         </td>
@@ -1099,8 +1293,8 @@ input {
                                                                     <input type="text" id="newFunPlace" name="newFunPlace">
                                                                     <label for="newFunPhone">New Phone:</label>
                                                                     <input type="text" id="newFunPhone" name="newFunPhone"><br>
-                                                                    <button type="submit" class="btn btn-primary  js-tooltip-enabled edit">Save
-                                                                        Changes</button>
+                                                                    <button type="button" class="btn btn-primary js-tooltip-enabled " onclick="deletefun()">Delete</button>
+                                                                    <button type="submit" class="btn btn-primary  js-tooltip-enabled edit">Save Changes</button>
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -1121,10 +1315,33 @@ input {
                                                                 closeEditDialog3();
                                                                 return true;
                                                             }
+                                                            function deletefun() {
+                                                                Swal.fire({
+                                                                    title: '確定要刪除此資料嗎？',
+                                                            text: '刪除後將無法恢復。',
+                                                            icon: 'warning',
+                                                            showCancelButton: true,
+                                                            confirmButtonColor: '#d33',
+                                                            cancelButtonColor: '#3085d6',
+                                                            confirmButtonText: '確定刪除'
+                                                        }).then((result) => {
+                                                            if (result.isConfirmed) {
+                                                                var funId = document.getElementById("funId").value;
+                                                                window.location.href = "deleteData.jsp?funId=" + funId;
+                                                            }
+                                                        });
+                                                    }
                                                         </script>
                                                     </tr>
-                                                    <% } result.close(); statement.close(); conn.close(); } catch (Exception e) {
-                                                        e.printStackTrace(); } %>
+                                                    <% 
+                                                } 
+                                                result.close(); 
+                                                statement.close(); 
+                                                conn.close(); 
+                                            } catch (Exception e) {
+                                                        e.printStackTrace(); 
+                                                    } 
+                                                    %>
                                             </tbody>
                                         </table>
                                     </div>
@@ -1137,7 +1354,7 @@ input {
                                 <div class="card-body">
                                     <div class="d-md-flex align-items-center">
                                         <h4 class="card-title">eCommerce</h4>
-                                        <h4 id="addData4" class="card-title"><i class="fa fa-plus" style="margin: 5px; cursor: pointer;"></i></h4>
+                                        <h4 id="addData4" class="card-title"><i class="fa fa-plus" style="margin: 7px; cursor: pointer;"></i></h4>
 <script>
     $(document).ready(function () {
         $('#addData4').click(function () {
@@ -1222,6 +1439,7 @@ input {
                                     <table id="storeTable" class="table table-borderless text-center">
                                         <thead>
                                             <tr>
+                                                <th>Id</th>
                                                 <th>Image</th>
                                                 <th class="border-top-0" data-index="1">
                                                     <div class="sortable-header">
@@ -1264,6 +1482,7 @@ input {
                                                     String imgpath = result.getString("imgpath");
                                             %>
                                             <tr class="text-center">
+                                                <td><%= id %></td>
                                                 <td>
                                                     <img src="<%= imgpath %>" style="width:50px" alt="iPhone">
                                                 </td>
@@ -1295,6 +1514,7 @@ input {
                                                             <input type="text" id="newStorePrice" name="newStorePrice">
                                                             <label for="newStoreList">New List:</label>
                                                             <input type="text" id="newStoreList" name="newStoreList"><br>
+                                                            <button type="button" class="btn btn-primary js-tooltip-enabled " onclick="deletestore()">Delete</button>
                                                             <button type="submit" class="btn btn-primary  js-tooltip-enabled edit">Save Changes</button>
                                                         </form>
                                                     </div>
@@ -1316,6 +1536,22 @@ input {
                                                     function handleFormSubmit4() {
                                                         closeEditDialog4();
                                                         return true;
+                                                    }
+                                                    function deletestore() {
+                                                        Swal.fire({
+                                                            title: '確定要刪除此資料嗎？',
+                                                            text: '刪除後將無法恢復。',
+                                                            icon: 'warning',
+                                                            showCancelButton: true,
+                                                            confirmButtonColor: '#d33',
+                                                            cancelButtonColor: '#3085d6',
+                                                            confirmButtonText: '確定刪除'
+                                                        }).then((result) => {
+                                                            if (result.isConfirmed) {
+                                                                var storeId = document.getElementById("storeId").value;
+                                                                window.location.href = "deleteData.jsp?storeId=" + storeId;
+                                                            }
+                                                        });
                                                     }
                                                 </script>
                                                 </tr>
@@ -1340,7 +1576,7 @@ input {
                                 <div class="card-body">
                                     <div class="d-md-flex align-items-center">
                                         <h4 class="card-title">Sugardaddy</h4>
-                                        <h4 id="addData5" class="card-title"><i class="fa fa-plus" style="margin: 5px; cursor: pointer;"></i></h4>
+                                        <h4 id="addData5" class="card-title"><i class="fa fa-plus" style="margin: 7px; cursor: pointer;"></i></h4>
                                         <script>
                                             $(document).ready(function () {
                                                 $('#addData5').click(function () {
@@ -1419,6 +1655,7 @@ input {
                                     <table id="sugardaddyTable" class="table table-borderless text-center">
                                         <thead>
                                             <tr>
+                                                <th>id</th>
                                                 <th>Image</th>
                                                 <th class="border-top-0" data-index="1">
                                                     <div class="sortable-header">
@@ -1453,6 +1690,7 @@ input {
                                                     String href = result.getString("href");
                                             %>
                                             <tr class="text-center">
+                                                <td><%= id %></td>
                                                 <td>
                                                     <img src="<%= imagepath %>" style="width:50px" alt="iPhone">
                                                 </td>
@@ -1481,11 +1719,11 @@ input {
                                                             <input type="text" id="newSugardaddyName" name="newSugardaddyName">
                                                             <label for="newSugardaddyHref">New Href:</label>
                                                             <input type="text" id="newSugardaddyHref" name="newSugardaddyHref"><br>
+                                                            <button type="button" class="btn btn-primary js-tooltip-enabled " onclick="deletesugardaddy()">Delete</button>
                                                             <button type="submit" class="btn btn-primary js-tooltip-enabled edit">Save Changes</button>
                                                         </form>
                                                     </div>
-                                                </div>
-                                                
+                                                </div>                                               
                                                 <script>
                                                     function openEditDialog5(id, originalImagepath, originalName, originalHref) {
                                                         document.getElementById('sugardaddyId').value = id;
@@ -1502,6 +1740,22 @@ input {
                                                     function handleFormSubmit5() {
                                                         closeEditDialog5();
                                                         return true;
+                                                    }
+                                                    function deletesugardaddy() {
+                                                        Swal.fire({
+                                                            title: '確定要刪除此資料嗎？',
+                                                            text: '刪除後將無法恢復。',
+                                                            icon: 'warning',
+                                                            showCancelButton: true,
+                                                            confirmButtonColor: '#d33',
+                                                            cancelButtonColor: '#3085d6',
+                                                            confirmButtonText: '確定刪除'
+                                                        }).then((result) => {
+                                                            if (result.isConfirmed) {
+                                                                var sugardaddyId = document.getElementById("sugardaddyId").value;
+                                                                window.location.href = "deleteData.jsp?sugardaddyId=" + sugardaddyId;
+                                                            }
+                                                        });
                                                     }
                                                 </script>
                                                 
@@ -1601,7 +1855,7 @@ input {
                                     var keyA = $(a).children('td').eq(selectedValue).text().toUpperCase();
                                     var keyB = $(b).children('td').eq(selectedValue).text().toUpperCase();
                     
-                                    if (selectedValue === 5) {
+                                    if (selectedValue === 1) {
                                         keyA = $(a).find('label').text().toUpperCase();
                                         keyB = $(b).find('label').text().toUpperCase();
                                     }

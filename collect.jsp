@@ -91,12 +91,15 @@
             timer: 1000,
             timerProgressBar: true,
             showConfirmButton: false
-        }).then(() => {
-            if ("<%= knowledgeId %>" !== null && "<%= knowledgeId %>" !== "") {
-                window.location.href = "knowl.jsp";
-            } else {
-                window.location.href = "fun.jsp";
-            }
+        }).then((result) => {
+            if (!result.isConfirmed) {
+                var currentLocation = window.location.href;
+                if (currentLocation.includes("fun")) {
+                    window.location.href = "fun.jsp";
+                } else if (currentLocation.includes("knowl")) {
+                    window.location.href = "knowl.jsp";
+                }
+            } 
         });
     </script>
     
@@ -112,12 +115,15 @@
             timer: 1000,
             timerProgressBar: true,
             showConfirmButton: false
-        }).then(() => {
-            if ("<%= knowledgeId %>" !== null && "<%= knowledgeId %>" !== "") {
-                window.location.href = "knowl.jsp";
-            } else {
-                window.location.href = "fun.jsp";
-            }
+        }).then((result) => {
+            if (!result.isConfirmed) {
+                var currentLocation = window.location.href;
+                if (currentLocation.includes("fun")) {
+                    window.location.href = "fun.jsp";
+                } else if (currentLocation.includes("knowl")) {
+                    window.location.href = "knowl.jsp";
+                }
+            } 
         });
     </script>
     

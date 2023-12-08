@@ -75,7 +75,6 @@
 <%
                 }
             }
-
             // Insert operations for "sugardaddy"
             if ("sugardaddy".equals(request.getParameter("dataType"))) {
                 String newSugardaddyId = request.getParameter("newId");
@@ -124,6 +123,185 @@
                     <script>
                         Swal.fire({
                             title: 'SQL Exception (Sugardaddy): <%= eSugardaddy.getMessage() %>',
+                            icon: 'error',
+                            timer: 3000,
+                            timerProgressBar: true,
+                            showConfirmButton: false
+                        });
+                    </script>
+<%
+                    }
+                }
+            // Insert operations for "member"
+            if ("member".equals(request.getParameter("dataType"))) {
+                String newMemberId = request.getParameter("newId");
+                String newMemberName = request.getParameter("newName");
+                String newMemberPwd = request.getParameter("newPwd");
+                String newMemberGender = request.getParameter("newGender");
+
+                String insertMemberQuery = "INSERT INTO member (id, name, pwd, gender) VALUES (?, ?, ?, ?)";
+                try (PreparedStatement pstmtMember = conn.prepareStatement(insertMemberQuery)) {
+                    pstmtMember.setString(1, newMemberId);
+                    pstmtMember.setString(2, newMemberName);
+                    pstmtMember.setString(3, newMemberPwd);
+                    pstmtMember.setString(4, newMemberGender);
+                    int rowsInsertedMember = pstmtMember.executeUpdate();
+
+                    if (rowsInsertedMember > 0) {
+%>
+                        <script>
+                            Swal.fire({
+                                title: 'Member Data Inserted Successfully!',
+                                icon: 'success',
+                                timer: 1000,
+                                timerProgressBar: true,
+                                showConfirmButton: false
+                            });
+                        </script>
+<%
+                    } else {
+%>
+                        <script>
+                            Swal.fire({
+                                title: 'Error Inserting Member Data',
+                                icon: 'error',
+                                text: 'No rows inserted for Member.',
+                                timer: 3000,
+                                timerProgressBar: true,
+                                showConfirmButton: false
+                            });
+                        </script>
+<%
+                    }
+                } catch (SQLException eMember) {
+                    eMember.printStackTrace();
+                    response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+%>
+                    <script>
+                        Swal.fire({
+                            title: 'SQL Exception (Member): <%= eMember.getMessage() %>',
+                            icon: 'error',
+                            timer: 3000,
+                            timerProgressBar: true,
+                            showConfirmButton: false
+                        });
+                    </script>
+<%
+                    }
+                }
+            // Insert operations for "Knowledge"
+            if ("knowledge".equals(request.getParameter("dataType"))) {
+                String newKnowledgeId = request.getParameter("newId");
+                String newKnowledgeImage_path = request.getParameter("newImagepath");
+                String newKnowledgeName = request.getParameter("newName");
+                String newKnowledgeType = request.getParameter("newType");
+                String newKnowledgeClassification = request.getParameter("newClassification");
+                String newKnowledgeBake = request.getParameter("newBake");
+                String newKnowledgeFerment = request.getParameter("newFerment");
+
+                String insertKnowledgeQuery = "INSERT INTO knowledge (id, image_path, name, type, classification, bake, ferment) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                try (PreparedStatement pstmtKnowledge = conn.prepareStatement(insertKnowledgeQuery)) {
+                    pstmtKnowledge.setString(1, newKnowledgeId);
+                    pstmtKnowledge.setString(2, newKnowledgeImage_path);
+                    pstmtKnowledge.setString(3, newKnowledgeName);
+                    pstmtKnowledge.setString(4, newKnowledgeType);
+                    pstmtKnowledge.setString(5, newKnowledgeClassification);
+                    pstmtKnowledge.setString(6, newKnowledgeBake);
+                    pstmtKnowledge.setString(7, newKnowledgeFerment);
+                    int rowsInsertedKnowledge = pstmtKnowledge.executeUpdate();
+
+                    if (rowsInsertedKnowledge > 0) {
+%>
+                        <script>
+                            Swal.fire({
+                                title: 'Knowledge Data Inserted Successfully!',
+                                icon: 'success',
+                                timer: 1000,
+                                timerProgressBar: true,
+                                showConfirmButton: false
+                            });
+                        </script>
+<%
+                    } else {
+%>
+                        <script>
+                            Swal.fire({
+                                title: 'Error Inserting Knowledge Data',
+                                icon: 'error',
+                                text: 'No rows inserted for Knowledge.',
+                                timer: 3000,
+                                timerProgressBar: true,
+                                showConfirmButton: false
+                            });
+                        </script>
+<%
+                    }
+                } catch (SQLException eKnowledge) {
+                    eKnowledge.printStackTrace();
+                    response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+%>
+                    <script>
+                        Swal.fire({
+                            title: 'SQL Exception (Knowledge): <%= eKnowledge.getMessage() %>',
+                            icon: 'error',
+                            timer: 3000,
+                            timerProgressBar: true,
+                            showConfirmButton: false
+                        });
+                    </script>
+<%
+                    }
+                }
+                // Insert operations for "fun"
+                if ("fun".equals(request.getParameter("dataType"))) {
+                    String newFunId = request.getParameter("newId");
+                    String newFunimagePathicon = request.getParameter("newImagePathicon");
+                    String newFunName = request.getParameter("newName");
+                    String newFunClassification = request.getParameter("newClassification");
+                    String newFunPhone = request.getParameter("newPhone");
+    
+                    String insertFunQuery = "INSERT INTO fun (id, imagePathicon, name, classification,phone) VALUES (?, ?, ?, ?,?)";
+                    try (PreparedStatement pstmtFun = conn.prepareStatement(insertFunQuery)) {
+                        pstmtFun.setString(1, newFunId);
+                        pstmtFun.setString(2, newFunimagePathicon);
+                        pstmtFun.setString(3, newFunName);
+                        pstmtFun.setString(4, newFunClassification);
+                        pstmtFun.setString(5, newFunPhone);
+                        int rowsInsertedFun = pstmtFun.executeUpdate();
+    
+                        if (rowsInsertedFun > 0) {
+    %>
+                            <script>
+                                Swal.fire({
+                                    title: 'Fun Data Inserted Successfully!',
+                                    icon: 'success',
+                                    timer: 1000,
+                                    timerProgressBar: true,
+                                    showConfirmButton: false
+                                });
+                            </script>
+    <%
+                        } else {
+    %>
+                            <script>
+                                Swal.fire({
+                                    title: 'Error Inserting Fun Data',
+                                    icon: 'error',
+                                    text: 'No rows inserted for Fun.',
+                                    timer: 3000,
+                                    timerProgressBar: true,
+                                    showConfirmButton: false
+                                });
+                            </script>
+    <%
+                        }
+                    } catch (SQLException eFun) {
+                    eFun.printStackTrace();
+                    response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+%>
+                    <script>
+                        Swal.fire({
+                            title: 'SQL Exception (Fun): <%= eFun.getMessage() %>',
                             icon: 'error',
                             timer: 3000,
                             timerProgressBar: true,

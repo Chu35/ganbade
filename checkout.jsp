@@ -122,77 +122,74 @@ Integer totalQuantity = (Integer) session.getAttribute("totalQuantity_" + member
             <h4>Shipping Information</h4>
             <form id="checkoutForm" action="established.jsp" method="post">
                 <%
-    try {
-        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        String url = "jdbc:sqlserver://127.0.0.1:1433;database=109_ganbade";
-        String user = "chu";
-        String password = "0725";
-        conn = DriverManager.getConnection(url, user, password);
-
-        String query = "SELECT fullname, phone, address, email " +
-                       "FROM member " +
-                       "INNER JOIN cart ON member.name = cart.member_name " +
-                       "WHERE cart.member_name = ?";
-
-        preparedStatement = conn.prepareStatement(query);
-        preparedStatement.setString(1, memberName);
-        rs = preparedStatement.executeQuery();
-
-        while (rs.next()) {
-%>
-        <div class="form-group">
-            <label for="fullName">Full Name</label>
-            <input type="text" class="form-control" id="fullName" name="fullName" placeholder="<%
-                if (rs.getString("fullName") != null) {
-                    out.print(rs.getString("fullName"));
-                } else {
-                    out.print("請輸入全名");
-                }
-            %>" required>
-        </div>
-        <div class="form-group">
-            <label for="phone">Phone</label>
-            <input type="tel" class="form-control" id="phone" name="phone" placeholder="<%
-                if (rs.getString("phone") != null) {
-                    out.print(rs.getString("phone"));
-                } else {
-                    out.print("請輸入聯絡電話");
-                }
-            %>" required>
-        </div>
-        <div class="form-group">
-            <label for="address">Address</label>
-            <input type="text" class="form-control" id="address" name="address" placeholder="<%
-                if (rs.getString("address") != null) {
-                    out.print(rs.getString("address"));
-                } else {
-                    out.print("請輸入收件地址");
-                }
-            %>" required>
-        </div>
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="<%
-                if (rs.getString("email") != null) {
-                    out.print(rs.getString("email"));
-                } else {
-                    out.print("請輸入郵件地址");
-                }
-            %>" required>
-        </div>
-<%
-        }
-    } catch (Exception e) {
-        e.printStackTrace();
-    } finally {
-        // Close database resources
-        try { if (rs != null) rs.close(); } catch (Exception e) { /* Ignore */ }
-        try { if (preparedStatement != null) preparedStatement.close(); } catch (Exception e) { /* Ignore */ }
-        try { if (conn != null) conn.close(); } catch (Exception e) { /* Ignore */ }
-    }
-%>
-
-                </form>
+                    boolean dataExists = false;
+            
+                    try {
+                        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                        String url = "jdbc:sqlserver://127.0.0.1:1433;database=109_ganbade";
+                        String user = "chu";
+                        String password = "0725";
+                        conn = DriverManager.getConnection(url, user, password);
+            
+                        String query = "SELECT fullname, phone, address, email " +
+                                       "FROM member " +
+                                       "INNER JOIN cart ON member.name = cart.member_name " +
+                                       "WHERE cart.member_name = ?";
+            
+                        preparedStatement = conn.prepareStatement(query);
+                        preparedStatement.setString(1, memberName);
+                        rs = preparedStatement.executeQuery();
+            
+                        if (rs.next()) {
+                            dataExists = true;
+                %>
+                            <div class="form-group">
+                                <label for="fullName">Full Name</label>
+                                <input type="text" class="form-control" id="fullName" name="fullName" value="<%= rs.getString("fullName") %>" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="tel" class="form-control" id="phone" name="phone" value="<%= rs.getString("phone") %>" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <input type="text" class="form-control" id="address" name="address" value="<%= rs.getString("address") %>" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" value="<%= rs.getString("email") %>" required>
+                            </div>
+                <%
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    } finally {
+                        try { if (rs != null) rs.close(); } catch (Exception e) { /* Ignore */ }
+                        try { if (preparedStatement != null) preparedStatement.close(); } catch (Exception e) { /* Ignore */ }
+                        try { if (conn != null) conn.close(); } catch (Exception e) { /* Ignore */ }
+                    }
+                %>
+            
+                <% if (!dataExists) { %>
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" class="form-control" id="fullName" name="fullName" placeholder="請輸入全名" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="請輸入聯絡電話" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" class="form-control" id="address" name="address" placeholder="請輸入收件地址" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="請輸入郵件地址" required>
+                    </div>                    
+                <% } %>
+            </form>
+            
             </div>
             <div class="col-12 text-center">
                 <button class="btn btn-primary" onclick="submitForm()">結帳</button>
@@ -200,7 +197,6 @@ Integer totalQuantity = (Integer) session.getAttribute("totalQuantity_" + member
         </div>
         <script>
             function submitForm() {
-                // You can add any additional form validation logic here before submitting the form
                 document.getElementById("checkoutForm").submit();
             }
         </script>        

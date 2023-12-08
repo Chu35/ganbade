@@ -1,31 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
+<%
+    String memberName = (String) session.getAttribute("memberName"); 
+%>
 <html>
 <head>
-    <!-- Include SweetAlert CSS and JS files -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert2@11"></link>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <title>Your Page Title</title>
-    <script>
-        function showAlert(message, alertType) {
-            Swal.fire({
-                icon: alertType === 'success' ? 'success' : 'error',
-                title: alertType === 'success' ? '成功' : '錯誤',
-                text: message,
-                timer: 1000,
-                timerProgressBar: true,
-                showConfirmButton: false
-            }).then(() => {
-                window.location.href = 'cms.jsp';
-            });
-        }
-    </script> 
+    <!-- Include any necessary head elements here -->
 </head>
 <body>
 <%
-    // Retrieve memberId and knowledgeId from the request parameter
     String memberId = request.getParameter("memberId");
+    String knowledgeId = request.getParameter("knowledgeId");
+    String funId = request.getParameter("funId");
+    String storeId = request.getParameter("storeId");
+    String sugardaddyId = request.getParameter("sugardaddyId");
 
     // JDBC URL, username, and password of SQL Server
     String dbURL = "jdbc:sqlserver://127.0.0.1:1433;database=109_ganbade";
@@ -41,28 +30,49 @@
             String memberSql = "DELETE FROM member WHERE id=?";
             try (PreparedStatement memberStatement = conn.prepareStatement(memberSql)) {
                 memberStatement.setString(1, memberId);
-                int memberRowsAffected = memberStatement.executeUpdate();
+                memberStatement.executeUpdate();
+            }
 
-                if (memberRowsAffected > 0) {
-                    // Display success message using SweetAlert
-                    out.println("<script>showAlert('Member deleted successfully', 'success');</script>");
-                } else {
-                    // Display failure message using SweetAlert
-                    out.println("<script>showAlert('Failed to delete member. Member not found or an error occurred.', 'error');</script>");
-                }
+            // Delete knowledge
+            String knowledgeSql = "DELETE FROM knowledge WHERE id=?";
+            try (PreparedStatement knowledgeStatement = conn.prepareStatement(knowledgeSql)) {
+                knowledgeStatement.setString(1, knowledgeId);
+                knowledgeStatement.executeUpdate();
+            }
+
+            // Delete fun
+            String funSql = "DELETE FROM fun WHERE id=?";
+            try (PreparedStatement funStatement = conn.prepareStatement(funSql)) {
+                funStatement.setString(1, funId);
+                funStatement.executeUpdate();
+            }
+
+            // Delete store
+            String storeSql = "DELETE FROM store WHERE id=?";
+            try (PreparedStatement storeStatement = conn.prepareStatement(storeSql)) {
+                storeStatement.setString(1, storeId);
+                storeStatement.executeUpdate();
+            }
+
+            // Delete sugardaddy
+            String sugardaddySql = "DELETE FROM sugardaddy WHERE id=?";
+            try (PreparedStatement sugardaddyStatement = conn.prepareStatement(sugardaddySql)) {
+                sugardaddyStatement.setString(1, sugardaddyId);
+                sugardaddyStatement.executeUpdate();
             }
 
             conn.commit();
         } catch (SQLException e) {
-            // Display SQL exception message using SweetAlert
-            out.println("<script>showAlert('SQL Exception: " + e.getMessage() + "', 'error');</script>");
             e.printStackTrace();
         }
     } catch (Exception e) {
-        // Display general exception message using SweetAlert
-        out.println("<script>showAlert('An error occurred: " + e.getMessage() + "', 'error');</script>");
         e.printStackTrace();
     }
 %>
+
+<script>
+    window.location.href = "cms.jsp";
+</script>
+
 </body>
 </html>

@@ -34,7 +34,8 @@ body {
     outline: none;
     border-bottom: 2px solid #6C95C6;
     background: none;
-    border-radius:0%
+    border-radius:0%;
+    padding: 5px;
 }
 img {
     max-width: 100%;
@@ -62,16 +63,11 @@ p{
 button {
     padding: 10px 20px;
     font-size: 1rem;
-    background-color: #4CAF50;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     margin: 10px;
-}
-
-button:hover {
-    background-color: #45a049;
 }
 
 .vrbg{
@@ -140,6 +136,7 @@ button:hover {
     border-radius: 50px;
     width: 200px;
     height: auto;
+    margin: 30px;
 }
 #userName::placeholder{
     color: #B69779;

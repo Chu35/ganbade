@@ -96,8 +96,8 @@ button {
 }
 
 .personal2 h1 {
-    padding: 20px;
     margin: 0;
+    padding: 15px;
 }
 #didi{
     max-width: 50%;
@@ -110,7 +110,6 @@ button {
     vertical-align: middle;
     background-color: #FDFAEC;
     padding: 5px;
-
 }
 
 .logo img {

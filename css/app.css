@@ -104,7 +104,7 @@ button {
 }
 
 #didi {
-    max-width: 50%;
+    max-width: 45%;
 }
 
 .logo {
@@ -114,6 +114,7 @@ button {
     position: relative;
     vertical-align: middle;
     background-color: #FDFAEC;
+    padding: 10px;
 }
 
 .logo img {

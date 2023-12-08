@@ -29,12 +29,14 @@ body {
     width: 100%;
     text-align: center;
 }
-.m1{
-border: none;
-  outline: none;
-  border-bottom: 2px solid #4d4d4d;
-  background: none;
-  }
+.m1 {
+    width: 200px;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #6C95C6;
+    background: none;
+    border-radius:0%
+}
 img {
     max-width: 100%;
     height: auto;
@@ -121,6 +123,9 @@ button:hover {
     border-radius: 50px;
     width: 200px;
     height: auto;
+}
+#userName::placeholder{
+    color: #B69779;
 }
 /* keyvision */
 #image-container {

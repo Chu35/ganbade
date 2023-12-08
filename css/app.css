@@ -56,7 +56,7 @@ h3 {
     color: #333;
 }
 
-p{
+p  {
     font-weight: 300
 }
 
@@ -80,7 +80,6 @@ button {
     flex-direction: column;
     align-items: stretch;
     justify-content: stretch;
-    height: 100vh;
 }
 .personal.center .personal2 {
     background-color: #FFF3E8;

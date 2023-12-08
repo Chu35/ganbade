@@ -25,6 +25,7 @@ body {
     display: none;
 }
 .menu, .personal, .stepone, .nfc,.goin, .vr, .D, .test, .web, .draw, .end {
+    width: 100%;
     padding: 20px;
     text-align: center;
 }

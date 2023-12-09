@@ -124,14 +124,14 @@
                     <ul class="ProductList-categoryMenu">
                         <li class="category" data-list="本季新品">本季新品</li>
                         <li class="category" data-list="熱賣商品">熱賣商品</li>
-                        <li class="category" data-list="聯名系列">聯名系列</li>
                         <li class="category" data-list="人生必喝清單📋">人生必喝清單📋</li>
                         <li class="category" data-list="聯名系列" onclick="toggleSubcategory('collaborations')">聯名系列&ensp;<i
                                 class="fa fa-angle-right"></i></li>
                         <div class="subcategory" id="collaborations" style="display: none;">
-                            <ul>
-                                <li class="category" data-list="ganbade X 祥泰茶莊">ganbade X 祥泰茶莊</li>
-                            </ul>
+                            <ul><li class="category" data-list="ganbade X 祥泰茶莊">ganbade X 祥泰茶莊</li></ul>
+                            <ul><li class="category" data-list="ganbade X 貓空茶神">ganbade X 貓空茶神</li></ul>
+                            <ul><li class="category" data-list="ganbade X TDH貓茶町">ganbade X TDH貓茶町</li></ul>
+                            <ul><li class="category" data-list="ganbade X 東成茶葉">ganbade X 東成茶葉</li></ul>
                         </div>
                     </ul>
                 </div>
@@ -325,8 +325,6 @@
                                         }
                                     %>
                                 </table>
-                                
-                                
                                 <div>Total price: $<span class="total-cart"></span></div>
                             </div>
                             <div class="modal-footer">

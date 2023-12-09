@@ -25,6 +25,9 @@
 </head>
 
 <style> 
+html{
+    scroll-behavior: smooth;
+}
 a:hover{
     color: #8E7D5C!important;
 }
@@ -144,11 +147,11 @@ input {
                                             <i class="feather icon-log-in"></i> Logout</a></li>
                                     </ul>
                                 </li>
-                                <!-- settings Menu -->
+                                <!-- settings Menu 
                                 <li>
                                     <a href="#" class="btn btn-primary wave-effect offcanvas-toggle">
                                         <i class="feather icon-settings"></i></a>
-                                </li>
+                                </li>-->
                                 <!-- Notification Menu-->
                                 <li class="btn-group notification">
                                     <a href="javascript:;" class="btn btn-primary dropdown-toggle wave-effect"
@@ -238,60 +241,39 @@ input {
                         <span class="menu-title">Main</span>
                     </li>-->
                     <li class="nav-item">
-                        <a class="nav-link wave-effect collapsed wave-effect" data-parent="#sidebarCookie"
-                            data-toggle="collapse" href="#navDashboard" aria-expanded="false"
-                            aria-controls="page-dashboards">
-                            <i class="feather icon-grid"></i>
-                            <span class="menu-title">新增/修改內容</span>
-                            <i class="feather icon-chevron-down down-arrow"></i>
+                        <a href="#member" class="nav-link wave-effect nav-single">
+                            <i class="feather icon-users"></i>
+                            <span class="menu-title">Member</span>
                         </a>
-                        <div class="collapse" id="navDashboard">
-                            <ul class="flex-column sub-menu">
-                                <li class="nav-item">
-                                    <a class="nav-link wave-effect" href="#knowledge">
-                                        <i class="feather icon-layout"></i>
-                                        <span class="menu-title">knowledge</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="collapse" id="navDashboard">
-                            <ul class="flex-column sub-menu">
-                                <li class="nav-item">
-                                    <a class="nav-link wave-effect" href="#fun">
-                                        <i class="feather icon-layout"></i>
-                                        <span class="menu-title">fun</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="collapse" id="navDashboard">
-                            <ul class="flex-column sub-menu">
-                                <li class="nav-item">
-                                    <a class="nav-link wave-effect" href="#store">
-                                        <i class="feather icon-shopping-bag"></i>
-                                        <span class="menu-title">eCommerce</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="collapse" id="navDashboard">
-                            <ul class="flex-column sub-menu">
-                                <li class="nav-item">
-                                    <a class="nav-link wave-effect" href="#sugardaddy">
-                                        <i class="feather icon-layout"></i>
-                                        <span class="menu-title">sugardaddy</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
                     </li>
                     <li class="nav-item">
-                        <a href="#member" class="nav-link wave-effect nav-single">
+                        <a class="nav-link wave-effect nav-single" href="#knowledge">
                             <i class="feather icon-layout"></i>
-                            <span class="menu-title">會員管理</span>
+                            <span class="menu-title">knowledge</span>
                         </a>
                     </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link wave-effect nav-single" href="#fun">
+                            <i class="feather icon-map-pin"></i>
+                            <span class="menu-title">fun</span>
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link wave-effect nav-single" href="#store">
+                            <i class="feather icon-shopping-bag"></i>
+                            <span class="menu-title">eCommerce</span>
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link wave-effect nav-single" href="#sugardaddy">
+                            <i class="feather icon-package"></i>
+                            <span class="menu-title">sugardaddy</span>
+                        </a>
+                    </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link wave-effect collapsed" data-parent="#sidebarCookie" data-toggle="collapse"
                             href="#navMailbox" aria-expanded="false" aria-controls="page-mailbox">
@@ -305,24 +287,6 @@ input {
                                     <a class="nav-link wave-effect" href="">
                                         <i class="feather icon-inbox"></i>
                                         <span class="menu-title">Inbox</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link wave-effect collapsed" data-parent="#sidebarCookie" data-toggle="collapse"
-                            href="#navProfilebox" aria-expanded="false" aria-controls="page-profilebox">
-                            <i class="feather icon-users"></i>
-                            <span class="menu-title">Account</span>
-                            <i class="feather icon-chevron-down down-arrow"></i>
-                        </a>
-                        <div class="collapse" id="navProfilebox">
-                            <ul class="flex-column sub-menu">
-                                <li class="nav-item">
-                                    <a class="nav-link wave-effect" href="">
-                                        <i class="feather icon-user"></i>
-                                        <span class="menu-title">Profile</span>
                                     </a>
                                 </li>
                             </ul>

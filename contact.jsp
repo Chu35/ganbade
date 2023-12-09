@@ -246,7 +246,7 @@
     
     <div class="container">
         <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-            <h4 class="mb-4">特別感謝網站資料來源<a href="https://www.jsy-tea.com/">京盛宇</a></h4>
+            <h4 class="mb-4" style="padding: 20px;">特別感謝網站資料來源<a href="https://www.jsy-tea.com/">京盛宇</a></h4>
         </div>
     </div>
         

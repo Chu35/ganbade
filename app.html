@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/mp3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap">
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="js/nfc-handler.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha384-oZv8k+1lF5ZPGgHr8FqA1uLjFpTlJ5x/IbAdQxS9AexJ7eFOF5bVpZa19z7Ftix5" crossorigin="anonymous">
+
     <title>甘吧茶ㄉㄟˊ</title>
 </head>
 
@@ -84,10 +85,52 @@
                 <div class="nfcpart" id="nfc1">
                     <div class="part">
                         <img src="img/n1.jpg" alt="">
-                        <p>年輕人應該多喝茶，少喝手搖飲</p>
-                        <button class="next-button">>></button>
-                        <button class="prev-button">prev</button>
+                        <p>長輩不擅長網路經營</p>
+                        <div id="app-cover">
+                            <div id="player">
+                                <div id="player-track">
+                                    <div id="album-name"></div>
+
+                                    <div id="track-time">
+                                        <div id="current-time"></div>
+                                        <div id="track-length"></div>
+                                    </div>
+                                    <div id="s-area">
+                                        <div id="ins-time"></div>
+                                        <div id="s-hover"></div>
+                                        <div id="seek-bar"></div>
+                                    </div>
+                                </div>
+                                <div id="player-content">
+                                    <div id="album-art">
+                                        <img src="img/n1.jpg" class="active" id="_1">
+                                        <img src="img/n2.jpg" id="_2">
+                                        <img src="img/n3.jpg" id="_3">
+                                        <img src="img/n4.jpg" id="_4">
+                                        <div id="buffer-box">Buffering ...</div>
+                                    </div>
+                                    <div id="player-controls">
+                                        <div class="control">
+                                            <div class="button" id="play-previous">
+                                                <i class="fas fa-backward"></i>
+                                            </div>
+                                        </div>
+                                        <div class="control">
+                                            <div class="button" id="play-pause-button">
+                                                <i class="fas fa-play"></i>
+                                            </div>
+                                        </div>
+                                        <div class="control">
+                                            <div class="button" id="play-next">
+                                                <i class="fas fa-forward"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    
                     <p><span style="color: #B69779;">點擊播放鍵聆聽下一則</span></p>
                     <button class="finish-button">跳過</button>
                 </div>
@@ -95,8 +138,6 @@
                     <div class="part">
                         <img src="img/n2.jpg" alt="">
                         <p>政府資助茶產業只是一時的</p>
-                        <button class="next-button">>></button>
-                        <button class="prev-button">prev</button>
                     </div>
                     <p><span style="color: #B69779;">點擊播放鍵聆聽下一則</span></p>
                     <button class="finish-button">跳過</button>
@@ -105,8 +146,6 @@
                     <div class="part">
                         <img src="img/n3.jpg" alt="">
                         <p>年輕人不願意回來接手茶莊</p>
-                        <button class="next-button">>></button>
-                        <button class="prev-button">prev</button>
                     </div>
                     <p id="aunt"><span style="color: #B69779;">點擊播放鍵聆聽下一則</span></p>
                     <button class="finish-button">跳過</button>
@@ -115,7 +154,6 @@
                     <div class="part">
                         <img src="img/n4.jpg" alt="">
                         <p>年輕人應該多喝茶，少喝手搖飲</p>
-                        <button class="prev-button">prev</button>
                     </div>
                     <button class="finish-button">聽完了</button>
                 </div>
@@ -493,7 +531,8 @@
             showCurrentSection();
         });
     </script>
-
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="js/nfc-handler.js"></script>
+    <script src="js/mp3.js"></script>
 </body>
-
 </html>

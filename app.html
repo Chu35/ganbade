@@ -165,6 +165,11 @@
             </div>
             <div class="test">
                 <h1>任務五</h1>
+                <div id="score">Score: 0</div>
+                <!-- Progress bar container -->
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
                 <!-- Question 1 -->
                 <div class="question" id="question1">
                     <h2>請依據茶多酚實驗室的內容完成小考察</h2>
@@ -218,22 +223,58 @@
                         <div class="btn" onclick="checkAnswer('question5', '蜜蜂')">蜜蜂</div>
                         <div class="btn" onclick="checkAnswer('question5', '小綠葉蟬')">小綠葉蟬</div>
                     </div>
-                    <button class="finish-button">測驗結束</button>
+                    <button class="finish-button" onclick="finishQuiz()">測驗結束</button>
                 </div>
-                
-
                 <script>
+                    let score = 0; // Initialize the score
+
                     function checkAnswer(questionId, selectedOption) {
-                        var correctOption = getCorrectOption(questionId);
+                        const correctOption = getCorrectOption(questionId);
+
+                        const questionElement = document.getElementById(questionId);
+                        const options = questionElement.querySelectorAll('.btn');
 
                         if (selectedOption === correctOption) {
-                            document.getElementById(questionId).classList.add("correct");
-                            setTimeout(function () {
-                                showNextQuestion(questionId);
-                            }, 1000);
+                            // User selected the correct answer
+                            questionElement.classList.add('correct');
+                            score += 20; // Increment the score for a correct answer
                         } else {
-                            document.getElementById(questionId).classList.add("incorrect");
+                            // User selected the wrong answer
+                            questionElement.classList.remove('correct');
+                            questionElement.classList.add('incorrect');
+                            options.forEach(option => {
+                                if (option.textContent === correctOption) {
+                                    option.classList.add('correct-answer');
+                                }
+                            });
                         }
+
+                        updateScoreDisplay();
+                        updateProgressBar();
+                        setTimeout(function () {
+                            showNextQuestion(questionId);
+                        }, 1000);
+                    }
+
+                    function updateScoreDisplay() {
+                        const scoreDisplay = document.getElementById("score");
+                        if (scoreDisplay) {
+                            scoreDisplay.textContent = `Score: ${score}`;
+                        }
+                    }
+
+                    function updateProgressBar() {
+        const progressBar = document.getElementById("progressBar");
+        if (progressBar) {
+            const maxScore = 100; // Assuming a maximum score of 100
+            const percentage = (score / maxScore) * 100;
+            progressBar.style.height = `${percentage}%`;
+        }
+    }
+
+                    function finishQuiz() {
+                        alert(`Quiz finished! Your final score is ${score}`);
+                        // You can add additional actions when the quiz finishes
                     }
 
                     // Function to get the correct option for a question

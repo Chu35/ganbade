@@ -321,3 +321,30 @@ button {
 #question2, #question3, #question4, #question5 {
     display: none; /* Hide all questions initially */
 }
+
+div.correct-answer {
+    background-color: red; /* Red for correct answer in the incorrect selection */
+}
+
+#score {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.progress-bar-container {
+    height: 310px; /* Same height as .ques */
+    width: 20px;
+    background-color: #ddd;
+    margin-right: 10px;
+    border-radius: 0 15px 15px 0; /* Rounded corners on the right */
+    display: inline-block;
+    position: relative;
+}
+
+.progress-bar {
+    position: absolute;
+    bottom: 0;
+    background-color: #4caf50;
+    width: 100%;
+    transition: height 1s ease-in-out;
+}

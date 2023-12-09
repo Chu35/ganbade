@@ -211,4 +211,21 @@ button {
 .vr img{
     margin: 0;
     max-width:45%;
+    display: grid;
+}
+
+.D img{
+    margin: 0;
+    max-width:45%;
+}
+
+.ques{
+    background-color: #DAE4CA;
+    text-align: center;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    width: 100px;
+    height: 200px;
+    border: 1px solid gray;
+    border-radius: 8px;
 }

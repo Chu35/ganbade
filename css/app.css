@@ -254,8 +254,8 @@ button {
 
 .ques{
     background-color: #DAE4CA;
-    max-width: 250px;
-    height: 310px;
+    max-width: 270px;
+    height: 320px;
     border: 1px solid #DAE4CA;
     border-radius: 15px;
     text-align: center;
@@ -270,6 +270,10 @@ button {
     border-radius: 15px;
     justify-content: space-around;
     display: inline-flex;
+}
+
+.ques h3{
+    margin: 10px;
 }
 
 .draw img{
@@ -330,15 +334,15 @@ div.correct-answer {
     margin-bottom: 10px;
 }
 #score{
-    bottom: 245px;
+    bottom: 320px;
     text-align: center;
     margin-right: 75%;
     display: inline-block;
     position: relative;
 }
 .progress-bar-container {
-    bottom: 245px;
-    height: 310px;
+    bottom: 140px;
+    height: 290px;
     border: 1px solid #DAE4CA;
     border-radius: 15px;
     text-align: center;
@@ -346,12 +350,12 @@ div.correct-answer {
     width: 20px;
     background-color: #ddd;
     display: inline-block;
-    position: relative;
+    position: absolute;
 }
 .progress-bar {
     position: absolute;
     bottom: 0;
-    background-color: #4caf50;
+    background-color: #67bc6a;
     width: 100%;
     border-radius: 15px;
     transition: height 1s ease-in-out;

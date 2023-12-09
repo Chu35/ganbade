@@ -165,7 +165,7 @@
             </div>
             <div class="test">
                 <h1>任務五</h1>
-                
+
                 <!-- Question 1 -->
                 <div class="question" id="question1">
                     <h2>請依據茶多酚實驗室的內容完成小考察</h2>
@@ -228,7 +228,6 @@
                 </div>
                 <script>
                     let score = 0; // Initialize the score
-
                     function checkAnswer(questionId, selectedOption) {
                         const correctOption = getCorrectOption(questionId);
 
@@ -265,13 +264,13 @@
                     }
 
                     function updateProgressBar() {
-        const progressBar = document.getElementById("progressBar");
-        if (progressBar) {
-            const maxScore = 100; // Assuming a maximum score of 100
-            const percentage = (score / maxScore) * 100;
-            progressBar.style.height = `${percentage}%`;
-        }
-    }
+                        const progressBar = document.getElementById("progressBar");
+                        if (progressBar) {
+                            const maxScore = 100; // Assuming a maximum score of 100
+                            const percentage = (score / maxScore) * 100;
+                            progressBar.style.height = `${percentage}%`;
+                        }
+                    }
 
                     function finishQuiz() {
                         alert(`Quiz finished! Your final score is ${score}`);

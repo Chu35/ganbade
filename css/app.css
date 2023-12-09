@@ -53,6 +53,10 @@ p  {
     font-weight: 200
 }
 
+.task{
+    background-image: url(../img/back.png);
+}
+
 button {
     padding: 10px 20px;
     font-size: 1rem;
@@ -197,7 +201,7 @@ button {
 
 .stepone img {
     margin: 0;
-    width: 70%;
+    max-width:45%;
 }
 
 /* nfc */
@@ -253,4 +257,18 @@ button {
 .draw img{
     margin: 0;
     max-width:45%;
+}
+
+.finish-button{
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #402A05;
+    background-color: #B69779;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 10px;
+    position: absolute;
+    bottom: 0;
+    right: 10px;
 }

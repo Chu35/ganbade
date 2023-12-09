@@ -50,27 +50,6 @@
                         });
                     });
                 </script>
-                <!--
-                <script>
-                    document.addEventListener("DOMContentLoaded", function () {
-                        var personalCenter = document.querySelector(".personal.center");
-                        var images = personalCenter.querySelectorAll(".image");
-                        var delays = {
-                            "img/kv3.png": 1500,
-                            "img/kv5.png": 1500,
-                            "img/kv7.png": 2500,
-                            "img/kv9.png": 2500
-                        };
-                        images.forEach(function (image) {
-                            var src = image.getAttribute("src");
-                            var delay = delays[src] || 1000;
-                            setTimeout(function () {
-                                image.style.opacity = "1";
-                                image.style.transform = "translateX(0)";
-                            }, delay);
-                        });
-                    });
-                </script>-->
             </div>
         </div>
     </div>
@@ -84,7 +63,8 @@
             <div class="stepone">
                 <h1 class="task">任務一</h1>
                 <h2>請拿一張渲染貼紙<br>寫上你/妳對
-                    <span style="color: #13693F;">茶</span>的印象</h2>
+                    <span style="color: #13693F;">茶</span>的印象
+                </h2>
                 <img src="img/sticker.png" alt="">
                 <h2><span style="color: #B69779;">寫完後請貼到茶杯上方處</span></h2>
                 <button class="btn btn-primary finish-button" onclick="scrollToNextSection()">下一頁</button>
@@ -127,7 +107,7 @@
                         <p>年輕人不願意回來接手茶莊</p>
                         <button class="next-button">>></button>
                         <button class="prev-button">prev</button>
-                    </div>  
+                    </div>
                     <p id="aunt"><span style="color: #B69779;">點擊播放鍵聆聽下一則</span></p>
                     <button class="finish-button">跳過</button>
                 </div>
@@ -139,7 +119,7 @@
                     </div>
                     <button class="finish-button">聽完了</button>
                 </div>
-                
+
             </div>
         </div>
     </div>
@@ -185,96 +165,120 @@
             </div>
             <div class="test">
                 <h1>任務五</h1>
+                <!-- Question 1 -->
                 <div class="question" id="question1">
                     <h2>請依據茶多酚實驗室的內容完成小考察</h2>
-                    <div class="ques">
+                    <div class="ques" id="question1Options">
                         <h3>台灣盛產哪三大類茶？</h3>
-                        <div>紅茶、綠茶、奶茶</div>
-                        <div>紅茶、綠茶、烏龍茶</div>
-                        <div>白茶、綠茶、紅茶</div>
+                        <div class="btn" onclick="checkAnswer('question1', '紅茶、綠茶、奶茶')">紅茶、綠茶、奶茶</div>
+                        <div class="btn" onclick="checkAnswer('question1', '紅茶、綠茶、烏龍茶')">紅茶、綠茶、烏龍茶</div>
+                        <div class="btn" onclick="checkAnswer('question1', '白茶、綠茶、紅茶')">白茶、綠茶、紅茶</div>
                     </div>
-                    <button class="next-button">>></button>
                 </div>
+
+                <!-- Question 2 -->
                 <div class="question" id="question2">
                     <h2>請依據知識調查局的內容完成小考察</h2>
-                    <div class="ques">
+                    <div class="ques" id="question2Options">
                         <h3>通常發酵程度越高，則茶湯顏色偏__？</h3>
-                        <div>深</div>
-                        <div>淺</div>
-                        <div>沒有影響</div>
-                        <button class="next-button">>></button>
+                        <div class="btn" onclick="checkAnswer('question2', '深')">深</div>
+                        <div class="btn" onclick="checkAnswer('question2', '淺')">淺</div>
+                        <div class="btn" onclick="checkAnswer('question2', '沒有影響')">沒有影響</div>
                     </div>
                 </div>
+
+                <!-- Question 3 -->
                 <div class="question" id="question3">
                     <h2>請依據知識調查局的內容完成小考察</h2>
-                    <div class="ques">
+                    <div class="ques" id="question3Options">
                         <h3>茶葉的形狀來自哪個工序？</h3>
-                        <div>揉捻</div>
-                        <div>殺菁</div>
-                        <div>萎凋</div>
-                        <button class="next-button">>></button>
+                        <div class="btn" onclick="checkAnswer('question3', '揉捻')">揉捻</div>
+                        <div class="btn" onclick="checkAnswer('question3', '殺菁')">殺菁</div>
+                        <div class="btn" onclick="checkAnswer('question3', '萎凋')">萎凋</div>
                     </div>
                 </div>
+
+                <!-- Question 4 -->
                 <div class="question" id="question4">
                     <h2>請依據知識調查局的內容完成小考察</h2>
-                    <div class="ques">
+                    <div class="ques" id="question4Options">
                         <h3>一般白茶在製作時會經過哪兩道工序？</h3>
-                        <div>浪菁、烘乾</div>
-                        <div>萎凋、烘乾</div>
-                        <div>殺菁、萎凋</div>
-                        <button class="next-button">>></button>
+                        <div class="btn" onclick="checkAnswer('question4', '浪菁、烘乾')">浪菁、烘乾</div>
+                        <div class="btn" onclick="checkAnswer('question4', '萎凋、烘乾')">萎凋、烘乾</div>
+                        <div class="btn" onclick="checkAnswer('question4', '殺菁、萎凋')">殺菁、萎凋</div>
                     </div>
                 </div>
+
+                <!-- Question 5 -->
                 <div class="question" id="question5">
                     <h2>請依據知識調查局的內容完成小考察</h2>
-                    <div class="ques">
+                    <div class="ques" id="question5Options">
                         <h3>東方美人茶的特殊香氣源自於哪種昆蟲？</h3>
-                        <div>蝴蝶</div>
-                        <div>蜜蜂</div>
-                        <div>小綠葉蟬</div>
-                        <button class="finish-button">>></button>
+                        <div class="btn" onclick="checkAnswer('question5', '蝴蝶')">蝴蝶</div>
+                        <div class="btn" onclick="checkAnswer('question5', '蜜蜂')">蜜蜂</div>
+                        <div class="btn" onclick="checkAnswer('question5', '小綠葉蟬')">小綠葉蟬</div>
                     </div>
+                    <button class="finish-button">測驗結束</button>
                 </div>
+                
+
                 <script>
-                    document.addEventListener('DOMContentLoaded', function () {
-                        const questions = document.querySelectorAll('.test .question');
-                        let currentQuestionIndex = 0;
+                    function checkAnswer(questionId, selectedOption) {
+                        var correctOption = getCorrectOption(questionId);
 
-                        function showCurrentQuestion() {
-                            questions.forEach((question, index) => {
-                                if (index === currentQuestionIndex) {
-                                    question.style.display = 'block';
-                                } else {
-                                    question.style.display = 'none';
-                                }
-                            });
+                        if (selectedOption === correctOption) {
+                            document.getElementById(questionId).classList.add("correct");
+                            setTimeout(function () {
+                                showNextQuestion(questionId);
+                            }, 1000);
+                        } else {
+                            document.getElementById(questionId).classList.add("incorrect");
                         }
+                    }
 
-                        function nextQuestion() {
-                            if (currentQuestionIndex < questions.length - 1) {
-                                currentQuestionIndex++;
-                                showCurrentQuestion();
-                            }
+                    // Function to get the correct option for a question
+                    function getCorrectOption(questionId) {
+                        switch (questionId) {
+                            case "question1":
+                                return "紅茶、綠茶、烏龍茶";
+                            case "question2":
+                                return "深";
+                            case "question3":
+                                return "揉捻";
+                            case "question4":
+                                return "浪菁、烘乾";
+                            case "question5":
+                                return "小綠葉蟬";
+                            default:
+                                return "";
                         }
+                    }
 
-                        function prevQuestion() {
-                            if (currentQuestionIndex > 0) {
-                                currentQuestionIndex--;
-                                showCurrentQuestion();
-                            }
+                    // Function to show the next question
+                    function showNextQuestion(currentQuestionId) {
+                        var currentQuestion = document.getElementById(currentQuestionId);
+                        currentQuestion.style.display = "none";
+
+                        var nextQuestionId = getNextQuestionId(currentQuestionId);
+                        var nextQuestion = document.getElementById(nextQuestionId);
+                        if (nextQuestion) {
+                            nextQuestion.style.display = "block";
                         }
-                        const nextButtons = document.querySelectorAll('.test .next-button');
-                        nextButtons.forEach(button => {
-                            button.addEventListener('click', nextQuestion);
-                        });
-
-                        const prevButtons = document.querySelectorAll('.test .prev-button');
-                        prevButtons.forEach(button => {
-                            button.addEventListener('click', prevQuestion);
-                        });
-
-                        showCurrentQuestion();
-                    });
+                    }
+                    function getNextQuestionId(currentQuestionId) {
+                        switch (currentQuestionId) {
+                            case "question1":
+                                return "question2";
+                            case "question2":
+                                return "question3";
+                            case "question3":
+                                return "question4";
+                            case "question4":
+                                return "question5";
+                            default:
+                                return "question5";
+                        }
+                    }
                 </script>
             </div>
         </div>
@@ -328,7 +332,7 @@
                     另一張貼紙請貼到認證卡上</h3>
                 <img src="img/end.png" alt="">
                 <h2><span style="color: #808F66;">恭喜你成為合格的探險員<br>
-                    Have a nice day!</span></h2>
+                        Have a nice day!</span></h2>
                 <a href="app.html"><button id="around">返回導覽頁面</button></a>
                 <button id="endform">填寫回饋表單</button>
             </div>

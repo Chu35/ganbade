@@ -25,10 +25,23 @@ body {
 .container > div {
     display: none;
 }
-.menu, .bar, .stepone, .nfc,.goin, .vr, .D, .test, .web, .draw, .end {
-    width: 100%;
-    text-align: center;
+.bar {
+    background-color: #FDFAEC;
 }
+
+.stepone {
+    background-color: #FFF3E8;
+}
+
+.bar, .stepone, .nfc, .vr, .D, .test, .web, .draw, .end {
+        flex: 1;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 
 img {
     max-width: 100%;
@@ -82,7 +95,7 @@ button {
     height: 100%;
 }
 
-.bar.center .personal2 {
+.bar .personal2 {
     flex: 1;
     background-color: #FFF3E8;
     background-image: url(../img/材質2.png);
@@ -271,4 +284,30 @@ button {
     position: absolute;
     bottom: 0;
     right: 10px;
+}
+
+#aunt{
+    background-image: url(../img/kv7.png);
+}
+
+#around {
+    color: #402A05;
+    background-color: #EDE1D0;
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+
+}
+
+#endform {
+    color: #FDFAEC;
+    background-color: #8F6547;
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+}
+
+.end img{
+    margin:auto;
+    max-width: 80%;
 }

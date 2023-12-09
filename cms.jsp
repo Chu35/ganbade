@@ -633,7 +633,7 @@ input {
                                                 $("#searchInput").on("keyup", function () {
                                                     var value = $(this).val().toLowerCase();
                                                     $("#memberTable tbody tr").filter(function () {
-                                                        var nameColumn = $(this).find("td:eq(1)").text().toLowerCase();
+                                                        var nameColumn = $(this).find("td:eq(2)").text().toLowerCase();
                                                         $(this).toggle(nameColumn.indexOf(value) > -1);
                                                     });
                                                 });
@@ -1150,7 +1150,7 @@ input {
                                                 $("#searchInput3").on("keyup", function () {
                                                     var value = $(this).val().toLowerCase();
                                                     $("#funTable tbody tr").filter(function () {
-                                                        var nameColumn = $(this).find("td:eq(1)").text().toLowerCase();
+                                                        var nameColumn = $(this).find("td:eq(2)").text().toLowerCase();
                                                         $(this).toggle(nameColumn.indexOf(value) > -1);
                                                     });
                                                 });
@@ -1392,7 +1392,7 @@ input {
                                                 $("#searchInput4").on("keyup", function () {
                                                     var value = $(this).val().toLowerCase();
                                                     $("#storeTable tbody tr").filter(function () {
-                                                        var nameColumn = $(this).find("td:eq(1)").text().toLowerCase();
+                                                        var nameColumn = $(this).find("td:eq(2)").text().toLowerCase();
                                                         $(this).toggle(nameColumn.indexOf(value) > -1);
                                                     });
                                                 });
@@ -1608,7 +1608,7 @@ input {
                                                 $("#searchInput5").on("keyup", function () {
                                                     var value = $(this).val().toLowerCase();
                                                     $("#sugardaddyTable tbody tr").filter(function () {
-                                                        var nameColumn = $(this).find("td:eq(1)").text().toLowerCase();
+                                                        var nameColumn = $(this).find("td:eq(2)").text().toLowerCase();
                                                         $(this).toggle(nameColumn.indexOf(value) > -1);
                                                     });
                                                 });

@@ -1637,15 +1637,6 @@ ul li {
     cursor: pointer;
 }
 
-.btn {
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    background-color: #8E7D5C;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
 
 #register-link {
     color: #8E7D5C;

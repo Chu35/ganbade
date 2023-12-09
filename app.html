@@ -13,17 +13,7 @@
 
 <body>
     <div class="container">
-        <div class="menu center">
-            <h1>歡迎光臨<br>甘吧茶ㄉㄟˊ</h1>
-            <img src="img/4in1.png" alt="">
-            <div class="buttons">
-                <button id="tour">校外展導覽</button>
-                <a href="index.html"><button>專題網站</button></a>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="personal center">
+        <div class="bar center">
             <div class="logo">
                 <img src="img/logo.png" alt="">
                 <h1>甘吧茶ㄉㄟˊ</h1>
@@ -32,8 +22,7 @@
             <div class="personal2">
                 <h1>探險啟程&ensp;Let's go~</h1>
                 <img id="didi" src="img/didi.png" alt="">
-                <input class="m1" type="text" id="userName" name="username" placeholder="暱稱："
-                    autocomplete="off" /><br>
+                <input class="m1" type="text" id="userName" name="username" placeholder="暱稱：" autocomplete="off" /><br>
                 <button id="startButton" class="btn btn-primary">任務開始</button>
                 <div id="image-container">
                     <img src="img/kv3.png" alt="Left Image" class="image left-image w-100">
@@ -42,24 +31,22 @@
                     <img src="img/kv9.png" alt="Right Image" class="image right-image w-100">
                 </div>
                 <script>
-                    document.addEventListener("DOMContentLoaded", function () {
+                    window.addEventListener("load", function () {
                         var images = document.querySelectorAll(".image");
                         var delays = {
-                            "img/kv3.png": 1500,
-                            "img/kv5.png": 1500,
-                            "img/kv7.png": 2500,
-                            "img/kv9.png": 2500
+                            "img/kv3.png": 300,
+                            "img/kv5.png": 300,
+                            "img/kv7.png": 1500,
+                            "img/kv9.png": 1500
                         };
-                
-                        document.getElementById("tour").addEventListener("click", function () {
-                            images.forEach(function (image) {
-                                var src = image.getAttribute("src");
-                                var delay = delays[src] || 1000;
-                                setTimeout(function () {
-                                    image.style.opacity = "1";
-                                    image.style.transform = "translateX(0)";
-                                }, delay);
-                            });
+                        images.forEach(function (image) {
+                            var src = image.getAttribute("src");
+                            var delay = delays[src] || 1000;
+
+                            setTimeout(function () {
+                                image.style.opacity = "1";
+                                image.style.transform = "translateX(0)";
+                            }, delay);
                         });
                     });
                 </script>
@@ -88,184 +75,263 @@
         </div>
     </div>
     <div class="container">
-        <div class="stepone center">
-            <h1>第一步</h1>
-            <h3>請取一張貼紙</h3>
-            <h1 class="userNameDisplay"></h1>
-            <img src="https://img.lovepik.com/free-png/20211214/lovepik-teapot-png-image_401582765_wh1200.png" alt="">
-            <button class="btn btn-primary" onclick="scrollToNextSection()">往下一步</button>
+        <div class="bar">
+            <div class="logo">
+                <img src="img/logo.png" alt="">
+                <h1>甘吧茶ㄉㄟˊ</h1>
+                <p>展間互動導覽</p>
+            </div>
+            <div class="stepone">
+                <h1>任務一</h1>
+                <h1>請拿一張渲染貼紙<br>
+                    寫上你/妳對<span style="color: #13693F;">茶</span>的印象</h1>
+                <img src="img/sticker.png" alt="">
+                <h2><span style="color: #B69779;">寫完後請貼到茶杯上方處</span></h2>
+            </div>
+            <button class="btn btn-primary" onclick="scrollToNextSection()">下一頁</button>
         </div>
     </div>
     <div class="container">
-        <div class="nfc center">
-            <h1>請靠近NFC貼紙<br>聽聽茶莊阿姨的話</h1>
-            <h1 class="userNameDisplay"></h1>
-            <div class="nfcpart" id="nfc1" data-youtube-id="VIDEO_ID_1">
-                <h3>part 1</h3>
-                <img src="img/kv7.png" alt="">
-                <button class="next-button">next</button>
+        <div class="bar">
+            <div class="logo">
+                <img src="img/logo.png" alt="">
+                <h1>甘吧茶ㄉㄟˊ</h1>
+                <p>展間互動導覽</p>
             </div>
-            <div class="nfcpart" id="nfc2" data-youtube-id="VIDEO_ID_2">
-                <h3>part 2</h3>
-                <img src="img/kv7.png" alt="">
-                <button class="prev-button">prev</button>
-                <button class="next-button">next</button>
+            <div class="nfc center">
+                <h1>任務二</h1>
+                <h1>聽聽茶莊阿姨的心聲吧</h1>
+                <div class="nfcpart" id="nfc1">
+                    <div class="part">
+                        <img src="img/n1.jpg" alt="">
+                        <p>年輕人應該多喝茶，少喝手搖飲</p>
+                        <button class="next-button">>></button>
+                        <button class="prev-button">prev</button>
+                    </div>
+                    <p><span style="color: #B69779;">點擊播放鍵聆聽下一則</span></p>
+                    <button class="finish-button">跳過</button>
+                </div>
+                <div class="nfcpart" id="nfc2">
+                    <div class="part">
+                        <img src="img/n2.jpg" alt="">
+                        <p>政府資助茶產業只是一時的</p>
+                        <button class="next-button">>></button>
+                        <button class="prev-button">prev</button>
+                    </div>
+                    <p><span style="color: #B69779;">點擊播放鍵聆聽下一則</span></p>
+                    <button class="finish-button">跳過</button>
+                </div>
+                <div class="nfcpart" id="nfc3">
+                    <div class="part">
+                        <img src="img/n3.jpg" alt="">
+                        <p>年輕人不願意回來接手茶莊</p>
+                        <button class="next-button">>></button>
+                        <button class="prev-button">prev</button>
+                    </div>  
+                    <p><span style="color: #B69779;">點擊播放鍵聆聽下一則</span></p>
+                    <button class="finish-button">跳過</button>
+                </div>
+                <div class="nfcpart" id="nfc4">
+                    <div class="part">
+                        <img src="img/n4.jpg" alt="">
+                        <p>年輕人應該多喝茶，少喝手搖飲</p>
+                        <button class="prev-button">prev</button>
+                    </div>
+                    <button class="finish-button">聽完了</button>
+                </div>
             </div>
-            <div class="nfcpart" id="nfc3" data-youtube-id="VIDEO_ID_3">
-                <h3>part 3</h3>
-                <img src="img/kv7.png" alt="">
-                <button class="prev-button">prev</button>
-                <button class="next-button">next</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="bar">
+            <div class="logo">
+                <img src="img/logo.png" alt="">
+                <h1>甘吧茶ㄉㄟˊ</h1>
+                <p>展間互動導覽</p>
+            </div>
+            <div class="vr center">
+                <h1>任務三</h1>
+                <h1>拉開門簾進入體驗區<br>
+                    戴上VR眼鏡 漫遊茶園～</h1>
+                <img src="img/b1.png" alt="">
+                <h2>打開五官感受</h2>
+                <button>下一頁</button>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="bar">
+            <div class="logo">
+                <img src="img/logo.png" alt="">
+                <h1>甘吧茶ㄉㄟˊ</h1>
+                <p>展間互動導覽</p>
+            </div>
+            <div class="D center">
+                <h1>任務四</h1>
+                <h3>拿起展示ipad對準圓形圖片
+                    看看製茶的工序！</h3>
+                <img src="img/採菁.gif" alt="">
+                <button>下一頁</button>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="bar">
+            <div class="logo">
+                <img src="img/logo.png" alt="">
+                <h1>甘吧茶ㄉㄟˊ</h1>
+                <p>展間互動導覽</p>
+            </div>
+            <div class="test center">
+                <h1>任務五</h1>
+                <div class="question" id="question1">
+                    <h2>請依據茶多酚實驗室的內容完成小考察</h2>
+                    <div class="ques">
+                        <h3>台灣盛產哪三大類茶？</h3>
+                        <div>紅茶、綠茶、奶茶</div>
+                        <div>紅茶、綠茶、烏龍茶</div>
+                        <div>白茶、綠茶、紅茶</div>
+                    </div>
+                    <button class="next-button">>></button>
+                </div>
+                <div class="question" id="question2">
+                    <h2>請依據知識調查局的內容完成小考察</h2>
+                    <div class="ques">
+                        <h3>通常發酵程度越高，則茶湯顏色偏__？</h3>
+                        <div>深</div>
+                        <div>淺</div>
+                        <div>沒有影響</div>
+                        <button class="next-button">>></button>
+                    </div>
+                </div>
+                <div class="question" id="question3">
+                    <h2>請依據知識調查局的內容完成小考察</h2>
+                    <div class="ques">
+                        <h3>茶葉的形狀來自哪個工序？</h3>
+                        <div>揉捻</div>
+                        <div>殺菁</div>
+                        <div>萎凋</div>
+                    </div>
+                </div>
+                <div class="question" id="question4">
+                    <h2>請依據知識調查局的內容完成小考察</h2>
+                    <div class="ques">
+                        <h3>一般白茶在製作時會經過哪兩道工序？</h3>
+                        <div>浪菁、烘乾</div>
+                        <div>萎凋、烘乾</div>
+                        <div>殺菁、萎凋</div>
+                        <button class="next-button">>></button>
+                    </div>
+                </div>
+                <div class="question" id="question5">
+                    <h2>請依據知識調查局的內容完成小考察</h2>
+                    <div class="ques">
+                        <h3>東方美人茶的特殊香氣源自於哪種昆蟲？</h3>
+                        <div>蝴蝶</div>
+                        <div>蜜蜂</div>
+                        <div>小綠葉蟬</div>
+                        <button class="next-button">>></button>
+                    </div>
+                </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const questions = document.querySelectorAll('.test .question');
+                        let currentQuestionIndex = 0;
 
-            </div>
-            <div class="nfcpart" id="nfc4" data-youtube-id="VIDEO_ID_4">
-                <h3>part 4</h3>
-                <img src="img/kv7.png" alt="">
-                <button class="prev-button">prev</button>
-                <button class="finish-button">聽完了</button>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="goin center">
-            <h1>拉開門簾進入體驗區</h1>
-            <h1 class="userNameDisplay"></h1>
-            <img src="img/b1.png" alt="">
-            <button>GO</button>
-        </div>
-    </div>
-    <div class="container">
-        <div class="vr center">
-            <p>聞一聞吧~</p>
-            <h1>戴上VR眼鏡<br>漫步茶園</h1>
-            <h1 class="userNameDisplay"></h1>
-            <img src="https://obs.line-scdn.net/0hEEmMQbqwGmpQNAz_JzFlPWhiFhtjUgBjclIAXCBmQ1l6GA0_aQJJCXU3RUZ1Vlg_cAEFCiA9FgkuAAk7ZA/w644"
-                alt="">
-            <div class="vrbg">
-                <h1>VR360<h1>
-                    <button>往下一步</button>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="D center">
-            <h1>知識調查局</h1>
-            <h3>拿IPAD看一下3D的製茶工序</h3>
-            <h1 class="userNameDisplay"></h1>
-            <img src="img/採菁.gif" alt="">
-            <button>看完了</button>
-        </div>
-    </div>
-    <div class="container">
-        <div class="test center">
-            <h1>小考驗</h1>
-            <h1 class="userNameDisplay"></h1>
-            <div class="question" id="question1">
-                <h2>題目1/5</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore tempore maiores aliquam harum rerum
-                    nulla commodi eveniet ex amet eius cumque, officia, sapiente tenetur </p>
-                <button class="next-button">下一題</button>
-            </div>
-            <div class="question" id="question2">
-                <h2>題目2/5</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore tempore maiores aliquam harum rerum
-                    nulla commodi eveniet ex amet eius cumque, officia, sapiente </p>
-                <button class="prev-button">上一題</button>
-                <button class="next-button">下一題</button>
-            </div>
-            <div class="question" id="question3">
-                <h2>題目3/5</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing </p>
-                <button class="prev-button">上一題</button>
-                <button class="next-button">下一題</button>
-            </div>
-            <div class="question" id="question4">
-                <h2>題目4/5</h2>
-                <p>Lorem ipsum dolor sit amet consectetur </p>
-                <button class="prev-button">上一題</button>
-                <button class="next-button">下一題</button>
-            </div>
-            <div class="question" id="question5">
-                <h2>題目5/5</h2>
-                <p>Lorem ipsum dolor sit </p>
-                <button class="prev-button">上一題</button>
-                <button class="submit-button">提交</button>
-            </div>
-            <script>
-                document.addEventListener('DOMContentLoaded', function () {
-                    const questions = document.querySelectorAll('.test .question');
-                    let currentQuestionIndex = 0;
+                        function showCurrentQuestion() {
+                            questions.forEach((question, index) => {
+                                if (index === currentQuestionIndex) {
+                                    question.style.display = 'block';
+                                } else {
+                                    question.style.display = 'none';
+                                }
+                            });
+                        }
 
-                    function showCurrentQuestion() {
-                        questions.forEach((question, index) => {
-                            if (index === currentQuestionIndex) {
-                                question.style.display = 'block';
-                            } else {
-                                question.style.display = 'none';
+                        function nextQuestion() {
+                            if (currentQuestionIndex < questions.length - 1) {
+                                currentQuestionIndex++;
+                                showCurrentQuestion();
                             }
+                        }
+
+                        function prevQuestion() {
+                            if (currentQuestionIndex > 0) {
+                                currentQuestionIndex--;
+                                showCurrentQuestion();
+                            }
+                        }
+                        const nextButtons = document.querySelectorAll('.test .next-button');
+                        nextButtons.forEach(button => {
+                            button.addEventListener('click', nextQuestion);
                         });
-                    }
 
-                    function nextQuestion() {
-                        if (currentQuestionIndex < questions.length - 1) {
-                            currentQuestionIndex++;
-                            showCurrentQuestion();
-                        }
-                    }
+                        const prevButtons = document.querySelectorAll('.test .prev-button');
+                        prevButtons.forEach(button => {
+                            button.addEventListener('click', prevQuestion);
+                        });
 
-                    function prevQuestion() {
-                        if (currentQuestionIndex > 0) {
-                            currentQuestionIndex--;
-                            showCurrentQuestion();
-                        }
-                    }
-
-                    // Event listeners for next and previous buttons
-                    const nextButtons = document.querySelectorAll('.test .next-button');
-                    nextButtons.forEach(button => {
-                        button.addEventListener('click', nextQuestion);
+                        showCurrentQuestion();
                     });
-
-                    const prevButtons = document.querySelectorAll('.test .prev-button');
-                    prevButtons.forEach(button => {
-                        button.addEventListener('click', prevQuestion);
-                    });
-
-                    showCurrentQuestion();
-                });
-            </script>
+                </script>
+            </div>
         </div>
     </div>
     <div class="container">
-        <div class="web center">
-            <h1 class="userNameDisplay"></h1>
-            <h1>看專題網站</h1>
-            <h1>給我去看!!!</h1>
-            <img src="img/keyvision.PNG" alt="">
-            <button>下一步</button>
+        <div class="bar">
+            <div class="logo">
+                <img src="img/logo.png" alt="">
+                <h1>甘吧茶ㄉㄟˊ</h1>
+                <p>展間互動導覽</p>
+            </div>
+            <div class="web center">
+                <h1 class="userNameDisplay"></h1>
+                <h1>任務六</h1>
+                <h1>入座！觀看專題網站～</h1>
+                <img src="img/keyvision.PNG" alt="">
+                <button>下一頁</button>
+            </div>
         </div>
     </div>
     <div class="container">
-        <div class="draw center">
-            <h1>到IPAD繪畫區</h1>
-            <h1 class="userNameDisplay"></h1>
-            <h1>畫屬於你的滴/留言</h1>
-            <h2>範例：</h2>
-            <img src="img/t1.png" alt="">
-            <button>好了</button>
+        <div class="bar">
+            <div class="logo">
+                <img src="img/logo.png" alt="">
+                <h1>甘吧茶ㄉㄟˊ</h1>
+                <p>展間互動導覽</p>
+            </div>
+            <div class="draw center">
+                <h1>最後的任務</h1>
+                <h1 class="userNameDisplay"></h1>
+                <h1>到“ｉｐａｄ繪畫區”
+                    畫出屬於你/妳的滴滴也可以留言喔</h1>
+                <h2>範例：</h2>
+                <img src="img/t1.png" alt="">
+                <button>下一頁</button>
+            </div>
         </div>
     </div>
     <div class="container">
-        <div class="end center">
-            <h1 class="userNameDisplay"></h1>
-            <h1>導覽結束</h1>
-            <img src="img/t1-1.png" alt="">
-            <h1>謝謝光臨甘吧茶ㄉㄟˊ</h1>
-            <a href="index.html"><button>專題網站</button></a>
-            <button>回饋表單</button>
-            <a href="app.html"><button>重新體驗</button></a>
+        <div class="bar">
+            <div class="logo">
+                <img src="img/logo.png" alt="">
+                <h1>甘吧茶ㄉㄟˊ</h1>
+                <p>展間互動導覽</p>
+            </div>
+            <div class="end center">
+                <h1 class="userNameDisplay"></h1>
+                <h1>頒發認證</h1>
+                <h3>請貼一張貼紙到展板的
+                    “探險員名冊“
+                    另一張貼紙請貼到認證卡上</h3>
+                <img src="img/end.png" alt="">
+                <h2>恭喜你成為合格的探險員
+                    Have a nice day!</h2>
+                <a href="index.html"><button>專題網站</button></a>
+                <button>回饋表單</button>
+                <a href="app.html"><button>重新體驗</button></a>
+            </div>
         </div>
-    </div>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -383,4 +449,5 @@
     </script>
 
 </body>
+
 </html>

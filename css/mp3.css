@@ -18,7 +18,7 @@
   top: 0;
   right: 15px;
   left: 15px;
-  padding: 13px 22px 10px 100px;
+  padding: 24px 15px 15px 62px;
   background-color: #fff7f7;
   border-radius: 15px 15px 0 0;
   transition: 0.3s ease top;
@@ -26,7 +26,7 @@
 }
 
 #player-track.active {
-  top: -70px;
+  top: -100px;
 }
 
 #album-name {
@@ -132,7 +132,7 @@
   top: -25px;
   width: 55px;
   height: 55px;
-  margin-left: 40px;
+  margin-left: 25px;
   transform: rotateZ(0);
   transition: 0.3s ease all;
   box-shadow: 0 0 0 5px #fff;
@@ -141,7 +141,7 @@
 }
 
 #album-art.active {
-  top: -60px;
+  top: -80px;
   box-shadow: 0 0 0 4px #fff7f7, 0 30px 50px -15px #afb7c1;
 }
 

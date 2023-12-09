@@ -299,7 +299,7 @@
                                                 <td><%= rs.getString("name") %></td>
                                                 <td><%= Math.round(rs.getDouble("price")) %></td>
                                                 <td>
-                                                    <div class="input-group">
+                                                    <div class="input-group2">
                                                         <a href="cart.jsp?store_id=<%= rs.getString("id") %>&action=decrease">
                                                             <button class="btn btn-primary">-</button>
                                                         </a>

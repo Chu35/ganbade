@@ -1495,6 +1495,16 @@ ul li {
 .ProductList-breadcrumb.hidden-xs {
   position: relative;
 }
+
+.input-group2 {
+  text-align: center;
+  display: flex;
+  position: relative;
+}
+
+.input-group2 input {
+  text-align: center;
+}
 /* storelist */
 .category {
   cursor: pointer;

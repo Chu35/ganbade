@@ -241,5 +241,3 @@ if (typeof (Storage) !== "undefined") {
             subcategory.style.display = 'none';
         }
     }
-
-

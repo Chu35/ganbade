@@ -74,7 +74,7 @@
                         <small class="fa fa-user text-primary"></small>
                     </div>
                     <div class="dropdown-menu border-light m-0">
-                        <a href="signin.html" class="dropdown-item active">登入/註冊</a>
+                        <a href="login.html" class="dropdown-item active">登入/註冊</a>
                         <a href="member.jsp" class="dropdown-item">會員中心</a>
                     </div>
                 </div>
@@ -91,27 +91,49 @@
             <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
                 <h1 class="display-5 mb-5">成為滴滴一員</h1>
             </div>
-            <div class=" mb-5" align="center">
-                <form id="membermodify" action="register.jsp" method="post" autocomplete="off">
-                    暱稱：<input class="m1" type="text" name="user" autocomplete="off" required /><br><br>
-                    性別：&ensp;<label><input type="radio" name="gender" value="M" />男</label>&emsp;
-                    <label><input type="radio" name="gender" value="F">女</label>&emsp;
-                    <label><input type="radio" name="gender" value="N/A">不透漏</label><br><br>
-                    帳號：<input class="m1" type="text" name="name" autocomplete="off" required /><br><br>
-                    密碼：<input class="m1" type="password" name="pwd" />
-                    <div class="password-requirements" required pattern="^(?=.*[0-9])(?=.*[a-zA-Z]).+$">
-                        <font size="1" color="red">*密碼需包含英文以及數字*</font>
+            <div class="mb-5" align="center">
+                <a href="login.html" id="back-link" style="position: relative;right: 60%;">← 返回</a><br>
+                <form id="register-form2" action="register.jsp" method="post" autocomplete="off">
+                    <div class="input-group">
+                        <input class="lgform" required type="text" id="username" name="user" autocomplete="off" />
+                        <label class="label" for="username">暱稱</label>
                     </div>
-                    </input>
-                    </from><br>
+                    <div class="input-group2" align="left">
+                        性別：&ensp;<label><input type="radio" name="gender" value="M" />男</label>&emsp;
+                        <label><input type="radio" name="gender" value="F">女</label>&emsp;
+                        <label><input type="radio" name="gender" value="N/A">不透漏</label><br><br>
+                    </div>
+                    <div class="input-group">
+                        <input class="lgform" required type="text" name="name" />
+                        <label class="label" for="username">帳號</label>
+                    </div>
+                    <div class="input-group">
+                        <input class="lgform" required type="password" id="password" name="pwd" autocomplete="off" />
+                        <label class="label" for="password">密碼</label>
+                        <i class="eye-icon far fa-eye" onclick="togglePassword()"></i>
+                    </div>
                     <div class="form-table">
-                        <input class="btn btn-primary" type="submit" value="存檔" />&emsp;
-                        <input class="btn btn-primary" type="reset" value="清除" />
+                        <input class="btn btn-primary" type="reset" value="清除" />&emsp;
+                        <input class="btn btn-primary" type="submit" value="存檔" />
                     </div>
                 </form>
+                <script>
+                    function togglePassword() {
+                        var passInput = document.getElementById("password");
+                        var eyeIcon = document.querySelector(".eye-icon");
+
+                        if (passInput.type === "password") {
+                            passInput.type = "text";
+                            eyeIcon.className = "eye-icon far fa-eye-slash"; // Change icon to open eye
+                        } else {
+                            passInput.type = "password";
+                            eyeIcon.className = "eye-icon far fa-eye"; // Change icon to closed eye
+                        }
+                    }
+                </script>
             </div>
         </div>
-        </div>
+    </div>
     <!-- login End -->
 
 

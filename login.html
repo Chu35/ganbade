@@ -22,6 +22,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-rlZ35+BqOO1+coq6Y2jsFZe81c7a4pXwVn6m3Wxm/So9fsFjqtd5evM2P5FF06lm4Lq3g6lQjhwdQ9y99t4K1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Libraries Stylesheet -->
     <link href="lib/animate/animate.min.css" rel="stylesheet">
@@ -89,7 +90,7 @@
     <!-- login Start -->
     <div class="container-xxl py-5">
         <div class="center">
-            <div class="text-center mx-auto" style="max-width: 600px;">
+            <div class="text-center mx-auto" style="max-width: 800px;">
                 <h1 class="display-3 mb-4 animated">  </h1>
                 <h1 class="display-5 mb-5">Login</h1>
             </div>
@@ -98,29 +99,61 @@
                     <div class="form" id="form-container">
                         <!-- 登入表單 -->
                         <form id="login-form" action="verify.jsp" class="show">
-                            帳號：<input class="m1" type="text" name="user" autocomplete="off" /><br><br>
-                            密碼：<input class="m1" type="password" name="pwd"/><br><br>
-                            <input class="btn btn-primary" type="submit" value="登入"/>&emsp;   
+                            <div class="loginform">
+                                <div class="input-group">
+                                    <input class="lgform" required type="text" id="username" name="user" autocomplete="off" />
+                                    <label class="label" for="username">帳號</label>
+                                </div>                   
+                                <div class="input-group">
+                                    <input class="lgform" required type="password" id="password" name="pwd" autocomplete="off" />
+                                    <label class="label" for="password">密碼</label>
+                                    <i class="eye-icon far fa-eye" onclick="togglePassword()"></i>
+                                </div>
+                            </div>                
+                            <input class="btn btn-primary" type="submit" value="登入" />&emsp;
                             <a href="#" id="register-link">註冊</a>
                         </form>
-            
+
                         <!-- 註冊表單 -->
                         <form id="register-form" action="register.jsp" method="post" autocomplete="off" class="hide">
-                            <a href="#" id="back-link" style="position: relative;right: 40%;">← 返回</a><br>
-                            暱稱：<input class="m1" type="text" name="user" autocomplete="off" required /><br><br>
-                            性別：&ensp;<label><input type="radio" name="gender" value="M" />男</label>&emsp;
-                            <label><input type="radio" name="gender" value="F">女</label>&emsp;
-                            <label><input type="radio" name="gender" value="N/A">不透漏</label><br><br>
-                            帳號：<input class="m1" type="text" name="name" autocomplete="off" required /><br><br>
-                            密碼：<input class="m1" type="password" name="pwd" />
-                            <div class="password-requirements" required pattern="^(?=.*[0-9])(?=.*[a-zA-Z]).+$">
-                                <font size="1" color="red">*密碼需包含英文以及數字*</font>
-                            </div><br>
+                            <a href="#" id="back-link" style="position: relative;right: 60%;">← 返回</a><br>
+                            <div class="input-group">
+                                <input class="lgform" required type="text" id="username" name="user" autocomplete="off" />
+                                <label class="label" for="username">暱稱</label>
+                            </div>  
+                            <div class="input-group2" align="left">
+                                性別：&ensp;<label><input type="radio" name="gender" value="M" />男</label>&emsp;
+                                <label><input type="radio" name="gender" value="F">女</label>&emsp;
+                                <label><input type="radio" name="gender" value="N/A">不透漏</label><br><br>
+                            </div>
+                            <div class="input-group">
+                                <input class="lgform" required type="text" name="name"/>
+                                <label class="label" for="username">帳號</label>
+                            </div> 
+                            <div class="input-group">
+                                <input class="lgform" required type="password" id="password" name="pwd" autocomplete="off" />
+                                <label class="label" for="password">密碼</label>
+                                <i class="eye-icon far fa-eye" onclick="togglePassword()"></i>
+                            </div>
                             <div class="form-table">
                                 <input class="btn btn-primary" type="reset" value="清除" />&emsp;
                                 <input class="btn btn-primary" type="submit" value="存檔" />
                             </div>
                         </form>
+                        <script>
+                            function togglePassword() {
+                                var passInput = document.getElementById("password");
+                                var eyeIcon = document.querySelector(".eye-icon");
+                    
+                                if (passInput.type === "password") {
+                                    passInput.type = "text";
+                                    eyeIcon.className = "eye-icon far fa-eye-slash"; // Change icon to open eye
+                                } else {
+                                    passInput.type = "password";
+                                    eyeIcon.className = "eye-icon far fa-eye"; // Change icon to closed eye
+                                }
+                            }
+                        </script>
                     </div>
                 </div>
 			</div>
@@ -129,7 +162,6 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             var formContainer = document.getElementById("form-container");
-
             // 點擊註冊連結時，切換到註冊表單
             document.getElementById("register-link").addEventListener("click", function() {
                 document.getElementById("login-form").classList.remove("show");

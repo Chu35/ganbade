@@ -905,7 +905,7 @@ input {
                                                 $("#searchInput2").on("keyup", function () {
                                                     var value = $(this).val().toLowerCase();
                                                     $("#KnowledgeTable tbody tr").filter(function () {
-                                                        var nameColumn = $(this).find("td:eq(1)").text().toLowerCase();
+                                                        var nameColumn = $(this).find("td:eq(2)").text().toLowerCase();
                                                         $(this).toggle(nameColumn.indexOf(value) > -1);
                                                     });
                                                 });

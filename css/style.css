@@ -1548,35 +1548,109 @@ ul li {
 
 /* login*/
 .form-container {
-  width: 300px;
-  margin: 50px auto;
-  overflow: hidden;
+    width: 250px;
+    margin: 50px auto;
 }
 
 .form {
-  display: flex;
-  width: 600px;
-  transition: transform 1s;
+    display: flex;
+    width: 600px;
+    transition: transform 1s;
 }
 
 .form form {
-  width: 300px;
-  border-radius: 5px;
-  display: none;
+    width: 250px;
+    border-radius: 5px;
+    display: none;
 }
-.form-container .m1{
-  border: none;
-outline: none;
-border-bottom: 2px solid #4d4d4d;
-background: none;
+
+.form-container .m1 {
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #4d4d4d;
+    background: none;
 }
 
 #register-form {
-  transform: translateX(100%);
+    transform: translateX(120%);
 }
 
+#register-form2 {
+  transform: translateX(0%);
+}
 .show {
-  display: block !important;
+    display: block !important;
+}
+
+.loginform {
+    position: relative;
+}
+
+.lgform {
+    all: unset;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 10px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #8E7D5C;
+    background: none;
+}
+
+.label {
+    position: absolute;
+    top: 15px;
+    color: #8E7D5C;
+    pointer-events: none;
+    transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lgform:focus {
+  border: none;
+    outline: none;
+    border-bottom: 1px solid #8E7D5C;
+    background: none;
+}
+
+.lgform:focus+.label,
+.lgform:valid+.label {
+    transform: translateY(-100%) scale(0.8);
+    background-color: #F9EDDD;
+    color: #8E7D5C;
+    left: 0;
+}
+
+.input-group {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.eye-icon {
+    position: absolute;
+    top: 50%;
+    right: 0rem;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: #8E7D5C;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#register-link {
+    color: #8E7D5C;
+    text-decoration: none;
+    margin-top: 10px;
 }
 
 /* member name */

@@ -225,8 +225,9 @@ button {
 .part {
     margin: 0;
     width: 320px;
-    height: 360px;
+    height: 340px;
     background-color: #E7E1DA;
+    border-radius: 15px;
 }
 
 .vr img{

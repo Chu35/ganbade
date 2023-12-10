@@ -119,7 +119,7 @@
             <div class="carousel-inner">
                 <div id="mc1" class="carousel-item active">
                     <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3">貓空</p>
-                    <img src="img/貓空.png"  class="d-block w-100" alt="貓空">                    
+                    <img src="img/maokong.png"  class="d-block w-100" alt="貓空">                    
                     <div class="pin" onclick="jumpIcon(this)" data-target="f1"><img src="img/pin1.png" title="貓空 找茶屋 found your tea"></div>
                     <div class="pin" onclick="jumpIcon(this)" data-target="f2"><img src="img/pin1.png" title="邀月茶坊"></div>
                     <div class="pin" onclick="jumpIcon(this)" data-target="f4"><img src="img/pin1.png" title="煎茶院"></div>
@@ -129,7 +129,7 @@
                 </div>
                 <div class="carousel-item">
                     <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3">坪林</p>
-                    <img src="img/坪林.png" class="d-block w-100" alt="坪林">
+                    <img src="img/pinlin.png" class="d-block w-100" alt="坪林">
                     <div class="pin" onclick="jumpIcon(this)" data-target="f5"><img src="img/pin.png" title="心茶合一 TeaFlow"></div>
                     <div class="pin" onclick="jumpIcon(this)" data-target="f8"><img src="img/pin.png" title="坪林茶業博物館"></div>
                     <div class="pin" onclick="jumpIcon(this)" data-target="f12"><img src="img/pin.png" title="祥泰茶莊"></div>
@@ -138,14 +138,14 @@
                 </div>
                 <div class="carousel-item">
                     <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3">大稻埕</p>
-                    <img src="img/大稻埕.png" class="d-block w-100" alt="大稻埕">
+                    <img src="img/dadaochen.png" class="d-block w-100" alt="大稻埕">
                     <div class="pin" onclick="jumpIcon(this)" data-target="f3"><img src="img/pin.png" title="新芳春茶行"></div>
                     <div class="pin" onclick="jumpIcon(this)" data-target="f6"><img src="img/pin.png" title="南街得意"></div>
                     <div class="pin" onclick="jumpIcon(this)" data-target="f15"><img src="img/pin.png" title="沃森茶酒館 WOSOM / Teahouse & Bar"></div>
                 </div>
                 <div class="carousel-item">
                     <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3">西門町</p>
-                    <img src="img/西門.png" class="d-block w-100" alt="西門町">
+                    <img src="img/ximen.png" class="d-block w-100" alt="西門町">
                     <div class="pin" onclick="jumpIcon(this)" data-target="f7"><img src="img/pin.png" title="HANKO 60 如醉如夢"></div>
                     <div class="pin" onclick="jumpIcon(this)" data-target="f16"><img src="img/pin.png" title="八拾捌茶輪番所"></div>
                     <div class="pin" onclick="jumpIcon(this)" data-target="f17"><img src="img/pin.png" title="摸摸茶舖 TouchTea"></div>

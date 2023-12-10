@@ -889,72 +889,75 @@ ul li {
 .pin{
   cursor: url('../img/4in3.ico'), auto;
 }
+.pin[data-target^="f"] img {
+  visibility: hidden;
+}
 
-  .pin[data-target="f1"] {
+.pin[data-target="f1"] {
   position: absolute;
   top: 39%;
   right: 40%;
-  font-size: 24px;
+  font-size: 30px;
   transition: transform 0.3s ease; 
 }
 
 .pin[data-target="f2"] {
   position: absolute;
   top: 38%;
-  right: 0%;
-  font-size: 24px;
+  right: 3%;
+  font-size: 30px;
   transition: transform 0.3s ease; 
 }
 .pin[data-target="f3"] {
   position: absolute;
-  top: 25%;
-  right: 13%;
-  font-size: 24px;
+  top: 16%;
+  right: 29%;
+  font-size: 30px;
   transition: transform 0.3s ease; 
 }
 .pin[data-target="f4"] {
   position: absolute;
   top: 45%;
-  right: 5%;
-  font-size: 24px;
+  right: 8%;
+  font-size: 30px;
   transition: transform 0.3s ease; 
 }
 
 .pin[data-target="f5"] {
   position: absolute;
-  top: 46%;
-  right: 31%;
-  font-size: 24px;
+  top: 38%;
+  right: 5%;
+  font-size: 30px;
   transition: transform 0.3s ease; 
 }
 
 .pin[data-target="f6"] {
   position: absolute;
-  top: 79%;
-  right: 46%;
-  font-size: 24px;
+  top: 45%;
+  right: 61%;
+  font-size: 30px;
   transition: transform 0.3s ease; 
 }
 .pin[data-target="f7"] {
   position: absolute;
-  top: 18%;
-  right: 44%;
-  font-size: 24px;
+  top: 14%;
+  right: 45%;
+  font-size: 30px;
   transition: transform 0.3s ease; 
 }
 
 .pin[data-target="f8"] {
   position: absolute;
-  top: 56%;
-  right: 36%;
-  font-size: 24px;
+  top: 58%;
+  right: 14%;
+  font-size: 30px;
   transition: transform 0.3s ease; 
 }
 .pin[data-target="f9"] {
   position: absolute;
   top: 23%;
-  right: 20%;
-  font-size: 24px;
+  right: 23%;
+  font-size: 30px;
   transition: transform 0.3s ease; 
 }
 
@@ -962,64 +965,64 @@ ul li {
   position: absolute;
   top: 45%;
   right: 44%;
-  font-size: 24px;
+  font-size: 30px;
   transition: transform 0.3s ease; 
 }
 .pin[data-target="f11"] {
   position: absolute;
   top: 59%;
-  right: 94%;
-  font-size: 24px;
+  right: 92%;
+  font-size: 30px;
   transition: transform 0.3s ease; 
 }
 
 .pin[data-target="f12"] {
   position: absolute;
-  top: 47%;
-  right: 59%;
-  font-size: 24px;
+  top: 40%;
+  right: 57%;
+  font-size: 30px;
   transition: transform 0.3s ease; 
 }
 .pin[data-target="f13"] {
   position: absolute;
-  top: 57%;
-  right: 73%;
-  font-size: 24px;
+  top: 60%;
+  right: 83%;
+  font-size: 30px;
   transition: transform 0.3s ease; 
 }
 .pin[data-target="f14"] {
   position: absolute;
   top: 55%;
-  right: 68%;
-  font-size: 24px;
+  right: 75%;
+  font-size: 30px;
   transition: transform 0.3s ease; 
 }
 .pin[data-target="f15"] {
   position: absolute;
-  top: 51%;
-  right: 46%;
-  font-size: 24px;
+  top: 76%;
+  right: 61%;
+  font-size: 30px;
   transition: transform 0.3s ease; 
 }
 .pin[data-target="f16"] {
   position: absolute;
   top: 80%;
-  right: 31%;
-  font-size: 24px;
+  right: 33%;
+  font-size: 30px;
   transition: transform 0.3s ease; 
 }
 .pin[data-target="f17"] {
   position: absolute;
   top: 65%;
   right: 72%;
-  font-size: 24px;
+  font-size: 30px;
   transition: transform 0.3s ease; 
 }
 .pin[data-target="f18"] {
   position: absolute;
-  top: 23%;
-  right: 32%;
-  font-size: 24px;
+  top: 20%;
+  right: 34%;
+  font-size: 30px;
   transition: transform 0.3s ease; 
 }
 

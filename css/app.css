@@ -52,7 +52,7 @@ img {
     margin: 0 auto;
 }
 h1{
-    font-weight: 600
+    font-weight: 600;
 }
 
 h2{
@@ -68,9 +68,6 @@ p  {
     font-weight: 200
 }
 
-.task{
-    background-image: url(../img/back.png);
-}
 
 button {
     padding: 10px 20px;
@@ -110,10 +107,6 @@ button {
     height: 100vh;
 }
 
-.personal2 h1 {
-    margin: 0;
-    padding: 18px;
-}
 
 .m1 {
     width: 200px;
@@ -211,10 +204,7 @@ button {
     height: 100vh;
 }
 
-.stepone h1 {
-    margin: 0;
-    padding: 18px;
-}
+
 
 .stepone img {
     margin: 0;
@@ -275,6 +265,10 @@ button {
 
 .ques h3{
     margin: 20px;
+}
+
+.draw h2{
+    margin: 8px;
 }
 .question h2{
     margin: 20px;

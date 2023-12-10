@@ -359,7 +359,7 @@ div.correct-answer {
 .progress-bar-container {
     bottom: 55px;
     height: 290px;
-    border: 1px solid #DAE4CA;
+    border: 1px solid #B1BD9C;
     border-radius: 15px;
     text-align: center;
     margin-right: 75%;
@@ -372,7 +372,7 @@ div.correct-answer {
 .progress-bar {
     position: absolute;
     bottom: 0;
-    background-color: #67bc6a;
+    background-color: #808F66;
     width: 100%;
     border-radius: 15px;
     transition: height 1s ease-in-out;

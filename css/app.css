@@ -356,7 +356,6 @@ div.correct-answer {
     position: relative;
 }
 .progress-bar-container {
-    bottom: 55px;
     height: 290px;
     border: 1px solid #B1BD9C;
     border-radius: 15px;
@@ -366,8 +365,12 @@ div.correct-answer {
     background-color: #ddd;
     display: inline-block;
     position: fixed;
+    top: 320px;
+    left: 35px;
 
 }
+
+
 .progress-bar {
     position: absolute;
     bottom: 0;

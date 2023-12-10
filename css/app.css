@@ -304,10 +304,10 @@ button {
     border: none;
     border-radius: 15px;
     cursor: pointer;
-    margin: 20px;
+    margin: 10px;
     position: absolute;
     bottom: 0;
-    right: -40px;
+    right: -30px;
 }
 
 #aunt{
@@ -376,6 +376,6 @@ div.correct-answer {
     border-radius: 15px;
     transition: height 1s ease-in-out;
 }
-.end h1{
+.end h1,.nfc h1{
     margin-bottom: 2px;
 }

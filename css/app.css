@@ -208,7 +208,7 @@ button {
 
 .stepone img {
     margin: 0;
-    max-width:45%;
+    max-width:55%;
 }
 
 /* nfc */
@@ -240,7 +240,7 @@ button {
 
 .D img{
     margin: 0;
-    max-width:45%;
+    max-width:55%;
 }
 
 .ques{
@@ -275,7 +275,12 @@ button {
 }
 .draw img{
     margin: 0;
-    max-width:45%;
+    max-width:55%;
+}
+
+.web img{
+    margin: 0;
+    max-width:55%;
 }
 
 .finish-button{

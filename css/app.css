@@ -376,3 +376,6 @@ div.correct-answer {
     border-radius: 15px;
     transition: height 1s ease-in-out;
 }
+.end h1{
+    margin-bottom: 2px;
+}

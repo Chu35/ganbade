@@ -297,6 +297,19 @@ button {
     bottom: 0;
     right: 10px;
 }
+.finish-button2{
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #402A05;
+    background-color: #B69779;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 20px;
+    position: absolute;
+    bottom: 0;
+    right: -30px;
+}
 
 #aunt{
     background-image: url(../img/kv7.png);
@@ -344,7 +357,7 @@ div.correct-answer {
     position: relative;
 }
 .progress-bar-container {
-    bottom: 65px;
+    bottom: 55px;
     height: 290px;
     border: 1px solid #DAE4CA;
     border-radius: 15px;

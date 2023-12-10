@@ -85,68 +85,20 @@
                 <div class="nfcpart" id="nfc1">
                     <div class="part">
                         <img src="img/n1.jpg" alt="">
-                        <p>長輩不擅長網路經營</p>
-                        <div id="app-cover">
-                            <div id="player">
-                                <div id="player-track">
-                                    <div id="album-name"></div>
-                                    <div id="track-time">
-                                        <div id="current-time"></div>
-                                        <div id="track-length"></div>
-                                    </div>
-                                    <div id="s-area">
-                                        <div id="ins-time"></div>
-                                        <div id="s-hover"></div>
-                                        <div id="seek-bar"></div>
-                                    </div>
-                                </div>
-                                <div id="player-content">
-                                    <div id="album-art">
-                                        <img src="img/n1.jpg" class="active" id="_1">
-                                        <img src="img/n2.jpg" id="_2">
-                                        <img src="img/n3.jpg" id="_3">
-                                        <img src="img/n4.jpg" id="_4">
-                                        <div id="buffer-box">Buffering ...</div>
-                                    </div>
-                                    <div id="player-controls">
-                                        <div class="control">
-                                            <div class="button" id="play-previous">
-                                                <i class="fas fa-backward"><<</i>
-                                            </div>
-                                        </div>
-                                        <div class="control">
-                                            <div class="button" id="play-pause-button">
-                                                <i class="fas fa-play">+</i>
-                                            </div>
-                                        </div>
-                                        <div class="control">
-                                            <div class="button" id="play-next">
-                                                <i class="fas fa-forward">></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <h3>長輩不擅長網路經營</h3>
                     </div>
-                    <p><span style="color: #B69779;">點擊播放鍵聆聽下一則</span></p>
-                    <button class="finish-button">跳過</button>
                 </div>
                 <div class="nfcpart" id="nfc2">
                     <div class="part">
                         <img src="img/n2.jpg" alt="">
                         <p>政府資助茶產業只是一時的</p>
                     </div>
-                    <p><span style="color: #B69779;">點擊播放鍵聆聽下一則</span></p>
-                    <button class="finish-button">跳過</button>
                 </div>
                 <div class="nfcpart" id="nfc3">
                     <div class="part">
                         <img src="img/n3.jpg" alt="">
                         <p>年輕人不願意回來接手茶莊</p>
                     </div>
-                    <p id="aunt"><span style="color: #B69779;">點擊播放鍵聆聽下一則</span></p>
-                    <button class="finish-button">跳過</button>
                 </div>
                 <div class="nfcpart" id="nfc4">
                     <div class="part">
@@ -155,7 +107,92 @@
                     </div>
                     <button class="finish-button">聽完了</button>
                 </div>
-
+                <div id="app-cover">
+                    <div id="player">
+                        <div id="player-track">
+                            <div id="album-name"></div>
+                            <div id="track-time">
+                                <div id="current-time"></div>
+                                <div id="track-length"></div>
+                            </div>
+                            <div id="s-area">
+                                <div id="ins-time"></div>
+                                <div id="s-hover"></div>
+                                <div id="seek-bar"></div>
+                            </div>
+                        </div>
+                        <div id="player-content">
+                            <div id="album-art">
+                                <img src="img/n1.jpg" class="active" id="_1">
+                                <img src="img/n2.jpg" id="_2">
+                                <img src="img/n3.jpg" id="_3">
+                                <img src="img/n4.jpg" id="_4">
+                                <div id="buffer-box">Buffering ...</div>
+                            </div>
+                            <div id="player-controls">
+                                <div class="control">
+                                    <div class="button" id="play-previous">
+                                        <i class="fas fa-backward">
+                                            <<</i>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="button" id="play-pause-button">
+                                        <i class="fas fa-play">+</i>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="button" id="play-next">
+                                        <i class="fas fa-forward">></i>
+                                    </div>
+                                </div>
+                            </div>                                                
+                            <p><span style="color: #B69779;">點擊播放鍵聆聽下一則</span></p>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        var currentPart = 1; // Initial part
+            
+                        document.getElementById('play-next').addEventListener('click', function () {
+                            // Handle the forward button click
+                            if (currentPart < 4) {
+                                currentPart++;
+                                updateNFCPart(currentPart);
+                            }
+                        });
+            
+                        document.getElementById('play-previous').addEventListener('click', function () {
+                            // Handle the backward button click
+                            if (currentPart > 1) {
+                                currentPart--;
+                                updateNFCPart(currentPart);
+                            }
+                        });
+            
+                        function updateNFCPart(partNumber) {
+                            // Update the displayed image based on the current part
+                            var nfcParts = document.querySelectorAll('.nfcpart');
+                            nfcParts.forEach(function (part) {
+                                part.style.display = 'none';
+                            });
+            
+                            var currentNFCPart = document.getElementById('nfc' + partNumber);
+                            currentNFCPart.style.display = 'block';
+            
+                            // Optionally, update the album art in the player
+                            var albumArtImages = document.querySelectorAll('#album-art img');
+                            albumArtImages.forEach(function (img) {
+                                img.classList.remove('active');
+                            });
+            
+                            var currentAlbumArt = document.getElementById('_' + partNumber);
+                            currentAlbumArt.classList.add('active');
+                        }
+                    });
+                </script>                
+                <button class="finish-button">跳過</button>
             </div>
         </div>
     </div>
@@ -201,7 +238,6 @@
             </div>
             <div class="test">
                 <h1>任務五</h1>
-
                 <!-- Question 1 -->
                 <div class="question" id="question1">
                     <h2>請依據茶多酚實驗室的內容完成小考察</h2>
@@ -212,7 +248,6 @@
                         <div class="btn" onclick="checkAnswer('question1', '白茶、綠茶、紅茶')">白茶、綠茶、紅茶</div>
                     </div>
                 </div>
-
                 <!-- Question 2 -->
                 <div class="question" id="question2">
                     <h2>請依據知識調查局的內容完成小考察</h2>
@@ -223,7 +258,6 @@
                         <div class="btn" onclick="checkAnswer('question2', '沒有影響')">沒有影響</div>
                     </div>
                 </div>
-
                 <!-- Question 3 -->
                 <div class="question" id="question3">
                     <h2>請依據知識調查局的內容完成小考察</h2>
@@ -234,7 +268,6 @@
                         <div class="btn" onclick="checkAnswer('question3', '萎凋')">萎凋</div>
                     </div>
                 </div>
-
                 <!-- Question 4 -->
                 <div class="question" id="question4">
                     <h2>請依據知識調查局的內容完成小考察</h2>
@@ -245,7 +278,6 @@
                         <div class="btn" onclick="checkAnswer('question4', '殺菁、萎凋')">殺菁、萎凋</div>
                     </div>
                 </div>
-
                 <!-- Question 5 -->
                 <div class="question" id="question5">
                     <h2>請依據知識調查局的內容完成小考察</h2>

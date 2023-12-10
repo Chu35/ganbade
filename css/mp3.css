@@ -2,7 +2,7 @@
 
 #app-cover {
   position: relative;
-  height: 65px;
+  height: 110px;
   margin: auto;
 }
 
@@ -15,10 +15,10 @@
 
 #player-track {
   position: absolute;
-  top: 0;
+  top: 50px;
   right: 15px;
   left: 15px;
-  padding: 24px 15px 15px 62px;
+  padding: 15px 15px 15px 90px;
   background-color: #fff7f7;
   border-radius: 15px 15px 0 0;
   transition: 0.3s ease top;
@@ -26,7 +26,7 @@
 }
 
 #player-track.active {
-  top: -100px;
+  top: -50px;
 }
 
 #album-name {
@@ -122,14 +122,15 @@
 #player-content {
   position: relative;
   height: 100%;
-  background-color: #fff;
+  background-color: green;
   border-radius: 15px;
   z-index: 2;
+  top: 25px;
 }
 
 #album-art {
   position: absolute;
-  top: -25px;
+  top: 30px;
   width: 55px;
   height: 55px;
   margin-left: 25px;
@@ -141,7 +142,7 @@
 }
 
 #album-art.active {
-  top: -80px;
+  top: -65px;
   box-shadow: 0 0 0 4px #fff7f7, 0 30px 50px -15px #afb7c1;
 }
 
@@ -239,9 +240,9 @@
 }
 
 #player-controls {
-  width: 250px;
+  width: 217px;
   height: 100%;
-  margin: 0 5px 0 141px;
+  margin: 15px 0 0 0;
   float: right;
   overflow: hidden;
 }
@@ -249,21 +250,17 @@
 .control {
   width: 33.333%;
   float: left;
-  padding: 12px 0;
+  padding: 5px 0;
 }
 
 .button {
-  width: 26px;
-  height: 26px;
-  padding: 25px;
-  background-color: #fff;
-  border-radius: 6px;
+  margin: 23px;
   cursor: pointer;
 }
 
 .button i {
   display: block;
-  color: black;
+  color: red;
   font-size: 26px;
   text-align: center;
   line-height: 1;
@@ -272,12 +269,4 @@
 .button,
 .button i {
   transition: 0.2s ease all;
-}
-
-.button:hover {
-  background-color: #d6d6de;
-}
-
-.button:hover i {
-  color: #fff;
 }

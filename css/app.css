@@ -343,7 +343,7 @@ div.correct-answer {
     position: relative;
 }
 .progress-bar-container {
-    bottom: 140px;
+    bottom: 65px;
     height: 290px;
     border: 1px solid #DAE4CA;
     border-radius: 15px;

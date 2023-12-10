@@ -104,8 +104,7 @@
                     <div class="part">
                         <img src="img/n4.jpg" alt="">
                         <p>年輕人應該多喝茶，少喝手搖飲</p>
-                    </div>
-                    <button class="finish-button">聽完了</button>
+                    </div>        
                 </div>
                 <div id="app-cover">
                     <div id="player">
@@ -149,13 +148,14 @@
                             </div>                                                
                             <p><span style="color: #B69779;">點擊播放鍵聆聽下一則</span></p>
                         </div>
-                        <button class="finish-button2">跳過</button>
+                        <button id="listen" class="finish-button2" style="display: none;">聽完了</button>
+                        <button id="pass" class="finish-button2" style="display: block;">跳過</button>
                     </div>
                 </div>
                 <script>
                     document.addEventListener('DOMContentLoaded', function () {
                         var currentPart = 1; // Initial part
-            
+                
                         document.getElementById('play-next').addEventListener('click', function () {
                             // Handle the forward button click
                             if (currentPart < 4) {
@@ -163,7 +163,7 @@
                                 updateNFCPart(currentPart);
                             }
                         });
-            
+                
                         document.getElementById('play-previous').addEventListener('click', function () {
                             // Handle the backward button click
                             if (currentPart > 1) {
@@ -171,28 +171,41 @@
                                 updateNFCPart(currentPart);
                             }
                         });
-            
+                
                         function updateNFCPart(partNumber) {
                             // Update the displayed image based on the current part
                             var nfcParts = document.querySelectorAll('.nfcpart');
                             nfcParts.forEach(function (part) {
                                 part.style.display = 'none';
                             });
-            
+                
                             var currentNFCPart = document.getElementById('nfc' + partNumber);
                             currentNFCPart.style.display = 'block';
-            
+                
                             // Optionally, update the album art in the player
                             var albumArtImages = document.querySelectorAll('#album-art img');
                             albumArtImages.forEach(function (img) {
                                 img.classList.remove('active');
                             });
-            
+                
                             var currentAlbumArt = document.getElementById('_' + partNumber);
                             currentAlbumArt.classList.add('active');
+                
+                            // Update the visibility of buttons based on the current part
+                            var listenButton = document.getElementById('listen');
+                            var passButton = document.getElementById('pass');
+                
+                            if (currentPart < 4) {
+                                listenButton.style.display = 'none';
+                                passButton.style.display = 'block';
+                            } else {
+                                listenButton.style.display = 'block';
+                                passButton.style.display = 'none';
+                            }
                         }
                     });
-                </script>                
+                </script>
+                              
             </div>
         </div>
     </div>

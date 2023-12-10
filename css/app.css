@@ -208,7 +208,7 @@ button {
 
 .stepone img {
     margin: 0;
-    max-width:70%;
+    max-width:65%;
 }
 
 /* nfc */
@@ -304,10 +304,10 @@ button {
     border: none;
     border-radius: 15px;
     cursor: pointer;
-    margin: 5px;
+    margin: 20px;
     position: absolute;
     bottom: 0;
-    right: -31px;
+    right: -40px;
 }
 
 #aunt{

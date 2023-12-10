@@ -18,7 +18,7 @@
   top: 25px;
   right: 15px;
   left: 15px;
-  padding: 10px 15px 15px 80px;
+  padding: 10px 15px 15px 25px;
   background-color: #fff7f7;
   border-radius: 15px 15px 0 0;
   transition: 0.3s ease top;
@@ -123,7 +123,7 @@
   position: relative;
   height: 100%;
   background-color: #d2cdc7;
-  border-radius: 15px;
+  border-radius: 0 0 15px 15px;
   z-index: 2;
   top: 25px;
 }
@@ -140,11 +140,11 @@
   border-radius: 50%;
   overflow: hidden;
 }
-
+/*
 #album-art.active {
   top: -65px;
   box-shadow: 0 0 0 4px #fff7f7, 0 30px 50px -15px #afb7c1;
-}
+}*/
 
 #album-art:before {
   content: "";

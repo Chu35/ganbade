@@ -8,7 +8,6 @@ $(function () {
     sArea = $("#s-area"),
     seekBar = $("#seek-bar"),
     trackTime = $("#track-time"),
-    trackUrl = $("#track-url"),
     insTime = $("#ins-time"),
     sHover = $("#s-hover"),
     playPauseButton = $("#play-pause-button"),

@@ -43,7 +43,7 @@ $(function () {
     ],
     albumArtworks = ["_1", "_2", "_3", "_4"],
     trackUrl = [
-            "https://raw.githubusercontent.com/Chu35/ganbade/master/img/阿姨_年輕人喝茶.mp3",
+            "https://raw.githubusercontent.com/Chu35/ganbade/main/img/阿姨_年輕人喝茶.mp3",
       "https://raw.githubusercontent.com/himalayasingh/music-player-1/master/music/2.mp3",
       "../img/阿姨_接手.mp3",
       "../img/阿姨_年輕人喝茶.mp3"

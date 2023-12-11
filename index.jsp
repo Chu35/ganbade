@@ -213,7 +213,9 @@
 		<div class="container">
 		  <div class="text-center mx-auto" style="max-width: 1000px; height: auto;">
 			<h1 class="mb-2">不同茶種有不同的風味與特色</h1>
-			<div class="mb-3"><p >Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam enim vel veritatis natus quos necessitatibus! Incidunt dolore sequi repudiandae! Beatae quis sint vel, praesentium delectus magnam numquam deleniti dolor illum?<br></p>
+			<div class="mb-3"><p >是否你曾經也有以下困擾：<br>
+				「不同品種的茶到底差在哪 ?」<br>
+				「為什麼同樣顏色的茶湯喝起來風味卻不同呢 ?」<br></p>
 			<a href="knowl.jsp" id="knowlbtn" class="btn btn-primary">看更多</a></div>
 			<div id="type" class="slider">
 			  <div class="slide-track" id="slideTrack">

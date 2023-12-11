@@ -43,10 +43,10 @@ $(function () {
     ],
     albumArtworks = ["_1", "_2", "_3", "_4"],
     trackUrl = [
-      "https://www.youtube.com/watch?v=5a-tqIQc8RM&list=RD5a-tqIQc8RM&start_radio=1",
-      "path/to/阿姨_政府.mp3",
-      "path/to/阿姨_接手.mp3",
-      "path/to/阿姨_年輕人喝茶.mp3"
+      "../img/阿姨_行銷.mp3",
+      "../img/阿姨_政府.mp3",
+      "../img/阿姨_接手.mp3",
+      "../img/阿姨_年輕人喝茶.mp3"
     ],
     playPreviousTrackButton = $("#play-previous"),
     playNextTrackButton = $("#play-next"),

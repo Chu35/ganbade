@@ -50,6 +50,8 @@ $(function () {
     ],
     playPreviousTrackButton = $("#play-previous"),
     playNextTrackButton = $("#play-next"),
+    passButton = $("#pass"),
+    listenButton = $("#listen"),
     currIndex = -1;
 
   function playPause() {
@@ -215,6 +217,17 @@ $(function () {
       else ++currIndex;
     }
   }
+  function stopPlayback() {
+    playerTrack.removeClass("active");
+    albumArt.removeClass("active");
+    clearInterval(buffInterval);
+    albumArt.removeClass("buffering");
+    i.attr("class", "fas fa-play");
+    audio.pause();
+  }
+
+  passButton.on("click", stopPlayback);
+  listenButton.on("click", stopPlayback);
 
   function initPlayer() {
     audio = new Audio();

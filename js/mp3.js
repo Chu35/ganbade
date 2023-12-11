@@ -43,17 +43,10 @@ $(function () {
     ],
     albumArtworks = ["_1", "_2", "_3", "_4"],
     trackUrl = [
-<<<<<<< HEAD
       "https://raw.githubusercontent.com/Chu35/ganbade/main/img/阿姨_年輕人喝茶.mp3",
       "https://raw.githubusercontent.com/himalayasingh/music-player-1/master/music/2.mp3",
-      "https://raw.githubusercontent.com/himalayasingh/music-player-1/master/music/2.mp3",
+      "https://raw.githubusercontent.com/himalayasingh/music-player-1",
       "../img/阿姨_行銷.wav"
-=======
-            "https://raw.githubusercontent.com/Chu35/ganbade/main/img/阿姨_年輕人喝茶.mp3",
-      "https://raw.githubusercontent.com/himalayasingh/music-player-1/master/music/2.mp3",
-      "https://raw.githubusercontent.com/himalayasingh/music-player-1/master/music/2.mp3",
-      "../img/阿姨_年輕人喝茶.mp3"
->>>>>>> 47ca29749037f79d90739d6bb06ac48c53da5285
     ],
     playPreviousTrackButton = $("#play-previous"),
     playNextTrackButton = $("#play-next"),

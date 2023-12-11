@@ -41,7 +41,7 @@ $(function () {
       "Kaaze - Electro Boy",
       "Jordan Schor - Home",
     ],
-    albumArtworks = ["_1", "_2", "_3", "_4",],
+    albumArtworks = ["_1", "_2", "_3", "_4"],
     trackUrl = [
       "https://www.youtube.com/watch?v=5a-tqIQc8RM&list=RD5a-tqIQc8RM&start_radio=1",
       "path/to/阿姨_政府.mp3",

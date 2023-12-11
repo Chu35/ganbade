@@ -23,6 +23,8 @@
 	    <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-Z2wU5PUx6zjcJzveB7F7b7R6zkuKfyL1DHxn6w7v5Yuv2oeBr5V32alxjFA8eEpC" crossorigin="anonymous">
+
 
 
     <!-- Libraries Stylesheet -->
@@ -104,97 +106,89 @@
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-item">
-                        <img class="img-fluid rounded" src="img/Vd.png" alt="" style="line-height: 3;">
+                        <img src="img/Vd.png" alt="" style="line-height: 3;" />
+                        <figcaption>
+                            <div class="int">
+                                <p class="team-text2">advadvadv</p><br>
+                                <i class="bi bi-instagram"><a href=" "></a></i>
+                                <i class="bi bi-facebook"><a href=" "></a></i>
+                            </div>
+                        </figcaption>
                         <div class="team-text">
-                            <h4 class="mb-1">視覺設計師</h4>
-                            <h4 class="mb-0">梁子晴</h4>
-                        </div>
+                        <h4 class="mb-1">視覺設計師</h4>
+                        <h4 class="mb-0">梁子晴</h4>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="team-item">   
-                    <img class="img-fluid rounded" src="img/Pm.png" alt="" style="line-height: 3;">
-                        <div class="team-text">
-                            <h4 class="mb-1">專案經理</h4>
-                            <h4 class="mb-0">蘇妍童</h4>
-                        </div>
                     </div>
+                    
                 </div>
-				<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-item">
-                        <img class="img-fluid rounded" src="img/Mm.png" alt="">
+                        <img src="img/Pm.png" alt="" style="line-height: 3;" />
+                        <figcaption>
+                            <div class="int">
+                                <p class="team-text2">advadvadv</p><br>
+                                <i class="bi bi-instagram"><a href=" "></a></i>
+                                <i class="bi bi-facebook"><a href=" "></a></i>
+                            </div>
+                        </figcaption>
                         <div class="team-text">
-                            <h4 class="mb-1">市場經理</h4>
-                            <h4 class="mb-0">馬聖烜</h4>
-                        </div>
+                        <h4 class="mb-1">專案經理</h4>
+                        <h4 class="mb-0">蘇妍童</h4>
                     </div>
+                    </div>
+                    
                 </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-item">
-                        <img class="img-fluid rounded" src="img/Sa.png" alt="">
-                        <div class="team-text">
-                            <h4 class="mb-1">系統分析師</h4>
-                            <h4 class="mb-0">鐘筑蘋</h4>
-                        </div>
+                        <img src="img/Mm.png" alt="" style="line-height: 3;" />
+                        <figcaption>
+                            <div class="int">
+                                <p class="team-text2">advadvadv</p><br>
+                                <i class="bi bi-instagram"><a href=" "></a></i>
+                                <i class="bi bi-facebook"><a href=" "></a></i>
+                            </div>
+                        </figcaption><div class="team-text">
+                        <h4 class="mb-1">市場經理</h4>
+                        <h4 class="mb-0">馬聖烜</h4>
                     </div>
+                    </div>
+                    
                 </div>
-				<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-item">
-                        <img class="img-fluid rounded" src="img/Pr.png" alt="">
-                        <div class="team-text">
-                            <h4 class="mb-1">社群行銷經理</h4>
-                            <h4 class="mb-0">潘恩皓</h4>
-                        </div>
+                        <img src="img/Sa.png" alt="" style="line-height: 3;" />
+                        <figcaption>
+                            <div class="int">
+                                <p class="team-text2">advadvadv</p><br>
+                                <i class="bi bi-instagram"><a href=" "></a></i>
+                                <i class="bi bi-facebook"><a href=" "></a></i>
+                            </div>
+                        </figcaption><div class="team-text">
+                        <h4 class="mb-1">系統分析師</h4>
+                        <h4 class="mb-0">鐘筑蘋</h4>
                     </div>
+                    </div>
+                    
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item">
+                        <img src="img/Pr.png" alt="" style="line-height: 3;" />
+                        <figcaption>
+                            <div class="int">
+                                <p class="team-text2">advadvadv</p><br>
+                                <i class="bi bi-instagram"><a href=" "></a></i>
+                                <i class="bi bi-facebook"><a href=" "></a></i>
+                            </div>
+                        </figcaption><div class="team-text">
+                        <h4 class="mb-1">社群行銷經理</h4>
+                        <h4 class="mb-0">潘恩皓</h4>
+                    </div>
+                    </div>
+                    
                 </div>
             </div>
         </div>
     </div>
-    <style>
-        .card-div {
-            width: 20em;
-            min-height: 20em;
-            display: flex;
-            flex-direction: column;
-            background-image: url(..img/Pm.png);
-            margin: 0.6em;
-            box-sizing: border-box;
-            border-radius: 10px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-            transition: transform 0.2s ease-in-out;
-        }
-    
-        .img-div {
-            width: 100%;
-            height: 8em;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding-top: 1rem;
-            z-index: 1;
-            border-radius: 0 0 10px 10px;
-    
-        }
-    
-        .img-div img {
-            transform-origin: bottom;
-            transform: translateY(7.5%);
-            transition: transform 0.3s ease-in-out;
-        }
-    
-        .gow-img-div {
-            background-color: var(--card-1-secondary-color);
-        }
-    
-        .gow-img-div img {
-            width: 65%;
-            transform: translateY(7.5%);
-        }
-    
-        .card-div:hover .img-div img {
-            transform: translateY(7.5%) scale(1.2);
-        }
-    </style>
     <!-- Team End -->
     <div class="container"> 
         <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">

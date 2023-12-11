@@ -282,8 +282,7 @@
 		<div class="container-xxl py-4">
 			<div class="container">
 				<div class="text-center mx-auto" style="max-width: 1000px;">
-					<h1 class="mb-5">想買茶回家喝嗎</h1>
-					<h1 class=" mb-3">滴滴商城</h1>
+					<h1 class=" mb-4">滴滴商城</h1>
 					<a href="store.jsp" class="btn btn-primary">Shop now !!!</a>
 				</div>
 			</div>

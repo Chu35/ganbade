@@ -173,29 +173,30 @@
 							opacity: 1,
 						});
 					}
-					setScrollElement('#heading1', '0s', '+=1000s');
-					setScrollElement('#heading2', '+=1000s', '+=1000s');
-					setScrollElement('#heading3', '+=2000s', '+=1000s');
-					setScrollElement('#heading4', '+=3000s', '+=1000s');
-					setScrollElement('#heading5', '+=4000s', '+=1000s');
-					setScrollElement('#heading6', '+=5000s', '+=1000s');
-					setScrollElement('#heading7', '+=6000s', '+=1000s');
-					setScrollElement('#heading8', '+=7000s', '+=1000s');
-					setScrollElement('#img1', '0s', '+=1000s');
-					setScrollElement('#img2', '+=1000s', '+=1000s');
-					setScrollElement('#img3', '+=2000s', '+=1000s');
-					setScrollElement('#img4', '+=3000s', '+=1000s');
-					setScrollElement('#img5', '+=4000s', '+=1000s');
-					setScrollElement('#img6', '+=5000s', '+=1000s');
-					setScrollElement('#img7', '+=6000s', '+=1000s');
-					setScrollElement('#img8', '+=7000s', '+=1000s');
-					gsap.to('.head', {
-						scrollTrigger: {
-							pin: '.head',
-							end: '+=8000s',
-							pinSpacing: true,
-						},
-					});
+					setScrollElement('#heading1', '0s', '+=500s');
+						setScrollElement('#heading2', '+=500s', '+=500s');
+						setScrollElement('#heading3', '+=1000s', '+=400s');
+						setScrollElement('#heading4', '+=1400s', '+=500s');
+						setScrollElement('#heading5', '+=1900s', '+=500s');
+						setScrollElement('#heading6', '+=2400s', '+=500s');
+						setScrollElement('#heading7', '+=2900s', '+=500s');
+						setScrollElement('#heading8', '+=3400s', '+=500s');
+						setScrollElement('#img1', '0s', '+=500s');
+						setScrollElement('#img2', '+=500s', '+=500s');
+						setScrollElement('#img3', '+=1000s', '+=500s');
+						setScrollElement('#img4', '+=1500s', '+=500s');
+						setScrollElement('#img5', '+=2000s', '+=500s');
+						setScrollElement('#img6', '+=2500s', '+=500s');
+						setScrollElement('#img7', '+=3000s', '+=500s');
+						setScrollElement('#img8', '+=3500s', '+=500s');
+
+						gsap.to('.head', {
+							scrollTrigger: {
+								pin: '.head',
+								end: '+=4000s', // Adjusted pinning duration to 4000 seconds
+								pinSpacing: true,
+							},
+						});
 				</script>
 			</div>
 		</div>
@@ -329,8 +330,7 @@
 		<div class="container-xxl py-4">
 			<div class="container">
 				<div class="text-center mx-auto" style="max-width: 1000px;">
-					<h1 class="mb-5">想買茶回家喝嗎</h1>
-					<h1 class=" mb-3">滴滴商城</h1>
+					<h1 class="mb-4">滴滴商城</h1>
 					<a href="store.jsp" class="btn btn-primary">Shop now !!!</a>
 				</div>
 			</div>

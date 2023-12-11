@@ -69,11 +69,12 @@
                         aria-expanded="true">知識調茶局</a>
                     <div class="dropdown-menu border-light m-0" data-bs-popper="none">
                         <a href="knowl.jsp" class="dropdown-item active">茶種介紹</a>
-                        <a href="crafts.jsp" class="dropdown-item">烘焙發酵介紹</a>
-                    </div>
+                        <a href="crafts.jsp" class="dropdown-item">烘培發酵介紹</a>
+                </div>
                 </div>
                 <a href="fun.jsp" class="nav-item nav-link">茶遊此地</a>
                 <a href="contact.jsp" class="nav-item nav-link">關於我們</a>
+                <a href="store.jsp" class="nav-item nav-link">滴滴商城</a>
                 <div class="nav-item nav-link">
                     <div class="box">
                         <form action="showknowl.jsp" autocomplete="off">
@@ -100,6 +101,7 @@
         </div>
     </nav>
 </div>
+
 <div class="page_box page_search_tea">
     <div id="knowl" class="search_tea">
         <div class="inner">
@@ -124,6 +126,56 @@
                         <li class="item" data-taste="重發酵">重發酵</li>
                     </ul>
                 </div>
+                <script> 
+                //teas select
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const filterOptions = document.querySelectorAll('.search_option .item');
+                        const teaItems = document.querySelectorAll('.tea_list .item');
+            
+                        let selectedTaste = null;
+                        let selectedCategory = null;
+            
+                        filterOptions.forEach(option => {
+                            option.addEventListener('click', () => {
+                                const category = option.getAttribute('data-category');
+                                const taste = option.getAttribute('data-taste');
+            
+                                const isSelected = option.classList.contains('active');
+            
+                                if (isSelected) {
+                                    option.classList.remove('active');
+                                    if (category === selectedCategory) {
+                                        selectedCategory = null;
+                                    }
+                                    if (taste === selectedTaste) {
+                                        selectedTaste = null;
+                                    }
+                                } else {
+                                    filterOptions.forEach(item => {
+                                        item.classList.remove('active');
+                                    });
+                                    option.classList.add('active');
+                                    selectedCategory = category === '全部' ? null : category;
+                                    selectedTaste = taste === '全部' ? null : taste;
+                                }
+            
+                                teaItems.forEach(item => {
+                                    const itemCategory = item.getAttribute('data-category');
+                                    const itemTaste = item.getAttribute('data-taste');
+            
+                                    const showItem =
+                                        (!selectedCategory || itemCategory === selectedCategory || selectedCategory === '全部') &&
+                                        (!selectedTaste || itemTaste === selectedTaste || selectedTaste === '全部');
+            
+                                    item.style.display = showItem ? 'block' : 'none';
+            
+                                    const itemIsActive = showItem && (itemCategory === selectedCategory || itemTaste === selectedTaste);
+                                    item.style.opacity = itemIsActive ? '1' : '1'; // Adjust opacity as needed
+                                });
+                            });
+                        });
+                    });
+                </script>
             </div>
                 <div class="search_tea_content_box">
                     <div class="search_tea_body">
@@ -177,24 +229,17 @@
                                 <div class="info_desc"><%= type %></div>
                             </div>
                             <div class="info clearfix">
-                                <div class="info_title">茶種</div>
-                                <div class="info_desc"><%= rs.getString("classification") %></div>
+                                <div class="info_title">烘培發酵</div>
+                                <div class="info_desc"><%= rs.getString("bake") %>、<%= rs.getString("ferment") %></div>
                             </div>
                             <div class="modal fade" id="<%= modalId %>" tabindex="-1" aria-labelledby="<%= modalId %>" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-lg">
                                     <div class="modal-content">
-                                        <div class="modal-header">
-                                            <form action="collect.jsp">
-                                                <i id="collectButton<%= id %>" class="bi bi-bookmark-heart" style="cursor: pointer;"></i>
-                                                <script>
-                                                    var collectButton<%= id %> = document.getElementById("collectButton<%= id %>");
-                                                    collectButton<%= id %>.addEventListener("click", function() {
-                                                        window.location.href = "collect.jsp?knowledge_id=<%= id %>";
-                                                    });
-                                                </script>
-                                            </form>    
+                                        <div class="modal-header">  
+                                            <a href="collect.jsp?knowledge_id=<%= rs.getString("id") %>" style="cursor: pointer;">
+                                                <i class="bi bi-bookmark" style="cursor: pointer;"></i></a>
                                             <i type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></i>
-                                        </div>        
+                                        </div>            
                                         <div class="modal-body">
                                             <div class=".col-md-6">
                                                 <img class="imagemodal" data-bs-toggle="modal" data-bs-target="#exampleModal1" src="<%= imagePath %>" alt="<%= name %>">

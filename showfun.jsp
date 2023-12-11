@@ -38,6 +38,7 @@
     
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
+        <link href="css/proc.css" rel="stylesheet">
     </head>
 <body>
 
@@ -65,23 +66,22 @@
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="index.jsp" class="nav-item nav-link">首頁</a>
                 <div class="nav-item dropdown">
-                    <a href="#knowl" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+                    <a href="knowl.jsp" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
                         aria-expanded="true">知識調茶局</a>
                     <div class="dropdown-menu border-light m-0" data-bs-popper="none">
                         <a href="knowl.jsp" class="dropdown-item">茶種介紹</a>
-                        <a href="crafts.jsp" class="dropdown-item">烘焙發酵介紹</a>
-                    </div>
+                        <a href="crafts.jsp" class="dropdown-item">烘培發酵介紹</a>
                 </div>
-                <a href="fun.jsp" class="nav-item nav-link active">茶遊此地</a>
+                </div>
+                <a href="#" class="nav-item nav-link active">茶遊此地</a>
                 <a href="contact.jsp" class="nav-item nav-link">關於我們</a>
-                <a href="store.jsp" class="nav-item nav-link">
-                    <small class="fa fa-shopping-cart text-primary"></small>
-                </a>
+                <a href="store.jsp" class="nav-item nav-link">滴滴商城</a>
                 <div class="nav-item nav-link">
                     <div class="box">
-                        <form action="showfun.jsp" autocomplete="">
+                        <form action="showfun.jsp" autocomplete="off">
                             <input name="search" type="keyword" placeholder="Search...">		
                             <i class="fas fa-search" type="submit" value="Rechercher"></i>
+                            <div id="searchResults"></div>
                         </form>
                     </div>
                 </div>
@@ -90,7 +90,8 @@
                         class="fa fa-user text-primary"></small></div>
                     <div class="dropdown-menu border-light m-0">
                         <% if (memberName != null) { %>
-                            <span class="dropdown-item disabled-text"><%= memberName %>, 你好</span>								<% } else { %>
+                            <span class="dropdown-item disabled-text"><%= memberName %>, 你好</span>								
+                            <% } else { %>
                             <a class="dropdown-item" href="login.html">登入/註冊</a>
                         <% } %>
                         <a href="member.jsp" class="dropdown-item">會員中心</a>
@@ -157,18 +158,13 @@
                 <img class="img-fluid rounded" src="<%= imagePath %>" alt="<%= name %>" style=" width: 550px;height: 350px;">
             </div>
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.2s">
-                <form action="collectfun.jsp">
-                    <i id="collectFunButton<%= id %>" class="bi bi-bookmark-heart" style="cursor: pointer;"></i>
-                    <script>
-                        var collectFunButton<%= id %> = document.getElementById("collectFunButton<%= id %>");
-                        collectFunButton<%= id %>.addEventListener("click", function() {
-                            window.location.href = "collectfun.jsp?fun_id=<%= id %>";
-                        });
-                    </script>
-                </form>                
+                <a href="collect.jsp?fun_id=<%= rs.getString("id") %>" style="cursor: pointer;">
+                    <i class="bi bi-bookmark" style="cursor: pointer;"></i>
+                </a><br>
                 <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3 mb-1"><%= type %></p>
                 <div class="display-5 mb-1">
-                    <img src="<%= imagePathicon %>" alt="<%= name %>" class="btn btn-l btn-lg-square rounded-circle" style="display:inline;"><h1 style="display:inline;font-family:monospace;">&ensp;<%= name %></h1>
+                    <img src="<%= imagePathicon %>" alt="<%= name %>" class="btn btn-l btn-lg-square rounded-circle" style="display:inline;">
+                    <h1 style="display:inline;font-family:monospace;">&ensp;<%= name %></h1>
                 </div>
                 <p class="mb-1"><%= classification %></p>
                 <p class="mb-1">
@@ -191,7 +187,8 @@
                     <% } %>                 
                     ☎️電話：<a href="tel:<%= phone %>"><%= phone %></a>
                 </p>
-            </div></div>
+            </div>
+        </div>
             <%
                 }
             } catch (Exception e) {

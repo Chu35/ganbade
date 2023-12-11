@@ -90,7 +90,8 @@
                         class="fa fa-user text-primary"></small></div>
                     <div class="dropdown-menu border-light m-0">
                         <% if (memberName != null) { %>
-                            <span class="dropdown-item disabled-text"><%= memberName %>, 你好</span>								<% } else { %>
+                            <span class="dropdown-item disabled-text"><%= memberName %>, 你好</span>								
+                            <% } else { %>
                             <a class="dropdown-item" href="login.html">登入/註冊</a>
                         <% } %>
                         <a href="member.jsp" class="dropdown-item">會員中心</a>
@@ -277,7 +278,6 @@
                     }
                 }
             </script>
-            
     </div>
 </div>
 

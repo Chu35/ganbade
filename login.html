@@ -107,7 +107,7 @@
                                 <div class="input-group">
                                     <input class="lgform" required type="password" id="password" name="pwd" autocomplete="off" />
                                     <label class="label" for="password">密碼</label>
-                                    <i class="eye-icon far fa-eye" onclick="togglePassword()"></i>
+                                    <i class="eye-icon far fa-eye-slash" onclick="togglePassword()"></i>
                                 </div>
                             </div>                
                             <input class="btn btn-primary" type="submit" value="登入" />&emsp;
@@ -131,9 +131,9 @@
                                 <label class="label" for="username">帳號</label>
                             </div> 
                             <div class="input-group">
-                                <input class="lgform" required type="password" id="password" name="pwd" autocomplete="off" />
+                                <input class="lgform" required type="password" id="password2" name="pwd" autocomplete="off" />
                                 <label class="label" for="password">密碼</label>
-                                <i class="eye-icon far fa-eye" onclick="togglePassword()"></i>
+                                <i class="eye-icon2 far fa-eye-slash" onclick="togglePassword2()"></i>
                             </div>
                             <div class="form-table">
                                 <input class="btn btn-primary" type="reset" value="清除" />&emsp;
@@ -147,10 +147,22 @@
                     
                                 if (passInput.type === "password") {
                                     passInput.type = "text";
-                                    eyeIcon.className = "eye-icon far fa-eye-slash"; // Change icon to open eye
+                                    eyeIcon.className = "eye-icon far fa-eye"; // Change icon to open eye
                                 } else {
                                     passInput.type = "password";
-                                    eyeIcon.className = "eye-icon far fa-eye"; // Change icon to closed eye
+                                    eyeIcon.className = "eye-icon far fa-eye-slash"; // Change icon to closed eye
+                                }
+                            }
+                            function togglePassword2() {
+                                var passInput = document.getElementById("password2");
+                                var eyeIcon = document.querySelector(".eye-icon2");
+                    
+                                if (passInput.type === "password") {
+                                    passInput.type = "text";
+                                    eyeIcon.className = "eye-icon2 far fa-eye"; // Change icon to open eye
+                                } else {
+                                    passInput.type = "password";
+                                    eyeIcon.className = "eye-icon2 far fa-eye-slash"; // Change icon to closed eye
                                 }
                             }
                         </script>
@@ -170,7 +182,7 @@
                 document.getElementById("register-form").classList.remove("hide");
                 document.getElementById("register-form").classList.add("show");
 
-                formContainer.style.transform = "translateX(-50%)";
+                formContainer.style.transform = "translateX(-120%)";
                 document.querySelector('.display-5').textContent = "成為滴滴一員";
             });
 

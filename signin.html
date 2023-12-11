@@ -36,10 +36,9 @@
 
 <body>
     <!-- Spinner Start -->
-    <div id="spinner"
-        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
-    </div>
+    <div id="spinner" class="show position-fixed ">
+		<div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
+	</div>
     <!-- Spinner End -->
 
     <!-- Navbar Start -->
@@ -85,13 +84,14 @@
     <!-- Navbar End -->
 
 
-    <!-- login Start -->
+    <!-- Start -->
     <div class="container-xxl py-5">
         <div class="center">
             <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
                 <h1 class="display-5 mb-5">成為滴滴一員</h1>
             </div>
             <div class="mb-5" align="center">
+                <div class="form-container">
                 <a href="login.html" id="back-link" style="position: relative;right: 60%;">← 返回</a><br>
                 <form id="register-form2" action="register.jsp" method="post" autocomplete="off">
                     <div class="input-group">
@@ -110,7 +110,7 @@
                     <div class="input-group">
                         <input class="lgform" required type="password" id="password" name="pwd" autocomplete="off" />
                         <label class="label" for="password">密碼</label>
-                        <i class="eye-icon far fa-eye" onclick="togglePassword()"></i>
+                        <i class="eye-icon far fa-eye-slash" onclick="togglePassword()"></i>
                     </div>
                     <div class="form-table">
                         <input class="btn btn-primary" type="reset" value="清除" />&emsp;
@@ -124,17 +124,18 @@
 
                         if (passInput.type === "password") {
                             passInput.type = "text";
-                            eyeIcon.className = "eye-icon far fa-eye-slash"; // Change icon to open eye
+                            eyeIcon.className = "eye-icon far fa-eye"; // Change icon to open eye
                         } else {
                             passInput.type = "password";
-                            eyeIcon.className = "eye-icon far fa-eye"; // Change icon to closed eye
+                            eyeIcon.className = "eye-icon far fa-eye-slash"; // Change icon to closed eye
                         }
                     }
                 </script>
+                </div>
             </div>
         </div>
     </div>
-    <!-- login End -->
+    <!-- End -->
 
 
 

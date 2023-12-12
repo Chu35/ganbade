@@ -229,8 +229,8 @@ h6,
 .flip-container {
   perspective: 1000px;
   transform-style: preserve-3d;
-  width: 200px;
-  height: auto;
+  height: 325px;
+  margin-bottom: 20px;
 }
 
 .flip-container:hover .back {
@@ -241,18 +241,12 @@ h6,
   transform: rotateY(180deg);
 }
 
-.flip-container,
-.front,
-.back {
-  width: 320px;
-  height: 480px;
-}
-
 .flipper {
   transition: 0.6s;
   transform-style: preserve-3d;
-
   position: relative;
+  width: 100%; /* Ensure full width */
+  height: 100%; /* Ensure full height */
 }
 
 .front,
@@ -260,10 +254,14 @@ h6,
   backface-visibility: hidden;
   transition: 0.6s;
   transform-style: preserve-3d;
-
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%; /* Ensure full width */
+  height: 100%; /* Ensure full height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .front {
@@ -273,41 +271,37 @@ h6,
 
 .front img,
 .back img {
-  width: 400px;
+  width: 100%; /* Set a fixed width (adjust as needed) */
+  height: auto; /* Maintain aspect ratio */
 }
 
 .back {
   transform: rotateY(-180deg);
 }
 
-.vertical.flip-container {
-  position: relative;
-}
-
-.vertical .back {
-  transform: rotateX(180deg);
-}
-
-.vertical.flip-container:hover .back {
-  transform: rotateX(0deg);
-}
-
-.vertical.flip-container:hover .front {
-  transform: rotateX(180deg);
-}
 .team-text {
   position: absolute;
   bottom: 0;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  bottom: -25px;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box; /* Include padding in the total width */
 }
+
 .int {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   font-size: 20px;
   z-index: 1;
 }
+
+
+
 /* Footer */
 .footer .btn.btn-link {
     display: block;

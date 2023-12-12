@@ -105,7 +105,7 @@
             </div>
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                    <div class="flip-container">
                         <div class="flipper">
                             <div class="front">
                                 <img src="img/Vd.png">
@@ -114,14 +114,14 @@
                                 <img src="img/Pm.png">
                                 <div class="int">
                                     <p class="team-text2">advadvadv</p><br><br>
-                                    <i class="bi bi-instagram"><a href=" "></a></i>
-                                    <i class="bi bi-facebook"><a href=" "></a></i>
+                                    <a class="bi bi-instagram" href=""></a>
+                                    <a class="bi bi-facebook" href=" "></a>
                                 </div>
                             </div>
-                        </div>
-                        <div class="team-text">
-                            <h4 class="mb-1">視覺設計師</h4>
-                            <h4 class="mb-0">梁子晴</h4>
+                            <div class="team-text">
+                                <h4 class="mb-1">視覺設計師</h4>
+                                <h4 class="mb-0">梁子晴</h4>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -135,12 +135,11 @@
                                 <img src="img/Pm.png">
                                 <div class="int">
                                     <p class="team-text2">advadvadv</p><br><br>
-                                    <i class="bi bi-instagram"><a href=" "></a></i>
-                                    <i class="bi bi-facebook"><a href=" "></a></i>
+                                    <a class="bi bi-instagram" href=""></a>
+                                    <a class="bi bi-facebook" href=" "></a>
                                 </div>
                             </div>
                         </div>
-    
                         <div class="team-text">
                             <h4 class="mb-1">專案經理</h4>
                             <h4 class="mb-0">蘇妍童</h4>
@@ -157,12 +156,11 @@
                                 <img src="img/Pm.png">
                                 <div class="int">
                                     <p class="team-text2">advadvadv</p><br><br>
-                                    <i class="bi bi-instagram"><a href=" "></a></i>
-                                    <i class="bi bi-facebook"><a href=" "></a></i>
+                                    <a class="bi bi-instagram" href=""></a>
+                                    <a class="bi bi-facebook" href=" "></a>
                                 </div>
                             </div>
                         </div>
-    
                         <div class="team-text">
                             <h4 class="mb-1">市場經理</h4>
                             <h4 class="mb-0">馬聖烜</h4>
@@ -179,12 +177,11 @@
                                 <img src="img/Pm.png">
                                 <div class="int">
                                     <p class="team-text2">advadvadv</p><br><br>
-                                    <i class="bi bi-instagram"><a href=" "></a></i>
-                                    <i class="bi bi-facebook"><a href=" "></a></i>
+                                    <a class="bi bi-instagram" href=""></a>
+                                    <a class="bi bi-facebook" href=" "></a>
                                 </div>
                             </div>
                         </div>
-    
                         <div class="team-text">
                             <h4 class="mb-1">系統分析師</h4>
                             <h4 class="mb-0">鐘筑蘋</h4>
@@ -201,12 +198,11 @@
                                 <img src="img/Pm.png">
                                 <div class="int">
                                     <p class="team-text2">advadvadv</p><br><br>
-                                    <i class="bi bi-instagram"><a href=" "></a></i>
-                                    <i class="bi bi-facebook"><a href=" "></a></i>
+                                    <a class="bi bi-instagram" href=""></a>
+                                    <a class="bi bi-facebook" href=" "></a>
                                 </div>
                             </div>
                         </div>
-    
                         <div class="team-text">
                             <h4 class="mb-1">社群行銷經理</h4>
                             <h4 class="mb-0">潘恩皓</h4>

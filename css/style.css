@@ -1719,7 +1719,7 @@ ul li {
   text-decoration: none;
 }
 
-
+/* indexfun */
 .indexfun {
   width: 48%;
   position: relative;
@@ -1763,3 +1763,34 @@ ul li {
   transform: scale(0.9);
 }
 
+/* index shop */
+.indexshopping {
+  width: calc(25% - 20px); /* 调整宽度以容纳四个元素，考虑边距 */
+  border-radius: 15px;
+  margin: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  vertical-align: top;
+  box-sizing: border-box;
+  padding: 0;
+  align-items: center;
+  flex-direction: column;
+}
+
+.indexshopping:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .indexshopping {
+      width: calc(50% - 20px); /* Two cards per row on smaller screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .indexshopping {
+      width: calc(100% - 20px); /* One card per row on extra small screens */
+  }
+}

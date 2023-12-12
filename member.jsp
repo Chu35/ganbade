@@ -110,7 +110,7 @@
                     <h1 class="display-5 mb-3" >會員中心</h1>
 					
 					<div class="big-circle">
-						<img id="pic" class="no-repeat" src="img/t1.png" alt="">
+						<img id="pic" class="no-repeat" src="img/didi.png" alt="">
 						<% if (memberName != null) { %>
 						<i class="bi bi-arrow-repeat clothes btn btn-primary" type="button"
 						   data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample"></i>

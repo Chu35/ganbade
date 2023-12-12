@@ -226,62 +226,79 @@ h6,
 }
 
 /*** Team ***/
-.team-item:hover,
-.team-item.hover {
-  transform: scale(0.9);
-  border-radius: 15px;
+.flip-container {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  width: 200px;
+  height: auto;
 }
 
-.team-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  width: 100%;
-  color: red;
-  font-size: 16px;
-  box-shadow: none !important;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-}
-.team-item *,
-.team-item:before,
-.team-item:after {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-transition: all 0.3s linear;
-  transition: all 0.3s linear;
+.flip-container:hover .back {
+  transform: rotateY(0deg);
 }
 
-.team-item:before,
-.team-item:after {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  content: '';
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  z-index: -1;
+.flip-container:hover .front {
+  transform: rotateY(180deg);
 }
 
-.team-item img {
-  max-width: 100%;
+.flip-container,
+.front,
+.back {
+  width: 320px;
+  height: 480px;
+}
+
+.flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+
+  position: relative;
+}
+
+.front,
+.back {
   backface-visibility: hidden;
-  display: block;
-  margin: 15px;
-}
+  transition: 0.6s;
+  transform-style: preserve-3d;
 
-.team-item figcaption {
   position: absolute;
-  opacity: 0;
-  transition: all 0.3s linear;
-  width: 80%;
-  height: 80%;
-  backdrop-filter: blur(4px);
+  top: 0;
+  left: 0;
 }
 
+.front {
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+
+.front img,
+.back img {
+  width: 400px;
+}
+
+.back {
+  transform: rotateY(-180deg);
+}
+
+.vertical.flip-container {
+  position: relative;
+}
+
+.vertical .back {
+  transform: rotateX(180deg);
+}
+
+.vertical.flip-container:hover .back {
+  transform: rotateX(0deg);
+}
+
+.vertical.flip-container:hover .front {
+  transform: rotateX(180deg);
+}
+.team-text {
+  position: absolute;
+  bottom: 0;
+}
 .int {
   position: absolute;
   top: 50%;
@@ -290,34 +307,6 @@ h6,
   transform: translate(-50%, -50%);
   font-size: 20px;
   z-index: 1;
-}
-
-.team-item a {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1;
-}
-
-.team-item:hover figcaption,
-.team-item.hover figcaption {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.team-item:hover:before,
-.team-item.hover:before,
-.team-item:hover:after,
-.team-item.hover:after {
-  border-width: 10px;
-}
-
-
-.team-text{
-  position: absolute;
-  bottom: 0;
 }
 /* Footer */
 .footer .btn.btn-link {
@@ -554,18 +543,10 @@ h6,
 
 /* 會員中心 */
 #pic{
-	border:1px solid #8E7D5C;
-	border-radius:50%;
 	width:200px;
 	height:200px;
 	object-fit: cover;
 	flex: 1;
-  padding: 7px;
-}
-
-.big-circle {
-	position: relative;
-
 }
 
 
@@ -1524,12 +1505,12 @@ ul li {
 .left-c-box {
   padding: 2px 2px 0px;
   position: relative;
-  margin: 10px;
+  margin-left: -15px;
 }
 
 .right-c-box {
   flex: 1;
-  margin-left: 5%;
+  margin-left: 2%;
   display: flex;
   flex-wrap: wrap;
   min-height: 300px;
@@ -1558,18 +1539,45 @@ ul li {
   cursor: pointer;
   color: #d6c5a4;
 }
+/* Add the following CSS to your existing styles */
+
+/* Ensure a flex container for the parent of left-c-box and right-c-box */
+.product {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+.left-c-box {
+  order: 2; /* Set the order to 2, so it appears below right-c-box on mobile */
+}
+
+.right-c-box {
+  order: 1; /* Set the order to 1, so it appears above left-c-box on mobile */
+}
+
+/* Adjust styling for small screens */
+@media (max-width: 768px) {
+  .product {
+    flex-direction: column; /* Change to a column layout on smaller screens */
+  }
+}
+
 
 /* store product */
 .shopping {
   width: calc(33.3333% - 20px); /* Adjust the width as needed, considering margins */
-  margin: 10px;
   border-radius: 15px;
+  margin: 10px;
+  flex: 290px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s, box-shadow 0.3s;
-  display: inline-block;
+  display: flex;
   vertical-align: top;
   box-sizing: border-box;
   padding: 0;
+  align-items: center;
+  flex-direction: column;
 }
 
 .shopping:hover {

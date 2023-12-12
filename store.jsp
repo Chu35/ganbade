@@ -67,35 +67,24 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="index.jsp" class="nav-item nav-link">首頁</a>
-                <div class="nav-item dropdown">
-                    <a href="knowl.jsp" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
-                        aria-expanded="true">知識調茶局</a>
-                    <div class="dropdown-menu border-light m-0" data-bs-popper="none">
-                        <a href="knowl.jsp" class="dropdown-item">茶種介紹</a>
-                        <a href="crafts.jsp" class="dropdown-item">烘培發酵介紹</a>
-                </div>
-                </div>
-                <a href="fun.jsp" class="nav-item nav-link">茶遊此地</a>
-                <a href="contact.jsp" class="nav-item nav-link">關於我們</a>
                 <a href="#" class="nav-item nav-link">
                     <small class="fa fa-shopping-cart text-primary" data-toggle="modal" data-target="#cart">
                         <span class="total-count"><%= totalQuantity != null ? totalQuantity : 0 %></span>
                     </small>                
                 </a>
                 <div class="nav-item dropdown">
-                    <div id="user-icon" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                        <small class="fa fa-user text-primary"></small>
-                    </div>
-                    <div class="dropdown-menu border-light m-0">
-                        <% if (memberName != null) { %>
-                            <span class="dropdown-item disabled-text"><%= memberName %>, 你好</span>								
-                        <% } else { %>
-                            <a class="dropdown-item" href="login.html">登入/註冊</a>
-                        <% } %>
-                        <a href="member.jsp" class="dropdown-item">會員中心</a>
-                        <% if (memberName != null) { %>
-                            <a class="dropdown-item" href="logout.jsp">登出</a>
-                        <% }%>
+                    <div id="user-icon" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><small
+                        class="fa fa-user text-primary"></small></div>
+                        <div class="dropdown-menu border-light m-0">
+                            <% if (memberName != null) { %>
+                                <span class="dropdown-item disabled-text"><%= memberName %>, 你好</span>								<% } else { %>
+                                <a class="dropdown-item" href="login.html">登入/註冊</a>
+                            <% } %>
+                            <a href="member.jsp" class="dropdown-item">會員中心</a>
+                            <% if (memberName != null) { %>
+                                <a class="dropdown-item" href="logout.jsp">登出</a>
+                            <% }%>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -122,17 +111,11 @@
                 </div>
                 <div class="left-c-box hidden-xs">
                     <ul class="ProductList-categoryMenu">
+                        <li class="category" data-list="全部">全部</li>
                         <li class="category" data-list="本季新品">本季新品</li>
                         <li class="category" data-list="熱賣商品">熱賣商品</li>
-                        <li class="category" data-list="人生必喝清單📋">人生必喝清單📋</li>
-                        <li class="category" data-list="聯名系列" onclick="toggleSubcategory('collaborations')">聯名系列&ensp;<i
-                                class="fa fa-angle-right"></i></li>
-                        <div class="subcategory" id="collaborations" style="display: none;">
-                            <ul><li class="category" data-list="ganbade X 祥泰茶莊">ganbade X 祥泰茶莊</li></ul>
-                            <ul><li class="category" data-list="ganbade X 貓空茶神">ganbade X 貓空茶神</li></ul>
-                            <ul><li class="category" data-list="ganbade X TDH貓茶町">ganbade X TDH貓茶町</li></ul>
-                            <ul><li class="category" data-list="ganbade X 東成茶葉">ganbade X 東成茶葉</li></ul>
-                        </div>
+                        <li class="category" data-list="茶包/茶業">茶包/茶業</li>
+                        <li class="category" data-list="茶點心">茶點心</li>
                     </ul>
                 </div>
             </div>

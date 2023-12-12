@@ -105,90 +105,119 @@
             </div>
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="team-item">
-                        <img src="img/Vd.png" alt="" style="line-height: 3;" />
-                        <figcaption>
-                            <div class="int">
-                                <p class="team-text2">advadvadv</p><br>
-                                <i class="bi bi-instagram"><a href=" "></a></i>
-                                <i class="bi bi-facebook"><a href=" "></a></i>
+                    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                        <div class="flipper">
+                            <div class="front">
+                                <img src="img/Vd.png">
                             </div>
-                        </figcaption>
+                            <div class="back">
+                                <img src="img/Pm.png">
+                                <div class="int">
+                                    <p class="team-text2">advadvadv</p><br><br>
+                                    <i class="bi bi-instagram"><a href=" "></a></i>
+                                    <i class="bi bi-facebook"><a href=" "></a></i>
+                                </div>
+                            </div>
+                        </div>
                         <div class="team-text">
-                        <h4 class="mb-1">視覺設計師</h4>
-                        <h4 class="mb-0">梁子晴</h4>
+                            <h4 class="mb-1">視覺設計師</h4>
+                            <h4 class="mb-0">梁子晴</h4>
+                        </div>
                     </div>
-                    </div>
-                    
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="team-item">
-                        <img src="img/Pm.png" alt="" style="line-height: 3;" />
-                        <figcaption>
-                            <div class="int">
-                                <p class="team-text2">advadvadv</p><br>
-                                <i class="bi bi-instagram"><a href=" "></a></i>
-                                <i class="bi bi-facebook"><a href=" "></a></i>
+                    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                        <div class="flipper">
+                            <div class="front">
+                                <img src="img/Pm.png">
                             </div>
-                        </figcaption>
+                            <div class="back">
+                                <img src="img/Pm.png">
+                                <div class="int">
+                                    <p class="team-text2">advadvadv</p><br><br>
+                                    <i class="bi bi-instagram"><a href=" "></a></i>
+                                    <i class="bi bi-facebook"><a href=" "></a></i>
+                                </div>
+                            </div>
+                        </div>
+    
                         <div class="team-text">
-                        <h4 class="mb-1">專案經理</h4>
-                        <h4 class="mb-0">蘇妍童</h4>
+                            <h4 class="mb-1">專案經理</h4>
+                            <h4 class="mb-0">蘇妍童</h4>
+                        </div>
                     </div>
-                    </div>
-                    
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="team-item">
-                        <img src="img/Mm.png" alt="" style="line-height: 3;" />
-                        <figcaption>
-                            <div class="int">
-                                <p class="team-text2">advadvadv</p><br>
-                                <i class="bi bi-instagram"><a href=" "></a></i>
-                                <i class="bi bi-facebook"><a href=" "></a></i>
+                    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                        <div class="flipper">
+                            <div class="front">
+                                <img src="img/Mm.png">
                             </div>
-                        </figcaption><div class="team-text">
-                        <h4 class="mb-1">市場經理</h4>
-                        <h4 class="mb-0">馬聖烜</h4>
+                            <div class="back">
+                                <img src="img/Pm.png">
+                                <div class="int">
+                                    <p class="team-text2">advadvadv</p><br><br>
+                                    <i class="bi bi-instagram"><a href=" "></a></i>
+                                    <i class="bi bi-facebook"><a href=" "></a></i>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="team-text">
+                            <h4 class="mb-1">市場經理</h4>
+                            <h4 class="mb-0">馬聖烜</h4>
+                        </div>
                     </div>
-                    </div>
-                    
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="team-item">
-                        <img src="img/Sa.png" alt="" style="line-height: 3;" />
-                        <figcaption>
-                            <div class="int">
-                                <p class="team-text2">advadvadv</p><br>
-                                <i class="bi bi-instagram"><a href=" "></a></i>
-                                <i class="bi bi-facebook"><a href=" "></a></i>
+                    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                        <div class="flipper">
+                            <div class="front">
+                                <img src="img/Sa.png">
                             </div>
-                        </figcaption><div class="team-text">
-                        <h4 class="mb-1">系統分析師</h4>
-                        <h4 class="mb-0">鐘筑蘋</h4>
+                            <div class="back">
+                                <img src="img/Pm.png">
+                                <div class="int">
+                                    <p class="team-text2">advadvadv</p><br><br>
+                                    <i class="bi bi-instagram"><a href=" "></a></i>
+                                    <i class="bi bi-facebook"><a href=" "></a></i>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="team-text">
+                            <h4 class="mb-1">系統分析師</h4>
+                            <h4 class="mb-0">鐘筑蘋</h4>
+                        </div>
                     </div>
-                    </div>
-                    
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="team-item">
-                        <img src="img/Pr.png" alt="" style="line-height: 3;" />
-                        <figcaption>
-                            <div class="int">
-                                <p class="team-text2">advadvadv</p><br>
-                                <i class="bi bi-instagram"><a href=" "></a></i>
-                                <i class="bi bi-facebook"><a href=" "></a></i>
+                    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                        <div class="flipper">
+                            <div class="front">
+                                <img src="img/Pr.png">
                             </div>
-                        </figcaption><div class="team-text">
-                        <h4 class="mb-1">社群行銷經理</h4>
-                        <h4 class="mb-0">潘恩皓</h4>
+                            <div class="back">
+                                <img src="img/Pm.png">
+                                <div class="int">
+                                    <p class="team-text2">advadvadv</p><br><br>
+                                    <i class="bi bi-instagram"><a href=" "></a></i>
+                                    <i class="bi bi-facebook"><a href=" "></a></i>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="team-text">
+                            <h4 class="mb-1">社群行銷經理</h4>
+                            <h4 class="mb-0">潘恩皓</h4>
+                        </div>
                     </div>
-                    </div>
-                    
                 </div>
             </div>
         </div>
     </div>
+
+
     <!-- Team End -->
     <div class="container"> 
         <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">

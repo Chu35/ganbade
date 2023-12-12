@@ -65,6 +65,8 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="index.jsp" class="nav-item nav-link">首頁</a>
+                <a class="nav-item nav-link" data-bs-toggle="modal" data-bs-target="#myModal">許願茶池</a>
+
                 <div class="nav-item dropdown">
                     <a href="knowl.jsp" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
                         aria-expanded="true">知識調茶局</a>
@@ -289,6 +291,18 @@
     <i class="bi bi-arrow-up"></i>
 </a>
 
+	<!-- modal code -->
+	<div id="modalContainer"></div>
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			$('#modalContainer').load('modal.html');
+		});
+		$(document).ready(function () {
+			$('#myModal').modal('show');
+		});
+	</script>
 
 <!-- JavaScript Libraries -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

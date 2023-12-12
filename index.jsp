@@ -59,6 +59,7 @@
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<div class="navbar-nav ms-auto p-4 p-lg-0">
 					<a href="index.jsp#home" class="nav-item nav-link">首頁</a>
+					<a class="nav-item nav-link" data-bs-toggle="modal" data-bs-target="#myModal">許願茶池</a>
 					<div class="nav-item dropdown">
 						<a href="knowl.jsp" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
 							aria-expanded="true">知識調茶局</a>
@@ -272,7 +273,34 @@
 		<div class="container">
 			<div class="text-center mx-auto" style="max-width: 800px;">
 				<h1 class="mb-3">台北哪裡有茶</h1>
-				<img src="img/貓空.png" class="d-block w-100" alt="貓空">
+			</div>
+			<!-- Panel 1 -->
+			<div class="row">
+				<div class="indexfun mb-4">
+					<div class="text-center mx-auto" style="max-width: 800px;">
+						<img src="img/貓空.JPG" class="d-block img-fixed" alt="貓空">
+					</div>
+				</div>
+				<!-- Panel 2 -->
+				<div class="indexfun mb-4">
+					<div class="text-center mx-auto" style="max-width: 800px;">
+						<img src="img/坪林.JPG" class="d-block img-fixed" alt="坪林">
+					</div>
+				</div>
+			</div>
+			<!-- Panel 3 -->
+			<div class="row">
+				<div class="indexfun mb-4">
+					<div class="text-center mx-auto" style="max-width: 800px;">
+						<img src="img/大稻埕.JPG" class="d-block img-fixed" alt="大稻埕">
+					</div>
+				</div>
+				<!-- Panel 4 -->
+				<div class="indexfun mb-4">
+					<div class="text-center mx-auto" style="max-width: 800px;">
+						<img src="img/西門.JPG" class="d-block img-fixed" alt="西門">
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -282,7 +310,41 @@
 		<div class="container-xxl py-4">
 			<div class="container">
 				<div class="text-center mx-auto" style="max-width: 1000px;">
-					<h1 class=" mb-4">滴滴商城</h1>
+					<h1 class="mb-4">滴滴商城</h1>
+				</div>
+				<div class="container mb-5">
+					<div class="row" style="justify-content:flex-start;">
+						<div class="indexshopping">
+							<img class="card-img-top" src="https://static.wixstatic.com/media/88d72e_29994688105f4153aaebd81887bd6e93~mv2_d_3024_4032_s_4_2.jpg/v1/fill/w_422,h_563,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/88d72e_29994688105f4153aaebd81887bd6e93~mv2_d_3024_4032_s_4_2.jpg" alt=" ">
+							<div class="card-block">
+								<h4 class="card-title">茶包/茶葉</h4>
+								<a href=" ">看更多 →</a>
+							</div>
+						</div>
+						<div class="indexshopping">
+							<img class="card-img-top" src="https://shoplineimg.com/579027d161706979befd2e01/65274549dd82be00119d90f7/540x.webp?source_format=jpg" alt=" ">
+							<div class="card-block">
+								<h4 class="card-title">茶禮盒</h4>
+								<a href=" ">看更多 →</a>
+							</div>
+						</div>
+						<div class="indexshopping">
+							<img class="card-img-top" src="https://www.tdh.com.tw/static/ecommerce/74/74385/media/catalog/product/cache/1/small_image/210x/9df78eab33525d08d6e5fb8d27136e95/_/-/_-_/www.tdh.com.tw-%E6%96%87%E5%B1%B1%E5%8C%85%E7%A8%AE%E8%8C%B6%E7%94%9F%E4%B9%B3%E6%8D%B2-20.jpg" alt=" ">
+							<div class="card-block">
+								<h4 class="card-title">茶點心</h4>
+								<a href=" ">看更多 →</a>
+							</div>
+						</div>
+						<div class="indexshopping">
+							<img class="card-img-top" src="https://shoplineimg.com/579027d161706979befd2e01/6104f61a794ce9001dc1173f/800x.webp?source_format=jpg" alt=" ">
+							<div class="card-block">
+								<h4 class="card-title">其他</h4>
+								<a href=" ">看更多 →</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="text-center mx-auto" style="max-width: 1000px;">
 					<a href="store.jsp" class="btn btn-primary">Shop now !!!</a>
 				</div>
 			</div>
@@ -340,7 +402,18 @@
 		</div>
 	</footer>
 	<!-- footer -->
-
+	<!-- modal code -->
+	<div id="modalContainer"></div>
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			$('#modalContainer').load('modal.html');
+		});
+		$(document).ready(function () {
+			$('#myModal').modal('show');
+		});
+	</script>
 	<!-- JavaScript Libraries -->
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>

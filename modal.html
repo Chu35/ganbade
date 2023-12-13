@@ -152,13 +152,14 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title text-center" id="exampleModalLabel">你喜歡...</h5>
+          <h5 class="modal-title text-center" id="exampleModalLabel"></h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
             onclick="resetQuiz()"></button>
         </div>
         <div class="modal-body">
           <div class="questions-container">
             <div class="question active" data-question="1">
+              <h3>你喜歡...</h3>
               <div class="quarter">
                 <div class="answer">
                   <img src="img/m8.png" alt="清香" onclick="moveToNextQuestion(this, '1-1')">
@@ -170,6 +171,7 @@
             </div>
             <!-- 輕焙 -->
             <div class="question" data-question="1-2">
+              <h3>你喜歡...</h3>
               <div class="quarter">
                 <div class="answer" onclick="moveToNextQuestion(this, '11')">
                   <img src="img/m6.png" alt="薄荷味">
@@ -244,6 +246,7 @@
 
             <!-- 深焙 -->
             <div class="question" data-question="1-1">
+              <h3>你喜歡...</h3>
               <div class="circle5">
                 <div class="circle" onclick="moveToNextQuestion(this, '3')" id="circle2">
                   <img src="img/m1.png" alt="">

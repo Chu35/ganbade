@@ -66,12 +66,15 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="index.jsp" class="nav-item nav-link">首頁</a>
+                <a class="nav-item nav-link" data-bs-toggle="modal" data-bs-target="#myModal">許願茶池</a>
                 <div class="nav-item dropdown">
                     <a href="knowl.jsp" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"
                         aria-expanded="true">知識調茶局</a>
                     <div class="dropdown-menu border-light m-0" data-bs-popper="none">
                         <a href="knowl.jsp" class="dropdown-item">茶種介紹</a>
-                        <a href="crafts.jsp" class="dropdown-item active">故事專訪</a>
+                        <a href="story.jsp" class="dropdown-item ">故事專訪</a>
+                        <a href="brew.jsp" class="dropdown-item active">泡法介紹</a>
+
                     </div>
                 </div>
                 <a href="fun.jsp" class="nav-item nav-link">茶遊此地</a>
@@ -159,57 +162,7 @@
           background-image: url('https://img.icons8.com/ios/452/circled-pause.png');
       }
   </style>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-</head>
-<body>
-  <div class="container-fluid fixed-top px-0 wow fadeIn top-0" data-wow-delay="0.1s">
-    <div class="row gx-0 align-items-center d-none d-lg-flex"> </div>
-    <nav class="navbar navbar-expand-lg navbar-light py-lg-0 px-lg-4 wow fadeIn" data-wow-delay="0.1s">
-        <a class="navbar-brand logo" href="index.jsp">
-            <img src="img/logo.png" alt="Website Logo" width="70px" />
-        </a>
-        <a href="index.jsp" class="navbar-brand ms-4 ms-lg-0">
-            <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
-        </a>
-        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
-            data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.jsp" class="nav-item nav-link">首頁</a>
-                <div class="nav-item dropdown">
-                    <a href="knowl.jsp" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"
-                        aria-expanded="true">知識調茶局</a>
-                    <div class="dropdown-menu border-light m-0" data-bs-popper="none">
-                        <a href="knowl.jsp" class="dropdown-item">茶種介紹</a>
-                        <a href="story.jsp" class="dropdown-item ">故事專訪</a>
-                        <a href="brew.jsp" class="dropdown-item active">泡法介紹</a>
 
-                    </div>
-                </div>
-                <a href="fun.jsp" class="nav-item nav-link">茶遊此地</a>
-                <a href="contact.jsp" class="nav-item nav-link">關於我們</a>
-                <a href="store.jsp" class="nav-item nav-link">滴滴商城</a>
-                <div class="nav-item dropdown">
-                    <div id="user-icon" class="nav-link dropdown-toggle"  data-bs-toggle="dropdown"><small
-                        class="fa fa-user text-primary"></small></div>
-                <div class="dropdown-menu border-light m-0">
-                    <% if (memberName != null) { %>
-                        <span class="dropdown-item disabled-text"><%= memberName %>, 你好</span>								
-                        <% } else { %>
-                        <a class="dropdown-item" href="login.html">登入/註冊</a>
-                    <% } %>
-                    <a href="member.jsp" class="dropdown-item">會員中心</a>
-                    <% if (memberName != null) { %>
-                        <a class="dropdown-item" href="logout.jsp">登出</a>
-                    <% }%>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
-</div>
 <div class="container-xxl py-4">
     <div class="container">
         <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
@@ -222,7 +175,7 @@
                 <h2 class="mb-50" style="line-height: 2;">➁ 品茶杯：飲茶使用。</h2>
                 <h2 class="mb-50" style="line-height: 2;">➂ 茶船：放置茶壺的底座，讓漏出來的水流入茶盤中。</h2>
                 <h2 class="mb-50" style="line-height: 2;">➃ 茶壺：在茶壺中放置茶葉，沖入熱水。</h2>
-                <h2 class="mb-50" style="line-height: 2;">➄ 茶海：茶壺泡好的茶，可以先放置在茶海中</h2>
+                <h2 class="mb-50" style="line-height: 2;">➄ 茶海：茶壺泡好的茶，可以先放置在茶海中。</h2>
                 <h2 class="mb-50" style="line-height: 2;">➅ 茶洗：清潔杯具、承接溫壺的水、放泡過的茶葉。</h2>
         </div>
         <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
@@ -248,10 +201,15 @@
 </a>
 
 
-
-
 <!-- JavaScript Libraries -->
-
+<script>
+    $(document).ready(function () {
+        $('#modalContainer').load('modal.html');
+    });
+    $(document).ready(function () {
+        $('#myModal').modal('show');
+    });
+</script>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>

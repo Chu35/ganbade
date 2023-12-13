@@ -69,22 +69,26 @@
                 <a href="index.jsp" class="nav-item nav-link">首頁</a>
                 <a href="#" class="nav-item nav-link">
                     <small class="fa fa-shopping-cart text-primary" data-toggle="modal" data-target="#cart">
-                        <span class="total-count"><%= totalQuantity != null ? totalQuantity : 0 %></span>
-                    </small>                
+                        <span class="total-count">
+                            <%= totalQuantity !=null ? totalQuantity : 0 %>
+                        </span>
+                    </small>
                 </a>
                 <div class="nav-item dropdown">
                     <div id="user-icon" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><small
-                        class="fa fa-user text-primary"></small></div>
-                        <div class="dropdown-menu border-light m-0">
-                            <% if (memberName != null) { %>
-                                <span class="dropdown-item disabled-text"><%= memberName %>, 你好</span>								<% } else { %>
+                            class="fa fa-user text-primary"></small></div>
+                    <div class="dropdown-menu border-light m-0">
+                        <% if (memberName !=null) { %>
+                            <span class="dropdown-item disabled-text">
+                                <%= memberName %>, 你好
+                            </span>
+                            <% } else { %>
                                 <a class="dropdown-item" href="login.html">登入/註冊</a>
-                            <% } %>
-                            <a href="member.jsp" class="dropdown-item">會員中心</a>
-                            <% if (memberName != null) { %>
-                                <a class="dropdown-item" href="logout.jsp">登出</a>
-                            <% }%>
-                        </div>
+                                <% } %>
+                                    <a href="member.jsp" class="dropdown-item">會員中心</a>
+                                    <% if (memberName !=null) { %>
+                                        <a class="dropdown-item" href="logout.jsp">登出</a>
+                                        <% }%>
                     </div>
                 </div>
             </div>

@@ -101,6 +101,8 @@
 			<img src="img/kv5.png" alt="Right Image" class="image right-image w-100">
 			<img src="img/kv7.png" alt="Left Image" class="image left-image w-100">
 			<img src="img/kv9.png" alt="Right Image" class="image right-image w-100">
+			<img src="img/黑.png" alt="Original Image" class="image w-100">
+			<img src="img/kv10.png" alt="Original Image" class="image w-100">
 			<div class="scroll-icon">
 				<div class="scroll-down bounce">
 					<a href="#life" style="color: #fff;">

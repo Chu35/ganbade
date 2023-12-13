@@ -80,16 +80,20 @@
 window.addEventListener("load", function() {
   var images = document.querySelectorAll(".image");
   var delays = {
+    "img/kv1.png": 1000,
+    "img/kv2.png": 1000,
     "img/kv3.png": 1500,
     "img/kv4.png": 1500,
     "img/kv5.png": 1500,
     "img/kv7.png": 2500,	
-    "img/kv9.png": 2500
+    "img/kv9.png": 2500,
+    "img/黑.png": 3000,
+    "img/kv10.png": 3000,
   }; // 不同圖片的延遲時間（毫秒）
   
   images.forEach(function(image) { 
     var src = image.getAttribute("src");
-    var delay = delays[src] || 1000; 
+    var delay = delays[src]; 
     
     setTimeout(function() {
       image.style.opacity = "1";

@@ -115,9 +115,11 @@
                             <div class="back">
                                 <img src="img/晴.png">
                                 <div class="int">
-                                    <p class="team-text2">advadvadv</p><br><br>
-                                    <a class="bi bi-instagram" href=""></a>
-                                    <a class="bi bi-facebook" href=" "></a>
+                                    <br><br>
+                                    <a class="bi bi-facebook" href=" "></a><br>
+                                    <a class="bi bi-instagram" href=""></a><br>
+                                    <a class="bi bi-facebook" href=" "></a><br>
+                                    <a class="bi bi-facebook" href=" "></a><br>
                                 </div>
                             </div>
                             <div class="team-text">

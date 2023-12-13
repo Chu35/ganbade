@@ -64,7 +64,6 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="index.jsp" class="nav-item nav-link">首頁</a>
-                <a class="nav-item nav-link" data-bs-toggle="modal" data-bs-target="#myModal">許願茶池</a>
                 <div class="nav-item dropdown">
                     <a href="#knowl" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"
                         aria-expanded="true">知識調茶局</a>

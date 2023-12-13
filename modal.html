@@ -41,61 +41,11 @@
       height: 100%;
     }
 
-    .quarter-circle {
-      width: 100px;
-      height: 100px;
-      background-color: #3498db;
-      border-radius: 100px 5px 5px 5px;
-      position: relative;
-      color: #fff;
-      text-align: center;
-      line-height: 100px;
-      margin-right: 20px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: background-color 0.3s ease;
-      cursor: pointer;
+    .answer {
+      width: 150px;
+      height: auto;
+      margin: 20px;
     }
-
-    .quarter-circle:hover {
-      background-color: #2980b9;
-    }
-
-    .quarter-circle:nth-child(2) {
-      border-radius: 5px 100px 5px 5px;
-      margin-right: 0;
-    }
-
-    .square {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-    }
-
-    .square-circle {
-      width: 100px;
-      height: 100px;
-      background-color: #3498db;
-      border-radius: 5px 5px 5px 5px;
-      position: relative;
-      color: #fff;
-      text-align: center;
-      line-height: 100px;
-      margin-right: 20px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: background-color 0.3s ease;
-      cursor: pointer;
-    }
-
-    .square-circle:hover {
-      background-color: #2980b9;
-    }
-
-    .square:nth-child(2) {
-      border-radius: 5px 5px 5px 5px;
-      margin-right: 0;
-    }
-
     .questions-container {
       display: flex;
       flex-direction: column;
@@ -108,97 +58,6 @@
     .question.active {
       display: block;
     }
-
-    .circle-left {
-      width: 100px;
-      height: 200px;
-      border-radius: 0px 100px 100px 0px;
-      position: absolute;
-      right: 0;
-      transform-origin: 0 50%;
-    }
-
-    .circle-right {
-      width: 100px;
-      height: 200px;
-      border-radius: 100px 0px 0px 100px;
-      position: absolute;
-      right: 0;
-      transform-origin: 100% 50%;
-    }
-
-    #circle0 {
-      width: 200px;
-      height: 200px;
-      border-radius: 100px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      position: relative;
-      cursor: pointer;
-    }
-
-    #circle2 {
-      background-color: #70f3ff;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      cursor: pointer;
-    }
-
-    #circle3 {
-      background-color: #ff461f;
-      transform: rotate(72deg);
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      cursor: pointer;
-    }
-
-    #circle4 {
-      background-color: #3b2e7e;
-      transform: rotate(144deg);
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      cursor: pointer;
-    }
-
-    #circle6 {
-      background-color: #3b2e7e;
-      transform: rotate(216deg);
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      cursor: pointer;
-    }
-
-    #circle7 {
-      background-color: black;
-      transform: rotate(288deg);
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      cursor: pointer;
-    }
-
-    #circle8 {
-      background-color: red;
-      transform: rotate(360deg);
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      cursor: pointer;
-    }
-
-    #left {
-      clip: rect(0px 100px 200px 0px);
-      position: absolute;
-      right: 0px;
-      width: 100px;
-      height: 200px;
-      overflow: hidden;
-    }
-
-    #right {
-      clip: rect(0px 100px 200px 0px);
-      position: absolute;
-      left: 0px;
-      width: 100px;
-      height: 200px;
-      overflow: hidden;
-    }
-
-    #circle0 p {
-      color: bisque;
-    }
-
 
     .info {
       margin: 0 0 2.2580645161%;
@@ -245,6 +104,7 @@
       text-align: left;
       color: #6a6a6a
     }
+
     .question .content-wrapper {
       display: flex;
       justify-content: space-between;
@@ -262,8 +122,30 @@
       height: auto;
       margin: 16px
     }
+
+    .modal-body img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      cursor: pointer;
+      bottom: 0;
+    }
+
+    .circle5 {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .circle {
+      flex: 0 0 29%;
+      margin: 10px;
+      text-align: center;
+    }
   </style>
 </head>
+
 <body>
   <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
     data-bs-backdrop="static">
@@ -278,22 +160,22 @@
           <div class="questions-container">
             <div class="question active" data-question="1">
               <div class="quarter">
-                <div class="quarter-circle answer" onclick="moveToNextQuestion(this, '1-1')">
-                  清香
+                <div class="answer">
+                  <img src="img/m8.png" alt="清香" onclick="moveToNextQuestion(this, '1-1')">
                 </div>
-                <div class="quarter-circle answer" onclick="moveToNextQuestion(this, '1-2')">
-                  焙香
+                <div class="answer" onclick="moveToNextQuestion(this, '1-2')">
+                  <img src="img/m9.png" alt="焙香">
                 </div>
               </div>
             </div>
             <!-- 輕焙 -->
             <div class="question" data-question="1-2">
-              <div class="square">
-                <div class="square-circle" onclick="moveToNextQuestion(this, '11')">
-                  <p>薄荷</p>
+              <div class="quarter">
+                <div class="answer" onclick="moveToNextQuestion(this, '11')">
+                  <img src="img/m6.png" alt="薄荷味">
                 </div>
-                <div class="square-circle" onclick="moveToNextQuestion(this, '12')">
-                  <p>焦香</p>
+                <div class="answer" onclick="moveToNextQuestion(this, '12')">
+                  <img src="img/m7.png" alt="焦香">
                 </div>
               </div>
             </div>
@@ -321,7 +203,9 @@
                   </div>
                   <p>你可以從這邊買到</p>
                   <a href="https://www.7teahouse.com/pages/ruby-black-tea">七三茶堂 →</a>
-                  <a href="https://www.jsy-tea.com/products/ruby-black-tea-tea-bags?gad_source=1&gclid=Cj0KCQiAyeWrBhDDARIsAGP1mWRffPmxogbPGOq4ljLVTeBMJBwpURfq6AJb7OVOR4VR_BQPzxmWXm8aAsE1EALw_wcB">京盛宇 →</a>
+                  <a
+                    href="https://www.jsy-tea.com/products/ruby-black-tea-tea-bags?gad_source=1&gclid=Cj0KCQiAyeWrBhDDARIsAGP1mWRffPmxogbPGOq4ljLVTeBMJBwpURfq6AJb7OVOR4VR_BQPzxmWXm8aAsE1EALw_wcB">京盛宇
+                    →</a>
                 </div>
                 <img src="img/r1.png" alt="" class="image-container" />
               </div>
@@ -349,7 +233,9 @@
                     </div>
                   </div>
                   <p>你可以從這邊買到</p>
-                  <a href="https://www.primedew.com/product-page/%E9%90%B5%E8%A7%80%E9%9F%B3%E8%8C%B6-%E4%B8%89%E8%A7%92%E8%8C%B6%E5%8C%85">貓空茶神 →</a>
+                  <a
+                    href="https://www.primedew.com/product-page/%E9%90%B5%E8%A7%80%E9%9F%B3%E8%8C%B6-%E4%B8%89%E8%A7%92%E8%8C%B6%E5%8C%85">貓空茶神
+                    →</a>
                   <a href="https://www.facebook.com/profile.php?id=100064174175399">晨曦茶坊 →</a>
                 </div>
                 <img src="img/g3.png" alt="" class="image-container" />
@@ -358,28 +244,21 @@
 
             <!-- 深焙 -->
             <div class="question" data-question="1-1">
-              <div id="circle0">
-                <div id="left">
-                  <div class="circle-left" onclick="moveToNextQuestion(this, '3')" id="circle2">
-                    <p>草本</p>
-                  </div>
-                  <div class="circle-left" onclick="moveToNextQuestion(this, '4')" id="circle3">
-                    <p>桂花</p>
-                  </div>
-                  <div class="circle-left" onclick="moveToNextQuestion(this, '5')" id="circle4">
-                    <p>奶香</p>
-                  </div>
+              <div class="circle5">
+                <div class="circle" onclick="moveToNextQuestion(this, '3')" id="circle2">
+                  <img src="img/m1.png" alt="">
                 </div>
-                <div id="right">
-                  <div class="circle-right" onclick="moveToNextQuestion(this, '6')" id="circle8">
-                    <p>甜果</p>
-                  </div>
-                  <div class="circle-right" onclick="moveToNextQuestion(this, '7')" id="circle7">
-                    <p>蜂蜜</p>
-                  </div>
-                  <div class="circle-right" onclick="moveToNextQuestion(this, '5')" id="circle6">
-                    <p>奶香</p>
-                  </div>
+                <div class="circle" onclick="moveToNextQuestion(this, '4')" id="circle3">
+                  <img src="img/m4.png" alt="">
+                </div>
+                <div class="circle" onclick="moveToNextQuestion(this, '5')" id="circle4">
+                  <img src="img/m2.png" alt="">
+                </div>
+                <div class="circle" onclick="moveToNextQuestion(this, '6')" id="circle8">
+                  <img src="img/m5.png" alt="">
+                </div>
+                <div class="circle" onclick="moveToNextQuestion(this, '7')" id="circle7">
+                  <img src="img/m3.png" alt="">
                 </div>
               </div>
             </div>
@@ -462,7 +341,9 @@
                     </div>
                   </div>
                   <p>你可以從這邊買到</p>
-                  <a href="https://www.jsy-tea.com/products/alishan-jingsyuan-glow-of-tea%EF%BD%9Ctea-bags?gad_source=1&gclid=Cj0KCQiAyeWrBhDDARIsAGP1mWRgCcsHF_lf2CSteY3OTE2Qhpm06RYQvNmOVKcsK0gEyPzre4KldNkaAv7zEALw_wcB">京盛宇 →</a>
+                  <a
+                    href="https://www.jsy-tea.com/products/alishan-jingsyuan-glow-of-tea%EF%BD%9Ctea-bags?gad_source=1&gclid=Cj0KCQiAyeWrBhDDARIsAGP1mWRgCcsHF_lf2CSteY3OTE2Qhpm06RYQvNmOVKcsK0gEyPzre4KldNkaAv7zEALw_wcB">京盛宇
+                    →</a>
                 </div>
                 <img src="img/g3.png" alt="" class="image-container" />
               </div>
@@ -490,7 +371,9 @@
                     </div>
                   </div>
                   <p>你可以從這邊買到</p>
-                  <a href="https://shopee.tw/%E7%A5%A5%E6%B3%B0%E8%8C%B6%E8%8E%8A-%E5%8C%85%E7%A8%AE%E8%8C%B6-%E6%9D%B1%E6%96%B9%E7%BE%8E%E4%BA%BA%E8%8C%B6-%E8%9C%9C%E9%A6%99%E7%B4%85%E8%8C%B6-%E7%99%BD%E8%8C%B6-%E7%AB%8B%E9%AB%94%E8%8C%B6%E5%8C%85%EF%BC%8C%E5%B9%B3%E9%9D%A2%E8%8C%B6%E5%8C%85-i.231507740.12639726987?xptdk=3109965d-7e4e-4004-a92b-a9fbd3e66cc4">祥泰茶莊 →</a>
+                  <a
+                    href="https://shopee.tw/%E7%A5%A5%E6%B3%B0%E8%8C%B6%E8%8E%8A-%E5%8C%85%E7%A8%AE%E8%8C%B6-%E6%9D%B1%E6%96%B9%E7%BE%8E%E4%BA%BA%E8%8C%B6-%E8%9C%9C%E9%A6%99%E7%B4%85%E8%8C%B6-%E7%99%BD%E8%8C%B6-%E7%AB%8B%E9%AB%94%E8%8C%B6%E5%8C%85%EF%BC%8C%E5%B9%B3%E9%9D%A2%E8%8C%B6%E5%8C%85-i.231507740.12639726987?xptdk=3109965d-7e4e-4004-a92b-a9fbd3e66cc4">祥泰茶莊
+                    →</a>
                 </div>
                 <img src="img/g3.png" alt="" class="image-container" />
               </div>
@@ -525,9 +408,6 @@
             </div>
           </div>
         </div>
-        <div class="modal-footer" style="border: none;">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
       </div>
     </div>
   </div>
@@ -535,7 +415,6 @@
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-
     function moveToNextQuestion(clickedElement, targetQuestionNumber) {
       var currentQuestion = clickedElement.closest('.question');
       var currentQuestionNumber = currentQuestion.getAttribute('data-question');

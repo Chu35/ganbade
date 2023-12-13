@@ -1730,21 +1730,6 @@ ul li {
   overflow: hidden; /* Ensure overflow hidden for the overlay */
 }
 
-.img-fixed {
-  display: flex;
-  width: 100%;
-  height: 400px;
-  min-width: 150px;
-  min-height: 250px;
-  justify-content: center;
-  object-fit: cover;
-  object-position: center center;
-  margin: 2px;
-  padding: 20px;
-  position: relative;
-  transition: transform 0.3s ease;
-}
-
 #indexfun1::after{
   content: "貓空";
   font-size: 30px;

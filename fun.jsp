@@ -72,7 +72,7 @@
                         aria-expanded="true">知識調茶局</a>
                     <div class="dropdown-menu border-light m-0" data-bs-popper="none">
                         <a href="knowl.jsp" class="dropdown-item">茶種介紹</a>
-                        <a href="crafts.jsp" class="dropdown-item">烘培發酵介紹</a>
+                        <a href="story.jsp" class="dropdown-item">故事專訪</a>
                 </div>
                 </div>
                 <a href="#" class="nav-item nav-link active">茶遊此地</a>

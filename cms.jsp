@@ -139,10 +139,6 @@ input {
                                         </div>
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><a href="" class="animsition-link dropdown-item wave-effect">
-                                            <i class="feather icon-user"></i> Profile</a></li>
-                                        <li><a href="" class="animsition-link dropdown-item wave-effect">
-                                            <i class="feather icon-settings"></i> Settings</a></li>
                                         <li><a href="logout.jsp" class="animsition-link dropdown-item wave-effect">
                                             <i class="feather icon-log-in"></i> Logout</a></li>
                                     </ul>
@@ -152,7 +148,7 @@ input {
                                     <a href="#" class="btn btn-primary wave-effect offcanvas-toggle">
                                         <i class="feather icon-settings"></i></a>
                                 </li>-->
-                                <!-- Notification Menu-->
+                                <!-- Notification Menu
                                 <li class="btn-group notification">
                                     <a href="javascript:;" class="btn btn-primary dropdown-toggle wave-effect"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -172,7 +168,7 @@ input {
                                         <li><a href="" class="dropdown-item all-notifications wave-effect">See more messages 
                                             <i class="feather icon-arrow-down"></i></a></li>
                                     </ul>
-                                </li>
+                                </li>-->
                                 <!-- mobile hamburger Menu-->
                                 <li class="mobile-menu-toggle">
                                     <a href="#" class="btn btn-primary menu-toggle wave-effect">
@@ -274,7 +270,7 @@ input {
                         </a>
                     </li>
                     
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link wave-effect collapsed" data-parent="#sidebarCookie" data-toggle="collapse"
                             href="#navMailbox" aria-expanded="false" aria-controls="page-mailbox">
                             <i class="feather icon-mail"></i>
@@ -291,7 +287,7 @@ input {
                                 </li>
                             </ul>
                         </div>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
             <main>

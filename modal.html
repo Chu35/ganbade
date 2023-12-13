@@ -170,6 +170,75 @@
     #circle0 p {
       color: bisque;
     }
+
+
+    .info {
+      margin: 0 0 2.2580645161%;
+      letter-spacing: 1px;
+      text-indent: 1px
+    }
+
+    .info+.info .info_title {
+      background-color: #dea776
+    }
+
+    .info+.info+.info .info_title {
+      background-color: #e892a8
+    }
+
+    .info+.info+.info+.info .info_title {
+      background-color: #92cee8
+    }
+
+    .info+.info+.info+.info+.info .info_title {
+      background-color: #cbe892
+    }
+
+    .info .info_title {
+      width: 84px;
+      height: 23px;
+      line-height: 23px;
+      float: left;
+      font-size: 15px;
+      color: #fff;
+      border-radius: 2px;
+      background-color: #d3bba6;
+      margin: 0 4.5161290323% 0 1.2903225806%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap
+    }
+
+    .info .info_desc {
+      float: left;
+      width: calc(100% - 84px - 5.8064516129%);
+      font-size: 16px;
+      line-height: 23px;
+      text-align: left;
+      color: #6a6a6a
+    }
+
+
+
+    .question .content-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .question .text-container {
+      width: 60%;
+      /* Adjust the width as needed */
+      padding: 20px;
+    }
+
+    .question .image-container {
+      width: 40%;
+      /* Adjust the width as needed */
+      max-width: 100%;
+      height: auto;
+      margin: 16px
+    }
   </style>
 </head>
 
@@ -188,15 +257,94 @@
           <div class="questions-container">
             <div class="question active" data-question="1">
               <div class="quarter">
-                <div class="quarter-circle answer" onclick="moveToNextQuestion(this)">
+                <div class="quarter-circle answer" onclick="moveToNextQuestion(this, '1-1')">
                   輕焙
                 </div>
-                <div class="quarter-circle answer" onclick="moveToNextQuestion(this)">
+                <div class="quarter-circle answer" onclick="moveToNextQuestion(this, '1-2')">
                   深焙
                 </div>
               </div>
             </div>
-            <div class="question" data-question="2">
+            <!-- 輕焙 -->
+            <div class="question" data-question="1-2">
+              <div class="quarter">
+                  <div class="quarter-circle answer" onclick="moveToNextQuestion(this, '11')" id="circle2">
+                    <p>草</p>
+                  </div>
+                  <div class="quarter-circle answer" onclick="moveToNextQuestion(this, '12')" id="circle3">
+                    <p>桂</p>
+                </div>
+              </div>
+            </div>
+            <div class="question" data-question="11">
+              <h2>你適合茶</h2>
+              <div class="content-wrapper">
+                <div class="text-container">
+                  <div class="info_box">
+                    <div class="info clearfix">
+                      <div class="info_title">產地</div>
+                      <div class="info_desc">嘉義阿里山</div>
+                    </div>
+                    <div class="info clearfix">
+                      <div class="info_title">產季</div>
+                      <div class="info_desc">四季</div>
+                    </div>
+                    <div class="info clearfix">
+                      <div class="info_title">品種</div>
+                      <div class="info_desc">台茶12號</div>
+                    </div>
+                    <div class="info clearfix">
+                      <div class="info_title">茶乾</div>
+                      <div class="info_desc">球形茶葉</div>
+                    </div>
+                    <div class="info clearfix">
+                      <div class="info_title">分類</div>
+                      <div class="info_desc">綠茶</div>
+                    </div>
+                  </div>
+                  <p>你可以從這邊買到</p>
+                  <a href="">Link1 →</a>
+                  <a href="">Link2 →</a>
+                </div>
+                <img src="img/g3.png" alt="" class="image-container" />
+              </div>
+            </div>
+            <div class="question" data-question="12">
+              <h2>你適合阿里萱茶</h2>
+              <div class="content-wrapper">
+                <div class="text-container">
+                  <div class="info_box">
+                    <div class="info clearfix">
+                      <div class="info_title">產地</div>
+                      <div class="info_desc">嘉義阿里山</div>
+                    </div>
+                    <div class="info clearfix">
+                      <div class="info_title">產季</div>
+                      <div class="info_desc">四季</div>
+                    </div>
+                    <div class="info clearfix">
+                      <div class="info_title">品種</div>
+                      <div class="info_desc">台茶12號</div>
+                    </div>
+                    <div class="info clearfix">
+                      <div class="info_title">茶乾</div>
+                      <div class="info_desc">球形茶葉</div>
+                    </div>
+                    <div class="info clearfix">
+                      <div class="info_title">分類</div>
+                      <div class="info_desc">綠茶</div>
+                    </div>
+                  </div>
+                  <p>你可以從這邊買到</p>
+                  <a href="">Link1 →</a>
+                  <a href="">Link2 →</a>
+                </div>
+                <img src="img/g3.png" alt="" class="image-container" />
+              </div>
+            </div>
+
+            <!-- 深焙 -->
+            <div class="question" data-question="1-1">
               <div id="circle0">
                 <div id="left">
                   <div class="circle-left" onclick="moveToNextQuestion(this, '3')" id="circle2">
@@ -205,37 +353,186 @@
                   <div class="circle-left" onclick="moveToNextQuestion(this, '4')" id="circle3">
                     <p>桂花</p>
                   </div>
-                  <div class="circle-left" onclick="moveToNextQuestion(this)" id="circle4">
+                  <div class="circle-left" onclick="moveToNextQuestion(this, '5')" id="circle4">
                     <p>奶香</p>
                   </div>
                 </div>
                 <div id="right">
-                  <div class="circle-right" onclick="moveToNextQuestion(this)" id="circle8">
+                  <div class="circle-right" onclick="moveToNextQuestion(this, '6')" id="circle8">
                     <p>甜果</p>
                   </div>
-                  <div class="circle-right" onclick="moveToNextQuestion(this)" id="circle7">
+                  <div class="circle-right" onclick="moveToNextQuestion(this, '7')" id="circle7">
                     <p>蜂蜜</p>
                   </div>
-                  <div class="circle-right" onclick="moveToNextQuestion(this)" id="circle6">
+                  <div class="circle-right" onclick="moveToNextQuestion(this, '5')" id="circle6">
                     <p>奶香</p>
                   </div>
                 </div>
               </div>
             </div>
             <div class="question" data-question="3">
-              <h2>草本</h2>
-              <div class="quarter">
-                <div class="quarter-circle answer">
-                  <p>ccc</p>
+              <h2>你適合阿里山金萱茶</h2>
+              <div class="content-wrapper">
+                <div class="text-container">
+                  <div class="info_box">
+                    <div class="info clearfix">
+                      <div class="info_title">產地</div>
+                      <div class="info_desc">嘉義阿里山</div>
+                    </div>
+                    <div class="info clearfix">
+                      <div class="info_title">產季</div>
+                      <div class="info_desc">四季</div>
+                    </div>
+                    <div class="info clearfix">
+                      <div class="info_title">品種</div>
+                      <div class="info_desc">台茶12號</div>
+                    </div>
+                    <div class="info clearfix">
+                      <div class="info_title">茶乾</div>
+                      <div class="info_desc">球形茶葉</div>
+                    </div>
+                    <div class="info clearfix">
+                      <div class="info_title">分類</div>
+                      <div class="info_desc">綠茶</div>
+                    </div>
+                  </div>
+                  <p>你可以從這邊買到</p>
+                  <a href="">Link1 →</a>
+                  <a href="">Link2 →</a>
                 </div>
+                <img src="img/g3.png" alt="" class="image-container" />
               </div>
             </div>
             <div class="question" data-question="4">
-              <h2>桂花</h2>
-              <div class="quarter">
-                <div class="quarter-circle answer">
-                  <p>ccc</p>
+              <h2>你適合阿里山金萱茶</h2>
+              <div class="content-wrapper">
+                <div class="text-container">
+                  <div class="info_box">
+                    <div class="info clearfix">
+                      <div class="info_title">產地</div>
+                      <div class="info_desc">嘉義阿里山</div>
+                    </div>
+                    <div class="info clearfix">
+                      <div class="info_title">產季</div>
+                      <div class="info_desc">四季</div>
+                    </div>
+                    <div class="info clearfix">
+                      <div class="info_title">品種</div>
+                      <div class="info_desc">台茶12號</div>
+                    </div>
+                    <div class="info clearfix">
+                      <div class="info_title">茶乾</div>
+                      <div class="info_desc">球形茶葉</div>
+                    </div>
+                    <div class="info clearfix">
+                      <div class="info_title">分類</div>
+                      <div class="info_desc">綠茶</div>
+                    </div>
+                  </div>
+                  <p>你可以從這邊買到</p>
+                  <a href="">Link1 →</a>
+                  <a href="">Link2 →</a>
                 </div>
+                <img src="img/g3.png" alt="" class="image-container" />
+              </div>
+            </div>
+            <div class="question" data-question="5">
+              <h2>你適合阿里山金萱茶</h2>
+              <div class="content-wrapper">
+                <div class="text-container">
+                  <div class="info_box">
+                    <div class="info clearfix">
+                      <div class="info_title">產地</div>
+                      <div class="info_desc">嘉義阿里山</div>
+                    </div>
+                    <div class="info clearfix">
+                      <div class="info_title">產季</div>
+                      <div class="info_desc">四季</div>
+                    </div>
+                    <div class="info clearfix">
+                      <div class="info_title">品種</div>
+                      <div class="info_desc">台茶12號</div>
+                    </div>
+                    <div class="info clearfix">
+                      <div class="info_title">茶乾</div>
+                      <div class="info_desc">球形茶葉</div>
+                    </div>
+                    <div class="info clearfix">
+                      <div class="info_title">分類</div>
+                      <div class="info_desc">綠茶</div>
+                    </div>
+                  </div>
+                  <p>你可以從這邊買到</p>
+                  <a href="">Link1 →</a>
+                  <a href="">Link2 →</a>
+                </div>
+                <img src="img/g3.png" alt="" class="image-container" />
+              </div>
+            </div>
+            <div class="question" data-question="6">
+              <h2>你適合阿里山金萱茶</h2>
+              <div class="content-wrapper">
+                <div class="text-container">
+                  <div class="info_box">
+                    <div class="info clearfix">
+                      <div class="info_title">產地</div>
+                      <div class="info_desc">嘉義阿里山</div>
+                    </div>
+                    <div class="info clearfix">
+                      <div class="info_title">產季</div>
+                      <div class="info_desc">四季</div>
+                    </div>
+                    <div class="info clearfix">
+                      <div class="info_title">品種</div>
+                      <div class="info_desc">台茶12號</div>
+                    </div>
+                    <div class="info clearfix">
+                      <div class="info_title">茶乾</div>
+                      <div class="info_desc">球形茶葉</div>
+                    </div>
+                    <div class="info clearfix">
+                      <div class="info_title">分類</div>
+                      <div class="info_desc">綠茶</div>
+                    </div>
+                  </div>
+                  <p>你可以從這邊買到</p>
+                  <a href="">Link1 →</a>
+                  <a href="">Link2 →</a>
+                </div>
+                <img src="img/g3.png" alt="" class="image-container" />
+              </div>
+            </div>
+            <div class="question" data-question="7">
+              <h2>你適合阿里山金萱茶</h2>
+              <div class="content-wrapper">
+                <div class="text-container">
+                  <div class="info_box">
+                    <div class="info clearfix">
+                      <div class="info_title">產地</div>
+                      <div class="info_desc">嘉義阿里山</div>
+                    </div>
+                    <div class="info clearfix">
+                      <div class="info_title">產季</div>
+                      <div class="info_desc">四季</div>
+                    </div>
+                    <div class="info clearfix">
+                      <div class="info_title">品種</div>
+                      <div class="info_desc">台茶12號</div>
+                    </div>
+                    <div class="info clearfix">
+                      <div class="info_title">茶乾</div>
+                      <div class="info_desc">球形茶葉</div>
+                    </div>
+                    <div class="info clearfix">
+                      <div class="info_title">分類</div>
+                      <div class="info_desc">綠茶</div>
+                    </div>
+                  </div>
+                  <p>你可以從這邊買到</p>
+                  <a href="">Link1 →</a>
+                  <a href="">Link2 →</a>
+                </div>
+                <img src="img/g3.png" alt="" class="image-container" />
               </div>
             </div>
           </div>

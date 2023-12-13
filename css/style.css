@@ -269,10 +269,13 @@ h6,
   transform: rotateY(0deg);
 }
 
-.front img,
-.back img {
+.front img{
   width: 100%; /* Set a fixed width (adjust as needed) */
   height: auto; /* Maintain aspect ratio */
+}
+.back img{
+  width: 50%;
+  height: auto;
 }
 
 .back {

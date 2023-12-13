@@ -36,9 +36,9 @@
   <style>
     .quarter {
       display: flex;
-      justify-content: center; /* 讓 flex 元素在水平方向上置中 */
-      align-items: center; /* 讓 flex 元素在垂直方向上置中 */
-      height: 100%; /* 讓父元素充滿整個高度 */
+      justify-content: center;
+      align-items: center;
+      height: 100%;
     }
 
     .quarter-circle {
@@ -52,15 +52,28 @@
       line-height: 100px;
       margin-right: 20px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      /* Add a subtle shadow */
       transition: background-color 0.3s ease;
-      /* Add a smooth color transition */
+      cursor: pointer;
+    }
+
+    .quarter-circle5 {
+      width: 200px;
+      height: 200px;
+      background-color: #3498db;
+      border-radius: 50%;
+      clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%, 0% 50%);
+      position: relative;
+      color: #fff;
+      text-align: center;
+      line-height: 100px;
+      margin-right: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
       cursor: pointer;
     }
 
     .quarter-circle:hover {
       background-color: #2980b9;
-      /* Change background color on hover */
     }
 
     .quarter-circle:nth-child(2) {
@@ -68,15 +81,94 @@
       margin-right: 0;
     }
 
-    .circle-container {
-      position: relative;
+    .questions-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .question {
+      display: none;
+    }
+
+    .question.active {
+      display: block;
+    }
+
+    .circle-left {
+      width: 100px;
+      height: 200px;
+      border-radius: 0px 100px 100px 0px;
+      position: absolute;
+      right: 0;
+      transform-origin: 0 50%;
+    }
+
+    .circle-right {
+      width: 100px;
+      height: 200px;
+      border-radius: 100px 0px 0px 100px;
+      position: absolute;
+      right: 0;
+      transform-origin: 100% 50%;
+    }
+
+    #circle0 {
       width: 200px;
       height: 200px;
-      background-color: #3498db;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      border-radius: 100px;
+      background-color: yellowgreen;
+      position: relative;
+    }
+
+    #circle2 {
+      background-color: #70f3ff;
+    }
+
+    #circle3 {
+      background-color: #ff461f;
+      transform: rotate(72deg);
+    }
+
+    #circle4 {
+      background-color: #3b2e7e;
+      transform: rotate(144deg);
+    }
+
+    #circle6 {
+      background-color: #3b2e7e;
+      transform: rotate(216deg);
+    }
+
+    #circle7 {
+      background-color: black;
+      transform: rotate(288deg);
+    }
+
+    #circle8 {
+      background-color: red;
+      transform: rotate(360deg);
+    }
+
+    #left {
+      clip: rect(0px 100px 200px 0px);
+      position: absolute;
+      right: 0px;
+      width: 100px;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    #right {
+      clip: rect(0px 100px 200px 0px);
+      position: absolute;
+      left: 0px;
+      width: 100px;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    #circle0 p {
+      color: bisque;
     }
   </style>
 </head>
@@ -88,16 +180,63 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">你喜歡...</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h5 class="modal-title text-center" id="exampleModalLabel">你喜歡...</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+            onclick="resetQuiz()"></button>
         </div>
         <div class="modal-body">
-          <div class="quarter">
-            <div id="f" class="quarter-circle" onclick="openSecondModal()">
-              清香<br>輕焙
+          <div class="questions-container">
+            <div class="question active" data-question="1">
+              <div class="quarter">
+                <div class="quarter-circle answer" onclick="moveToNextQuestion(this)">
+                  輕焙
+                </div>
+                <div class="quarter-circle answer" onclick="moveToNextQuestion(this)">
+                  深焙
+                </div>
+              </div>
             </div>
-            <div class="quarter-circle">
-              Quarter Circle<br>with Text
+            <div class="question" data-question="2">
+              <div id="circle0">
+                <div id="left">
+                  <div class="circle-left" onclick="moveToNextQuestion(this, '3')" id="circle2">
+                    <p>草本</p>
+                  </div>
+                  <div class="circle-left" onclick="moveToNextQuestion(this, '4')" id="circle3">
+                    <p>桂花</p>
+                  </div>
+                  <div class="circle-left" onclick="moveToNextQuestion(this)" id="circle4">
+                    <p>奶香</p>
+                  </div>
+                </div>
+                <div id="right">
+                  <div class="circle-right" onclick="moveToNextQuestion(this)" id="circle8">
+                    <p>甜果</p>
+                  </div>
+                  <div class="circle-right" onclick="moveToNextQuestion(this)" id="circle7">
+                    <p>蜂蜜</p>
+                  </div>
+                  <div class="circle-right" onclick="moveToNextQuestion(this)" id="circle6">
+                    <p>奶香</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="question" data-question="3">
+              <h2>草本</h2>
+              <div class="quarter">
+                <div class="quarter-circle answer">
+                  <p>ccc</p>
+                </div>
+              </div>
+            </div>
+            <div class="question" data-question="4">
+              <h2>桂花</h2>
+              <div class="quarter">
+                <div class="quarter-circle answer">
+                  <p>ccc</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -108,31 +247,34 @@
     </div>
   </div>
 
-  <div class="modal fade" id="secondModal" tabindex="-1" aria-labelledby="secondModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="secondModalLabel">第二個Modal</h5>
-        </div>
-        <div class="modal-body">
-          <div class="circle-container">
-            <div class="circle"></div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <a href="index.html" type="button" class="btn btn-secondary">go</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
   <script>
-    function openSecondModal() {
-      $('#myModal').modal('hide');
-      $('#secondModal').modal('show');
+
+    function moveToNextQuestion(clickedElement, targetQuestionNumber) {
+      var currentQuestion = clickedElement.closest('.question');
+      var currentQuestionNumber = currentQuestion.getAttribute('data-question');
+
+      currentQuestion.classList.remove('active');
+
+      var nextQuestionNumber = targetQuestionNumber || parseInt(currentQuestionNumber) + 1;
+      var nextQuestion = document.querySelector('.question[data-question="' + nextQuestionNumber + '"]');
+
+      if (nextQuestion) {
+        nextQuestion.classList.add('active');
+      }
+    }
+
+    function resetQuiz() {
+      var questions = document.querySelectorAll('.question');
+      questions.forEach(question => {
+        question.classList.remove('active');
+      });
+
+      var firstQuestion = document.querySelector('.question[data-question="1"]');
+      if (firstQuestion) {
+        firstQuestion.classList.add('active');
+      }
     }
   </script>
 

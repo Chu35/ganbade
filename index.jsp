@@ -346,9 +346,6 @@
 						</div>
 					</div>
 				</div>
-				<div class="text-center mx-auto" style="max-width: 1000px;">
-					<a href="store.jsp" class="btn btn-primary">Shop now !!!</a>
-				</div>
 			</div>
 		</div>
 	<!-- store -->

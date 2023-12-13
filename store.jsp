@@ -111,11 +111,10 @@
                 </div>
                 <div class="left-c-box hidden-xs">
                     <ul class="ProductList-categoryMenu">
-                        <li class="category" data-list="全部">全部</li>
-                        <li class="category" data-list="本季新品">本季新品</li>
-                        <li class="category" data-list="熱賣商品">熱賣商品</li>
-                        <li class="category" data-list="茶包/茶業">茶包/茶業</li>
+                        <li id="t1" class="category" data-list="茶包/茶葉">茶包/茶葉</li>
+                        <li class="category" data-list="茶禮盒">茶禮盒</li>
                         <li class="category" data-list="茶點心">茶點心</li>
+                        <li class="category" data-list="環保滴滴">環保滴滴</li>
                     </ul>
                 </div>
             </div>

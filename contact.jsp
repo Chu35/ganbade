@@ -115,12 +115,11 @@
                             <div class="back">
                                 <img src="img/晴.png">
                                 <div class="int">
-                                    <br><br>
+                                    <br><br><br>
                                     <div class="d-flex align-items-center">
                                         <i class="bi bi-mailbox"></i>
                                         <a href="mailto:zoieleung309@gmail.com" class="ms-2">zoieleung309@gmail.com</a>
                                     </div>
-                                    
                                     <div class="d-flex align-items-center mt-2">
                                         <i class="bi bi-phone"></i>
                                         <a href="tel:0937-025-165" class="ms-2">0937-025-165</a>
@@ -148,12 +147,11 @@
                             <div class="back">
                                 <img src="img/童.png">
                                 <div class="int">
-                                    <br><br>
+                                    <br><br><br>
                                     <div class="d-flex align-items-center">
                                         <i class="bi bi-mailbox"></i>
                                         <a href="mailto:yanton910307@gmail.com" class="ms-2">yanton910307@gmail.com</a>
                                     </div>
-                                    
                                     <div class="d-flex align-items-center mt-2">
                                         <i class="bi bi-phone"></i>
                                         <a href="tel:0928-358-117" class="ms-2">0928-358-117</a>
@@ -181,7 +179,7 @@
                             <div class="back">
                                 <img src="img/烜.png">
                                 <div class="int">
-                                    <br><br>
+                                    <br><br><br>
                                     <div class="d-flex align-items-center">
                                         <i class="bi bi-mailbox"></i>
                                         <a href="mailto:99wyes30504a@gmail.com" class="ms-2">99wyes30504a@gmail.com</a>
@@ -212,7 +210,7 @@
                             <div class="back">
                                 <img src="img/蘋.png">
                                 <div class="int">
-                                    <br><br>
+                                    <br><br><br>
                                     <div class="d-flex align-items-center">
                                         <i class="bi bi-mailbox"></i>
                                         <a href="mailto:chuping0725@gmail.com" class="ms-2">chuping0725@gmail.com</a>
@@ -243,7 +241,7 @@
                             <div class="back">
                                 <img src="img/皓.png">
                                 <div class="int">
-                                    <br><br>
+                                    <br><br><br>
                                     <div class="d-flex align-items-center">
                                         <i class="bi bi-mailbox"></i>
                                         <a href="mailto:weeiyu165@gmail.com" class="ms-2">weeiyu165@gmail.com</a>

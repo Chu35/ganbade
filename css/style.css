@@ -301,7 +301,7 @@ h6,
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 12px;
+  font-size: 16px;
   z-index: 1;
   text-align: center;
 }
@@ -1568,7 +1568,6 @@ ul li {
   width: calc(33.3333% - 20px); /* Adjust the width as needed, considering margins */
   border-radius: 15px;
   margin: 10px;
-  flex: 290px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s, box-shadow 0.3s;
   display: flex;

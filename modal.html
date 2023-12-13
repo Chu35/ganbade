@@ -65,6 +65,37 @@
       margin-right: 0;
     }
 
+    .square {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    .square-circle {
+      width: 100px;
+      height: 100px;
+      background-color: #3498db;
+      border-radius: 5px 5px 5px 5px;
+      position: relative;
+      color: #fff;
+      text-align: center;
+      line-height: 100px;
+      margin-right: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .square-circle:hover {
+      background-color: #2980b9;
+    }
+
+    .square:nth-child(2) {
+      border-radius: 5px 5px 5px 5px;
+      margin-right: 0;
+    }
+
     .questions-container {
       display: flex;
       flex-direction: column;
@@ -214,9 +245,6 @@
       text-align: left;
       color: #6a6a6a
     }
-
-
-
     .question .content-wrapper {
       display: flex;
       justify-content: space-between;
@@ -225,13 +253,11 @@
 
     .question .text-container {
       width: 60%;
-      /* Adjust the width as needed */
       padding: 20px;
     }
 
     .question .image-container {
       width: 40%;
-      /* Adjust the width as needed */
       max-width: 100%;
       height: auto;
       margin: 16px
@@ -262,11 +288,11 @@
             </div>
             <!-- 輕焙 -->
             <div class="question" data-question="1-2">
-              <div class="quarter">
-                <div class="quarter-circle answer" onclick="moveToNextQuestion(this, '11')" id="circle2">
+              <div class="square">
+                <div class="square-circle" onclick="moveToNextQuestion(this, '11')">
                   <p>薄荷</p>
                 </div>
-                <div class="quarter-circle answer" onclick="moveToNextQuestion(this, '12')" id="circle3">
+                <div class="square-circle" onclick="moveToNextQuestion(this, '12')">
                   <p>焦香</p>
                 </div>
               </div>
@@ -448,11 +474,11 @@
                   <div class="info_box">
                     <div class="info clearfix">
                       <div class="info_title">分類</div>
-                      <div class="info_desc"></div>
+                      <div class="info_desc">白茶</div>
                     </div>
                     <div class="info clearfix">
                       <div class="info_title">烘培發酵</div>
-                      <div class="info_desc"></div>
+                      <div class="info_desc">部分發酵</div>
                     </div>
                     <div class="info clearfix">
                       <div class="info_title">風味</div>
@@ -460,7 +486,7 @@
                     </div>
                     <div class="info clearfix">
                       <div class="info_title">產地</div>
-                      <div class="info_desc"></div>
+                      <div class="info_desc">中國福建-福鼎、政和</div>
                     </div>
                   </div>
                   <p>你可以從這邊買到</p>

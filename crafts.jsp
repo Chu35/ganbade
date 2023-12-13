@@ -40,13 +40,11 @@
         <link href="css/style.css" rel="stylesheet">
     </head>
 <body>
-
     	<!-- Spinner Start -->
-	<div id="spinner"
-    class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-    <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
-</div>
-<!-- Spinner End -->
+        <div id="spinner" class="show position-fixed ">
+            <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
+        </div>
+    <!-- Spinner End -->
 
 <!-- Navbar Start -->
 <div class="container-fluid fixed-top px-0 wow fadeIn top-0" data-wow-delay="0.1s">
@@ -70,7 +68,7 @@
                         aria-expanded="true">知識調茶局</a>
                     <div class="dropdown-menu border-light m-0" data-bs-popper="none">
                         <a href="knowl.jsp" class="dropdown-item">茶種介紹</a>
-                        <a href="crafts.jsp" class="dropdown-item active">烘焙發酵介紹</a>
+                        <a href="crafts.jsp" class="dropdown-item active">故事專訪</a>
                     </div>
                 </div>
                 <a href="fun.jsp" class="nav-item nav-link">茶遊此地</a>
@@ -81,7 +79,120 @@
                         class="fa fa-user text-primary"></small></div>
                 <div class="dropdown-menu border-light m-0">
                     <% if (memberName != null) { %>
-                        <span class="dropdown-item disabled-text"><%= memberName %>, 你好</span>								<% } else { %>
+                        <span class="dropdown-item disabled-text"><%= memberName %>, 你好</span>								
+                        <% } else { %>
+                        <a class="dropdown-item" href="login.html">登入/註冊</a>
+                    <% } %>
+                    <a href="member.jsp" class="dropdown-item">會員中心</a>
+                    <% if (memberName != null) { %>
+                        <a class="dropdown-item" href="logout.jsp">登出</a>
+                    <% }%>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+    <style>
+      .audio-player {
+          background: white;
+          border: 1px solid lighten(#acacac, 20%);
+          width: 50vw;
+          text-align: center;
+          display: flex;
+          flex-flow: row;
+          margin: 4rem 0 4rem 0;
+      }
+
+      .audio-player .album-image {
+          min-height: 100px;
+          width: 110px;
+          background-size: cover;
+      }
+
+      .audio-player .player-controls {
+          align-items: center;
+          justify-content: center;
+          margin-top: 2.5rem;
+          flex: 3;
+      }
+
+      .audio-player .player-controls progress {
+          width: 90%;
+      }
+
+      .audio-player .player-controls progress[value] {
+          -webkit-appearance: none;
+          appearance: none;
+          background-color: white;
+          color: blue;
+          height: 5px;
+      }
+
+      .audio-player .player-controls progress[value]::-webkit-progress-bar {
+          background-color: white;
+          border-radius: 2px;
+          border: 1px solid lighten(#acacac, 20%);
+          color: blue;
+      }
+
+      .audio-player .player-controls progress::-webkit-progress-value {
+          background-color: blue;
+      }
+
+      .audio-player .player-controls p {
+          font-size: 1.6rem;
+      }
+
+      .audio-player #play-btn {
+          background-image: url('https://cdn.fastly.picmonkey.com/content4/previews/arrows_2/arrows_2_44_550.png');
+          background-size: cover;
+          width: 75px;
+          height: 75px;
+          margin: 2rem 0 2rem 2rem;
+      }
+
+      .audio-player #play-btn.pause {
+          background-image: url('https://img.icons8.com/ios/452/circled-pause.png');
+      }
+  </style>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+  <div class="container-fluid fixed-top px-0 wow fadeIn top-0" data-wow-delay="0.1s">
+    <div class="row gx-0 align-items-center d-none d-lg-flex"> </div>
+    <nav class="navbar navbar-expand-lg navbar-light py-lg-0 px-lg-4 wow fadeIn" data-wow-delay="0.1s">
+        <a class="navbar-brand logo" href="index.jsp">
+            <img src="img/logo.png" alt="Website Logo" width="70px" />
+        </a>
+        <a href="index.jsp" class="navbar-brand ms-4 ms-lg-0">
+            <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="index.jsp" class="nav-item nav-link">首頁</a>
+                <div class="nav-item dropdown">
+                    <a href="knowl.jsp" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"
+                        aria-expanded="true">知識調茶局</a>
+                    <div class="dropdown-menu border-light m-0" data-bs-popper="none">
+                        <a href="knowl.jsp" class="dropdown-item">茶種介紹</a>
+                        <a href="crafts.jsp" class="dropdown-item active">故事專訪</a>
+                    </div>
+                </div>
+                <a href="fun.jsp" class="nav-item nav-link">茶遊此地</a>
+                <a href="contact.jsp" class="nav-item nav-link">關於我們</a>
+                <a href="store.jsp" class="nav-item nav-link">滴滴商城</a>
+                <div class="nav-item dropdown">
+                    <div id="user-icon" class="nav-link dropdown-toggle"  data-bs-toggle="dropdown"><small
+                        class="fa fa-user text-primary"></small></div>
+                <div class="dropdown-menu border-light m-0">
+                    <% if (memberName != null) { %>
+                        <span class="dropdown-item disabled-text"><%= memberName %>, 你好</span>								
+                        <% } else { %>
                         <a class="dropdown-item" href="login.html">登入/註冊</a>
                     <% } %>
                     <a href="member.jsp" class="dropdown-item">會員中心</a>
@@ -96,51 +207,153 @@
 </div>
 <div class="container-xxl py-4">
     <div class="container">
-                <div class="col-lg-12 text-center p-5">
-                  <h1></h1>
-                  <img class="img-fluid mb-50" src="img/c1.png" alt="">
-                </div>
-                <div class="col-lg-12  text-center">工藝</div>
-                <blockquote class="p-2 mb-50"></blockquote>
-                <div class="col-lg-12" style="line-height: 3;">
-                  <p>茶的古字是「荼」，荼毒的「荼」，多了那一橫<br>
-                    表示茶本身是帶有刺激身體的成分<br>
-                    必須要透過製茶工序，降低刺激身體的成分，才能夠飲用<br>
-                    隨著製茶技術不斷地演進、提升<br>
-                    讓「不同的工藝，造就茶湯不同的風味」<br>
-                    製茶工藝有很多種，常常聽到，也最常誤會的<br>
-                    就是「發酵和烘焙」</p>
-                    <blockquote class="p-2 mb-50"></blockquote>
-                  <p class="mb-50" style="line-height: 3;">
-                    <b>發酵</b><br>
-                    從茶樹採收下來的葉子，還沒做成茶葉的半成品狀態，稱作茶菁，茶菁帶有酵素，離開了茶樹，還是會繼續進行發酵作用。如果希望茶葉喝起來，保有類似「植物、葉子」鮮嫩自然原始的口感，在採茶之後，要盡快利用高溫把酵素破壞，製成不發酵的綠茶。反之，充分利用茶菁的酵素，讓酵素竭盡所能轉化葉片其他成分，就會製成帶有果蜜香的全發酵紅茶。<br>
-                    目前台灣大部分的茶，都是製成介於綠茶和紅茶之間的半發酵「青茶」。採茶之後，經過萎凋、浪菁，才利用高溫破壞酵素。萎凋和浪菁會造成茶菁發酵，更是台灣製茶工藝的精髓所在，因為製茶師傅必須依據茶菁生長過程的不同狀態，搭配做茶當天的濕度、氣溫、風向......等等，才能決定萎凋、浪菁的程度，這兩個步驟做得好，就可以大大降低茶菁刺激身體的成分，並轉化出花香或果香。這樣的製法，讓青茶兼具綠茶的鮮嫩風味及紅茶的花果香。</p>
-                  <blockquote class="p-2 mb-50"></blockquote>
-                  <p class="mb-50" style="line-height: 3;">
-                    <b>烘焙</b><br>
-                    是製茶的重要工序，所有的茶最後都需要烘焙降低水分，以利茶葉保存。但是「烘焙」的偉大之處在於，讓製茶師傅能夠依據茶葉不同的狀態，以及自身對於茶風味的想像，透過不同烘焙溫度、時間的控制調整，能將同一種茶葉，創作出無數風味。<br>
-                    在一些老茶行常將茶葉分成半生熟、三分火、七分火、全熟，基本上就是輕烘焙、深烘焙的區別，「輕焙茶」略保有葉片原始的口感及蜜香，「深焙茶」帶有焦香和蜜香。不過烘焙引出的蜜香，基調比較類似麥芽糖的路線，不同於發酵的水果蜜香。</p>
-                    <blockquote class="p-2 mb-50"></blockquote>
-                    <p class="mb-50" style="line-height: 3;" >
-                      <b>塑形</b><br>
-                       形狀不同的茶，風味表現有沒有什麼差異呢？<br>
-                       為什麼英式紅茶、包種茶、東方美人都是條索狀或是散狀呢？<br>
-                       為什麼高山茶都是球形呢？<br>
-                       塑形的製茶工藝可分為兩種：「揉捻」、「團揉」<br>
-                       簡單來說，揉捻成條索狀的茶，香氣表現突出；團揉成球形的茶，韻味表現突出。</p>
-                <div class="text-center">
-                    <img class="img-fluid mb-50" src="img/c2.png" alt="">
-                </div>
-                </div>
-              </div>
-            </div>
-   <!-- Back to Top -->
-   <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top">
-    <i class="bi bi-arrow-up"></i>
+        <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <h1 class="display-3 mb-5"> </h1>
+            <h1 class="display-5 mb-4">故事專訪 : 天薌茶行 </h1>
+        </div>
+        <div class="col-lg-12" style="line-height: 3;">
+            <img class="img-fluid mb-50" src="img/n1.jpg" alt="">
+            
+<div class="audio-player">
+    <div id="play-btn"></div>
+    <div class="audio-wrapper" id="player-container" href="javascript:;">
+        <audio id="player" ontimeupdate="initProgressBar()">
+            <source src="https://raw.githubusercontent.com/Chu35/ganbade/main/img/阿姨_行銷.mp3" type="">
+        </audio>
+    </div>
+    <div class="player-controls scrubber">
+        <p>Oslo <small>by</small> Holy Esque</p>
+        <span id="seekObjContainer">
+            <progress id="seekObj" value="0" max="1"></progress>
+        </span>
+        <br>
+        <small style="float: left; position: relative; left: 15px;" class="start-time"></small>
+        <small style="float: right; position: relative; right: 20px;" class="end-time"></small>
+    </div>
+    <div class="album-image"
+        style="background-image: url('https://artwork-cdn.7static.com/static/img/sleeveart/00/051/614/0005161476_350.jpg')">
+    </div>
+</div>
+
+<b>一、初期在經營茶行有遇到哪些困難?</b>
+<p> 「茶葉沒了，錢也沒了」，過去在茶葉買賣的過程中經常會遇到瓶頸，即使自產的茶葉品質很好，但盤商開出來的價錢卻總是不盡理想，導致最後茶葉賣出去，錢也沒了。</p>
+
+<blockquote class="p-2 mb-50"></blockquote>
+<p class="mb-50" style="line-height: 3;">
+    <img class="img-fluid mb-50" src="img/n2.jpg" alt="">
+    <b>二、茶行近年有碰到什麼衝擊或瓶頸?</b><br>
+    是製茶的重要工序，所有的茶最後都需要烘焙降低水分，以利茶葉保存。但是「烘焙」的偉大之處在於，讓製茶師傅能夠依據茶葉不同的狀態，以及自身對於茶風味的想像，透過不同烘焙溫度、時間的控制調整，能將同一種茶葉，創作出無數風味。<br>
+    在一些老茶行常將茶葉分成半生熟、三分火、七分火、全熟，基本上就是輕烘焙、深烘焙的區別，「輕焙茶」略保有葉片原始的口感及蜜香，「深焙茶」帶有焦香和蜜香。不過烘焙引出的蜜香，基調比較類似麥芽糖的路線，不同於發酵的水果蜜香。
+</p>
+<blockquote class="p-2 mb-50"></blockquote>
+<p class="mb-50" style="line-height: 3;">
+    <img class="img-fluid mb-50" src="img/n3.jpg" alt="">
+    <b>三、年輕人對傳統茶產業來說重要嗎?</b><br>
+    是年輕族群，人手一杯飲料與咖啡已是常態，較少人會選擇喝茶，更不用說養成泡茶習慣，如果年輕一輩的人不走進來，我們的銷路選擇也會較少，很難向外拓展出去。
+</p>
+<blockquote class="p-2 mb-50"></blockquote>
+<p class="mb-50" style="line-height: 3;">
+    <img class="img-fluid mb-50" src="img/n4.jpg" alt="">
+    <b>四、年輕一輩沒有人願意接手家業怎麼辦?</b><br>
+    只能接受事實，但不怕沒有練習機會，只怕孩子選擇放手，長輩還是很希望年輕人能回來接手，只是我們不能逼迫年輕人做選擇，因為茶產業沒有熱忱也無法走得長遠。
+</p>
+<div class="text-center">
+</div>
+</div>
+</div>
+</div>
+
+<script>
+    function calculateTotalValue(length) {
+        var minutes = Math.floor(length / 60),
+            seconds_int = length - minutes * 60,
+            seconds_str = seconds_int.toString(),
+            seconds = seconds_str.substr(0, 2),
+            time = minutes + ':' + seconds;
+
+        return time;
+    }
+
+    function calculateCurrentValue(currentTime) {
+        var current_hour = parseInt(currentTime / 3600) % 24,
+            current_minute = parseInt(currentTime / 60) % 60,
+            current_seconds_long = currentTime % 60,
+            current_seconds = current_seconds_long.toFixed(),
+            current_time = (current_minute < 10 ? "0" + current_minute : current_minute) + ":" + (current_seconds < 10 ? "0" + current_seconds : current_seconds);
+
+        return current_time;
+    }
+
+    function initProgressBar() {
+        var player = document.getElementById('player');
+        var length = player.duration;
+        var current_time = player.currentTime;
+
+        // calculate total length of value
+        var totalLength = calculateTotalValue(length);
+        jQuery(".end-time").html(totalLength);
+
+        // calculate current value time
+        var currentTime = calculateCurrentValue(current_time);
+        jQuery(".start-time").html(currentTime);
+
+        var progressbar = document.getElementById('seekObj');
+        progressbar.value = (player.currentTime / player.duration);
+        progressbar.addEventListener("click", seek);
+
+        if (player.currentTime == player.duration) {
+            $('#play-btn').removeClass('pause');
+        }
+
+        function seek(evt) {
+            var percent = evt.offsetX / this.offsetWidth;
+            player.currentTime = percent * player.duration;
+            progressbar.value = percent / 100;
+        }
+    }
+
+    function initPlayers(num) {
+        for (var i = 0; i < num; i++) {
+            (function () {
+                var playerContainer = document.getElementById('player-container'),
+                    player = document.getElementById('player'),
+                    isPlaying = false,
+                    playBtn = document.getElementById('play-btn');
+
+                if (playBtn != null) {
+                    playBtn.addEventListener('click', function () {
+                        togglePlay();
+                    });
+                }
+
+                function togglePlay() {
+                    if (player.paused === false) {
+                        player.pause();
+                        isPlaying = false;
+                        $('#play-btn').removeClass('pause');
+                    } else {
+                        player.play();
+                        $('#play-btn').toggleClass('pause');
+                        isPlaying = true;
+                    }
+                }
+            }());
+        }
+    }
+
+    initPlayers(jQuery('#player-container').length);
+</script>
+<!-- Back to Top -->
+<a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top">
+  <i class="bi bi-arrow-up"></i>
 </a>
 
 
+
+
 <!-- JavaScript Libraries -->
+
+
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="lib/wow/wow.min.js"></script>

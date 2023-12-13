@@ -301,10 +301,10 @@ h6,
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 20px;
+  font-size: 12px;
   z-index: 1;
+  text-align: center;
 }
-
 
 
 /* Footer */

@@ -116,10 +116,20 @@
                                 <img src="img/晴.png">
                                 <div class="int">
                                     <br><br>
-                                    <a class="bi bi-facebook" href=" "></a><br>
-                                    <a class="bi bi-instagram" href=""></a><br>
-                                    <a class="bi bi-facebook" href=" "></a><br>
-                                    <a class="bi bi-facebook" href=" "></a><br>
+                                    <div class="d-flex align-items-center">
+                                        <i class="bi bi-mailbox"></i>
+                                        <a href="mailto:zoieleung309@gmail.com" class="ms-2">zoieleung309@gmail.com</a>
+                                    </div>
+                                    
+                                    <div class="d-flex align-items-center mt-2">
+                                        <i class="bi bi-phone"></i>
+                                        <a href="tel:0937-025-165" class="ms-2">0937-025-165</a>
+                                    </div>
+                                    
+                                    <div class="d-flex align-items-center mt-2">
+                                        <i class="bi bi-instagram"></i>
+                                        <a href="https://www.instagram.com/zoie_leung309/" class="ms-2">zoie_leung309</a>
+                                    </div>                        
                                 </div>
                             </div>
                             <div class="team-text">
@@ -138,9 +148,21 @@
                             <div class="back">
                                 <img src="img/童.png">
                                 <div class="int">
-                                    <p class="team-text2">advadvadv</p><br><br>
-                                    <a class="bi bi-instagram" href=""></a>
-                                    <a class="bi bi-facebook" href=" "></a>
+                                    <br><br>
+                                    <div class="d-flex align-items-center">
+                                        <i class="bi bi-mailbox"></i>
+                                        <a href="mailto:yanton910307@gmail.com" class="ms-2">yanton910307@gmail.com</a>
+                                    </div>
+                                    
+                                    <div class="d-flex align-items-center mt-2">
+                                        <i class="bi bi-phone"></i>
+                                        <a href="tel:0928-358-117" class="ms-2">0928-358-117</a>
+                                    </div>
+                                    
+                                    <div class="d-flex align-items-center mt-2">
+                                        <i class="bi bi-instagram"></i>
+                                        <a href="https://www.instagram.com/nicole910307/" class="ms-2">Nicole910307</a>
+                                    </div> 
                                 </div>
                             </div>
                         </div>
@@ -159,9 +181,19 @@
                             <div class="back">
                                 <img src="img/烜.png">
                                 <div class="int">
-                                    <p class="team-text2">advadvadv</p><br><br>
-                                    <a class="bi bi-instagram" href=""></a>
-                                    <a class="bi bi-facebook" href=" "></a>
+                                    <br><br>
+                                    <div class="d-flex align-items-center">
+                                        <i class="bi bi-mailbox"></i>
+                                        <a href="mailto:99wyes30504a@gmail.com" class="ms-2">99wyes30504a@gmail.com</a>
+                                    </div>
+                                    <div class="d-flex align-items-center mt-2">
+                                        <i class="bi bi-phone"></i>
+                                        <a href="tel:0975-807-967" class="ms-2">0975-807-967</a>
+                                    </div>
+                                    <div class="d-flex align-items-center mt-2">
+                                        <i class="bi bi-instagram"></i>
+                                        <a href="https://www.instagram.com/udemdem_/" class="ms-2">udemdem_</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -180,9 +212,19 @@
                             <div class="back">
                                 <img src="img/蘋.png">
                                 <div class="int">
-                                    <p class="team-text2">advadvadv</p><br><br>
-                                    <a class="bi bi-instagram" href=""></a>
-                                    <a class="bi bi-facebook" href=" "></a>
+                                    <br><br>
+                                    <div class="d-flex align-items-center">
+                                        <i class="bi bi-mailbox"></i>
+                                        <a href="mailto:chuping0725@gmail.com" class="ms-2">chuping0725@gmail.com</a>
+                                    </div>
+                                    <div class="d-flex align-items-center mt-2">
+                                        <i class="bi bi-phone"></i>
+                                        <a href="tel:0970-487-948" class="ms-2">0970-487-948</a>
+                                    </div>
+                                    <div class="d-flex align-items-center mt-2">
+                                        <i class="bi bi-instagram"></i>
+                                        <a href="https://www.instagram.com/c_chu_p/" class="ms-2">c_chu_p</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -201,9 +243,19 @@
                             <div class="back">
                                 <img src="img/皓.png">
                                 <div class="int">
-                                    <p class="team-text2">advadvadv</p><br><br>
-                                    <a class="bi bi-instagram" href=""></a>
-                                    <a class="bi bi-facebook" href=" "></a>
+                                    <br><br>
+                                    <div class="d-flex align-items-center">
+                                        <i class="bi bi-mailbox"></i>
+                                        <a href="mailto:weeiyu165@gmail.com" class="ms-2">weeiyu165@gmail.com</a>
+                                    </div>
+                                    <div class="d-flex align-items-center mt-2">
+                                        <i class="bi bi-phone"></i>
+                                        <a href="tel:0932-314-820" class="ms-2">0932-314-820</a>
+                                    </div>
+                                    <div class="d-flex align-items-center mt-2">
+                                        <i class="bi bi-instagram"></i>
+                                        <a href="https://www.instagram.com/haohao_1006/" class="ms-2">haohao_1006</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -1745,9 +1745,23 @@ ul li {
   transition: transform 0.3s ease;
 }
 
-
+#indexfun1::after{
+  content: "貓空";
+  font-size: 30px;
+}
+#indexfun2::after{
+  content: "坪林";
+  font-size: 30px;
+}
+#indexfun3::after{
+  content: "大稻埕";
+  font-size: 30px;
+}
+#indexfun4::after{
+  content: "西門";
+  font-size: 30px;
+}
 .indexfun::after {
-  content: "點我查看詳細信息"; /* 你要顯示的文字 */
   position: absolute;
   top: 50%;
   left: 50%;

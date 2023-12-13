@@ -278,29 +278,29 @@
 			</div>
 			<!-- Panel 1 -->
 			<div class="row">
-				<div class="indexfun mb-4">
+				<div id="indexfun1" class="indexfun mb-4">
 					<div class="text-center mx-auto" style="max-width: 800px;">
-						<img src="img/貓空.JPG" class="d-block img-fixed" alt="貓空">
+						<a href="fun.jsp"><img src="img/貓空.JPG" class="d-block img-fixed" alt="貓空"></a>
 					</div>
 				</div>
 				<!-- Panel 2 -->
-				<div class="indexfun mb-4">
+				<div id="indexfun2" class="indexfun mb-4">
 					<div class="text-center mx-auto" style="max-width: 800px;">
-						<img src="img/坪林.JPG" class="d-block img-fixed" alt="坪林">
+						<a href="fun.jsp"><img src="img/坪林.JPG" class="d-block img-fixed" alt="坪林"></a>
 					</div>
 				</div>
 			</div>
 			<!-- Panel 3 -->
 			<div class="row">
-				<div class="indexfun mb-4">
+				<div id="indexfun3" class="indexfun mb-4">
 					<div class="text-center mx-auto" style="max-width: 800px;">
-						<img src="img/大稻埕.JPG" class="d-block img-fixed" alt="大稻埕">
+						<a href="fun.jsp"><img src="img/大稻埕.JPG" class="d-block img-fixed" alt="大稻埕"></a>
 					</div>
 				</div>
 				<!-- Panel 4 -->
-				<div class="indexfun mb-4">
+				<div id="indexfun4" class="indexfun mb-4">
 					<div class="text-center mx-auto" style="max-width: 800px;">
-						<img src="img/西門.JPG" class="d-block img-fixed" alt="西門">
+						<a href="fun.jsp"><img src="img/西門.JPG" class="d-block img-fixed" alt="西門"></a>
 					</div>
 				</div>
 			</div>
@@ -320,28 +320,28 @@
 							<img class="card-img-top" src="https://static.wixstatic.com/media/88d72e_29994688105f4153aaebd81887bd6e93~mv2_d_3024_4032_s_4_2.jpg/v1/fill/w_422,h_563,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/88d72e_29994688105f4153aaebd81887bd6e93~mv2_d_3024_4032_s_4_2.jpg" alt=" ">
 							<div class="card-block">
 								<h4 class="card-title">茶包/茶葉</h4>
-								<a href=" ">看更多 →</a>
+								<a href="store.jsp">看更多 →</a>
 							</div>
 						</div>
 						<div class="indexshopping">
 							<img class="card-img-top" src="https://shoplineimg.com/579027d161706979befd2e01/65274549dd82be00119d90f7/540x.webp?source_format=jpg" alt=" ">
 							<div class="card-block">
 								<h4 class="card-title">茶禮盒</h4>
-								<a href=" ">看更多 →</a>
+								<a href="store.jsp">看更多 →</a>
 							</div>
 						</div>
 						<div class="indexshopping">
 							<img class="card-img-top" src="https://www.tdh.com.tw/static/ecommerce/74/74385/media/catalog/product/cache/1/small_image/210x/9df78eab33525d08d6e5fb8d27136e95/_/-/_-_/www.tdh.com.tw-%E6%96%87%E5%B1%B1%E5%8C%85%E7%A8%AE%E8%8C%B6%E7%94%9F%E4%B9%B3%E6%8D%B2-20.jpg" alt=" ">
 							<div class="card-block">
 								<h4 class="card-title">茶點心</h4>
-								<a href=" ">看更多 →</a>
+								<a href="store.jsp">看更多 →</a>
 							</div>
 						</div>
 						<div class="indexshopping">
 							<img class="card-img-top" src="https://shoplineimg.com/579027d161706979befd2e01/6104f61a794ce9001dc1173f/800x.webp?source_format=jpg" alt=" ">
 							<div class="card-block">
 								<h4 class="card-title">其他</h4>
-								<a href=" ">看更多 →</a>
+								<a href="store.jsp">看更多 →</a>
 							</div>
 						</div>
 					</div>

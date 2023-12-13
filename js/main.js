@@ -87,8 +87,8 @@ window.addEventListener("load", function() {
     "img/kv5.png": 1500,
     "img/kv7.png": 2500,	
     "img/kv9.png": 2500,
-    "img/黑.png": 3000,
-    "img/kv10.png": 3000,
+    "img/黑.png": 4000,
+    "img/kv10.png": 4000,
   }; // 不同圖片的延遲時間（毫秒）
   
   images.forEach(function(image) { 

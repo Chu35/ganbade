@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="css/mp3.css">
-
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha384-oZv8k+1lF5ZPGgHr8FqA1uLjFpTlJ5x/IbAdQxS9AexJ7eFOF5bVpZa19z7Ftix5" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha384-oZv8k+1lF5ZPGgHr8FqA1uLjFpTlJ5x/IbAdQxS9AexJ7eFOF5bVpZa19z7Ftix5" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-..." crossorigin="anonymous" />
     <title>甘吧茶ㄉㄟˊ</title>
-</head>
-<style>
-    body, html {
+    <style>
+body, html {
     overflow: hidden;
     height: 100%;
     margin: 0;
@@ -204,7 +204,8 @@ button {
 }
 
 /* stepone */
-.stepone,.nfc {
+.nfc {
+    width: 100%;
     flex: 1;
     background-color: #FFF3E8;
     background-image: url(../img/材質2.png);
@@ -219,11 +220,6 @@ button {
 
 
 
-.stepone img {
-    margin: 0;
-    max-width:65%;
-}
-
 /* nfc */
 .part {
     margin: 0;
@@ -232,31 +228,13 @@ button {
     background-color: #E7E1DA;
     border-radius: 15px;
 }
-
-.vr img{
-    margin: 0;
-    max-width:70%;
-    display: grid;
+.end h1,.nfc h1{
+    margin-bottom: 2px;
 }
 
-.vr, .D, .test, .web, .draw, .end{
-    flex: 1;
-    background-color: #E3EDD2;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: hidden;
-    height: 100vh;
-}
+    </style>
+</head>
 
-
-
-
-
-
-</style>
 <body>
     <div class="container">
         <div class="bar">
@@ -266,7 +244,6 @@ button {
                 <p>展間互動導覽</p>
             </div>
             <div class="nfc">
-                <h1 style="color: #fff;background: url('img/back.png') center/cover no-repeat;width: 220px;">任務二</h1>
                 <h2>聽聽茶莊阿姨的心聲吧</h2>
                 <div class="nfcpart" id="nfc1">
                     <div class="part">
@@ -392,10 +369,12 @@ button {
             </div>
         </div>
     </div>
-    
+
+
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/nfc-handler.js"></script>
     <script src="js/mp3.js"></script>
 </body>
+
 </html>

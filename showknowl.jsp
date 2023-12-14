@@ -72,6 +72,7 @@
                     <div class="dropdown-menu border-light m-0" data-bs-popper="none">
                         <a href="knowl.jsp" class="dropdown-item active">茶種介紹</a>
                         <a href="story.jsp" class="dropdown-item">故事專訪</a>
+                        <a href="brew.jsp" class="dropdown-item">泡法介紹</a>
                 </div>
                 </div>
                 <a href="fun.jsp" class="nav-item nav-link">茶遊此地</a>
@@ -304,14 +305,18 @@
 <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top">
     <i class="bi bi-arrow-up"></i>
 </a>
-<script>
-    $(document).ready(function () {
-        $('#modalContainer').load('modal.html');
-    });
-    $(document).ready(function () {
-        $('#myModal').modal('show');
-    });
-</script>
+	<!-- modal code -->
+	<div id="modalContainer"></div>
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			$('#modalContainer').load('modal.html');
+		});
+		$(document).ready(function () {
+			$('#myModal').modal('show');
+		});
+	</script>
 
 <!-- JavaScript Libraries -->
 <script typet="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>

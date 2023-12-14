@@ -382,3 +382,8 @@ div.correct-answer {
 .end h1,.nfc h1{
     margin-bottom: 2px;
 }
+
+p.userNameDisplay {
+    display: inline;
+    margin-left: 5px; /* Add margin or adjust as needed */
+}

@@ -340,7 +340,7 @@
 							</div>
 						</div>
 						<div class="indexshopping">
-							<img class="card-img-top" src="https://shoplineimg.com/579027d161706979befd2e01/6104f61a794ce9001dc1173f/800x.webp?source_format=jpg" alt=" ">
+							<img class="card-img-top" src="https://uanuan.com/cdn/shop/files/white-close_1600x.jpg?v=1687228556" alt=" ">
 							<div class="card-block">
 								<h4 class="card-title">其他</h4>
 								<a href="store.jsp">看更多 →</a>

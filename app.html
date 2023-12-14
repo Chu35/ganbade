@@ -445,7 +445,7 @@
             </div>
             <div class="end">
                 <h1 style="color: #fff;background: url('img/back.png') center/cover no-repeat;width: 220px;">頒發認證</h1>
-                <p class="userNameDisplay"></p>
+                <h3 style="margin: 3px 12px 0;" class="userNameDisplay"></h3>
                 <h3>請貼一張貼紙到展板的<br>
                     “探險員名冊“<br>
                     另一張貼紙請貼到認證卡上</h3>
@@ -478,24 +478,22 @@
             });
 
             function showCurrentSection() {
-                sections.forEach((section, index) => {
-                    if (index === currentSectionIndex) {
-                        section.style.display = 'block';
-                    } else {
-                        section.style.display = 'none';
-                    }
-                });
+    sections.forEach((section, index) => {
+        if (index === currentSectionIndex) {
+            section.style.display = 'block';
+        } else {
+            section.style.display = 'none';
+        }
+    });
 
-                // Display the entered name on each section
-                // Display the entered name on each section
-                if (currentSectionIndex !== 0) { // Skip the personal section
-                    const userNameDisplayElement = sections[currentSectionIndex].querySelector('.userNameDisplay');
-                    if (userNameDisplayElement) {
-                        userNameDisplayElement.innerText = userName;
-                    }
-                }
-
-            }
+    // Display the entered name on each section
+    if (currentSectionIndex !== 0) { // Skip the personal section
+        const userNameDisplayElement = sections[currentSectionIndex].querySelector('.userNameDisplay');
+        if (userNameDisplayElement) {
+            userNameDisplayElement.innerText = userName + "探險員";
+        }
+    }
+}
 
             function scrollToSection(index) {
                 currentSectionIndex = index;

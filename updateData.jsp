@@ -75,7 +75,7 @@
         timerProgressBar: true,
         showConfirmButton: false
     }).then(() => {
-        window.history.back();
+        window.location.href = "cms.jsp";
     });
 </script>
 <%
@@ -107,7 +107,7 @@
         timerProgressBar: true,
         showConfirmButton: false
     }).then(() => {
-        window.history.back();
+        window.location.href = "cms.jsp";
     });
 </script>
 <%
@@ -138,7 +138,7 @@
         showConfirmButton: false
     }).then(() => {
         // Go back to the previous page
-        window.history.back();
+        window.location.href = "cms.jsp";
     });
 </script>
 <%
@@ -167,7 +167,7 @@
         timerProgressBar: true,
         showConfirmButton: false
     }).then(() => {
-        window.history.back();
+        window.location.href = "cms.jsp";
     });
 </script>
 <%

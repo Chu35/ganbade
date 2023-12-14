@@ -55,20 +55,20 @@ Integer totalQuantity = (Integer) session.getAttribute("totalQuantity_" + member
 <body>
 
 <div class="container mt-5">
-    <a  href="store.jsp" id="back-link" style="cursor: pointer;color: #d6c5a4;">← Go Back</a>
-    <h2 class="text-center">Checkout</h2>
+    <a  href="store.jsp" id="back-link" style="cursor: pointer;color: #d6c5a4;">← 回上一頁</a>
+    <h2 class="text-center">結帳頁面</h2>
     
     <div class="row mt-4">
         <div class="col-md-6">
-            <h4>Order</h4>
+            <h4>訂單</h4>
             <div class="mt-4">
                 <table class="table">
                     <thead>
                         <tr class="text-center">
-                            <th scope="col">Image</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Quantity</th>
+                            <th scope="col">圖片</th>
+                            <th scope="col">品項</th>
+                            <th scope="col">價錢</th>
+                            <th scope="col">數量</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -119,7 +119,7 @@ Integer totalQuantity = (Integer) session.getAttribute("totalQuantity_" + member
             </div>
         </div>
         <div class="col-md-6">
-            <h4>Shipping Information</h4>
+            <h4>訂單資訊</h4>
             <form id="checkoutForm" action="established.jsp" method="post">
                 <%
                     boolean dataExists = false;
@@ -144,19 +144,19 @@ Integer totalQuantity = (Integer) session.getAttribute("totalQuantity_" + member
                             dataExists = true;
                 %>
                             <div class="form-group">
-                                <label for="fullName">Full Name</label>
+                                <label for="fullName">全名</label>
                                 <input type="text" class="form-control" id="fullName" name="fullName" value="<%= rs.getString("fullName") %>" required>
                             </div>
                             <div class="form-group">
-                                <label for="phone">Phone</label>
+                                <label for="phone">連絡電話</label>
                                 <input type="tel" class="form-control" id="phone" name="phone" value="<%= rs.getString("phone") %>" required>
                             </div>
                             <div class="form-group">
-                                <label for="address">Address</label>
+                                <label for="address">收件地址</label>
                                 <input type="text" class="form-control" id="address" name="address" value="<%= rs.getString("address") %>" required>
                             </div>
                             <div class="form-group">
-                                <label for="email">Email</label>
+                                <label for="email">郵件地址</label>
                                 <input type="email" class="form-control" id="email" name="email" value="<%= rs.getString("email") %>" required>
                             </div>
                 <%
@@ -172,19 +172,19 @@ Integer totalQuantity = (Integer) session.getAttribute("totalQuantity_" + member
             
                 <% if (!dataExists) { %>
                     <div class="form-group">
-                        <label for="fullName">Full Name</label>
+                        <label for="fullName">全名</label>
                         <input type="text" class="form-control" id="fullName" name="fullName" placeholder="請輸入全名" required>
                     </div>
                     <div class="form-group">
-                        <label for="phone">Phone</label>
+                        <label for="phone">連絡電話</label>
                         <input type="tel" class="form-control" id="phone" name="phone" placeholder="請輸入聯絡電話" required>
                     </div>
                     <div class="form-group">
-                        <label for="address">Address</label>
+                        <label for="address">收件地址</label>
                         <input type="text" class="form-control" id="address" name="address" placeholder="請輸入收件地址" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email</label>
+                        <label for="email">郵件地址</label>
                         <input type="email" class="form-control" id="email" name="email" placeholder="請輸入郵件地址" required>
                     </div>                    
                 <% } %>

@@ -901,9 +901,7 @@ ul li {
     }  
 
     /* 圖標 */
-.pin{
-  cursor: url('../img/4in3.ico'), auto;
-}
+
 .pin[data-target^="f"] img {
   visibility: hidden;
 }
@@ -1069,7 +1067,7 @@ ul li {
   object-fit: cover; /* 控制图片在指定大小的框中填充，保持纵横比 */
 }
 #mc1{
-  cursor: url('../img/4in1.ico'), auto;
+  cursor: url('../img/tip.png'), auto;
   }
 
 /*index動畫*/

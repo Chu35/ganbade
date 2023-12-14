@@ -164,7 +164,7 @@
   </style>
 
 <div class="container-xxl py-4">
-    <div class="container">
+    <div class="container" style="max-width: 900px;">
         <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
             <h1 class="display-3 mb-5"> </h1>
             <h1 class="display-5 mb-4">茶具介紹</h1>

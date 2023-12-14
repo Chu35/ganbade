@@ -163,19 +163,19 @@
                                 <h4 class="card-title"><%= name %></h4>
                                 <p class="card-text">NT$ <%= Math.round(price) %></p>
                                 <% if (memberName !=null) { %>
-                                    <a href="cart.jsp?store_id=<%= rs.getString("id") %>&action=increase" data-name="<%= name %>" data-price="<%= price %>" class="add-to-cart btn btn-primary">Add to cart</a>
+                                    <a href="cart.jsp?store_id=<%= rs.getString("id") %>&action=increase" data-name="<%= name %>" data-price="<%= price %>" class="add-to-cart btn btn-primary">加入購物車</a>
                                     <% } else { %>
-                                        <a href="javascript:void();" onclick="showLoginAlert()" class="btn btn-primary">Login to Add to Cart</a>
+                                        <a href="javascript:void();" onclick="showLoginAlert()" class="btn btn-primary">請先登入加入購物車</a>
                                         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
                                         <script>
                                             function showLoginAlert() {
                                                 Swal.fire({
                                                     icon: 'info',
                                                     title: 'Reminder',
-                                                    text: 'Please log in to add items to your cart.',
+                                                    text: '請先登入加入購物車.',
                                                     showCancelButton: true,
-                                                    confirmButtonText: 'Go to Login',
-                                                    cancelButtonText: 'Cancel',
+                                                    confirmButtonText: '登入',
+                                                    cancelButtonText: '取消',
                                                 }).then((result) => {
                                                     if (result.isConfirmed) {
                                                         window.location.href = "login.html";
@@ -251,7 +251,7 @@
                     <div class="modal-dialog modal-lg" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Cart</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">購物車</h5>
                                 <span class="close" data-dismiss="modal" aria-label="Close" aria-hidden="true"
                                     style="font-size: 1.5em; cursor: pointer;">&times;</span>
                             </div>
@@ -295,9 +295,6 @@
                                                         </a>
                                                     </div>
                                                 </td>
-                                                <td>
-                                                    <a href="cart.jsp?store_id=<%= rs.getString("id") %>&action=delect" style="border: none; background: none;">🗑️</a>                                                
-                                                </td>
                                             </tr>
                                     <%
                                             }
@@ -311,7 +308,6 @@
                                         }
                                     %>
                                 </table>
-                                <div>Total price: $<span class="total-cart"></span></div>
                             </div>
                             <div class="modal-footer">
                                 <a href="checkout.jsp"><button type="button" class="btn btn-primary">結帳</button></a>

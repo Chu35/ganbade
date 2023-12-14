@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/mp3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha384-oZv8k+1lF5ZPGgHr8FqA1uLjFpTlJ5x/IbAdQxS9AexJ7eFOF5bVpZa19z7Ftix5" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
+    <title>甘吧茶ㄉㄟˊ</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="bar">
+            <div class="logo">
+                <img src="img/logo.png" alt="">
+                <h1>甘吧茶ㄉㄟˊ</h1>
+                <p>展間互動導覽</p>
+            </div>
+            <div class="nfc">
+                <h1 style="color: #fff;background: url('img/back.png') center/cover no-repeat;width: 220px;">任務二</h1>
+                <h2>聽聽茶莊阿姨的心聲吧</h2>
+                <div class="nfcpart" id="nfc1">
+                    <div class="part">
+                        <img src="img/n1.jpg" alt="">
+                        <h3>長輩不擅長網路經營</h3>
+                    </div>
+                </div>
+                <div class="nfcpart" id="nfc2">
+                    <div class="part">
+                        <img src="img/n2.jpg" alt="">
+                        <p>政府資助茶產業只是一時的</p>
+                    </div>
+                </div>
+                <div class="nfcpart" id="nfc3">
+                    <div class="part">
+                        <img src="img/n3.jpg" alt="">
+                        <p>年輕人不願意回來接手茶莊</p>
+                    </div>
+                </div>
+                <div class="nfcpart" id="nfc4">
+                    <div class="part">
+                        <img src="img/n4.jpg" alt="">
+                        <p>年輕人應該多喝茶，少喝手搖飲</p>
+                    </div>        
+                </div>
+                <div id="app-cover">
+                    <div id="player">
+                        <div id="player-track">
+                            <div id="album-name"></div>
+                            <div id="track-time">
+                                <div id="current-time"></div>
+                                <div id="track-length"></div>
+                            </div>
+                            <div id="s-area">
+                                <div id="ins-time"></div>
+                                <div id="s-hover"></div>
+                                <div id="seek-bar"></div>
+                            </div>
+                        </div>
+                        <div id="player-content">
+                            <div id="album-art">
+                                <img src="img/n1.jpg" class="active" id="_1">
+                                <img src="img/n2.jpg" id="_2">
+                                <img src="img/n3.jpg" id="_3">
+                                <img src="img/n4.jpg" id="_4">
+                                <div id="buffer-box">Buffering ...</div>
+                            </div>
+                            <div id="player-controls">
+                                <div class="control">
+                                    <div class="button" id="play-previous">
+                                        <i class="fas fa-backward"></i>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="button" id="play-pause-button">
+                                        <i class="fas fa-play"></i>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <div class="button" id="play-next">
+                                        <i class="fas fa-forward"></i>
+                                    </div>
+                                </div>
+                            </div>                                                
+                            <p><span style="color: #B69779;">點擊播放鍵聆聽下一則</span></p>
+                        </div>
+                        <button id="listen" class="finish-button2" style="display: none;">聽完了</button>
+                        <button id="pass" class="finish-button2" style="display: block;">跳過</button>
+                    </div>
+                </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        var currentPart = 1; // Initial part
+                
+                        document.getElementById('play-next').addEventListener('click', function () {
+                            // Handle the forward button click
+                            if (currentPart < 4) {
+                                currentPart++;
+                                updateNFCPart(currentPart);
+                            }
+                        });
+                
+                        document.getElementById('play-previous').addEventListener('click', function () {
+                            // Handle the backward button click
+                            if (currentPart > 1) {
+                                currentPart--;
+                                updateNFCPart(currentPart);
+                            }
+                        });
+                
+                        function updateNFCPart(partNumber) {
+                            // Update the displayed image based on the current part
+                            var nfcParts = document.querySelectorAll('.nfcpart');
+                            nfcParts.forEach(function (part) {
+                                part.style.display = 'none';
+                            });
+                
+                            var currentNFCPart = document.getElementById('nfc' + partNumber);
+                            currentNFCPart.style.display = 'block';
+                
+                            // Optionally, update the album art in the player
+                            var albumArtImages = document.querySelectorAll('#album-art img');
+                            albumArtImages.forEach(function (img) {
+                                img.classList.remove('active');
+                            });
+                
+                            var currentAlbumArt = document.getElementById('_' + partNumber);
+                            currentAlbumArt.classList.add('active');
+                
+                            // Update the visibility of buttons based on the current part
+                            var listenButton = document.getElementById('listen');
+                            var passButton = document.getElementById('pass');
+                
+                            if (currentPart < 4) {
+                                listenButton.style.display = 'none';
+                                passButton.style.display = 'block';
+                            } else {
+                                listenButton.style.display = 'block';
+                                passButton.style.display = 'none';
+                            }
+                        }
+                    });
+                </script>
+                              
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = document.querySelectorAll('.container > div');
+            let currentSectionIndex = 0;
+            let isScrolling = false;
+            let touchStartY;
+            let userName = '';
+
+            // Event listener for the "開始" button
+            document.getElementById('startButton').addEventListener('click', function () {
+                // Get the entered name
+                userName = document.getElementById('userName').value;
+
+                // Display the entered name on step one
+                document.getElementById('userNameDisplay').innerText = userName;
+
+                // Progress to the next section
+                scrollToNextSection(1);
+            });
+
+            function showCurrentSection() {
+                sections.forEach((section, index) => {
+                    if (index === currentSectionIndex) {
+                        section.style.display = 'block';
+                    } else {
+                        section.style.display = 'none';
+                    }
+                });
+
+                // Display the entered name on each section
+                // Display the entered name on each section
+                if (currentSectionIndex !== 0) { // Skip the personal section
+                    const userNameDisplayElement = sections[currentSectionIndex].querySelector('.userNameDisplay');
+                    if (userNameDisplayElement) {
+                        userNameDisplayElement.innerText = userName;
+                    }
+                }
+
+            }
+
+            function scrollToSection(index) {
+                currentSectionIndex = index;
+                showCurrentSection();
+                isScrolling = true;
+                setTimeout(() => {
+                    isScrolling = false;
+                }, 800); // Adjust the delay time based on your preference
+            }
+
+            function scrollToNextSection() {
+                if (currentSectionIndex < sections.length - 1) {
+                    scrollToSection(currentSectionIndex + 1);
+                }
+            }
+
+            function handleWheel(event) {
+                if (!isScrolling) {
+                    if (event.deltaY > 0) {
+                        // Scrolling down
+                        if (currentSectionIndex < sections.length - 1) {
+                            scrollToSection(currentSectionIndex + 1);
+                        }
+                    } else {
+                        // Scrolling up
+                        if (currentSectionIndex > 0) {
+                            scrollToSection(currentSectionIndex - 1);
+                        }
+                    }
+                }
+                event.preventDefault();
+            }
+
+            function handleTouchStart(event) {
+                touchStartY = event.touches[0].clientY;
+            }
+
+            function handleTouchMove(event) {
+                if (!isScrolling) {
+                    const touchEndY = event.touches[0].clientY;
+                    const deltaY = touchEndY - touchStartY;
+
+                    if (deltaY > 50) {
+                        // Swiped down
+                        if (currentSectionIndex > 0) {
+                            scrollToSection(currentSectionIndex - 1);
+                        }
+                    } else if (deltaY < -50) {
+                        // Swiped up
+                        if (currentSectionIndex < sections.length - 1) {
+                            scrollToSection(currentSectionIndex + 1);
+                        }
+                    }
+                }
+            }
+
+            window.addEventListener('wheel', handleWheel);
+            window.addEventListener('touchstart', handleTouchStart);
+            window.addEventListener('touchmove', handleTouchMove);
+
+            // Smooth scroll to the next section when any button (excluding specific classes) is clicked
+            const allButtons = document.querySelectorAll('.container button');
+            allButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    // Exclude buttons with specific classes from smooth scroll
+                    if (!button.classList.contains('next-button') && !button.classList.contains('prev-button')) {
+                        scrollToNextSection();
+                    }
+                });
+            });
+
+            // Show the initial section
+            showCurrentSection();
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/nfc-handler.js"></script>
+    <script src="js/mp3.js"></script>
+</body>
+</html>

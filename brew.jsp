@@ -171,7 +171,7 @@
         </div>
         <div class="col-lg-12" style="line-height: 2;">
             <img class="img-fluid mb-50" src="img/brew1.png" alt="">
-                <h2 class="mb-50" style="line-height: 2;">➀ 煮水壺：煮滾熱水使用</h2>
+                <h2 class="mb-50" style="line-height: 2;">➀ 煮水壺：煮滾熱水使用。</h2>
                 <h2 class="mb-50" style="line-height: 2;">➁ 品茶杯：飲茶使用。</h2>
                 <h2 class="mb-50" style="line-height: 2;">➂ 茶船：放置茶壺的底座，讓漏出來的水流入茶盤中。</h2>
                 <h2 class="mb-50" style="line-height: 2;">➃ 茶壺：在茶壺中放置茶葉，沖入熱水。</h2>

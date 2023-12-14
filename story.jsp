@@ -104,54 +104,51 @@
             <h1 class="display-5 mb-4">故事專訪 : 天薌茶行 </h1>
         </div>
         <div class="col-lg-12" style="line-height: 2;">
-            <img class="img-fluid mb-50" src="img/n1.jpg" alt="">
+            <img class="img-fluid mb-50" src="img/n5.jpg" alt="">
+            <blockquote class="p-2 mb-50"></blockquote>
+            <h3>一、初期在經營茶行有遇到哪些困難?</h3>
+            <p> 「茶葉沒了，錢也沒了」，過去在茶葉買賣的過程中經常會遇到瓶頸，即使自產的茶葉品質很好，但盤商開出來的價錢卻總是不盡理想，導致最後茶葉賣出去，錢也沒了。</p>
             <div class="text-center mx-auto " style="max-width: 500px;">
                 <audio controls>
                     <source src="https://raw.githubusercontent.com/Chu35/ganbade/main/img/阿姨_行銷.mp3" type="audio/mp3">
                     Your browser does not support the audio element.
                 </audio>
             </div>
-            <h3>一、初期在經營茶行有遇到哪些困難?</h3>
-            <p> 「茶葉沒了，錢也沒了」，過去在茶葉買賣的過程中經常會遇到瓶頸，即使自產的茶葉品質很好，但盤商開出來的價錢卻總是不盡理想，導致最後茶葉賣出去，錢也沒了。</p>
-
             <blockquote class="p-2 mb-50"></blockquote>
-            <p class="mb-50" style="line-height: 2;">
-                <img class="img-fluid mb-50" src="img/n2.jpg" alt="">
-            <div class="text-center mx-auto " style="max-width: 500px;">
-                <audio controls>
-                    <source src="https://raw.githubusercontent.com/Chu35/ganbade/main/img/阿姨_政府.mp3" type="audio/mp3">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
+            <img class="img-fluid mb-50" src="img/n2.jpg" alt="">
+            <blockquote class="p-2 mb-50"></blockquote>
             <h3>二、茶行近年有碰到什麼衝擊或瓶頸?</h3>
-            是製茶的重要工序，所有的茶最後都需要烘焙降低水分，以利茶葉保存。但是「烘焙」的偉大之處在於，讓製茶師傅能夠依據茶葉不同的狀態，以及自身對於茶風味的想像，透過不同烘焙溫度、時間的控制調整，能將同一種茶葉，創作出無數風味。<br>
-            在一些老茶行常將茶葉分成半生熟、三分火、七分火、全熟，基本上就是輕烘焙、深烘焙的區別，「輕焙茶」略保有葉片原始的口感及蜜香，「深焙茶」帶有焦香和蜜香。不過烘焙引出的蜜香，基調比較類似麥芽糖的路線，不同於發酵的水果蜜香。
-            </p>
-            <blockquote class="p-2 mb-50"></blockquote>
-            <p class="mb-50" style="line-height: 2;">
-                <img class="img-fluid mb-50" src="img/n3.jpg" alt="">
+            <p>「行銷」是傳統茶產業最大的困難，茶行通常在偏遠地區，所以遊客與外來客來訪的意願其實並不高，加上我們年紀稍長也不擅網路經營，只能靠實體店面來營運。</p>
             <div class="text-center mx-auto " style="max-width: 500px;">
                 <audio controls>
-                    <source src="https://raw.githubusercontent.com/Chu35/ganbade/main/img/阿姨_接手.mp3" type="audio/mp3">
+                    <source src="https://raw.githubusercontent.com/Chu35/ganbade/main/img/阿姨_行銷.mp3" type="audio/mp3">
                     Your browser does not support the audio element.
                 </audio>
             </div>
+            <blockquote class="p-2 mb-50"></blockquote>
+            <img class="img-fluid mb-50" src="img/n1.jpg" alt="">
+            <blockquote class="p-2 mb-50"></blockquote>
             <h3>三、年輕人對傳統茶產業來說重要嗎?</h3>
-            是年輕族群，人手一杯飲料與咖啡已是常態，較少人會選擇喝茶，更不用說養成泡茶習慣，如果年輕一輩的人不走進來，我們的銷路選擇也會較少，很難向外拓展出去。
-            </p>
-            <blockquote class="p-2 mb-50"></blockquote>
-            <h4 class="mb-50" style="line-height: 2;">
-                <img class="img-fluid mb-50" src="img/n4.jpg" alt="">
+            <p>年輕族群，人手一杯飲料與咖啡已是常態，較少人會選擇喝茶，更不用說養成泡茶習慣，如果年輕一輩的人不走進來，我們的銷路選擇也會較少，很難向外拓展出去。</p>
             <div class="text-center mx-auto " style="max-width: 500px;">
                 <audio controls>
-                    <source src="https://raw.githubusercontent.com/Chu35/ganbade/main/img/阿姨_年輕人喝茶.mp3"
-                        type="audio/mp3">
+                    <source src="https://raw.githubusercontent.com/Chu35/ganbade/main/img/阿姨_行銷.mp3" type="audio/mp3">
                     Your browser does not support the audio element.
                 </audio>
             </div>
+            <blockquote class="p-2 mb-50"></blockquote>
+            <img class="img-fluid mb-50" src="img/n3.jpg" alt="">
+            <blockquote class="p-2 mb-50"></blockquote>
             <h3>四、年輕一輩沒有人願意接手家業怎麼辦?</h3>
-            只能接受事實，但不怕沒有練習機會，只怕孩子選擇放手，長輩還是很希望年輕人能回來接手，只是我們不能逼迫年輕人做選擇，因為茶產業沒有熱忱也無法走得長遠。
-            </h4>
+            <p>只能接受事實，但不怕沒有練習機會，只怕孩子選擇放手，長輩還是很希望年輕人能回來接手，只是我們不能逼迫年輕人做選擇，因為茶產業沒有熱忱也無法走得長遠。</p>
+            <div class="text-center mx-auto " style="max-width: 500px;">
+                <audio controls>
+                    <source src="https://raw.githubusercontent.com/Chu35/ganbade/main/img/阿姨_行銷.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <blockquote class="p-2 mb-50"></blockquote>
+            <img class="img-fluid mb-50" src="img/n4.jpg" alt="">
         </div>
     </div>
 </div>

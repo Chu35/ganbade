@@ -338,10 +338,17 @@
                         // Add the question to the list of answered questions
                         answeredQuestions.push(questionId);
                 
+                        let questionScore = 0;
+                
                         if (selectedOption === correctOption) {
                             // User selected the correct answer
                             questionElement.classList.add('correct');
-                            score += 20; // Increment the score for a correct answer
+                            if (questionId === "question1") {
+                                questionScore = 40;
+                            } else {
+                                questionScore = 30;
+                            }
+                            score += questionScore; // Increment the score for a correct answer
                         } else {
                             // User selected the wrong answer
                             questionElement.classList.remove('correct');
@@ -386,7 +393,7 @@
                     }
                 
                     function finishQuiz() {
-                        alert(`Quiz finished! Your final score is ${score}`);
+                        alert(`恭喜你獲得:${score}`);
                         // You can add additional actions when the quiz finishes
                     }
                 
@@ -427,6 +434,7 @@
                         }
                     }
                 </script>
+                
                 
                 
             </div>

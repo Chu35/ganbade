@@ -209,9 +209,17 @@ button {
     overflow: hidden;
     height: 100vh;
 }
+.nfcpart {
+    text-align: center;
+}
 
-
-
+.nfcpart h1,
+.nfcpart h4,.part {
+    display: inline-block;
+}
+.question h4{
+    font-size: 19px;
+}
 .stepone img {
     margin: 0;
     max-width:65%;
@@ -256,7 +264,7 @@ button {
     border: 1px solid #DAE4CA;
     border-radius: 15px;
     text-align: center;
-    margin-left: 25%; 
+    margin: 35px 0 0 25%;
 }
 
 .ques div{
@@ -371,7 +379,7 @@ div.correct-answer {
     background-color: #ddd;
     display: inline-block;
     position: fixed;
-    top: 260px;
+    top: 280px;
     left: 35px;
 
 }

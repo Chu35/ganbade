@@ -387,3 +387,7 @@ p.userNameDisplay {
     display: inline;
     margin-left: 5px; /* Add margin or adjust as needed */
 }
+
+.btn{
+    cursor: pointer;
+}

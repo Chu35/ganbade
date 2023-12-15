@@ -284,10 +284,10 @@
                 <div class="question" id="question1">
                     <h2 style="margin: 32px 39px 0">請依據茶多酚實驗室的內容完成小考察</h2>
                     <div class="ques" id="question1Options">
-                        <h3>台灣盛產哪三大類茶？</h3>
-                        <div class="btn" onclick="checkAnswer('question1', '紅茶、綠茶、奶茶')">紅茶、綠茶、奶茶</div>
-                        <div class="btn" onclick="checkAnswer('question1', '紅茶、綠茶、烏龍茶')">紅茶、綠茶、烏龍茶</div>
-                        <div class="btn" onclick="checkAnswer('question1', '白茶、綠茶、紅茶')">白茶、綠茶、紅茶</div>
+                        <h3>猜猜看，哪一個工序會影響茶葉的形狀</h3>
+                        <div class="btn" onclick="checkAnswer('question1', '浪菁')">浪菁</div>
+                        <div class="btn" onclick="checkAnswer('question1', '採茶')">採茶</div>
+                        <div class="btn" onclick="checkAnswer('question1', '揉捻')">揉捻</div>
                     </div>
                 </div>
                 <!-- Question 2 -->
@@ -300,34 +300,16 @@
                         <div class="btn" onclick="checkAnswer('question2', '文山包種茶')">文山包種茶</div>
                     </div>
                 </div>
+
+
                 <!-- Question 3 -->
                 <div class="question" id="question3">
                     <h2>請依據知識調查局的內容完成小考察</h2>
                     <div class="ques" id="question3Options">
-                        <h3>茶葉的形狀來自哪個工序？</h3>
-                        <div class="btn" onclick="checkAnswer('question3', '揉捻')">揉捻</div>
-                        <div class="btn" onclick="checkAnswer('question3', '殺菁')">殺菁</div>
-                        <div class="btn" onclick="checkAnswer('question3', '萎凋')">萎凋</div>
-                    </div>
-                </div>
-                <!-- Question 4 -->
-                <div class="question" id="question4">
-                    <h2>請依據知識調查局的內容完成小考察</h2>
-                    <div class="ques" id="question4Options">
-                        <h3>一般白茶在製作時會經過哪兩道工序？</h3>
-                        <div class="btn" onclick="checkAnswer('question4', '浪菁、烘乾')">浪菁、烘乾</div>
-                        <div class="btn" onclick="checkAnswer('question4', '萎凋、烘乾')">萎凋、烘乾</div>
-                        <div class="btn" onclick="checkAnswer('question4', '殺菁、萎凋')">殺菁、萎凋</div>
-                    </div>
-                </div>
-                <!-- Question 5 -->
-                <div class="question" id="question5">
-                    <h2>請依據知識調查局的內容完成小考察</h2>
-                    <div class="ques" id="question5Options">
-                        <h3>東方美人茶的特殊香氣源自於哪種昆蟲？</h3>
-                        <div class="btn" onclick="checkAnswer('question5', '蝴蝶')">蝴蝶</div>
-                        <div class="btn" onclick="checkAnswer('question5', '蜜蜂')">蜜蜂</div>
-                        <div class="btn" onclick="checkAnswer('question5', '小綠葉蟬')">小綠葉蟬</div>
+                        <h3>哪一支雨聲筒聲音最像流沙聲的聲音</h3>
+                        <div class="btn" onclick="checkAnswer('question3', '碎形')">碎形</div>
+                        <div class="btn" onclick="checkAnswer('question3', '條形')">條形</div>
+                        <div class="btn" onclick="checkAnswer('question3', '球形')">球形</div>
                     </div>
                     <button class="finish-button" onclick="finishQuiz()">下一頁</button>
                 </div>
@@ -338,12 +320,27 @@
                 </div>
                 <script>
                     let score = 0; // Initialize the score
+                    let answeredQuestions = []; // Keep track of answered questions
+                
                     function checkAnswer(questionId, selectedOption) {
+                        // Check if the question has been answered already
+                        if (answeredQuestions.includes(questionId)) {
+                            return;
+                        }
+                
                         const correctOption = getCorrectOption(questionId);
-
+                
                         const questionElement = document.getElementById(questionId);
                         const options = questionElement.querySelectorAll('.btn');
-
+                
+                        // Disable all options to prevent further clicks
+                        options.forEach(option => {
+                            option.disabled = true;
+                        });
+                
+                        // Add the question to the list of answered questions
+                        answeredQuestions.push(questionId);
+                
                         if (selectedOption === correctOption) {
                             // User selected the correct answer
                             questionElement.classList.add('correct');
@@ -353,26 +350,27 @@
                             questionElement.classList.remove('correct');
                             questionElement.classList.add('incorrect');
                             options.forEach(option => {
+                                option.classList.add('disabled');
                                 if (option.textContent === correctOption) {
                                     option.classList.add('correct-answer');
                                 }
                             });
                         }
-
+                
                         updateScoreDisplay();
                         updateProgressBar();
                         setTimeout(function () {
                             showNextQuestion(questionId);
                         }, 1000);
                     }
-
+                
                     function updateScoreDisplay() {
                         const scoreDisplay = document.getElementById("score");
                         if (scoreDisplay) {
                             scoreDisplay.textContent = `Score: ${score}`;
                         }
                     }
-
+                
                     function updateProgressBar() {
                         const progressBar = document.getElementById("progressBar");
                         if (progressBar) {
@@ -381,56 +379,54 @@
                             progressBar.style.height = `${percentage}%`;
                         }
                     }
-
+                
                     function finishQuiz() {
                         alert(`Quiz finished! Your final score is ${score}`);
                         // You can add additional actions when the quiz finishes
                     }
-
+                
                     // Function to get the correct option for a question
                     function getCorrectOption(questionId) {
                         switch (questionId) {
                             case "question1":
-                                return "紅茶、綠茶、烏龍茶";
+                                return "揉捻";
                             case "question2":
                                 return "碧螺春";
                             case "question3":
-                                return "揉捻";
-                            case "question4":
-                                return "浪菁、烘乾";
-                            case "question5":
-                                return "小綠葉蟬";
+                                return "碎形";
                             default:
                                 return "";
                         }
                     }
-
+                
                     // Function to show the next question
                     function showNextQuestion(currentQuestionId) {
                         var currentQuestion = document.getElementById(currentQuestionId);
                         currentQuestion.style.display = "none";
-
+                
                         var nextQuestionId = getNextQuestionId(currentQuestionId);
                         var nextQuestion = document.getElementById(nextQuestionId);
                         if (nextQuestion) {
                             nextQuestion.style.display = "block";
                         }
                     }
+                
                     function getNextQuestionId(currentQuestionId) {
                         switch (currentQuestionId) {
                             case "question1":
                                 return "question2";
                             case "question2":
                                 return "question3";
-                            case "question3":
-                                return "question4";
-                            case "question4":
-                                return "question5";
                             default:
-                                return "question5";
+                                return "question3";
                         }
                     }
                 </script>
+                
+                
+                
+                
+                
             </div>
         </div>
     </div>

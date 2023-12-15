@@ -69,7 +69,24 @@
                     <span style="color: #13693F;">茶</span>的印象
                 </h2>
                 <img src="img/sticker.png" alt="">
-                <h2><span style="color: #B69779;">寫完後請貼到茶杯上方處</span></h2>
+                <button class="btn btn-primary finish-button" onclick="scrollToNextSection()">下一頁</button>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="bar">
+            <div class="logo">
+                <img src="img/logo.png" alt="">
+                <h1>甘吧茶ㄉㄟˊ</h1>
+                <p>展間互動導覽</p>
+            </div>
+            <div class="stepone">
+                <h1 style="color: #fff;background: url('img/back.png') center/cover no-repeat;width: 220px;">任務二</h1>
+                <h3 style="margin: 3px 12px 0;" class="userNameDisplay"></h3>
+                <h2 style="margin: 3px 12px 0;" >請把寫好的渲染貼紙<br>貼到茶杯上方處
+                </h2>
+                <img src="img/cup.png" alt="">
+                <h4>可以看看其他現場觀展者的想法<br>再打開茶壺看看之前填寫問卷的人怎麼想</h4>
                 <button class="btn btn-primary finish-button" onclick="scrollToNextSection()">下一頁</button>
             </div>
         </div>
@@ -85,7 +102,7 @@
                 <h1 style="color: #fff;background: url('img/back.png') center/cover no-repeat;width: 220px;">任務二</h1>
                 <h3 style="margin: 3px 12px 0;" class="userNameDisplay"></h3>
 
-                <h2 style="margin: 3px 12px 0;" >聽聽茶莊阿姨的心聲吧</h2>
+                <h2 style="margin: 3px 12px 0;" >聽聽茶莊阿姨的心聲<br>打開展板看看這裏面代表的問題</h2>
                 <div class="nfcpart" id="nfc1">
                     <div class="part">
                         <img src="img/n1.jpg" alt="">
@@ -223,10 +240,11 @@
                 <h1 style="color: #fff;background: url('img/back.png') center/cover no-repeat;width: 220px;">任務三</h1>
                 <h3 style="margin: 3px 12px 0;" class="userNameDisplay"></h3>
 
-                <h2>拉開門簾進入體驗區<br>
-                    戴上VR眼鏡 漫遊茶園～</h2>
+                <h4>拉開布簾進入體驗區<br>
+                    戴上VR眼鏡360°漫遊茶園漫遊茶園～</h4>
                 <img src="img/vr.png" alt="">
-                <h2><span style="color: #808F66;">打開五官感受</span></h2>
+                <h2><span style="color: #5F6B4A;">打開五官感受：<br>
+                    嗅覺、視覺 沈浸式茶園體驗</span></h2>
                 <button class="finish-button">下一頁</button>
             </div>
         </div>
@@ -242,9 +260,11 @@
                 <h1 style="color: #fff;background: url('img/back.png') center/cover no-repeat;width: 220px;">任務四</h1>
                 <h3 style="margin: 3px 12px 0;" class="userNameDisplay"></h3>
 
-                <h2>拿起展示ipad對準圓形圖片<br>
-                    看看製茶的工序！</h2>
+                <h4>拿起展示ipad對準圓形圖片<br>
+                    看看製茶的工序！</h4>
                 <img src="img/ar.png" alt="">
+                <h2>科技的應用：<br>
+                    AR製茶流程動畫分享</h2>
                 <button class="finish-button">下一頁</button>
             </div>
         </div>
@@ -274,10 +294,10 @@
                 <div class="question" id="question2">
                     <h2>請依據知識調查局的內容完成小考察</h2>
                     <div class="ques" id="question2Options">
-                        <h3>通常發酵程度越高，則茶湯顏色偏__？</h3>
-                        <div class="btn" onclick="checkAnswer('question2', '深')">深</div>
-                        <div class="btn" onclick="checkAnswer('question2', '淺')">淺</div>
-                        <div class="btn" onclick="checkAnswer('question2', '沒有影響')">沒有影響</div>
+                        <h3>以下哪種茶屬於綠茶？</h3>
+                        <div class="btn" onclick="checkAnswer('question2', '東方美人茶')">東方美人茶</div>
+                        <div class="btn" onclick="checkAnswer('question2', '碧螺春')">碧螺春</div>
+                        <div class="btn" onclick="checkAnswer('question2', '文山包種茶')">文山包種茶</div>
                     </div>
                 </div>
                 <!-- Question 3 -->
@@ -373,7 +393,7 @@
                             case "question1":
                                 return "紅茶、綠茶、烏龍茶";
                             case "question2":
-                                return "深";
+                                return "碧螺春";
                             case "question3":
                                 return "揉捻";
                             case "question4":
@@ -474,99 +494,49 @@
         document.addEventListener('DOMContentLoaded', function () {
             const sections = document.querySelectorAll('.container > div');
             let currentSectionIndex = 0;
-            let isScrolling = false;
-            let touchStartY;
             let userName = '';
-
+    
             // Event listener for the "開始" button
             document.getElementById('startButton').addEventListener('click', function () {
                 // Get the entered name
                 userName = document.getElementById('userName').value;
-
+    
                 // Display the entered name on step one
                 document.getElementById('userNameDisplay').innerText = userName;
-
+    
                 // Progress to the next section
                 scrollToNextSection(1);
             });
-
+    
             function showCurrentSection() {
-    sections.forEach((section, index) => {
-        if (index === currentSectionIndex) {
-            section.style.display = 'block';
-        } else {
-            section.style.display = 'none';
-        }
-    });
-
-    // Display the entered name on each section
-    if (currentSectionIndex !== 0) { // Skip the personal section
-        const userNameDisplayElement = sections[currentSectionIndex].querySelector('.userNameDisplay');
-        if (userNameDisplayElement) {
-            userNameDisplayElement.innerText = userName + "探險員";
-        }
-    }
-}
-
+                sections.forEach((section, index) => {
+                    if (index === currentSectionIndex) {
+                        section.style.display = 'block';
+                    } else {
+                        section.style.display = 'none';
+                    }
+                });
+    
+                // Display the entered name on each section
+                if (currentSectionIndex !== 0) { // Skip the personal section
+                    const userNameDisplayElement = sections[currentSectionIndex].querySelector('.userNameDisplay');
+                    if (userNameDisplayElement) {
+                        userNameDisplayElement.innerText = userName + "探險員";
+                    }
+                }
+            }
+    
             function scrollToSection(index) {
                 currentSectionIndex = index;
                 showCurrentSection();
-                isScrolling = true;
-                setTimeout(() => {
-                    isScrolling = false;
-                }, 800); // Adjust the delay time based on your preference
             }
-
+    
             function scrollToNextSection() {
                 if (currentSectionIndex < sections.length - 1) {
                     scrollToSection(currentSectionIndex + 1);
                 }
             }
-
-            function handleWheel(event) {
-                if (!isScrolling) {
-                    if (event.deltaY > 0) {
-                        // Scrolling down
-                        if (currentSectionIndex < sections.length - 1) {
-                            scrollToSection(currentSectionIndex + 1);
-                        }
-                    } else {
-                        // Scrolling up
-                        if (currentSectionIndex > 0) {
-                            scrollToSection(currentSectionIndex - 1);
-                        }
-                    }
-                }
-                event.preventDefault();
-            }
-
-            function handleTouchStart(event) {
-                touchStartY = event.touches[0].clientY;
-            }
-
-            function handleTouchMove(event) {
-                if (!isScrolling) {
-                    const touchEndY = event.touches[0].clientY;
-                    const deltaY = touchEndY - touchStartY;
-
-                    if (deltaY > 50) {
-                        // Swiped down
-                        if (currentSectionIndex > 0) {
-                            scrollToSection(currentSectionIndex - 1);
-                        }
-                    } else if (deltaY < -50) {
-                        // Swiped up
-                        if (currentSectionIndex < sections.length - 1) {
-                            scrollToSection(currentSectionIndex + 1);
-                        }
-                    }
-                }
-            }
-
-            window.addEventListener('wheel', handleWheel);
-            window.addEventListener('touchstart', handleTouchStart);
-            window.addEventListener('touchmove', handleTouchMove);
-
+    
             // Smooth scroll to the next section when any button (excluding specific classes) is clicked
             const allButtons = document.querySelectorAll('.container button');
             allButtons.forEach(button => {
@@ -577,11 +547,12 @@
                     }
                 });
             });
-
+    
             // Show the initial section
             showCurrentSection();
         });
     </script>
+    
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/nfc-handler.js"></script>

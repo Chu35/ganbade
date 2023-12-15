@@ -34,7 +34,7 @@ body {
     background-color: #FFF3E8;
 }
 
-.bar, .stepone, .nfc, .vr, .D,.Df,.m, .test, .web, .draw, .end {
+.bar, .stepone, .nfc, .vr, .D,.Df,.m, .test, .web,.ql4, .draw, .end {
         flex: 1;
         background-size: cover;
         background-position: center;
@@ -62,7 +62,6 @@ h2{
 
 h3 {
     font-weight: 400;
-    color: #333;
     font-size: 24px;
     margin: 10px;
 }
@@ -221,7 +220,7 @@ button {
     font-size: 19px;
 }
 .stepone img {
-    margin: 20px;
+    margin: 35px;
     max-width:65%;
 }
 
@@ -240,7 +239,7 @@ button {
     display: grid;
 }
 
-.vr, .D,.Df,.m, .test, .web, .draw, .end{
+.vr, .D,.Df,.m, .test, .web,.ql4, .draw, .end{
     flex: 1;
     background-color: #E3EDD2;
     background-size: cover;
@@ -304,6 +303,10 @@ button {
     max-width:70%;
 }
 
+.ql4 img{
+    margin: 10px;
+    max-width:70%;
+}
 .finish-button{
     padding: 10px 20px;
     font-size: 1rem;

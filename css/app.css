@@ -34,7 +34,7 @@ body {
     background-color: #FFF3E8;
 }
 
-.bar, .stepone, .nfc, .vr, .D, .test, .web, .draw, .end {
+.bar, .stepone, .nfc, .vr, .D,.Df,.m, .test, .web, .draw, .end {
         flex: 1;
         background-size: cover;
         background-position: center;
@@ -68,7 +68,7 @@ h3 {
 }
 h4{
     font-size: 22px;
-    margin: 10px;
+    margin: 5px;
 }
 p  {
     font-weight: 200
@@ -221,7 +221,7 @@ button {
     font-size: 19px;
 }
 .stepone img {
-    margin: 0;
+    margin: 20px;
     max-width:65%;
 }
 
@@ -235,12 +235,12 @@ button {
 }
 
 .vr img{
-    margin: 0;
+    margin: 20px;
     max-width:70%;
     display: grid;
 }
 
-.vr, .D, .test, .web, .draw, .end{
+.vr, .D,.Df,.m, .test, .web, .draw, .end{
     flex: 1;
     background-color: #E3EDD2;
     background-size: cover;
@@ -253,10 +253,17 @@ button {
 }
 
 .D img{
-    margin: 0;
+    margin: 5px;
     max-width:70%;
 }
-
+.Df img{
+    margin: 30px;
+    max-width: 80%;
+}
+.m img{
+    margin: 10px;
+    max-width: 80%;
+}
 .ques{
     background-color: #DAE4CA;
     max-width: 270px;
@@ -293,7 +300,7 @@ button {
 }
 
 .web img{
-    margin: 0;
+    margin: 30px;
     max-width:70%;
 }
 
@@ -318,7 +325,8 @@ button {
     border: none;
     border-radius: 15px;
     cursor: pointer;
-    margin: 10px;
+    margin: 20px;
+    max-width: 80%;
     position: absolute;
     bottom: 0;
     right: -30px;
@@ -346,7 +354,7 @@ button {
 }
 
 .end img{
-    margin:0;
+    margin:5px;
     max-width: 80%;
 }
 
@@ -405,3 +413,4 @@ p.userNameDisplay {
 .btn{
     cursor: pointer;
 }
+

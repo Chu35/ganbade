@@ -320,6 +320,11 @@ button {
     bottom: 0;
     right: 10px;
 }
+
+.ques h4{
+    font-size: 20px;
+    margin: 15px;
+}
 .finish-button2{
     padding: 10px 20px;
     font-size: 1rem;

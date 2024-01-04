@@ -39,7 +39,7 @@ h6,
 body {
     background-color: none !important;
     background-image: url(../img/網頁背景_工作區域\ 1.png);
-    background-size: 100% 100%;
+    background-size: 100% auto;
     background-repeat: no-repeat;
     height: auto !important;
     margin: 0;
@@ -47,7 +47,7 @@ body {
 
 @media only screen and (max-width: 375px) {
     body {
-        background-size: 100% 100%;
+        background-size: 100% auto;
         background-position: center;
     }
 }

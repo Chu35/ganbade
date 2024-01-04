@@ -13,10 +13,19 @@
         integrity="sha512-..." crossorigin="anonymous" />
     <title>甘吧茶ㄉㄟˊ</title>
     <style>  
+    body, html {
+    margin: 0; 
+    padding: 0;
+   height: 100%;
+    background: #F9EDDD;
+}
 body {
+    background-color: none !important;
     background-image: url(img/網頁背景_工作區域\ 1.png);
     background-size: cover;
+    background-repeat: no-repeat;
     height: auto !important;
+    margin: 0;
 }
 
 /* 手機尺寸設計 */
@@ -26,6 +35,20 @@ body {
         background-position: center;
     }
 }
+
+.modal-body2 {
+    max-width: 100%;
+}
+
+.text2 {
+    padding: 20px;
+}
+
+.imagemodal {
+    width: 100%;
+    padding: 20px;
+}
+
 
 
         .info2 {
@@ -76,8 +99,7 @@ body {
         }
         .info_box2 p {
         display: block;
-        width: 90%;
-        max-width: 90%;
+        max-width: 100%;
         height: auto;
         margin: 10px;
     }
@@ -94,10 +116,8 @@ body {
     padding: 20px;
 }}
 
-.text {
-    float: none !important;
-    width:100%;
-    padding: 20px;
+.text2 {
+    margin: 10px;
     text-align: left !important;
 }
 button {
@@ -111,17 +131,16 @@ button {
     margin: 10px;
     float: right;
 }
-
       </style>
 </head>
 <body>
-  <div class="modal-body">
+  <div class="modal-body2">
     <h1 class="display-5 mb-4">木柵鐵觀音</h1>
     <div class=".col-md-6">
         <img class="imagemodal" data-bs-toggle="modal" data-bs-target="#exampleModal1" src="img/20240103-木柵鐵觀音.jpg" alt="">
     </div>
     <div class=".col-md-6">
-        <div class="text">
+        <div class="text2">
             <div class="info_box2">
                 <div class="info2 clearfix">
                     <div class="info_title2">產地</div>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha384-oZv8k+1lF5ZPGgHr8FqA1uLjFpTlJ5x/IbAdQxS9AexJ7eFOF5bVpZa19z7Ftix5" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-..." crossorigin="anonymous" />
+    <title>甘吧茶ㄉㄟˊ</title>
+    <style>  
+        .info2 {
+          margin: 0 0 5%;
+          letter-spacing: 1px;
+          text-indent: 1px
+        }
+    
+        .info2+.info2 .info_title2 {
+          background-color: #dea776
+        }
+    
+        .info2+.info2+.info2 .info_title2 {
+          background-color: #e892a8
+        }
+    
+        .info2+.info2+.info2+.info2 .info_title2 {
+          background-color: #92cee8
+        }
+    
+        .info2+.info2+.info2+.info2+.info2 .info_title2 {
+          background-color: #cbe892
+        }
+    
+        .info2 .info_title2 {
+          width: 84px;
+          height: 23px;
+          line-height: 23px;
+          float: left;
+          font-size: 15px;
+          color: #fff;
+          border-radius: 2px;
+          background-color: #d3bba6;
+          margin: 0 4.5161290323% 0 1.2903225806%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          text-align: center;
+        }
+    
+        .info2 .info_desc2 {
+          float: left;
+          width: calc(100% - 84px - 5.8064516129%);
+          font-size: 16px;
+          line-height: 23px;
+          text-align: left;
+          color: #6a6a6a
+        }
+        .info_box2 p {
+        display: block;
+        width: 90%;
+        max-width: 90%;
+        height: auto;
+    }
+
+    h1.display-5 {
+        text-align: center; /* Center-align the heading */
+        margin: 56px 0 23px ;
+    }
+
+    @media (min-width: 1142px){
+.imagemodal {
+    float: none !important;
+    width: 335px;
+    padding: 20px;
+}}
+
+.text {
+    float: none !important;
+    width:100%;
+    padding: 20px;
+    text-align: left !important;
+}
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #402A05;
+    background-color: #B69779;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 10px;
+    float: right;
+}
+      </style>
+</head>
+<body>
+  <div class="modal-body">
+    <h1 class="display-5 mb-4">文山包種茶</h1>
+    <div class=".col-md-6">
+        <img class="imagemodal" data-bs-toggle="modal" data-bs-target="#exampleModal1" src="img/b2.png" alt="">
+    </div>
+    <div class=".col-md-6">
+        <div class="text">
+            <div class="info_box2">
+                <div class="info2 clearfix">
+                    <div class="info_title2">產地</div>
+                    <div class="info_desc2">新北坪林區</div>
+                </div>
+                <div class="info2 clearfix">
+                    <div class="info_title2">產季</div>
+                    <div class="info_desc2">春季</div>
+                </div>
+                <div class="info2 clearfix">
+                    <div class="info_title2">品種</div>
+                    <div class="info_desc2">青心烏龍、台茶12號</div>
+                </div>
+                <div class="info2 clearfix">
+                    <div class="info_title2">茶乾</div>
+                    <div class="info_desc2">條形茶葉</div>
+                </div>
+                <div class="info2 clearfix">
+                    <div class="info_title2">分類</div>
+                    <div class="info_desc2">包種茶</div>
+                </div>
+                <hr>               
+                <p>文山包種茶茶菁原料以對口葉，葉質柔軟、葉肉肥厚色呈淡綠者為佳，並避免採用過嫩茶菁致使成茶品質苦澀、香氣不揚。文山包種茶外觀芽葉自然捲曲、條索緊結整齊，色澤墨綠帶油光。茶湯水色蜜黃碧綠，入口滋味圓滑甘醇有活性，香氣則以具新鮮、幽雅撲鼻的清香為上品，是特別注重香氣品質的一種茶類。飲用文山包種茶，除了茶湯滋味滑潤、入口生津帶活性，同時也能享受其撲鼻的花香味，其「香、濃、醇、韻、美」的五大特色，是茶中極品。</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      const sections = document.querySelectorAll('.modal-body');
+      let currentSectionIndex = 0;
+      let isAnimating = false;
+      let userName = '';
+
+      // Function to show the current section
+      function showCurrentSection() {
+          sections.forEach((section, index) => {
+              if (index === currentSectionIndex) {
+                  section.style.display = 'block';
+              } else {
+                  section.style.display = 'none';
+              }
+          });
+      }
+
+      // Function to scroll to a specific section
+      function scrollToSection(index) {
+          currentSectionIndex = index;
+          showCurrentSection();
+          isAnimating = true;
+          setTimeout(() => {
+              isAnimating = false;
+          }, 800); // Adjust the delay time based on your preference
+      }
+
+      // Function to scroll to the next section
+      function scrollToNextSection() {
+          if (!isAnimating && currentSectionIndex < sections.length - 1) {
+              scrollToSection(currentSectionIndex + 1);
+          }
+      }
+
+      // Function to scroll to the previous section
+      function scrollToPreviousSection() {
+          if (!isAnimating && currentSectionIndex > 0) {
+              scrollToSection(currentSectionIndex - 1);
+          }
+      }
+
+      // Event listener for the "Next" button
+      document.querySelectorAll('.btn-primary').forEach(button => {
+          button.addEventListener('click', scrollToNextSection);
+      });
+
+      // Event listener for the "Previous" button
+      document.querySelectorAll('.btn-secondary').forEach(button => {
+          button.addEventListener('click', scrollToPreviousSection);
+      });
+
+      // Show the initial section
+      showCurrentSection();
+  });
+</script>
+
+<!-- Remaining part of your HTML code -->
+
+  <!-- JavaScript Libraries -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/wow/wow.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/waypoints/waypoints.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="lib/counterup/counterup.min.js"></script>
+
+  <!-- Template Javascript -->
+  <script src="js/main.js"></script>
+</body>
+
+</html>

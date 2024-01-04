@@ -13,18 +13,21 @@
         integrity="sha512-..." crossorigin="anonymous" />
     <title>甘吧茶ㄉㄟˊ</title>
     <style>  
-    body{
-        background-image: url(img/網頁背景_工作區域\ 1.png);
-        flex: 1;
-    background-color: #FFF3E8;
+body {
+    background-image: url(img/網頁背景_工作區域\ 1.png);
     background-size: cover;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: hidden;
-    height: 100vh;
+    height: auto !important;
+}
+
+/* 手機尺寸設計 */
+@media only screen and (max-width: 767px) {
+    body {
+        background-size: 100% auto;
+        background-position: center;
     }
+}
+
+
         .info2 {
           margin: 0 0 3%;
           letter-spacing: 1px;
@@ -108,6 +111,7 @@ button {
     margin: 10px;
     float: right;
 }
+
       </style>
 </head>
 <body>

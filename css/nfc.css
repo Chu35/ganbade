@@ -139,38 +139,7 @@ h6,
   overflow: hidden;
 }
 
-.imagemodal{
-    display: block;
-    width: 80%;
-    max-width: 80%;
-    height: auto;
-    margin: auto;
-}
 
-.text {
-  width: 100%;
-  padding: 20px;
-	text-align: left;
-}
-
-@media (min-width: 1142px) {
-  .modal-body.tea_title {
-    width: 800px;
-  }
-
-  .imagemodal {
-    float: left;
-    width: 335px;
-    padding: 20px;
-  }
-
-  .text {
-    float: right;
-    width: calc(100% - 335px); /* 調整圖片和文字之間的間距 */
-    padding: 20px;
-	  text-align: left;
-  }
-}
 .info_title{
 	text-align: center;
 }

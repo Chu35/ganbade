@@ -39,18 +39,13 @@ h6,
 body {
     background-color: none !important;
     background-image: url(../img/網頁背景_工作區域\ 1.png);
-    background-size: 100% 100%;
+    background-size: 100% auto;
     background-repeat: no-repeat;
+    background-position: center top;
     height: auto !important;
     margin: 0;
 }
 
-@media only screen and (max-width: 375px) {
-    body {
-        background-size: 100% 100%;
-        background-position: center;
-    }
-}
 
 .modal-body2 {
     max-width: 100%;
@@ -116,6 +111,7 @@ body {
     height: auto;
     margin: 10px;
     font-size: large;
+    margin-bottom: 50%;
 }
 
 h1 {
